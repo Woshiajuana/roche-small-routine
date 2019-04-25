@@ -11,4 +11,8 @@
         wx:key="{{index}}">
         <text>{{item}}</text>
     </view>
+    <wow-picker-plus
+        wx:if="{{false}}"
+        sourceData="{{sourceData}}"
+    ></wow-picker-plus>
 </view>
