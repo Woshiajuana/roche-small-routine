@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="wrap">
+    <image
+        class="image"
+        mode="scaleToFill"
+        src="{{src$.bg}}"
+    ></image>
+    <view class="inner">
+        <text class="title">360°稳糖管家</text>
+        <text class="prompt">定制专属控糖方案 时刻追踪血糖情况</text>
+        <text class="prompt">守护您的健康生活</text>
+    </view>
+    <button
+        class="button"
+        open-type="getUserInfo"
+        bindgetuserinfo="handleGetUser"
+    >立即使用</button>
+</view>
+
+

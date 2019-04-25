@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "",
-    "usingComponents": {
-        "wow-picker-plus": "../../components/wow-picker-plus/index"
-    }
-}
