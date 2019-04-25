@@ -1,0 +1,32 @@
+{
+    "pages": [
+        "pages/login/index",
+        "pages/app/index",
+        "pages/city/home/index",
+        "pages/level/index",
+        "pages/patrol/info/index",
+        "pages/patrol/list/index",
+        "pages/region/home/index",
+        "pages/report/list/index",
+        "pages/root/chart/index",
+        "pages/root/home/index",
+        "pages/root/news/index",
+        "pages/staff/list/index",
+        "pages/store/info/index",
+        "pages/store/list/index",
+        "pages/supplement/index",
+        "pages/web/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#11b9ea",
+        "navigationBarTitleText": "铂金行业中心微管理",
+        "navigationBarTextStyle": "white",
+        "pageOrientation": "landscape"
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    }
+}
