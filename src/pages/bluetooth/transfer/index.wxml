@@ -1,0 +1,39 @@
+<view>
+    <view class="header">
+        <text>{{$params ? '传输已完成' : '暂无数据'}}</text>
+    </view>
+    <view class="session"
+          wx:for="{{$params}}"
+          wx:for-item="item"
+          wx:for-index="index"
+          wx:key="index">
+        <view class="time">
+            <text>记录时间：</text>
+            <text class="color">{{item.TestDateShow}}</text>
+        </view>
+        <view class="con">
+            <view class="con-item">
+                <text class="label">{{arrTimeStep[item.TimeStep - 1]}}</text>
+                <text class="value">{{item.Bloodsugar}}</text>
+                <text class="unit">mmol/L</text>
+            </view>
+            <view class="con-line"></view>
+            <view class="con-item">
+                <text class="label">血糖状态</text>
+                <text class="value">{{glsText[item.Gls]}}</text>
+                <text class="unit"></text>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="footer-button"
+              bindtap="handleJump">
+            <text class="footer-button-text">返回首页</text>
+        </view>
+        <view class="footer-button"
+              data-url="mine_programme_index"
+              bindtap="handleJump">
+            <text class="footer-button-text">我的控糖方案</text>
+        </view>
+    </view>
+</view>

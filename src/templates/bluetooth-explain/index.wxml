@@ -1,0 +1,8 @@
+<template name="bluetoothExplain">
+    <view class="bluetooth">
+        <text>请仔细阅读产品说明书或在医务人员的指导下购买和使用</text>
+        <text>禁忌内容或注意事项详见产品说明书</text>
+        <text>生产企业 Roche Diabetes Care GmbH</text>
+        <text>血糖仪（ACCU-CHEK Performa Connect）国械注进20152400387</text>
+    </view>
+</template>

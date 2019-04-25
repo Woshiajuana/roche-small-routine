@@ -1,15 +1,14 @@
-
 export default {
-    show (options = {title: '加载中'}) {
-        wx.showLoading(options)
+    showLoading(title = '加载中') {
+        wx.showLoading({title})
     },
-    hide () {
+    hideLoading(){
         wx.hideLoading()
     },
-    showNav () {
+    showNavigationBarLoading() {
         wx.showNavigationBarLoading();
     },
-    hideNav () {
+    hideNavigationBarLoading() {
         wx.hideNavigationBarLoading();
     }
 }

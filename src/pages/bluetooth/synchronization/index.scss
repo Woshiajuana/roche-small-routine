@@ -1,0 +1,34 @@
+@import '../../../assets/scss/define';
+/*头部*/
+.header{
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+    @extend %jcc;
+    padding: 70rpx 0 60rpx;
+    text{
+        font-size: 46rpx;
+        color: #6b6b6b;
+    }
+}
+.inner{
+    height: 1695rpx;
+    image{
+        @extend %db;
+        @extend %w100;
+        @extend %h100;
+    }
+}
+.form-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: 42rpx 60rpx 80rpx;
+    height: 80rpx;
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    border-radius: 40rpx;
+}
+.form-button-text{
+    color: #fff;
+    font-size: 36rpx;
+}

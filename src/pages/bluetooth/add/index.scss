@@ -1,0 +1,194 @@
+@import '../../../assets/scss/define';
+/*头部*/
+.header{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    background-color: #28aeeb;
+    height: 100rpx;
+    image{
+        width: 40rpx;
+        height: 36rpx;
+        margin-right: 10rpx;
+    }
+    text{
+        font-size: 32rpx;
+        color: #fff;
+    }
+}
+.inner{
+    @extend %oh;
+}
+.before{
+    @extend %oh;
+    @extend %df;
+    @extend %fdc;
+    @extend %jcc;
+    @extend %aic;
+    image{
+        margin: 150rpx 0 50rpx;
+        width: 205rpx;
+        height: 205rpx;
+    }
+    text{
+        font-size: 46rpx;
+        color: #ababab;
+    }
+
+}
+.after{
+    @extend %df;
+    @extend %fdc;
+    @extend %jcc;
+    @extend %aic;
+    line-height: 1.6;
+    image{
+        margin: 75rpx 0 40rpx;
+        width: 390rpx;
+        height: 550rpx;
+    }
+    text{
+        font-size: 46rpx;
+        color: #6b6b6b;
+    }
+    .no-text{
+        font-size: 36rpx;
+        color: #ababab;
+    }
+}
+.tel{
+    @extend %df;
+    @extend %fdc;
+    @extend %jcc;
+    @extend %aic;
+    margin-top: 50rpx;
+    line-height: 1.6;
+    text{
+        font-size: 28rpx;
+        color: #28aeeb;
+    }
+    text:last-child{
+        font-size: 24rpx;
+    }
+    .tel-text{
+        font-size: 36rpx;
+    }
+}
+.prompt{
+    @extend %df;
+    @extend %fdc;
+    @extend %jcc;
+    @extend %aic;
+    margin-top: 40rpx;
+    text{
+        font-size: 30rpx;
+        color: #6b6b6b;
+    }
+}
+.link{
+    @extend %df;
+    @extend %jcc;
+    @extend %aic;
+    width: 410rpx;
+    height: 60rpx;
+    border-radius: 20rpx;
+    background-color: #ababab;
+    margin-top: 15rpx;
+    text{
+        font-size: 32rpx;
+        color: #fff;
+    }
+}
+.form-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: 42rpx 60rpx 0;
+    height: 80rpx;
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    border-radius: 40rpx;
+    .form-button-text{
+        color: #fff;
+        font-size: 36rpx;
+    }
+}
+
+.pop-wrap{
+    @extend %pf;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    background-color: rgba(0,0,0,0.5);
+}
+.pop-inner{
+    @extend %pa;
+    @extend %t50;
+    @extend %l50;
+    @extend %df;
+    @extend %bsb;
+    @extend %aic;
+    @extend %fdc;
+    width: 514rpx;
+    height: 546rpx;
+    margin-left: -257rpx;
+    margin-top: -273rpx;
+    background-color: #fff;
+    border-radius: 5rpx;
+    line-height: 1.5;
+}
+.pop-title{
+    font-size: 40rpx;
+    color: #000;
+    margin: 80rpx 0 10rpx;
+}
+.pop-prompt{
+    padding: 0 20rpx;
+    text{
+        font-size: 30rpx;
+        color: #686868;
+    }
+    .color{
+        color: #000;
+    }
+}
+.pop-input{
+    margin-top: 20rpx;
+    @extend %bsb;
+    border: none;
+    padding: 0 34rpx;
+    width: 430rpx;
+    height: 68rpx;
+    background-color: #f5f5f5;
+    border-radius: 34rpx;
+}
+.pop-btn{
+    @extend %pa;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+    height: 96rpx;
+    background-color: #28aeeb;
+}
+.pop-btn-item{
+    @extend %df1;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %bsb;
+    height: 96rpx;
+    &:first-child{
+        border-right: 1rpx solid #fff;
+    }
+    text{
+        font-size: 36rpx;
+        color: #fff;
+    }
+}
+//.bluetooth{
+//    @extend %pf;
+//    @extend %b0;
+//    @extend %l0;
+//    @extend %r0;
+//}

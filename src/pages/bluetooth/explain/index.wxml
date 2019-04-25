@@ -1,0 +1,22 @@
+<view>
+    <view class="header">
+        <text>罗氏 血糖仪Performa Connect</text>
+        <text>蓝牙连接说明</text>
+    </view>
+    <view class="inner">
+        <image src="../../../assets/images/bdly-explain-bg.jpg"></image>
+    </view>
+    <view class="form-button"
+          data-url="bluetooth_add_index"
+          bindtap="handleJump">
+        <text class="form-button-text">点击添加</text>
+    </view>
+    <view class="prompt">
+        <text>部分安卓机型，无法正常使用蓝牙连接</text>
+        <text class="link"
+              data-url="record_index"
+              bindtap="handleJump">点击前往手动记录</text>
+    </view>
+    <import src="../../../templates/bluetooth-explain/index.wxml"/>
+    <template is="bluetoothExplain"></template>
+</view>

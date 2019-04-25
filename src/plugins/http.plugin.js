@@ -1,64 +1,46 @@
 
 import EnvConfig                from 'config/env.config'
-import ApiConfig                from 'config/api.config'
-import Modal                    from 'plugins/modal.plugin'
+import Toast                    from 'plugins/toast.plugin'
 import Auth                     from 'plugins/auth.plugin'
-import Loading                  from 'plugins/loading.plugin'
 import Router                   from 'plugins/router.plugin'
 
 const DEFAULT = {
     method: 'POST',
     useOpenId: true,
     data: {},
-    useAuth: true,
-    useUpLoad: false,
+    auth: true,
 };
+
 class Http {
-    constructor (api, data, opt) {
+    constructor (opt) {
         let options = Object.assign({}, DEFAULT, opt);
         this.method = options.method.toLocaleUpperCase();
-        this.data = data;
+        this.data = options.data;
         this.useOpenId = options.useOpenId;
-        this.useAuth = options.useAuth;
-        this.useUpLoad = options.useUpLoad;
-        this.url = EnvConfig.API_URL + api;
+        this.auth = options.auth;
+        this.url = EnvConfig.API_URL + options.url;
         return this._fetch();
     }
 
     _fetch () {
         return new Promise((resolve, reject) => {
             Auth.getToken().then((res) => {
+                this._log('userToken', res);
                 let {
                     AccessToken,
                     OpenId,
                 } = res;
                 this.useOpenId && (this.data.OpenId = OpenId);
-                this.useAuth && AccessToken && (this.url = `${this.url}?access_token=${AccessToken}`);
+                this.url = `${this.url}?access_token=${AccessToken}`
             }).catch(() => {}).finally(() => {
                 this._log('请求参数', this.data);
-                if (this.useAuth && !this.data.OpenId) {
-                    return Router.root('login_index', {}, true);
+                if (this.auth && !this.data.OpenId) {
+                    return Router.push('authorization_index');
                 }
-                let key = 'request';
-                let data = {
+                wx.request({
+                    url: this.url,
                     data: this.data,
                     method: this.method,
-                };
-                if (this.useUpLoad) {
-                    key = 'uploadFile';
-                    data = {
-                        ...this.data,
-                        formData: {
-                            OpenId: this.data.OpenId,
-                        },
-                        header: {
-                            "Content-Type": "multipart/form-data"
-                        },
-                    };
-                }
-                wx[key]({
-                    ...data,
-                    url: this.url,
                     success: (response) => {
                         let {
                             data,
@@ -68,10 +50,6 @@ class Http {
                         if (statusCode !== 200 || !data) {
                             return reject(errMsg);
                         }
-                        if (this.useUpLoad && typeof data === 'string') {
-                            data = JSON.parse(data);
-                        }
-                        this._log('请求返回', data);
                         let {
                             Status,
                             Message,
@@ -84,22 +62,20 @@ class Http {
                                 let pages = getCurrentPages();    //获取加载的页面
                                 let first_url = pages[0].route;    //当前页面url
                                 let cur_url = pages[pages.length-1].route;    //当前页面url
-                                cur_url === 'login_index' ? reject(Message) : Router.root('login_index', {}, true);
+                                cur_url === first_url ? Router.push('authorization_index') : Router.root('home_index');
                             });
                             return;
-                        }
-                        if ([301, 302].indexOf(Status) > -1) {
-                            return reject(data);
                         }
                         if (Status !== 0) {
                             return reject(Message);
                         }
+                        this._log('请求返回', Data);
                         resolve(Data);
                     },
                     fail: (error) => {
                         this._log('请求失败', error);
                         reject(error);
-                        Modal.toast(error);
+                        Toast.error(error);
                     }
                 });
             });
@@ -111,27 +87,13 @@ class Http {
     }
 }
 
-const fn = (api, data = {}, options = {}) => {
-    let {
-        loading,
-        navLoading,
-    } = options;
-    let useLoading = typeof loading === 'undefined'
-        || loading;
-    let useLoadingNav = typeof navLoading === 'undefined'
-        || navLoading;
-    if (useLoading)
-        Loading.show();
-    if (useLoadingNav)
-        Loading.showNav();
-    return new Http(api, data, options).finally(() => {
-        if (useLoading)
-            Loading.hide();
-        if (useLoadingNav)
-            Loading.hideNav();
+
+export default (options = {}) => {
+    let { loading, navLoading } = options;
+    if (typeof loading === 'undefined' || loading) wx.showLoading({title: '加载中'});
+    if (typeof navLoading === 'undefined' || navLoading) wx.showNavigationBarLoading();
+    return new Http(options).finally(() => {
+        if (typeof loading === 'undefined' || loading) wx.hideLoading();
+        if (typeof navLoading === 'undefined' || navLoading) wx.hideNavigationBarLoading();
     })
-};
-
-fn.API = Object.assign({}, ApiConfig);
-
-export default fn;
+}

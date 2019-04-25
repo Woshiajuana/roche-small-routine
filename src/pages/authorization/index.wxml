@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="wrap">
+    <image class="image"
+           mode="scaleToFill"
+           src="../../assets/images/login-bg-2.jpg"></image>
+    <view class="inner">
+        <text class="title">360°稳糖管家</text>
+        <text class="prompt">定制专属控糖方案 时刻追踪血糖情况</text>
+        <text class="prompt">守护您的健康生活</text>
+    </view>
+    <button
+        class="button"
+        open-type="getUserInfo"
+        bindgetuserinfo="bindGetUserInfo"
+    >立即使用</button>
+</view>
+
+

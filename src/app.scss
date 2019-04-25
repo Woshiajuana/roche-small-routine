@@ -1,17 +1,4 @@
-@import './assets/scss/define';
-
-.wrap{
-    &.list-page{
-        @extend %df;
-        @extend %df1;
-        @extend %fdc;
-        @extend %h100;
-        .main{
-            @extend %df1;
-            @extend %oh;
-            margin: j(30) j(30) 0;
-            background-color: #fff;
-        }
-    }
+@import "./templates/bluetooth-explain/index";
+.view-wrap{
+    //padding-bottom: 80rpx;
 }
-
