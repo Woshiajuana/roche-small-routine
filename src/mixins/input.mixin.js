@@ -22,7 +22,21 @@ const handle = function (e) {
 };
 
 export default {
-    bindInput: handle,
+    bindInput (event) {
+        let {
+            detail,
+            currentTarget,
+        } = event;
+        let {
+            value,
+        } = detail;
+        let {
+            item,
+        } = currentTarget.dataset;
+        this.setData({
+            [`${item.key}.value`]: value,
+        });
+    },
     bindTap: handle,
     bindChange: handle,
 }

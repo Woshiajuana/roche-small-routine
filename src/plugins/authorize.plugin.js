@@ -1,4 +1,5 @@
-export default (scope, content) => new Promise((resolve, reject) => {
+
+const fn = (scope, content) => new Promise((resolve, reject) => {
     wx.authorize({
         scope,
         success: (res) => {
@@ -27,7 +28,7 @@ export default (scope, content) => new Promise((resolve, reject) => {
                     });
                 },
                 fail: err => {
-                    reject({code: -1, errMsg: 'user no auth'})
+                    reject({code: -1, errMsg: '您未授权'})
                 }
             });
         }
@@ -35,7 +36,8 @@ export default (scope, content) => new Promise((resolve, reject) => {
 
 });
 
-export const SCOPE = {
+
+fn.SCOPE = {
     userInfo: 'scope.userInfo',
     userLocation: 'scope.userLocation',
     address: 'scope.address',
@@ -56,3 +58,8 @@ export const SCOPE = {
  scope.writePhotosAlbum	wx.saveImageToPhotosAlbum, wx.saveVideoToPhotosAlbum	保存到相册
  scope.camera	<camera />	摄像头
  */
+
+export default fn;
+
+
+

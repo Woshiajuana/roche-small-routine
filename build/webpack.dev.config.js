@@ -63,7 +63,6 @@ const config = {
             'services': path.resolve(__dirname, '../src/services/'),
             'mixins': path.resolve(__dirname, '../src/mixins/'),
             'tasks': path.resolve(__dirname, '../src/tasks/'),
-            'templates': path.resolve(__dirname, '../src/templates/'),
         }
     },
     module: {
@@ -72,9 +71,9 @@ const config = {
                 test: /\.js(\?[^?]+)?$/,
                 loaders: ['babel-loader'],
                 include: [
-                    path.resolve(__dirname, '../node_modules/wow-cool'),
                     path.resolve(__dirname, '../node_modules/wow-wx'),
                     path.resolve(__dirname, '../src'),
+                    path.resolve(__dirname, '../../source'),
                 ],
             },
             {
