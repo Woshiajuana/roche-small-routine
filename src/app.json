@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/questionnaire/info/index",
         "pages/login/index"
     ],
     "window": {

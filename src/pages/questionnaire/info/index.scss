@@ -1,10 +1,11 @@
 @import '../../../assets/scss/define';
+
 /*头部*/
 .banner{
     @extend %pr;
     @extend %oh;
-    height: 574rpx;
-    padding: 0 60rpx;
+    height: j(574);
+    padding: 0 j(60);
     line-height: 1.5;
     text{
         @extend %pr;
@@ -20,31 +21,31 @@
     @extend %l0;
 }
 .title{
-    margin: 220rpx 0 30rpx;
-    font-size: 66rpx;
+    margin: j(220) 0 j(30);
+    font-size: j(66);
 }
 .prompt-text{
-    font-size: 30rpx;
+    font-size: j(30);
 }
 .sub-title{
-    font-size: 36rpx;
-    margin-top: 60rpx;
+    font-size: j(36);
+    margin-top: j(60);
 }
-
 
 
 .from-wrap{
     margin-bottom: 60rpx;
 }
+
 .from-item{
     @extend %df;
     @extend %bsb;
     @extend %aic;
-    height: 98rpx;
+    height: j(98);
     border-bottom: 1px solid #efeff4;
     &.from-no-value{
         input{
-            padding-right: 20rpx;
+            padding-right: j(20);
         }
     }
 }

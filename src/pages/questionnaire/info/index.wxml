@@ -1,22 +1,27 @@
 <view>
     <view class="banner">
-        <image class="banner-image"
-               src="../../../assets/images/mfjd-one-header-banner.jpg"></image>
-        <text class="title">第一步</text>
-        <text class="prompt-text">我们需要您的一些基本信息</text>
-        <text class="prompt-text">从而更好的为您服务</text>
-        <text class="sub-title">基本信息</text>
+        <image class="banner-image" src="{{src$.vBg}}"></image>
+        <block>
+            <text class="title">第一步</text>
+            <text class="prompt-text">我们需要您的一些基本信息</text>
+            <text class="prompt-text">从而更好的为您服务</text>
+            <text class="sub-title">基本信息</text>
+        </block>
     </view>
     <form class="from-wrap"
           bindsubmit="handleSubmit"
           report-submit>
+
         <block wx:for="{{objInput}}"
                wx:for-index="key"
                wx:key="key"
                wx:for-item="item">
-            <view class="from-item {{(item.unit || item.use_code) && 'from-no-value'}}"
+
+            <view class="form-item"
                   wx:if="{{key !== 'Brithday'}}">
+
                 <label class="from-label">{{item.label}}</label>
+
                 <view class="from-value">
                     <input
                         wx:if="{{!item.use_radio}}"
@@ -28,10 +33,12 @@
                         value="{{item.value}}"
                         placeholder="{{item.placeholder}}"/>
                 </view>
+                
                 <text class="from-unit" wx:if="{{item.unit}}">{{item.unit}}</text>
-                <view class="from-radio" wx:if="{{item.use_radio}}">
+
+                <view class="from-radio" wx:if="{{item.useRadio}}">
                     <view class="from-radio-item"
-                          wx:for="{{item.use_radio}}"
+                          wx:for="{{item.useRadio}}"
                           wx:for-item="radio"
                           wx:for-index="index"
                           wx:key="index"
@@ -41,24 +48,34 @@
                           data-value="{{radio.value}}">
                         <image class="from-radio-image"
                                mode="aspectFit"
-                               src="{{item.value == radio.value ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                               wx:if="{{item.value === radio.value}}"
+                               src="{{src$.active}}"
+                        ></image>
+                        <image class="from-radio-image"
+                               mode="aspectFit"
+                               wx:else
+                               src="{{src$.normal}}"
+                        ></image>
                         <text class="from-radio-text">{{radio.label}}</text>
                     </view>
                 </view>
+
                 <view class="from-code"
                       bindtap="handleCode"
-                      data-tel="{{item.use_code.tel}}"
-                      data-count="{{item.use_code.count}}"
-                      hidden="{{!(item.use_code && count === 0)}}">
+                      data-tel="{{item.useCode.tel}}"
+                      data-count="{{item.useCode.count}}"
+                      hidden="{{!(item.useCode && count === 0)}}">
                     <text>获取验证码</text>
                 </view>
                 <view class="from-code from-code-disabled"
-                      hidden="{{!(item.use_code && count !== 0)}}">
+                      hidden="{{!(item.useCode && count !== 0)}}">
                     <text>{{count}}s</text>
                 </view>
+
             </view>
+
             <picker
-                wx:if="{{key === 'Brithday'}}"
+                wx:else
                 bindchange="bindChange"
                 data-obj="objInput"
                 data-key="{{key}}"
@@ -76,7 +93,9 @@
                     <view class="arrow"></view>
                 </view>
             </picker>
+
         </block>
+
         <view class="agreement">
             <view class="agreement-check" bindtap="handleAgree">
                 <view class="agreement-check-inner"
@@ -96,7 +115,7 @@
     <view class="pop-wrap" wx:if="{{is_pop}}">
         <view class="pop-inner">
             <view class="pop-header">
-                <image src="../../../assets/images/agreement-pop-icon.png"></image>
+                <!--<image src="../../../assets/images/agreement-pop-icon.png"></image>-->
                 <text>隐私条款</text>
             </view>
             <scroll-view scroll-y class="pop-con">
