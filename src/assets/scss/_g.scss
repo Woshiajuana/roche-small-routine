@@ -1,0 +1,23 @@
+@import "./define";
+
+.g-vip-page {
+
+}
+
+
+.g-ord-page {
+
+
+}
+
+.g-button {
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    width: j(630);
+    height: j(80);
+    font-size: j(36);
+    border-radius: j(40);
+    background: linear-gradient(to right, #39e1ee , #28aeeb);
+}

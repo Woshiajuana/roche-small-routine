@@ -1,5 +1,21 @@
 @import '../../assets/scss/define';
-.wrap,
+
+
+page,
+.wrap{
+    @extend %w100;
+    @extend %h100;
+    @extend %oh;
+    background-color: #5f6774;
+}
+
+.image{
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    @extend %w100;
+    height: auto;
+}
 .inner{
     @extend %pa;
     @extend %t0;
@@ -7,38 +23,28 @@
     @extend %r0;
     @extend %b0;
 }
-.image{
-    @extend %w100;
-    @extend %h100;
-}
 .inner{
     @extend %df;
     @extend %fdc;
     @extend %pr;
     @extend %aic;
-    padding-top: 110rpx;
+    padding-top: j(110);
+    line-height: 1.3;
     text{
         @extend %cfff;
     }
 }
 .title{
-    font-size: 60rpx;
+    font-size: j(62);
+    margin-bottom: j(10);
 }
 .prompt{
-
-    font-size: 36rpx;
+    font-size: j(30);
 }
 .button{
-    @extend %df;
     @extend %pa;
-    @extend %aic;
-    @extend %jcc;
-    height: 80rpx;
-    left: 60rpx;
-    right: 60rpx;
-    bottom: 80rpx;
+    left: j(60);
+    right: j(60);
+    bottom: j(96);
     color: #fff;
-    font-size: 36rpx;
-    background: linear-gradient(to right, #39e2ee , #28aeeb);
-    border-radius: 40rpx;
 }

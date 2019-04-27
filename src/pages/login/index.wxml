@@ -2,7 +2,7 @@
 <view class="wrap">
     <image
         class="image"
-        mode="scaleToFill"
+        mode="widthFix"
         src="{{src$.bg}}"
     ></image>
     <view class="inner">
@@ -11,7 +11,7 @@
         <text class="prompt">守护您的健康生活</text>
     </view>
     <button
-        class="button"
+        class="g-button button"
         open-type="getUserInfo"
         bindgetuserinfo="handleGetUser"
     >立即使用</button>
