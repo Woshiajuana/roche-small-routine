@@ -1,0 +1,109 @@
+<!--index.wxml-->
+<form class="form-wrap"
+      bindsubmit="handleSubmit"
+      report-submit>
+
+    <block wx:for="{{objInput}}"
+           wx:for-index="key"
+           wx:key="key"
+           wx:for-item="item">
+
+
+        <view class="form-item"
+              wx:if="{{key !== 'Brithday'}}">
+
+            <label class="form-label">{{item.label}}</label>
+
+            <view class="form-value">
+                <input
+                    wx:if="{{!item.use_radio}}"
+                    bindinput="bindInput"
+                    data-obj="objInput"
+                    data-key="{{key}}"
+                    type="{{item.type || 'text'}}"
+                    maxlength="{{item.max || 20}}"
+                    value="{{item.value}}"
+                    placeholder="{{item.placeholder}}"/>
+            </view>
+
+            <text class="form-unit" wx:if="{{item.unit}}">{{item.unit}}</text>
+
+            <view class="form-radio" wx:if="{{item.useRadio}}">
+                <view class="form-radio-item"
+                      wx:for="{{item.useRadio}}"
+                      wx:for-item="radio"
+                      wx:for-index="index"
+                      wx:key="index"
+                      bindtap="bindTap"
+                      data-obj="objInput"
+                      data-key="{{key}}"
+                      data-value="{{radio.value}}">
+                    <image class="form-radio-image"
+                           mode="aspectFit"
+                           wx:if="{{item.value === radio.value}}"
+                           src="{{src$.active}}"
+                    ></image>
+                    <image class="form-radio-image"
+                           mode="aspectFit"
+                           wx:else
+                           src="{{src$.normal}}"
+                    ></image>
+                    <text class="form-radio-text">{{radio.label}}</text>
+                </view>
+            </view>
+
+            <view class="from-code"
+                  bindtap="handleCode"
+                  data-tel="{{item.useCode.tel}}"
+                  data-count="{{item.useCode.count}}"
+                  hidden="{{!(item.useCode && count === 0)}}">
+                <text>获取验证码</text>
+            </view>
+            <view class="from-code from-code-disabled"
+                  hidden="{{!(item.useCode && count !== 0)}}">
+                <text>{{count}}s</text>
+            </view>
+
+        </view>
+
+        <picker
+            wx:else
+            bindchange="bindChange"
+            data-obj="objInput"
+            data-key="{{key}}"
+            mode="date"
+            end="{{item.end}}">
+            <view class="form-item">
+                <label class="form-label">出生年月</label>
+                <view class="form-value">
+                    <input
+                        type="text"
+                        value="{{item.value}}"
+                        disabled
+                        placeholder="{{item.placeholder}}"/>
+                </view>
+                <view class="arrow"></view>
+            </view>
+        </picker>
+
+    </block>
+
+    <view class="agreement">
+        <view class="agreement-check"
+              bindtap="handleAgree">
+            <view
+                class="agreement-check-inner"
+                wx:if="{{objHidden.is_agree.value}}"
+            ></view>
+        </view>
+        <text bindtap="handleAgree">我已阅读并同意</text>
+        <text class="agreement-text"
+              data-value="{{true}}"
+              bindtap="handlePop"
+        >《360°稳糖管家服务隐私声明》</text>
+    </view>
+    <button
+        class="g-button form-button"
+        formType="submit"
+    >下一步</button>
+</form>
