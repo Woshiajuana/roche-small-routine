@@ -1,0 +1,143 @@
+<view>
+    <view class="banner">
+        <image class="banner-image"
+               src="../../../assets/images/mfjd-one-header-banner.jpg"></image>
+        <text class="title">第一步</text>
+        <text class="prompt-text">我们需要您的一些基本信息</text>
+        <text class="prompt-text">从而更好的为您服务</text>
+        <text class="sub-title">基本信息</text>
+    </view>
+    <form class="from-wrap"
+          bindsubmit="handleSubmit"
+          report-submit>
+        <block wx:for="{{objInput}}"
+               wx:for-index="key"
+               wx:key="key"
+               wx:for-item="item">
+            <view class="from-item {{(item.unit || item.use_code) && 'from-no-value'}}"
+                  wx:if="{{key !== 'Brithday'}}">
+                <label class="from-label">{{item.label}}</label>
+                <view class="from-value">
+                    <input
+                        wx:if="{{!item.use_radio}}"
+                        bindinput="bindInput"
+                        data-obj="objInput"
+                        data-key="{{key}}"
+                        type="{{item.type || 'text'}}"
+                        maxlength="{{item.max || 20}}"
+                        value="{{item.value}}"
+                        placeholder="{{item.placeholder}}"/>
+                </view>
+                <text class="from-unit" wx:if="{{item.unit}}">{{item.unit}}</text>
+                <view class="from-radio" wx:if="{{item.use_radio}}">
+                    <view class="from-radio-item"
+                          wx:for="{{item.use_radio}}"
+                          wx:for-item="radio"
+                          wx:for-index="index"
+                          wx:key="index"
+                          bindtap="bindTap"
+                          data-obj="objInput"
+                          data-key="{{key}}"
+                          data-value="{{radio.value}}">
+                        <image class="from-radio-image"
+                               mode="aspectFit"
+                               src="{{item.value == radio.value ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                        <text class="from-radio-text">{{radio.label}}</text>
+                    </view>
+                </view>
+                <view class="from-code"
+                      bindtap="handleCode"
+                      data-tel="{{item.use_code.tel}}"
+                      data-count="{{item.use_code.count}}"
+                      hidden="{{!(item.use_code && count === 0)}}">
+                    <text>获取验证码</text>
+                </view>
+                <view class="from-code from-code-disabled"
+                      hidden="{{!(item.use_code && count !== 0)}}">
+                    <text>{{count}}s</text>
+                </view>
+            </view>
+            <picker
+                wx:if="{{key === 'Brithday'}}"
+                bindchange="bindChange"
+                data-obj="objInput"
+                data-key="{{key}}"
+                mode="date"
+                end="{{item.end}}">
+                <view class="from-item">
+                    <label class="from-label">出生年月</label>
+                    <view class="from-value">
+                        <input
+                            type="text"
+                            value="{{item.value}}"
+                            disabled
+                            placeholder="{{item.placeholder}}"/>
+                    </view>
+                    <view class="arrow"></view>
+                </view>
+            </picker>
+        </block>
+        <view class="agreement">
+            <view class="agreement-check" bindtap="handleAgree">
+                <view class="agreement-check-inner"
+                      wx:if="{{objHidden.is_agree.value}}"></view>
+            </view>
+            <text bindtap="handleAgree">我已阅读并同意</text>
+            <text class="agreement-text"
+                  data-value="{{true}}"
+                  bindtap="handlePop">《360°稳糖管家服务隐私声明》</text>
+        </view>
+        <button class="form-button"
+                formType="submit">
+            <text class="form-button-text">下一步</text>
+        </button>
+    </form>
+
+    <view class="pop-wrap" wx:if="{{is_pop}}">
+        <view class="pop-inner">
+            <view class="pop-header">
+                <image src="../../../assets/images/agreement-pop-icon.png"></image>
+                <text>隐私条款</text>
+            </view>
+            <scroll-view scroll-y class="pop-con">
+                <text>
+                    隐私声明
+
+                    罗氏诊断产品（上海）有限公司（以下简称“罗氏”）一向重视用户的个人信息及隐私的保护，并希望您通过本《隐私声明》了解并认可我们对涉及个人隐私信息的搜集、使用和共享。本《隐私声明》项下所涉及信息由我们或服务供应商通过由我们负责运营和管理的网络资产（例如移动网站、应用或微信服务号等，以下简称“网站”）进行征集。
+                    本《隐私声明》与您使用罗氏的服务息息相关，请您务必仔细阅读、充分理解。当您勾选同意栏，或继续使用罗氏网站，即表示您已阅读并同意本《隐私声明》的各项条款，并同意通过网站向我们提供您的各项个人信息。
+
+                    	信息收集
+                    您在浏览或使用罗氏小程序时，罗氏可能会收集您的如下信息（以下统称“用户信息”）：
+                    1)	您的个人信息（包括但不限于姓名、性别、电话号码、年龄、使用产品、产品序列号、产品规格、糖耐量监测结果、糖尿病类型、治疗方式等信息），以便使用某些特定功能（如注册网站，接收网站咨询等）或参加网站活动；
+                    2)	您登录和使用罗氏小程序的时间，时长及浏览记录；
+                    3)	我们可能会将您提交的信息与我们（通过在线或离线方式，比如您的查询历史）已经从您那里搜集到的其他信息合并。我们可能还会将其余我们从其他来源（如罗氏旗下的其他企业和公共信息来源，包括来自您已公开的社交媒体背景资料）以及其他第三方搜集到的有关您的信息合并。
+
+                    	数据使用
+                    我们可能将用户信息按照信息搜集点所描述的方式来使用和共享您提供给我们的信息，我们还可能将与您有关的信息用于：
+                    1)	回答您的问询，给您发送您索取的文件或电子邮件提醒
+                    2)	给您发送各种重要信息，包括双方关系和网站方面的信息，条款，条件及政策变动信息以及其他监管信息
+                    3)	在为您提供服务时，用于身份验证、存档和备份等用途
+                    4)	帮助罗氏分析、了解用户需求，开发新产品，改进网站，改善罗氏的产品和服务，衡量活动效果，以及其他适用法律允许的使用和披露活动
+                    5)	更有针对性地为您提供罗氏产品及服务内容，促销等活动信息
+
+                    	数据共享
+                    我们可能会将您的个人信息向罗氏的关联公司（子公司和附属公司）或代表罗氏履行职能的服务供应商共享，以便更全面地了解您的个人情况为您提供更好的服务。
+
+                    罗氏会要求所有这些公司和服务供应商遵守本公司的隐私政策条款。
+
+                    	保护您的信息
+                    罗氏将会使用技术及安全防范措施、规则和其它程序将在境内收集的您个人资料信息存储在中国境内以保护您的个人资料免遭未经授权的访问、不当使用、披露、遗失或毁坏；同时，为了提供更全面的服务，罗氏会将收集到的您的信息和数据提供给为罗氏提供服务的供应商或者罗氏的关联公司。此外，您也有责任确保您使用的计算机或移动设备具有足够的安全性和防护，以防止恶意软件，如木马程序、计算机病毒和蠕虫程序入侵。您应该知悉如果没有足够的安全措施（如安全的网络浏览器配置、最新的防病毒软件、个人防火墙软件、不使用来历不明的软件），您的资料以及保护资料的密码可能会存在被泄露给未经授权的第三方的风险。同时，如您的个人资料有任何变动或者错误，请及时通知罗氏进行信息修订。
+
+                    	隐私声明更新
+                    罗氏将可能不时地修订本隐私声明。任何修订将实时上载到本网页，修订后的《隐私声明》我们会在您登录或者版本更新时以推送通知或弹窗等形式向您展示，罗氏将按照您同意的新《隐私声明》进行收集、使用并存储您的个人信息。
+
+                </text>
+            </scroll-view>
+            <view class="pop-button"
+                  data-value="{{false}}"
+                  bindtap="handlePop">
+                <text>返回</text>
+            </view>
+        </view>
+    </view>
+</view>

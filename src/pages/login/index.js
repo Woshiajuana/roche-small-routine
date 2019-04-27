@@ -30,16 +30,12 @@ Page(Mixin({
     // 用户登录
     userLogin (user) {
         Auth.login().then((result) => {
-            let options = {
-                url: 'WechatApi/UserLogin',
-                data: {
-                    code: result,
-                    sceneid: app.globalData.sceneid,
-                },
-                loading: true,
-                auth: false,
-            };
-            return Http(options);
+            return Http(Http.API.Do_userLogin, {
+                code: result,
+                sceneid: app.globalData.sceneid,
+            }, {
+                useAuth: false,
+            });
         }).then((result) => {
             return Auth.updateToken({
                 ...user,
