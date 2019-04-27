@@ -31,150 +31,136 @@
     font-size: j(36);
     margin-top: j(60);
 }
-
-
-.from-wrap{
-    margin-bottom: 60rpx;
+.form-wrap{
+    margin-bottom: j(60);
 }
-
-.from-item{
+.form-item{
     @extend %df;
     @extend %bsb;
     @extend %aic;
     height: j(98);
-    border-bottom: 1px solid #efeff4;
+    border-bottom: j(1) solid #efeff4;
     &.from-no-value{
         input{
             padding-right: j(20);
         }
     }
 }
-.from-label{
+.form-label{
     @extend %db;
-    font-size: 36rpx;
+    font-size: j(36);
     color: #575757;
-    padding-left: 60rpx;
-    margin-right: 20rpx;
+    padding-left: j(60);
+    margin-right: j(20);
 }
-.from-value{
+.form-value{
     @extend %df1;
-    height: 50rpx;
+    @extend %h100;
     input{
         @extend %db;
         @extend %w100;
         @extend %h100;
         @extend %tar;
         @extend %bsb;
-        padding-right: 60rpx;
-        font-size: 36rpx;
+        line-height: j(98);
+        padding-right: j(60);
+        font-size: j(36);
         color: #969696;
     }
 }
-.from-unit{
-    padding-right: 60rpx;
-    font-size: 36rpx;
+.form-unit{
+    padding-right: j(60);
+    font-size: j(36);
     color: #969696;
 }
+
 .from-code{
     @extend %df;
     @extend %bsb;
     @extend %aic;
     @extend %jcc;
-    width: 152rpx;
-    height: 60rpx;
-    border: 2rpx solid #28aeeb;
-    margin-right: 60rpx;
+    width: j(152);
+    height: j(60);
+    border: j(2) solid #28aeeb;
+    margin-right: j(60);
     text{
         color: #28aeeb;
-        font-size: 26rpx;
+        font-size: j(26);
     }
     &.from-code-disabled{
-        border: 2rpx solid #ddd;
+        border: j(2) solid #ddd;
         text{
             color: #999;
         }
     }
 }
-.from-radio{
+.form-radio{
     @extend %df;
     @extend %aic;
-    padding-right: 60rpx;
+    padding-right: j(60);
     justify-content: flex-end;
 }
-.from-radio-item{
+.form-radio-item{
     @extend %df1;
     @extend %df;
     @extend %aic;
-    padding-left: 60rpx;
+    padding-left: j(60);
     justify-content: flex-end;
 }
-.from-radio-image{
-    width: 32rpx;
-    height: 32rpx;
+.form-radio-image{
+    width: j(32);
+    height: j(32);
 }
-.from-radio-text{
-    font-size: 36rpx;
+.form-radio-text{
+    font-size: j(36);
     color: #969696;
-    margin-left: 20rpx;
+    margin-left: j(20);
 }
 .arrow{
-    width: 20rpx;
-    height: 20rpx;
+    width: j(20);
+    height: j(20);
     transform: rotate(45deg);
     border-color: #c0c0c0;
-    border-top-width: 1rpx;
+    border-top-width: j(1);
     border-top-style: solid;
-    border-right-width: 1rpx;
+    border-right-width: j(1);
     border-right-style: solid;
-    margin: 0 60rpx 0 -30rpx;
+    margin: 0 j(60) 0 -30rpx;
 }
 
 .agreement{
     @extend %df;
     @extend %aic;
-    margin-top: 110rpx;
-    padding-left: 60rpx;
+    margin-top: j(110);
+    padding-left: j(60);
     text{
-        font-size: 28rpx;
+        font-size: j(28);
     }
 }
 .agreement-check{
-    //@extend %pr;
     @extend %df;
     @extend %aic;
     @extend %jcc;
     @extend %bsb;
-    width: 30rpx;
-    height: 30rpx;
-    border: 2rpx solid #28aeeb;
-    margin-right: 20rpx;
+    width: j(30);
+    height: j(30);
+    border: j(2) solid #28aeeb;
+    margin-right: j(20);
     text{
-        font-size: 28rpx;
+        font-size: j(28);
     }
 }
 .agreement-check-inner{
-    width: 18rpx;
-    height: 18rpx;
+    width: j(18);
+    height: j(18);
     background-color: #28aeeb;
 }
 .agreement-text{
     color: #28aeeb;
 }
 
-
-
 .form-button{
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
-    margin: 42rpx 60rpx 80rpx;
-    height: 80rpx;
-    background: linear-gradient(to right, #39e2ee , #28aeeb);
-    border-radius: 40rpx;
-}
-.form-button-text{
-    color: #fff;
-    font-size: 36rpx;
+    margin: j(42) j(60) j(80);
 }
 
 
@@ -193,31 +179,31 @@
 .pop-inner{
     @extend %bsb;
     @extend %pr;
-    height: 920rpx;
-    width: 668rpx;
+    height: j(920);
+    width: j(668);
     background-color: #fff;
-    border-radius: 5rpx;
-    padding: 0 60rpx;
+    border-radius: j(5);
+    padding: 0 j(60);
 }
 .pop-header{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    padding: 40rpx 0 20rpx;
+    padding: j(40) 0 j(20);
     image{
-        width: 70rpx;
-        height: 70rpx;
-        margin-right: 20rpx;
+        width: j(70);
+        height: j(70);
+        margin-right: j(20);
     }
     text{
-        font-size: 48rpx;
+        font-size: j(48);
         color: #28aeeb;
     }
 }
 .pop-con{
-    height: 620rpx;
+    height: j(620);
     text{
-        font-size: 26rpx;
+        font-size: j(26);
         color: #6a6a6a;
     }
 }
@@ -227,18 +213,18 @@
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    border-radius: 34rpx;
+    border-radius: j(34);
     margin-left: -200rpx;
-    width: 400rpx;
-    height: 68rpx;
-    bottom: 45rpx;
+    width: j(400);
+    height: j(68);
+    bottom: j(45);
     background: linear-gradient(to right, #39e2ee , #28aeeb);
     text{
         color: #ffffff;
-        font-size: 30rpx;
+        font-size: j(30);
     }
 }
 .input-placeholder{
     color: #999;
-    font-size: 32rpx;
+    font-size: j(32);
 }
