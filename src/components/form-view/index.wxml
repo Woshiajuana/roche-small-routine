@@ -50,9 +50,9 @@
             </view>
 
             <view class="from-code"
-                  bindtap="handleCode"
-                  data-tel="{{item.useCode.tel}}"
-                  data-count="{{item.useCode.count}}"
+                  bindtap="handleFormCode"
+                  data-value="{{formData[item.useCode.tel].value}}"
+                  data-item="{{item}}"
                   hidden="{{!(item.useCode && count === 0)}}">
                 <text>获取验证码</text>
             </view>

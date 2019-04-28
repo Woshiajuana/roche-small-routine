@@ -76,7 +76,7 @@ export default {
                 ],
                 useCode: {
                     tel: 'Mobile',
-                    count: 60,
+                    count: 10,
                 }
             },
             isAgree: {

@@ -1,6 +1,7 @@
 import Toast                    from 'plugins/toast.plugin'
 import Regular                  from 'wow-cool/lib/regular.lib'
 import Http                     from 'plugins/http.plugin'
+
 export default {
     data: {
         count: 0,
