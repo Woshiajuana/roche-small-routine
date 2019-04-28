@@ -9,7 +9,7 @@
         </block>
     </view>
     <form-view
-        formData="{{objInput}}"
+        formData="{{formData}}"
     ></form-view>
     <view class="pop-wrap" wx:if="{{is_pop}}">
         <view class="pop-inner">

@@ -29,34 +29,26 @@ Component(Mixin({
         },
     },
     methods: {
-        handle (event) {
-            let {
-                detail,
-                currentTarget,
-            } = event;
-            let {
-                value
-            } = detail;
-            let {
-                key,
-                item,
-                checkvalue,
-            } = currentTarget.dataset;
-            let {
-                disabled
-            } = this.data.params;
-            return {
-                value,
-                key,
-                item,
-                disabled,
-                checkvalue,
-            }
+        formatData (event) {
+            let { detail, currentTarget } = event;
+            let { item, value } = currentTarget.dataset;
+            if (typeof value === 'undefined') value = detail.value;
+            return { value, item };
+        },
+        handleFormInput (event) {
+            let { value, item } = this.formatData(event);
+            this.setData({[`${item.key}.value`]: value});
         },
         // 数据提交
         handleSubmit (event) {
-            console.log(event)
-        },
+            if (Valid.check(this.data.formData)) return null;
+            // let options = Valid.
+            console.log(event);
 
+        },
+        // 弹窗声明
+        handleFormPop () {
+
+        },
     }
 }));

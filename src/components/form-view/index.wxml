@@ -16,7 +16,7 @@
             <view class="form-value">
                 <input
                     wx:if="{{!item.useRadio}}"
-                    bindinput="bindInput"
+                    bindinput="handleFormInput"
                     data-item="{{item}}"
                     type="{{item.type || 'text'}}"
                     maxlength="{{item.max || 20}}"
@@ -32,7 +32,7 @@
                       wx:for-item="radio"
                       wx:for-index="index"
                       wx:key="index"
-                      bindtap="bindTap"
+                      bindtap="handleFormInput"
                       data-item="{{item}}"
                       data-value="{{radio.value}}">
                     <image class="form-radio-image"
@@ -66,7 +66,7 @@
 
         <picker
             wx:elif="{{item.mold === 'picker'}}"
-            bindchange="bindChange"
+            bindchange="handleFormInput"
             data-item="{{item}}"
             mode="date"
             end="{{item.end}}">
@@ -86,16 +86,20 @@
         <view class="form-agreement"
               wx:elif="{{item.mold === 'agree'}}">
             <view class="form-agreement-check"
-                  bindtap="handleAgree">
+                  bindtap="handleFormInput"
+                  data-item="{{item}}"
+                  data-value="{{!item.value}}">
                 <view
                     class="form-agreement-check-inner"
-                    wx:if="{{objHidden.is_agree.value}}"
+                    wx:if="{{item.value}}"
                 ></view>
             </view>
-            <text bindtap="handleAgree">我已阅读并同意</text>
+            <text bindtap="handleFormInput"
+                  data-item="{{item}}"
+                  data-value="{{!item.value}}"
+            >我已阅读并同意</text>
             <text class="form-agreement-text"
-                  data-value="{{true}}"
-                  bindtap="handlePop"
+                  bindtap="handleFormPop"
             >《360°稳糖管家服务隐私声明》</text>
         </view>
 

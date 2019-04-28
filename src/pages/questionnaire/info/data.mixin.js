@@ -1,11 +1,12 @@
 
 export default {
     data: {
-        objInput: {
+        formData: {
             Name: {
                 label: '姓名',
                 placeholder: '请输入您的姓名',
                 value: '',
+                key: 'formData.Name',
                 mold: 'input',
                 use: [
                     {
@@ -18,6 +19,7 @@ export default {
                 label: '性别',
                 value: 1,
                 mold: 'input',
+                key: 'formData.Sex',
                 useRadio: [
                     {
                         label: '男',
@@ -31,6 +33,7 @@ export default {
             },
             Brithday: {
                 value: '',
+                key: 'formData.Brithday',
                 label: '出生年月',
                 mold: 'picker',
                 start: '1901-01-01',
@@ -48,6 +51,7 @@ export default {
                 mold: 'input',
                 type: 'number',
                 value: '',
+                key: 'formData.Mobile',
                 max: 11,
                 use: [
                     {
@@ -61,6 +65,7 @@ export default {
                 placeholder: '请输入验证码',
                 mold: 'input',
                 value: '',
+                key: 'formData.SmsCode',
                 type: 'number',
                 max: 6,
                 use: [
@@ -77,6 +82,7 @@ export default {
             isAgree: {
                 value: true,
                 mold: 'agree',
+                key: 'formData.isAgree',
                 isPop: false,
                 use: [
                     {
