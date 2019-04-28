@@ -1,6 +1,7 @@
 
 export default {
     data: {
+        isPop: false,
         formData: {
             Name: {
                 label: '姓名',

@@ -13,10 +13,10 @@
         bindpop="handlePop"
         formData="{{formData}}"
     ></form-view>
-    <view class="pop-wrap" wx:if="{{is_pop}}">
+    <view class="pop-wrap" wx:if="{{isPop}}">
         <view class="pop-inner">
             <view class="pop-header">
-                <!--<image src="../../../assets/images/agreement-pop-icon.png"></image>-->
+                <image src="{{src$.icon}}"></image>
                 <text>隐私条款</text>
             </view>
             <scroll-view scroll-y class="pop-con">
@@ -54,7 +54,6 @@
                 </text>
             </scroll-view>
             <view class="pop-button"
-                  data-value="{{false}}"
                   bindtap="handlePop">
                 <text>返回</text>
             </view>
