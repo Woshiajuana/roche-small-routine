@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "360°稳糖管家",
+    "usingComponents": {
+        "form-view": "../../../components/form-view/index"
+    }
+}

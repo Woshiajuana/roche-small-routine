@@ -1,7 +1,8 @@
 {
     "pages": [
-        "pages/questionnaire/info/index",
-        "pages/login/index"
+        "pages/login/index",
+        "pages/questionnaire/answer/index",
+        "pages/questionnaire/info/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
