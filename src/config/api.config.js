@@ -14,5 +14,7 @@ export default {
     // 获取问题答案
     Req_surveyDetails: 'GetSurveyDetails',
 
+    // 请求OR设置用户信息
+    Do_userInfo: 'RocheApi/SetUserInfo',
 
 }
