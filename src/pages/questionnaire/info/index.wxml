@@ -9,6 +9,8 @@
         </block>
     </view>
     <form-view
+        bindsubmit="handleSubmit"
+        bindpop="handlePop"
         formData="{{formData}}"
     ></form-view>
     <view class="pop-wrap" wx:if="{{is_pop}}">

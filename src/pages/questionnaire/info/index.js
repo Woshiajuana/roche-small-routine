@@ -26,26 +26,12 @@ Page(Mixin({
 
     },
     // 提交下一步
-    handleSubmit (e) {
+    handleSubmit (event) {
 
-    },
-    // 设置用户信息
-    setUserInfo () {
-
-    },
-    // 获取用户信息
-    fetchUserInfo () {
-
-    },
-    // 协议
-    handleAgree() {
-        let type = this.data.objHidden.is_agree.value;
-        this.setData({ 'objHidden.is_agree.value': !type })
     },
     // 弹窗
     handlePop(e) {
-        let { currentTarget } = e;
-        let is_pop = currentTarget.dataset.value;
+        let { isPop}
         this.setData({ is_pop });
     }
 }));

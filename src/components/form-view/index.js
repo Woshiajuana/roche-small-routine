@@ -47,13 +47,13 @@ Component(Mixin({
         // 数据提交
         handleSubmit (event) {
             if (Valid.check(this.data.formData)) return null;
-            // let options = Valid.
-            console.log(event);
-
+            let data = Valid.input(this.data.formData);
+            console.log(data);
+            this.triggerEvent('submit', data);
         },
         // 弹窗声明
         handleFormPop () {
-
+            this.triggerEvent('pop');
         },
         // 获取验证码
         handleFormCode (event) {
