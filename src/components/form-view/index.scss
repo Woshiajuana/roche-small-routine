@@ -52,6 +52,7 @@
     height: j(60);
     border: j(2) solid #28aeeb;
     margin-right: j(60);
+    border-radius: j(30);
     text{
         color: #28aeeb;
         font-size: j(26);
@@ -85,7 +86,7 @@
     color: #969696;
     margin-left: j(20);
 }
-.arrow{
+.form-arrow{
     width: j(20);
     height: j(20);
     transform: rotate(45deg);
@@ -97,7 +98,7 @@
     margin: 0 j(60) 0 -30rpx;
 }
 
-.agreement{
+.form-agreement{
     @extend %df;
     @extend %aic;
     margin-top: j(110);
@@ -106,7 +107,7 @@
         font-size: j(28);
     }
 }
-.agreement-check{
+.form-agreement-check{
     @extend %df;
     @extend %aic;
     @extend %jcc;
@@ -119,12 +120,12 @@
         font-size: j(28);
     }
 }
-.agreement-check-inner{
+.form-agreement-check-inner{
     width: j(18);
     height: j(18);
     background-color: #28aeeb;
 }
-.agreement-text{
+.form-agreement-text{
     color: #28aeeb;
 }
 

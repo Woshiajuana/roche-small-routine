@@ -8,18 +8,16 @@
            wx:key="key"
            wx:for-item="item">
 
-
         <view class="form-item"
-              wx:if="{{key !== 'Brithday'}}">
+              wx:if="{{item.mold === 'input'}}">
 
             <label class="form-label">{{item.label}}</label>
 
             <view class="form-value">
                 <input
-                    wx:if="{{!item.use_radio}}"
+                    wx:if="{{!item.useRadio}}"
                     bindinput="bindInput"
-                    data-obj="objInput"
-                    data-key="{{key}}"
+                    data-item="{{item}}"
                     type="{{item.type || 'text'}}"
                     maxlength="{{item.max || 20}}"
                     value="{{item.value}}"
@@ -35,8 +33,7 @@
                       wx:for-index="index"
                       wx:key="index"
                       bindtap="bindTap"
-                      data-obj="objInput"
-                      data-key="{{key}}"
+                      data-item="{{item}}"
                       data-value="{{radio.value}}">
                     <image class="form-radio-image"
                            mode="aspectFit"
@@ -59,6 +56,7 @@
                   hidden="{{!(item.useCode && count === 0)}}">
                 <text>获取验证码</text>
             </view>
+
             <view class="from-code from-code-disabled"
                   hidden="{{!(item.useCode && count !== 0)}}">
                 <text>{{count}}s</text>
@@ -67,10 +65,9 @@
         </view>
 
         <picker
-            wx:else
+            wx:elif="{{item.mold === 'picker'}}"
             bindchange="bindChange"
-            data-obj="objInput"
-            data-key="{{key}}"
+            data-item="{{item}}"
             mode="date"
             end="{{item.end}}">
             <view class="form-item">
@@ -82,26 +79,27 @@
                         disabled
                         placeholder="{{item.placeholder}}"/>
                 </view>
-                <view class="arrow"></view>
+                <view class="form-arrow"></view>
             </view>
         </picker>
 
-    </block>
-
-    <view class="agreement">
-        <view class="agreement-check"
-              bindtap="handleAgree">
-            <view
-                class="agreement-check-inner"
-                wx:if="{{objHidden.is_agree.value}}"
-            ></view>
+        <view class="form-agreement"
+              wx:elif="{{item.mold === 'agree'}}">
+            <view class="form-agreement-check"
+                  bindtap="handleAgree">
+                <view
+                    class="form-agreement-check-inner"
+                    wx:if="{{objHidden.is_agree.value}}"
+                ></view>
+            </view>
+            <text bindtap="handleAgree">我已阅读并同意</text>
+            <text class="form-agreement-text"
+                  data-value="{{true}}"
+                  bindtap="handlePop"
+            >《360°稳糖管家服务隐私声明》</text>
         </view>
-        <text bindtap="handleAgree">我已阅读并同意</text>
-        <text class="agreement-text"
-              data-value="{{true}}"
-              bindtap="handlePop"
-        >《360°稳糖管家服务隐私声明》</text>
-    </view>
+
+    </block>
     <button
         class="g-button form-button"
         formType="submit"

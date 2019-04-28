@@ -6,6 +6,7 @@ export default {
                 label: '姓名',
                 placeholder: '请输入您的姓名',
                 value: '',
+                mold: 'input',
                 use: [
                     {
                         nonempty: true,
@@ -16,6 +17,7 @@ export default {
             Sex: {
                 label: '性别',
                 value: 1,
+                mold: 'input',
                 useRadio: [
                     {
                         label: '男',
@@ -30,6 +32,7 @@ export default {
             Brithday: {
                 value: '',
                 label: '出生年月',
+                mold: 'picker',
                 start: '1901-01-01',
                 end: '',
                 use: [
@@ -42,6 +45,7 @@ export default {
             Mobile: {
                 label: '手机号',
                 placeholder: '请输入您的手机号',
+                mold: 'input',
                 type: 'number',
                 value: '',
                 max: 11,
@@ -55,6 +59,7 @@ export default {
             SmsCode: {
                 label: '验证码',
                 placeholder: '请输入验证码',
+                mold: 'input',
                 value: '',
                 type: 'number',
                 max: 6,
@@ -71,6 +76,7 @@ export default {
             },
             isAgree: {
                 value: true,
+                mold: 'agree',
                 isPop: false,
                 use: [
                     {
