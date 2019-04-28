@@ -11,8 +11,6 @@ import DataMixin                    from './data.mixin'
 const arrSrc = [
     { key: 'bg', value: 'mfjd-one-header-banner.jpg' },
     { key: 'vBg', value: 'v-mfjd-one-header-banner.jpg' },
-    { key: 'normal', value: 'select-nor-icon.png' },
-    { key: 'active', value: 'select-ative-icon.png' },
 ];
 
 Page(Mixin({

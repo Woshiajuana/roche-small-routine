@@ -3,7 +3,7 @@
       bindsubmit="handleSubmit"
       report-submit>
 
-    <block wx:for="{{objInput}}"
+    <block wx:for="{{formData}}"
            wx:for-index="key"
            wx:key="key"
            wx:for-item="item">

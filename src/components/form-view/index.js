@@ -7,7 +7,8 @@ import Modal                        from 'plugins/modal.plugin'
 import SourceMixin                  from 'mixins/source.mixin'
 
 const arrSrc = [
-    { key: 'bg', value: 'login-bg-2.jpg' },
+    { key: 'normal', value: 'select-nor-icon.png' },
+    { key: 'active', value: 'select-ative-icon.png' },
 ];
 
 Component(Mixin({
@@ -16,12 +17,7 @@ Component(Mixin({
     ],
     properties: {
         // 这里定义了innerText属性，属性值可以在组件使用时指定
-        object: {
-            type: Object,
-            value: [],
-        },
-        // 这里定义了innerText属性，属性值可以在组件使用时指定
-        params: {
+        formData: {
             type: Object,
             value: {},
         },

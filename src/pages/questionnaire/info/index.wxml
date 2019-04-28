@@ -8,7 +8,9 @@
             <text class="sub-title">基本信息</text>
         </block>
     </view>
-    <form-view></form-view>
+    <form-view
+        formData="{{objInput}}"
+    ></form-view>
     <view class="pop-wrap" wx:if="{{is_pop}}">
         <view class="pop-inner">
             <view class="pop-header">
