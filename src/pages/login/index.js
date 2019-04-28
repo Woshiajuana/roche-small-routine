@@ -42,7 +42,7 @@ Page(Mixin({
                 ...result,
             });
         }).then(() => {
-            return Router.root('home_index');
+            return Router.push('questionnaire_info_index');
         }).toast();
     },
 }));

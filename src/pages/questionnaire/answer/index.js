@@ -52,9 +52,7 @@ Page(Mixin({
                 arrData:  arr.slice(0,2) || [],
             });
             this.assignmentData(this.data.arrData, this.data.arrResult);
-        }).catch((err) => {
-            Toast.error(err);
-        });
+        }).toast();
     },
 
     // 提交下一步

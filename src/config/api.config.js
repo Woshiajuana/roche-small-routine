@@ -11,6 +11,8 @@ export default {
     // 获取文档
     Req_getArchives: 'RocheApi/GetArchives',
 
+    // 获取问题答案
+    Req_surveyDetails: 'GetSurveyDetails',
 
 
 }

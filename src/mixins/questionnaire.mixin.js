@@ -6,11 +6,7 @@ export default {
     },
     // 获取问题答案
     getSurveyDetails () {
-        let options = {
-            url: 'RocheApi/GetSurveyDetails',
-            loading: true,
-        };
-        return Http(options).then((res) => {
+        return Http(Http.API.Req_surveyDetails).then((res) => {
             let arrResult = res || [];
             this.setData({
                 arrResult,
