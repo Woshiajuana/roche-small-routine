@@ -9,6 +9,7 @@ import SourceMixin                  from 'mixins/source.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
 import Http                         from 'plugins/http.plugin'
 import Valid                        from 'utils/valid.util'
+import Date                         from 'utils/data.util'
 import DataMixin                    from './data.mixin'
 
 const arrSrc = [
@@ -38,7 +39,7 @@ Page(Mixin({
     },
     // 获取用户数据
     reqUserInfo () {
-        Http(Http.API.Do_userInfo).then(() => {
+        Http(Http.API.Do_userInfo).then((res) => {
 
         }).toast();
     },
