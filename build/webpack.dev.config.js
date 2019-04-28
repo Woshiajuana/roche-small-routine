@@ -72,6 +72,7 @@ const config = {
                 loaders: ['babel-loader'],
                 include: [
                     path.resolve(__dirname, '../node_modules/wow-wx'),
+                    path.resolve(__dirname, '../node_modules/wow-cool'),
                     path.resolve(__dirname, '../src'),
                     path.resolve(__dirname, '../../source'),
                 ],

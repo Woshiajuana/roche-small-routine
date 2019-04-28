@@ -1,5 +1,5 @@
-import Http                     from 'plugins/http.plugin'
-import Toast                    from 'plugins/toast.plugin'
+import Http                         from 'plugins/http.plugin'
+import Modal                        from 'plugins/modal.plugin'
 export default {
     data: {
         arrResult: [],
@@ -16,9 +16,7 @@ export default {
                 arrResult,
             });
             this.assignmentData(this.data.arrData, this.data.arrResult);
-        }).catch((err) => {
-            Toast.error(err);
-        });
+        }).toast();
     },
 
     // 校验
@@ -113,7 +111,7 @@ export default {
                 result.push(obj);
             })
         } catch (err) {
-            Toast.error(err);
+            Modal.toast(err);
             result = [];
         }
         return result;
