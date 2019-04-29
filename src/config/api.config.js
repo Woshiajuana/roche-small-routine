@@ -17,4 +17,7 @@ export default {
     // 请求OR设置用户信息
     Do_userInfo: 'RocheApi/SetUserInfo',
 
+    // 提交设置form id
+    Do_subWeChatFormId: 'WechatApi/SetWechatFormId',
+
 }
