@@ -55,7 +55,7 @@ Page(Mixin({
     // 提交下一步
     handleSubmit (event) {
         let { data, formId } = event.detail;
-        console.log(event);
+        return console.log(data);
         this.doSubWeChatFormId(formId, 'questionnaire_one_index');
         Http(Http.API.Do_userInfo, data).then((res) => {
             Router.push(

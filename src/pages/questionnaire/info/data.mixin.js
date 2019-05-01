@@ -81,13 +81,15 @@ export default {
                 }
             },
             isAgree: {
-                value: '1',
+                value: true,
                 mold: 'agree',
                 key: 'formData.isAgree',
                 isPop: false,
                 use: [
                     {
-                        nonempty: true,
+                        rule: (value) => {
+                            return !!value;
+                        },
                         prompt: '请先同意协议'
                     }
                 ]
