@@ -4,7 +4,7 @@ import './index.scss'
 import './index.wxml'
 
 import Http                         from 'plugins/http.plugin'
-import Toast                        from 'plugins/toast.plugin'
+import Modal                        from 'plugins/modal.plugin'
 import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
 import ShareMixin                   from 'mixins/share.mixin'
@@ -87,9 +87,7 @@ Page(Mixin({
                 desc2,
             });
             this.initData(Steps)
-        }).catch((err) => {
-            Toast.error(err);
-        });
+        }).toast();
     },
     // 立即开始测糖
     handleJump () {

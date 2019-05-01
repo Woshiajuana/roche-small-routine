@@ -6,12 +6,12 @@ import './index.wxml'
 import Http                         from 'plugins/http.plugin'
 import SourceMixin                  from 'mixins/source.mixin'
 import Router                       from 'plugins/router.plugin'
-import Toast                        from 'plugins/toast.plugin'
+import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import InputMixin                   from 'mixins/input.mixin'
 
 const arrSrc = [
-    { key: 'bg', value: 'login-bg-2.jpg' },
+    { key: 'bg', value: 'hyjh-bg.jpg' },
 ];
 
 Page(Mixin({
@@ -29,7 +29,7 @@ Page(Mixin({
     // 购买会员
     handleClick () {
         let Code = this.data.code;
-        if (!Code) return Toast.error('请输入10位服务码');
+        if (!Code) return Modal.toast('请输入10位服务码');
         return Http(Http.API.Do_setMemberInfo, {
             Code,
         }).then((res) => {

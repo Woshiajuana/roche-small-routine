@@ -7,7 +7,7 @@ import Auth                         from 'plugins/auth.plugin'
 import Http                         from 'plugins/http.plugin'
 import Mixin                        from 'utils/mixin.util'
 import Router                       from 'plugins/router.plugin'
-import Toast                        from 'plugins/toast.plugin'
+import Modal                        from 'plugins/modal.plugin'
 import QueMixin                     from 'mixins/questionnaire.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
 
@@ -52,8 +52,6 @@ Page(Mixin({
             if (this.data.params$.form === 'mine_programme_index') Router.push('questionnaire_programme_index', {}, true);
             else if(this.data.params$.IsMember) Router.push('questionnaire_activation_index', {}, true);
             else Router.push('questionnaire_programme_index', {}, true);
-        }).catch((err) => {
-            Toast.error(err);
-        });
+        }).toast();
     },
 }));

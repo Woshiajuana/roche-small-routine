@@ -1,6 +1,6 @@
 <view>
    <view class="inner">
-       <image src="../../../assets/images/hyjh-bg.jpg"></image>
+       <image src="{{src$.bg}}"></image>
        <text class="title">360°稳糖服务</text>
        <view class="con before" hidden="{{check}}">
            <view class="con-title">
