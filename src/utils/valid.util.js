@@ -53,10 +53,14 @@ export default {
                     children2,
                 } = item;
                 let sV = sourceData[key];
-                if (typeof value !== 'undefined' && (sV || sV !== null)) {
+                if (typeof sV !== 'undefined'
+                    && typeof value !== 'undefined'
+                    && (sV || sV !== null)) {
                     item.value = sV;
                 }
-                if (typeof value !== 'undefined' && checkbox) {
+                if (typeof sV !== 'undefined'
+                    && typeof value !== 'undefined'
+                    && checkbox) {
                     item.value = sV;
                 }
                 if (children) loop(children);

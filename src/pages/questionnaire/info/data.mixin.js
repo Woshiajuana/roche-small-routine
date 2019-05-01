@@ -81,7 +81,7 @@ export default {
                 }
             },
             isAgree: {
-                value: true,
+                value: '1',
                 mold: 'agree',
                 key: 'formData.isAgree',
                 isPop: false,

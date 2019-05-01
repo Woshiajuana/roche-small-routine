@@ -12,6 +12,7 @@ import Http                         from 'plugins/http.plugin'
 import Router                       from 'plugins/router.plugin'
 import Valid                        from 'utils/valid.util'
 import DateUtil                     from 'utils/date.util'
+import { formatData }               from 'wow-cool/lib/date.lib'
 import DataMixin                    from './data.mixin'
 
 const arrSrc = [
@@ -41,13 +42,13 @@ Page(Mixin({
     initData () {
         let { params$, formData } = this.data;
         if (params$.IsMember) {
-            delete formData.Mobile;
-            delete formData.SmsCode;
-            formData.Brithday.end = formatData('yyyy-MM-dd');
-        } else {
             delete formData.Name;
             delete formData.Sex;
             delete formData.Brithday;
+        } else {
+            delete formData.Mobile;
+            delete formData.SmsCode;
+            formData.Brithday.end = formatData('yyyy-MM-dd');
         }
         this.setData({ formData });
     },
@@ -71,6 +72,7 @@ Page(Mixin({
             if (res.Brithday)
                 res.Brithday = DateUtil.formatTime(res.Brithday);
             Valid.assignment(this, res, formData);
+            console.log(this.data.formData)
         }).toast();
     },
     // 弹窗

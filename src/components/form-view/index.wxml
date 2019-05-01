@@ -97,7 +97,7 @@
             <text bindtap="handleFormInput"
                   data-item="{{item}}"
                   data-value="{{!item.value}}"
-            >我已阅读并同意</text>
+            >我已阅读并同意{{item.value}}</text>
             <text class="form-agreement-text"
                   bindtap="handleFormPop"
             >《360°稳糖管家服务隐私声明》</text>
