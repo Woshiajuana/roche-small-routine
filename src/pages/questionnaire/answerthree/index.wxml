@@ -11,10 +11,6 @@
               wx:for-item="item"
               wx:key="item"
               wx:for-index="index">
-            <!--<view class="title-wrap">-->
-                <!--<text class="title-text"-->
-                <!--&gt;{{index + 1}}.{{item.Name}}</text>-->
-            <!--</view>-->
             <view class="from-select"
                   bindtap="handleCheck"
                   data-type="{{item.Type}}"
@@ -27,8 +23,16 @@
                   wx:if="{{item.Type === 2}}"
                   data-id="{{ite.ChooseNum}}">
                 <view class="from-item">
-                    <image class="from-radio-image"
-                           src="{{ite.check ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <image
+                        wx:if="{{ite.check}}"
+                        class="from-radio-image"
+                        src="{{src$.active}}"
+                    ></image>
+                    <image
+                        wx:else
+                        class="from-radio-image"
+                        src="{{src$.normal}}"
+                    ></image>
                     <text class="from-radio-text">{{ite.Name}}</text>
                 </view>
             </view>

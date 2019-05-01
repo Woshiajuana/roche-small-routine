@@ -37,7 +37,7 @@ Page(Mixin({
     },
     // 提交下一步
     handleSubmit (event) {
-        console.log()
+        console.log(console.log(event))
     },
     // 获取用户数据
     reqUserInfo () {

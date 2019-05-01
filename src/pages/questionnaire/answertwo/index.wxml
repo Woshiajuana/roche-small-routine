@@ -1,6 +1,6 @@
 <view>
-    <view class="banner {{$params.form && 'banner-from'}}">
-        <text class="title" wx:if="{{!$params.form}}">第二步</text>
+    <view class="banner {{params$.form && 'banner-from'}}">
+        <text class="title" wx:if="{{!params$.form}}">第二步</text>
         <text class="prompt-text">回答3个相关问题</text>
         <text class="prompt-text">即可获得您的专属控糖计划</text>
     </view>
@@ -24,8 +24,16 @@
                   wx:if="{{item.Type === 1}}"
                   data-id="{{ite.ChooseNum}}">
                 <view class="from-item">
-                    <image class="from-radio-image"
-                           src="{{item.check === ite.ChooseNum ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <image
+                        wx:if="{{item.check === ite.ChooseNum}}"
+                        class="from-radio-image"
+                        src="{{src$.active}}"
+                    ></image>
+                    <image
+                        wx:else
+                        class="from-radio-image"
+                        src="{{src$.normal}}"
+                    ></image>
                     <text class="from-radio-text">{{ite.Name}}</text>
                 </view>
             </view>
@@ -41,8 +49,16 @@
                   wx:if="{{item.Type === 2}}"
                   data-id="{{ite.ChooseNum}}">
                 <view class="from-item">
-                    <image class="from-radio-image"
-                           src="{{ite.check ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <image
+                        wx:if="{{item.check}}"
+                        class="from-radio-image"
+                        src="{{src$.active}}"
+                    ></image>
+                    <image
+                        wx:else
+                        class="from-radio-image"
+                        src="{{src$.normal}}"
+                    ></image>
                     <text class="from-radio-text">{{ite.Name}}</text>
                 </view>
             </view>
@@ -78,8 +94,16 @@
                       data-index="{{index}}"
                       bindtap="handleCheck"
                       data-ans="{{ite.AnswerTags}}">
-                    <image class="from-radio-image"
-                           src="{{item.check === ite.ChooseNum ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <image
+                        wx:if="{{item.check === ite.ChooseNum}}"
+                        class="from-radio-image"
+                        src="{{src$.active}}"
+                    ></image>
+                    <image
+                        wx:else
+                        class="from-radio-image"
+                        src="{{src$.normal}}"
+                    ></image>
                     <text class="from-radio-text">{{ite.Name}}</text>
                     <view class="arrow" wx:if="{{ite.AnswerTags.length}}"></view>
                 </view>
@@ -97,8 +121,16 @@
                           data-tagindex="{{ind}}"
                           data-tagid="{{tag.Id}}"
                           data-tag="{{tag.Tag}}">
-                        <image class="from-radio-image"
-                               src="{{ite.check === tag.Id ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                        <image
+                            wx:if="{{ite.check === tag.Id}}"
+                            class="from-radio-image"
+                            src="{{src$.active}}"
+                        ></image>
+                        <image
+                            wx:else
+                            class="from-radio-image"
+                            src="{{src$.normal}}"
+                        ></image>
                         <text class="from-radio-text">{{tag.Tag}}</text>
                     </view>
                 </view>
