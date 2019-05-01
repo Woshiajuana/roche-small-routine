@@ -3,23 +3,30 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
+import Mixin                        from 'utils/mixin.util'
 import Auth                         from 'plugins/auth.plugin'
 import Http                         from 'plugins/http.plugin'
-import Mixin                        from 'utils/mixin.util'
 import Router                       from 'plugins/router.plugin'
-import Modal                        from 'plugins/modal.plugin'
 import QueMixin                     from 'mixins/questionnaire.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
+
+const arrSrc = [
+    { key: 'normal', value: 'select-nor-icon.png' },
+    { key: 'active', value: 'select-ative-icon.png' },
+];
 
 Page(Mixin({
     mixins: [
         QueMixin,
         RouterMixin,
+        SourceMixin,
     ],
     data: {
         arrData: [],
     },
     onLoad (options) {
+        this.sourceGet(arrSrc);
         this.routerGetParams(options);
         this.initData();
         // 获取问题的答案

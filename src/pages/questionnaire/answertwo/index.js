@@ -3,18 +3,25 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
-import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
+import Router                       from 'plugins/router.plugin'
 import InputMixin                   from 'mixins/input.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
 import QueMixin                     from 'mixins/questionnaire.mixin'
 import { formatData }               from 'wow-cool/lib/date.lib'
+
+const arrSrc = [
+    { key: 'normal', value: 'select-nor-icon.png' },
+    { key: 'active', value: 'select-ative-icon.png' },
+];
 
 Page(Mixin({
     mixins: [
         InputMixin,
         QueMixin,
         RouterMixin,
+        SourceMixin,
     ],
     data: {
         arrData: [],
@@ -25,6 +32,7 @@ Page(Mixin({
     },
     // 生命周期回调—监听页面加载
     onLoad (options) {
+        this.sourceGet(arrSrc);
         this.routerGetParams(options);
         this.initData();
         // 获取问题的答案
