@@ -4,44 +4,39 @@ import './index.scss'
 import './index.wxml'
 
 import Http                         from 'plugins/http.plugin'
+import SourceMixin                  from 'mixins/source.mixin'
 import Router                       from 'plugins/router.plugin'
 import Toast                        from 'plugins/toast.plugin'
 import Mixin                        from 'utils/mixin.util'
 import InputMixin                   from 'mixins/input.mixin'
 
+const arrSrc = [
+    { key: 'bg', value: 'login-bg-2.jpg' },
+];
+
 Page(Mixin({
     mixins: [
         InputMixin,
+        SourceMixin,
     ],
     data: {
         code: '',
         check: false,
     },
-    onLoad (options) {
-        // this.getParamsByUrl(options);
+    onLoad () {
+        this.sourceGet(arrSrc);
     },
     // 购买会员
     handleClick () {
-        this.setMemberInfo();
-    },
-    // 购买会员
-    setMemberInfo () {
         let Code = this.data.code;
         if (!Code) return Toast.error('请输入10位服务码');
-        let options = {
-            url: 'RocheApi/SetMemberInfo',
-            data: {
-                Code,
-            },
-            loading: true,
-        };
-        return Http(options).then((res) => {
+        return Http(Http.API.Do_setMemberInfo, {
+            Code,
+        }).then((res) => {
             this.setData({
                 check: true,
             })
-        }).catch((err) => {
-            Toast.error(err);
-        })
+        }).toast();
     },
     // 跳转
     handleJump (e) {

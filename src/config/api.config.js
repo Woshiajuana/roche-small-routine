@@ -26,4 +26,7 @@ export default {
     // 获取血糖计划
     Req_recommendSugar: 'RocheApi/GetRecommendSugar',
 
+    // 购买会员核销code
+    Do_setMemberInfo: 'RocheApi/SetMemberInfo',
+
 }
