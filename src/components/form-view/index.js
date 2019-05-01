@@ -46,10 +46,12 @@ Component(Mixin({
         },
         // 数据提交
         handleSubmit (event) {
-            console.log(event);
             if (Valid.check(this.data.formData)) return null;
             let data = Valid.input(this.data.formData);
-            this.triggerEvent('submit', data);
+            this.triggerEvent('submit', {
+                formId: event.detail.formId,
+                data,
+            });
         },
         // 弹窗声明
         handleFormPop () {
