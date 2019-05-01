@@ -5,7 +5,7 @@ export default {
         arrResult: [],
     },
     // 获取问题答案
-    getSurveyDetails () {
+    reqSurveyDetails () {
         return Http(Http.API.Req_surveyDetails).then((res) => {
             let arrResult = res || [];
             this.setData({
@@ -14,11 +14,9 @@ export default {
             this.assignmentData(this.data.arrData, this.data.arrResult);
         }).toast();
     },
-
     // 校验
     checkData (data) {
         let result = [];
-        console.log(data);
         try {
             data.forEach((item) => {
                 let {Type, Code, check, Name, Answers, tagid, tag} = item;

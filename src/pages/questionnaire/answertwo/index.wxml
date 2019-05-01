@@ -1,0 +1,112 @@
+<view>
+    <view class="banner {{$params.form && 'banner-from'}}">
+        <text class="title" wx:if="{{!$params.form}}">第二步</text>
+        <text class="prompt-text">回答3个相关问题</text>
+        <text class="prompt-text">即可获得您的专属控糖计划</text>
+    </view>
+    <view class="from-wrap">
+        <view wx:for="{{arrData}}"
+              wx:for-item="item"
+              wx:key="item"
+              wx:for-index="index">
+            <view class="title-wrap">
+                <text class="title-text"
+                >3.{{item.Name}}</text>
+            </view>
+            <view class="from-select"
+                  bindtap="handleCheck"
+                  data-type="{{item.Type}}"
+                  data-index="{{index}}"
+                  wx:for="{{item.Answers}}"
+                  wx:for-item="ite"
+                  wx:key="{{ite}}"
+                  wx:for-index="ind"
+                  wx:if="{{item.Type === 1}}"
+                  data-id="{{ite.ChooseNum}}">
+                <view class="from-item">
+                    <image class="from-radio-image"
+                           src="{{item.check === ite.ChooseNum ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <text class="from-radio-text">{{ite.Name}}</text>
+                </view>
+            </view>
+            <view class="from-select"
+                  bindtap="handleCheck"
+                  data-type="{{item.Type}}"
+                  data-index="{{index}}"
+                  data-ind="{{ind}}"
+                  wx:for="{{item.Answers}}"
+                  wx:for-item="ite"
+                  wx:key="{{ite}}"
+                  wx:for-index="ind"
+                  wx:if="{{item.Type === 2}}"
+                  data-id="{{ite.ChooseNum}}">
+                <view class="from-item">
+                    <image class="from-radio-image"
+                           src="{{ite.check ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <text class="from-radio-text">{{ite.Name}}</text>
+                </view>
+            </view>
+            <picker
+                wx:if="{{item.Type === 3}}"
+                bindchange="handleCheck"
+                data-id="{{item.ChooseNum}}"
+                data-index="{{index}}"
+                data-type="{{item.Type}}"
+                mode="date"
+                end="{{end}}"
+                start="{{start}}">
+                <view class="from-item">
+                    <view class="from-value">
+                        <input
+                            type="text"
+                            disabled
+                            value="{{item.check}}"
+                            placeholder="请选择您的确诊时间"/>
+                    </view>
+                    <view class="arrow"></view>
+                </view>
+            </picker>
+            <view class="from-item-select"
+                  wx:for="{{item.Answers}}"
+                  wx:for-item="ite"
+                  wx:key="ite"
+                  wx:if="{{item.Type === 4}}"
+                  wx:for-index="ind">
+                <view class="from-item"
+                      data-id="{{ite.ChooseNum}}"
+                      data-type="{{item.Type}}"
+                      data-index="{{index}}"
+                      bindtap="handleCheck"
+                      data-ans="{{ite.AnswerTags}}">
+                    <image class="from-radio-image"
+                           src="{{item.check === ite.ChooseNum ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <text class="from-radio-text">{{ite.Name}}</text>
+                    <view class="arrow" wx:if="{{ite.AnswerTags.length}}"></view>
+                </view>
+                <view class="from-select"
+                    wx:if="{{item.check === ite.ChooseNum}}">
+                    <view class="from-item"
+                          bindtap="handleCheck"
+                          data-id="{{item.ChooseNum}}"
+                          data-index="{{index}}"
+                          data-type="{{item.Type}}"
+                          wx:for="{{ite.AnswerTags}}"
+                          wx:for-item="tag"
+                          wx:key="tag"
+                          wx:for-index="i"
+                          data-tagindex="{{ind}}"
+                          data-tagid="{{tag.Id}}"
+                          data-tag="{{tag.Tag}}">
+                        <image class="from-radio-image"
+                               src="{{ite.check === tag.Id ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                        <text class="from-radio-text">{{tag.Tag}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="form-button"
+              bindtap="handleSubmit">
+            <text class="form-button-text">下一步</text>
+        </view>
+    </view>
+</view>

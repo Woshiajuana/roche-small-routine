@@ -1,0 +1,108 @@
+@import '../../../assets/scss/define';
+/*头部*/
+.banner{
+    @extend %df;
+    @extend %jcc;
+    @extend %fdc;
+    padding: 0 60rpx;
+    height: 268rpx;
+    border-bottom: 1px solid #efeff4;
+    text{
+        color: #28aeeb;
+    }
+}
+.title{
+    font-size: 66rpx;
+    margin-bottom: 20rpx;
+}
+.prompt-text{
+    font-size: 60rpx;
+}
+
+.from-wrap{
+    margin-bottom: 60rpx;
+}
+.title-wrap{
+    @extend %df;
+    @extend %aic;
+    height: 124rpx;
+    border-bottom: 1px solid #efeff4;
+    padding: 0 60rpx;
+}
+.title-text{
+    font-size: 36rpx;
+    color: #28aeeb;
+}
+.from-item-select{
+    border-bottom: 1px solid #efeff4;
+    .from-item{
+        border-bottom: none;
+    }
+    .from-select{
+        padding-left: 70rpx;
+        .from-item{
+            height: 70rpx;
+        }
+    }
+}
+.from-item{
+    @extend %df;
+    @extend %bsb;
+    @extend %aic;
+    padding: 0 60rpx;
+    height: 98rpx;
+    border-bottom: 1px solid #efeff4;
+    &.from-no-value{
+        input{
+            padding-right: 20rpx;
+        }
+    }
+}
+.from-value{
+    @extend %df1;
+    height: 50rpx;
+    input{
+        @extend %db;
+        @extend %w100;
+        @extend %h100;
+        @extend %bsb;
+        padding-right: 60rpx;
+        font-size: 36rpx;
+        color: #969696;
+    }
+}
+.from-radio-image{
+    width: 32rpx;
+    height: 32rpx;
+}
+.from-radio-text{
+    @extend %df1;
+    font-size: 36rpx;
+    color: #969696;
+    margin-left: 20rpx;
+}
+.arrow{
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 10rpx;
+    transform: rotate(45deg);
+    border-color: #c0c0c0;
+    border-top-width: 1rpx;
+    border-top-style: solid;
+    border-right-width: 1rpx;
+    border-right-style: solid;
+}
+.form-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: 42rpx 60rpx 80rpx;
+    height: 80rpx;
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    border-radius: 40rpx;
+}
+.form-button-text{
+    color: #fff;
+    font-size: 36rpx;
+}
+

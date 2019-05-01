@@ -1,0 +1,41 @@
+<view>
+    <view class="banner">
+        <text class="prompt-text">是否有以下</text>
+        <view class="prompt">
+            <text class="prompt-text">确诊的慢性并发症</text>
+            <text class="explain-text">(复选)</text>
+        </view>
+    </view>
+    <view class="from-wrap">
+        <view wx:for="{{arrData}}"
+              wx:for-item="item"
+              wx:key="item"
+              wx:for-index="index">
+            <!--<view class="title-wrap">-->
+                <!--<text class="title-text"-->
+                <!--&gt;{{index + 1}}.{{item.Name}}</text>-->
+            <!--</view>-->
+            <view class="from-select"
+                  bindtap="handleCheck"
+                  data-type="{{item.Type}}"
+                  data-index="{{index}}"
+                  data-ind="{{ind}}"
+                  wx:for="{{item.Answers}}"
+                  wx:for-item="ite"
+                  wx:key="{{ite}}"
+                  wx:for-index="ind"
+                  wx:if="{{item.Type === 2}}"
+                  data-id="{{ite.ChooseNum}}">
+                <view class="from-item">
+                    <image class="from-radio-image"
+                           src="{{ite.check ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                    <text class="from-radio-text">{{ite.Name}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="form-button"
+              bindtap="handleSubmit">
+            <text class="form-button-text">完成</text>
+        </view>
+    </view>
+</view>

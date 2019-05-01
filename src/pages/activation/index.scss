@@ -1,0 +1,83 @@
+@import '../../../assets/scss/define';
+
+page{
+    background-color: #888787;
+}
+.inner{
+    @extend %pr;
+    image{
+        @extend %w100;
+        height: 773rpx;
+    }
+}
+.title{
+    @extend %pa;
+    @extend %l0;
+    @extend %r0;
+    @extend %tac;
+    font-size: 50rpx;
+    color: #fff;
+    top: 200rpx;
+}
+.con{
+    @extend %pa;
+    @extend %l50;
+    @extend %df;
+    @extend %fdc;
+    @extend %jcc;
+    @extend %aic;
+    top: 280rpx;
+    width: 514rpx;
+    height: 332rpx;
+    margin-left: -257rpx;
+    background-color: #fff;
+    border-radius: 5rpx;
+    &.after{
+        .con-button{
+            margin-top: 30rpx;
+        }
+    }
+    &.before{
+        .con-button{
+            margin-top: 28rpx;
+            width: 150rpx;
+            height: 52rpx;
+            border-radius: 20rpx;
+            line-height: 52rpx;
+        }
+    }
+}
+.con-title{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %w100;
+    height: 90rpx;
+    border-bottom: 1rpx solid #ababab;
+    text{
+        font-size: 30rpx;
+        color: #000;
+    }
+}
+.con-input{
+    border: 1rpx solid #ababab;
+    margin-top: 47rpx;
+    width: 450rpx;
+    height: 80rpx;
+    input{
+        @extend %tac;
+        @extend %w100;
+        @extend %h100;
+    }
+}
+.con-button{
+    @extend %aic;
+    @extend %jcc;
+    height: 66rpx;
+    line-height: 66rpx;
+    width: 306rpx;
+    color: #fff;
+    font-size: 36rpx;
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    border-radius: 20rpx;
+}
