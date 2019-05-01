@@ -53,7 +53,7 @@ Page(Mixin({
     handleSubmit () {
         let result = this.checkData(this.data.arrData);
         if (!result.length) return;
-        Router.push('questionnaire_three_index', {
+        Router.push('questionnaire_answerthree_index', {
             ...this.data.params$,
             arrResult: [...result, ...this.data.params$.arrResult],
             arrData: this.data.arrParams,
