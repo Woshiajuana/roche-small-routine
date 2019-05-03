@@ -36,6 +36,7 @@ export default {
         this.setData({
             [`${item.key}.value`]: value,
         });
+        this.inputCallback && this.inputCallback(item, value);
     },
     bindTap: handle,
     bindChange: handle,

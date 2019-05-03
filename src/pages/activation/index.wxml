@@ -7,15 +7,18 @@
     <view class="content">
         <view class="input-box">
             <view class="ul">
-                <view class="li"><text>1</text></view>
-                <view class="li"><text>2</text></view>
-                <view class="li"><text>3</text></view>
-                <view class="li"><text>4</text></view>
-                <view class="li"><text>5</text></view>
-                <view class="li"><text>6</text></view>
+                <view
+                    class="li"
+                    wx:for="{{arrData}}"
+                    wx:key="{{index}}">
+                    <text>{{item}}</text>
+                </view>
             </view>
             <input
                 maxlength="6"
+                bindinput="bindInput"
+                data-item="{{formData.Code}}"
+                value="{{formData.Code.value}}"
                 type="number"
             />
         </view>
@@ -32,12 +35,5 @@
         <view class="prompt">
             <text class="color">（周一至周五 9：00-18：00）</text>
         </view>
-    </view>
-    <view class="con after" hidden="{{!check}}">
-        <text class="con-prompt">您的服务已开通</text>
-        <button
-            class="con-button"
-            bindtap="handleJump"
-        >返回首页</button>
     </view>
 </view>

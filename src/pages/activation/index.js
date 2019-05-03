@@ -9,6 +9,7 @@ import Router                       from 'plugins/router.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import InputMixin                   from 'mixins/input.mixin'
+import DataMixin                    from './data.mixin'
 
 const arrSrc = [
     { key: 'bg', value: 'activation-bg.jpg' },
@@ -16,22 +17,21 @@ const arrSrc = [
 
 Page(Mixin({
     mixins: [
+        DataMixin,
         InputMixin,
         SourceMixin,
     ],
-    data: {
-        code: '',
-        check: false,
-    },
     onLoad () {
         this.sourceGet(arrSrc);
-        Modal.confirm({
-            content: '恭喜您，您的服务已开通！',
-            showCancel: false,
-            confirmText: '返回首页',
-        }).then(() => {
-
-        });
+    },
+    inputCallback () {
+        let { formData, arrData } = this.data;
+        let Code = formData.Code.value;
+        Code = Code.split('');
+        let arr = ['', '', '', '', '', ''];
+        arrData = [...Code, ...arr];
+        arrData = arrData.slice(0, 6);
+        this.setData({arrData});
     },
     // 购买会员
     handleClick () {
@@ -40,15 +40,13 @@ Page(Mixin({
         return Http(Http.API.Do_setMemberInfo, {
             Code,
         }).then((res) => {
-            this.setData({
-                check: true,
-            })
+            Modal.confirm({
+                content: '恭喜您，您的服务已开通！',
+                showCancel: false,
+                confirmText: '返回首页',
+            }).then(() => {
+                Router.root('home_index');
+            });
         }).toast();
     },
-    // 跳转
-    handleJump (e) {
-        let { currentTarget } = e;
-        let url = currentTarget.dataset.url;
-        Router.root('home_index');
-    }
 }));
