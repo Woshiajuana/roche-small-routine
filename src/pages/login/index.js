@@ -30,6 +30,7 @@ Page(Mixin({
     // 用户登录
     userLogin (user) {
         Auth.login().then((result) => {
+            return console.log(result)
             return Http(Http.API.Do_userLogin, {
                 code: result,
                 sceneid: app.globalData.sceneid,

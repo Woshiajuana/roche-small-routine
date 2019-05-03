@@ -25,6 +25,13 @@ Page(Mixin({
     },
     onLoad () {
         this.sourceGet(arrSrc);
+        Modal.confirm({
+            content: '恭喜您，您的服务已开通！',
+            showCancel: false,
+            confirmText: '返回首页',
+        }).then(() => {
+
+        });
     },
     // 购买会员
     handleClick () {

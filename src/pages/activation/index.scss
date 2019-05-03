@@ -56,12 +56,41 @@ page{
     color: #1d71c4;
     font-size: j(52);
 }
+
+.button{
+    margin-top: j(85);
+}
+
 .footer{
     @extend %w100;
     @extend %pr;
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+    @extend %jcc;
+    @extend %oh;
     height: j(185);
+    padding-top: j(20);
 }
-
+.bg{
+    @extend %pa;
+    @extend %l50;
+    @extend %t0;
+    margin-left: j(-1000);
+    width: j(2000);
+    height: j(2000);
+    border-radius: 50%;
+    background-color: #1d71c4;
+}
+.prompt{
+    @extend %pr;
+    line-height: j(35);
+    font-size: j(24);
+    color: #fff;
+    .color{
+        font-size: j(20);
+    }
+}
 .con{
     @extend %pa;
     @extend %l50;

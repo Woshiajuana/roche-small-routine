@@ -1,5 +1,5 @@
 
-<view class="wrap">
+<view class="wrap g-vip-page">
     <image
         mode="widthFix"
         src="{{src$.bg}}"
@@ -19,20 +19,20 @@
                 type="number"
             />
         </view>
+        <button class="g-button button">立即激活</button>
     </view>
     <view class="footer">
         <view class="bg"></view>
         <view class="prompt">
-            <text class="prompt-text">如果您已购买专业版套餐，但尚未拿到激活码</text>
+            <text>如果您已购买专业版套餐，但尚未拿到激活码</text>
         </view>
         <view class="prompt">
-            <text class="prompt-text">请联系天猫客服 021-31227952 </text>
+            <text>请联系天猫客服 021-31227952 </text>
         </view>
         <view class="prompt">
-            <text class="prompt-text">（周一至周五 9：00-18：00）</text>
+            <text class="color">（周一至周五 9：00-18：00）</text>
         </view>
     </view>
-    <button class="g-button button">立即激活</button>
     <view class="con after" hidden="{{!check}}">
         <text class="con-prompt">您的服务已开通</text>
         <button
