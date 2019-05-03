@@ -22,7 +22,10 @@
                 type="number"
             />
         </view>
-        <button class="g-button button">立即激活</button>
+        <button
+            bindtap="handleSubmit"
+            class="g-button button"
+        >立即激活</button>
     </view>
     <view class="footer">
         <view class="bg"></view>

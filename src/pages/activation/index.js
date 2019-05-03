@@ -8,6 +8,7 @@ import SourceMixin                  from 'mixins/source.mixin'
 import Router                       from 'plugins/router.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
+import Valid                        from 'utils/valid.util'
 import InputMixin                   from 'mixins/input.mixin'
 import DataMixin                    from './data.mixin'
 
@@ -34,12 +35,10 @@ Page(Mixin({
         this.setData({arrData});
     },
     // 购买会员
-    handleClick () {
-        let Code = this.data.code;
-        if (!Code) return Modal.toast('请输入10位服务码');
-        return Http(Http.API.Do_setMemberInfo, {
-            Code,
-        }).then((res) => {
+    handleSubmit () {
+        if (Valid.check(this.data.formData)) return null;
+        let data = Valid.input(this.data.formData);
+        return Http(Http.API.Do_setMemberInfo, data).then((res) => {
             Modal.confirm({
                 content: '恭喜您，您的服务已开通！',
                 showCancel: false,
