@@ -5,7 +5,7 @@
         src="{{src$.bg}}"
     ></image>
     <view class="header">
-        <image class="avatar"></image>
+        <image class="avatar" src="{{user$.avatarUrl}}"></image>
         <text>坚持30天养成测糖好习惯</text>
     </view>
     <view class="prompt">
@@ -21,9 +21,7 @@
                 <text class="text">本周</text>
             </view>
             <view class="td td-0-1"
-                  wx:for="{{arrTimeStep}}"
-                  wx:for-item="item"
-                  wx:for-index="index"
+                  wx:for="{{dayText}}"
                   wx:key="item"
             ><text class="text">{{item}}</text></view>
         </view>
@@ -37,7 +35,7 @@
                   wx:for-item="ite"
                   wx:for-index="ind"
                   wx:key="ite">
-                <text class="text">{{dayText[ite]}}</text>
+                <text class="text">{{arrTimeStep[ite]}}</text>
                 <image
                     class="icon"
                     wx:if="{{ind !== 0 && ite === 1}}"

@@ -8,6 +8,7 @@ import Router                       from 'plugins/router.plugin'
 import SourceMixin                  from 'mixins/source.mixin'
 import Mixin                        from 'utils/mixin.util'
 import ShareMixin                   from 'mixins/share.mixin'
+import UserMixin                    from 'mixins/user.mixin'
 import { getDate }                  from 'wow-cool/lib/date.lib'
 import {
     ARR_TIME_STEP,
@@ -23,6 +24,7 @@ Page(Mixin({
     mixins: [
         ShareMixin,
         SourceMixin,
+        UserMixin,
     ],
     data: {
         arrTimeStep: ARR_TIME_STEP,
@@ -31,9 +33,12 @@ Page(Mixin({
         desc1: '',
         desc2: '',
         dayTime: [],
-        dayText: DAY_TEXT,
+        dayText: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     },
     onLoad () {
+        // 获取用户信息
+        this.userGet();
+        // 显示面板
         wx.showShareMenu();
         // 获取图片资源
         this.sourceGet(arrSrc);
@@ -49,14 +54,11 @@ Page(Mixin({
                 this.data.dayTime.forEach((it, ind) => {
                     if (Day === 7) Day = 0;
                     if (it[0] === Day) {
-                        let sItem = `dayTime[${ind}][${TimeStep}]`;
-                        this.setData({
-                            [sItem]: 1,
-                        });
+                        let sItem = `dayTime[${TimeStep - 1}][${ind}]`;
+                        this.setData({[sItem]: 1});
                     }
                 });
             });
-            console.log(this.data.dayTime)
             return;
         }
         let result = [];
@@ -64,8 +66,7 @@ Page(Mixin({
             result[x] = [];
             for(let y = 0; y < 8; y++){
                 if (y === 0) {
-                    // result[x][y] = dayText[x];
-                    result[x][y] = (x+1) % 7;
+                    result[x][y] = x % 7;
                 } else {
                     result[x][y] = 0;
                 }

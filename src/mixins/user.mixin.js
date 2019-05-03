@@ -7,9 +7,7 @@ export default {
     },
     userGet () {
         return Auth.getToken().then((user$) => {
-            this.setData({
-                user$
-            });
+            this.setData({user$});
             return Promise.resolve(user$);
         }).catch((err) => {
             return Promise.reject(err);
