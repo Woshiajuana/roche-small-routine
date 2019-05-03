@@ -1,11 +1,11 @@
 {
     "pages": [
-        "pages/questionnaire/info/index",
-        "pages/questionnaire/answerone/index",
         "pages/login/index",
         "pages/activation/index",
+        "pages/questionnaire/answerone/index",
         "pages/questionnaire/answerthree/index",
         "pages/questionnaire/answertwo/index",
+        "pages/questionnaire/info/index",
         "pages/questionnaire/programme/index"
     ],
     "window": {

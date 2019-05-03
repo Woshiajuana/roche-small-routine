@@ -1,28 +1,43 @@
-<view>
-   <view class="inner">
-       <image src="{{src$.bg}}"></image>
-       <text class="title">360°稳糖服务</text>
-       <view class="con before" hidden="{{check}}">
-           <view class="con-title">
-               <text>输入10位服务码  即刻激活服务</text>
-           </view>
-           <view class="con-input">
-               <input type="number"
-                      focus="{{true}}"
-                      data-key="code"
-                      bindinput="bindInput"
-                      value="{{code}}"
-                      maxlength="10"/>
-           </view>
-           <button class="con-button"
-               bindtap="handleClick"
-           >提交</button>
-       </view>
-       <view class="con after" hidden="{{!check}}">
-           <text class="con-prompt">您的服务已开通</text>
-           <button class="con-button"
-                   bindtap="handleJump"
-           >返回首页</button>
-       </view>
-   </view>
+
+<view class="wrap">
+    <image
+        mode="widthFix"
+        src="{{src$.bg}}"
+    ></image>
+    <view class="content">
+        <view class="input-box">
+            <view class="ul">
+                <view class="li"><text>1</text></view>
+                <view class="li"><text>2</text></view>
+                <view class="li"><text>3</text></view>
+                <view class="li"><text>4</text></view>
+                <view class="li"><text>5</text></view>
+                <view class="li"><text>6</text></view>
+            </view>
+            <input
+                maxlength="6"
+                type="number"
+            />
+        </view>
+    </view>
+    <view class="footer">
+        <view class="bg"></view>
+        <view class="prompt">
+            <text class="prompt-text">如果您已购买专业版套餐，但尚未拿到激活码</text>
+        </view>
+        <view class="prompt">
+            <text class="prompt-text">请联系天猫客服 021-31227952 </text>
+        </view>
+        <view class="prompt">
+            <text class="prompt-text">（周一至周五 9：00-18：00）</text>
+        </view>
+    </view>
+    <button class="g-button button">立即激活</button>
+    <view class="con after" hidden="{{!check}}">
+        <text class="con-prompt">您的服务已开通</text>
+        <button
+            class="con-button"
+            bindtap="handleJump"
+        >返回首页</button>
+    </view>
 </view>

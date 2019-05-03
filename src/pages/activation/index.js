@@ -11,7 +11,7 @@ import Mixin                        from 'utils/mixin.util'
 import InputMixin                   from 'mixins/input.mixin'
 
 const arrSrc = [
-    { key: 'bg', value: 'hyjh-bg.jpg' },
+    { key: 'bg', value: 'activation-bg.jpg' },
 ];
 
 Page(Mixin({
