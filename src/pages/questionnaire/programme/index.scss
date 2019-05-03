@@ -1,50 +1,74 @@
 @import '../../../assets/scss/define';
+
+.wrap{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+}
+.image{
+    @extend %pa;
+    @extend %w100;
+    @extend %t0;
+    @extend %l0;
+}
 /*头部*/
 .header{
+    @extend %pr;
     @extend %df;
-    @extend %jcc;
-    @extend %fdc;
-    height: 268rpx;
-    padding: 0 60rpx;
-    background: linear-gradient( #24a3da , #52c6dd);
-    line-height: 1.5;
-}
-.header-text{
-    font-size: 46rpx;
+    @extend %aic;
+    padding: j(32) 0;
+    width: j(640);
+    font-size: j(42);
     color: #fff;
+    border-bottom: j(1) solid #ddd;
+}
+.avatar{
+    width: j(110);
+    height: j(110);
+    background-color: red;
+    margin-right: j(30);
 }
 
 .prompt{
     @extend %df;
+    @extend %pr;
     @extend %bsb;
     @extend %fdc;
-    @extend %jcc;
-    padding: 20rpx 60rpx;
+    @extend %aic;
+    padding: j(25) 0;
+    line-height: 1.5;
     text{
-        color: #28aeeb;
+        @extend %cfff;
     }
 }
 .prompt-text{
-    font-size: 30rpx;
+    font-size: j(27);
 }
 .prompt-time{
-    @extend %fwb;
-    font-size: 36rpx;
-    margin: 10rpx 0;
+    font-size: j(68);
 }
 
 .table{
-    border-top: 1rpx solid #ebebeb;
+    @extend %pr;
+    width: j(695);
+    box-shadow: 0 j(10) j(10) j(10) rgba(40, 174, 235, .1);
+    margin-bottom: j(35);
+}
+.thead{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    height: j(116);
+    background: linear-gradient(to right, #36d8ee , #28aeeb);
+    font-size: j(42);
 }
 .tr{
     @extend %df;
     @extend %aic;
     @extend %bsb;
-    height: 65rpx;
-    border-bottom: 1rpx solid #ebebeb;
-    &:first-child{
-        height: 72rpx;
-    }
+    height: j(54);
+    border-bottom: j(1) solid #ebebeb;
 }
 .td{
     @extend %h100;
@@ -52,7 +76,7 @@
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    border-right: 1rpx solid #ebebeb;
+    border-right: j(1) solid #ebebeb;
     &:last-child{
         border-right: none;
     }
@@ -65,14 +89,13 @@
         }
     }
     &.td-0-1{
-        background-color: #28aeeb;
+        background-color: #fff;
         text{
             @extend %db;
-            color: #fff;
+            color: #28aeeb;
         }
     }
     &.td-1-0{
-        font-size: 18rpx;
         text{
             @extend %db;
             color: #28aeeb;
@@ -81,57 +104,34 @@
             @extend %dn;
         }
     }
-    &.td-suc{
-        .status{
-            @extend %pr;
-            width: 15rpx;
-            height: 15rpx;
-            border: 2rpx solid #28aeeb;
-            border-radius: 50%;
-            background-color: #fff;
-        }
-        .status-spot{
-            @extend %db;
-        }
+    .icon{
+        width: j(39);
+        height: j(37);
     }
 }
 .text{
     @extend %dn;
-    font-size: 24rpx;
+    font-size:j(21);
 }
 .status{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    width: 30rpx;
-    height: 4rpx;
+    width: j(30);
+    height: j(4);
     background-color: #ebebeb;
 }
-.status-spot{
-    @extend %dn;
-    width: 6rpx;
-    height: 6rpx;
-    border-radius: 50%;
-    background-color: #28aeeb;
-}
+
 .table-prompt{
     @extend %db;
     @extend %tac;
-    font-size: 24rpx;
-    color: #ababab;
-    margin-top: 20rpx;
+    font-size: j(26);
+    color: #666;
 }
 
 .button{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    margin: 42rpx 60rpx 80rpx;
-    height: 80rpx;
-    background: linear-gradient(to right, #39e2ee , #28aeeb);
-    border-radius: 40rpx;
-}
-.button-text{
-    color: #fff;
-    font-size: 36rpx;
+    margin-top: j(35);
 }

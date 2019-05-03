@@ -4,8 +4,8 @@ import './index.scss'
 import './index.wxml'
 
 import Http                         from 'plugins/http.plugin'
-import Modal                        from 'plugins/modal.plugin'
 import Router                       from 'plugins/router.plugin'
+import SourceMixin                  from 'mixins/source.mixin'
 import Mixin                        from 'utils/mixin.util'
 import ShareMixin                   from 'mixins/share.mixin'
 import { getDate }                  from 'wow-cool/lib/date.lib'
@@ -14,9 +14,15 @@ import {
     DAY_TEXT
 }                                   from 'config/base.config'
 
+const arrSrc = [
+    { key: 'bg', value: 'plan-bg.jpg' },
+    { key: 'icon', value: 'plan-active-icon.png' },
+];
+
 Page(Mixin({
     mixins: [
         ShareMixin,
+        SourceMixin,
     ],
     data: {
         arrTimeStep: ARR_TIME_STEP,
@@ -29,6 +35,9 @@ Page(Mixin({
     },
     onLoad () {
         wx.showShareMenu();
+        // 获取图片资源
+        this.sourceGet(arrSrc);
+        // 初始化数据
         this.initData();
         // 获取血糖计划
         this.reqRecommendSugar();
@@ -47,6 +56,7 @@ Page(Mixin({
                     }
                 });
             });
+            console.log(this.data.dayTime)
             return;
         }
         let result = [];
