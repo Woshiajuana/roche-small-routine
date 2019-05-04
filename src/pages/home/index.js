@@ -21,7 +21,11 @@ import {
 }                               from 'config/base.config'
 
 const arrSrc = [
-    { key: 'bg', value: 'activation-bg.jpg' },
+    { key: 'norBg', value: 'home-nor-bg.png' },
+    { key: 'vipBg', value: 'home-nor-bg.png' },
+    { key: 'xtrz', value: 'home-icon-1.png' },
+    { key: 'lylj', value: 'home-icon-2.png' },
+    { key: 'jhb', value: 'home-icon-jhb.png' },
 ];
 
 const app = getApp();
