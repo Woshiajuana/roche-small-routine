@@ -68,10 +68,12 @@
                     <text class="plan-button-text">蓝牙连接</text>
                 </view>
             </view>
-            <view class="plan-add"
-                  data-params="{{objUser}}"
-                  data-url="record_index"
-                  bindtap="handleJump"></view>
+            <view
+                class="plan-add"
+                data-params="{{objUser}}"
+                data-url="record_index"
+                bindtap="handleJump"
+            ></view>
             <view class="plan-inner">
                 <view class="plan-title">
                     <image
@@ -88,14 +90,16 @@
                           wx:for-index="index"
                           wx:key="item">
                         <view class="plan-item-check">
-                            <!--<image class="plan-item-check-icon"-->
-                                   <!--wx:for="{{objUser.PlanTimeSteps}}"-->
-                                   <!--wx:for-item="ite"-->
-                                   <!--wx:for-index="ind"-->
-                                   <!--wx:key="ite"-->
-                                   <!--wx:if="{{ite.TimeStep === index + 1}}"-->
-                                   <!--mode="aspectFit"-->
-                                   <!--src="{{ite.IsComplete ? '../../assets/images/home-step-icon-2.png' : '../../assets/images/home-step-icon-1.png'}}"></image>-->
+                            <image
+                                class="plan-item-check-icon"
+                                wx:for="{{objUser.PlanTimeSteps}}"
+                                wx:for-item="ite"
+                                wx:for-index="ind"
+                                wx:key="ite"
+                                wx:if="{{ite.TimeStep === index + 1}}"
+                                mode="aspectFit"
+                                src="{{ite.IsComplete ? src$.stepAct : src$.stepNor}}"
+                            ></image>
                         </view>
                         <text class="plan-item-text">{{item}}</text>
                     </view>
