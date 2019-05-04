@@ -1,5 +1,9 @@
 @import '../../assets/scss/define';
 page{
+    @extend %h100;
+    background-color: #fff;
+}
+.wrap{
     background-color: #fff;
 }
 .view-bg{
@@ -8,14 +12,14 @@ page{
     @extend %l0;
     @extend %r0;
     height: j(200);
-    background-color: #4bc2e0;
+    background-color: #41b8ea;
 }
 /*用户*/
 .user{
     @extend %df;
     @extend %aic;
     height: j(100);
-    margin-top: j(30);
+    padding-top: j(30);
     padding-left: j(30);
     image{
         margin-right: j(27);
@@ -137,6 +141,7 @@ page{
 .plan{
     @extend %pr;
     @extend %bsb;
+    @extend %oh;
     padding-top: j(64);
 }
 .plan-bg{
@@ -183,8 +188,8 @@ page{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    height: j(202);
-    margin: j(50) j(32) 0;
+    height: j(148);
+    margin: j(60) j(32) 0;
     border: 1px solid #81d1ef;
     border-radius: j(30);
 }
@@ -199,7 +204,8 @@ page{
     top: j(-20);
     width: j(306);
     margin-left: j(-153);
-    background-color: #4bbde8;
+    //background-color: #4bbde8;
+    background-image: linear-gradient(to bottom, #4dbee8, #4bbde8 );
 }
 .plan-title-icon{
     width: j(40);
@@ -236,7 +242,38 @@ page{
     height: j(44);
 }
 .plan-item-text{
-    font-size: j(30);
+    font-size: j(21);
     color: #fff;
+    margin-top: j(15);
+}
+.entry{
+    @extend %pr;
+    @extend %oh;
+    @extend %df;
+    @extend %aic;
+    @extend %w100;
     margin-top: j(20);
+    height: j(230);
+    image{
+        @extend %pa;
+        @extend %w100;
+        @extend %l0;
+        @extend %b0;
+        height: j(180);
+    }
+}
+.entry-bg{
+    @extend %pa;
+    @extend %l50;
+    @extend %t0;
+    margin-left: j(-1500);
+    width: j(3000);
+    height: j(3000);
+    border-radius: 50%;
+    background-color: #55c7f9;
+}
+.entry-item{
+    @extend %pr;
+    @extend %df1;
+    height: j(180);
 }

@@ -28,6 +28,7 @@ const arrSrc = [
     { key: 'jhb', value: 'home-icon-jhb.png' },
     { key: 'stepNor', value: 'home-step-icon-1.png' },
     { key: 'stepAct', value: 'home-step-icon-2.png' },
+    { key: 'entryBg', value: 'home-entry-bg.png' },
 ];
 
 const app = getApp();

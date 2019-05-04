@@ -105,6 +105,15 @@
                     </view>
                 </view>
             </view>
+
+            <view class="entry">
+                <view class="entry-bg"></view>
+                <image src="{{src$.entryBg}}"></image>
+                <view class="entry-item"></view>
+                <view class="entry-item"></view>
+                <view class="entry-item"></view>
+                <view class="entry-item"></view>
+            </view>
         </view>
         <!--/计划-->
     </view>
