@@ -1,12 +1,12 @@
 {
     "pages": [
-        "pages/questionnaire/programme/index",
         "pages/login/index",
         "pages/activation/index",
         "pages/questionnaire/answerone/index",
         "pages/questionnaire/answerthree/index",
         "pages/questionnaire/answertwo/index",
-        "pages/questionnaire/info/index"
+        "pages/questionnaire/info/index",
+        "pages/questionnaire/programme/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -18,5 +18,26 @@
         "scope.userLocation": {
             "desc": "你的位置信息将用于小程序位置接口的效果展示"
         }
+    },
+    "tabBar": {
+        "color": "#999",
+        "selectedColor": "#58b7ff",
+        "backgroundColor": "#fff",
+        "borderStyle": "black",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "text": "首页",
+                "iconPath": "assets/images/nav-home-icon.png",
+                "selectedIconPath": "assets/images/nav-home-checked-icon.png"
+            },
+            {
+                "pagePath": "pages/mine/index",
+                "text": "我的",
+                "iconPath": "assets/images/nav-mine-icon.png",
+                "selectedIconPath": "assets/images/nav-mine-checked-icon.png"
+            }
+        ]
     }
 }

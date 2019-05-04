@@ -29,4 +29,7 @@ export default {
     // 购买会员核销code
     Do_setMemberInfo: 'RocheApi/SetMemberInfo',
 
+    // 首页个人血糖基本信息
+    Req_indexSugar: 'RocheApi/GetIndexSugar',
+
 }

@@ -1,0 +1,102 @@
+@import '../../assets/scss/define';
+/*头部*/
+.header{
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+    height: 297rpx;
+    background-image: linear-gradient(#26a4dc, #5ecddb);
+}
+.user-image{
+    width: 156rpx;
+    height: 156rpx;
+    border-radius: 50%;
+    margin-top: 50rpx;
+}
+.user-info{
+    margin-top: 30rpx;
+    text{
+        margin: 0 5rpx;
+        color: #fff;
+        font-size: 36rpx;
+    }
+}
+.user-name{
+    @extend %fwb;
+}
+
+.button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %bsb;
+    width: 288rpx;
+    height: 56rpx;
+    margin: 20rpx auto;
+    border: 1px solid #28aeeb;
+    border-radius: 28rpx;
+}
+.button-text{
+    color: #28aeeb;
+    font-size: 36rpx;
+}
+
+.base-info{
+    @extend %df;
+    @extend %aic;
+    padding: 60rpx 0;
+    border-bottom: 1rpx solid #efeff4;
+}
+.base-item{
+    @extend %df1;
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+}
+.base-label{
+    font-size: 36rpx;
+    color: #ababab;
+}
+.base-value{
+    font-size: 80rpx;
+    color: #28aeeb;
+}
+.base-border{
+    width: 1rpx;
+    height: 94rpx;
+    background-color: #c0c0c0;
+}
+
+.entry{
+
+}
+.entry-item{
+    @extend %df;
+    @extend %aic;
+    @extend %bsb;
+    height: 100rpx;
+    border-bottom: 1rpx solid #efeff4;
+    padding: 0 60rpx;
+    text{
+        @extend %db;
+        font-size: 36rpx;
+    }
+}
+.entry-label{
+    @extend %df1;
+    color: #575757;
+}
+.entry-value{
+    color: #969696;
+}
+.entry-arrow{
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 10rpx;
+    transform: rotate(45deg);
+    border-color: #c0c0c0;
+    border-top-width: 1rpx;
+    border-top-style: solid;
+    border-right-width: 1rpx;
+    border-right-style: solid;
+}

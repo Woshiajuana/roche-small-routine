@@ -1,0 +1,283 @@
+@import '../../assets/scss/define';
+.view-bg{
+    @extend %pf;
+    @extend %b0;
+    @extend %l0;
+    @extend %r0;
+    height: 200rpx;
+    background-color: #4bc2e0;
+}
+.wrap{
+    background-color: #fff;
+}
+/*用户*/
+.user{
+    @extend %df;
+    @extend %aic;
+    height: 100rpx;
+    margin-top: 30rpx;
+    padding-left: 29rpx;
+}
+.user-image{
+    margin-right: 27rpx;
+    width: 100rpx;
+    height: 100rpx;
+    background-color: #aaaaaa;
+    border-radius: 50%;
+}
+.user-info{
+    @extend %df1;
+}
+.user-text{
+    @extend %db;
+    font-size: 30rpx;
+    color: #000;
+}
+.user-name{
+    font-weight: bold;
+}
+.user-prompt{
+    @extend %df;
+    @extend %aic;
+}
+.user-strong-text{
+    color: #28aeeb;
+    padding: 0 10rpx;
+}
+
+
+
+/*蓝牙*/
+.blue-tooth{
+    @extend %pa;
+    @extend %bsb;
+    @extend %df;
+    @extend %aic;
+    top: 30rpx;
+    right: 0;
+    width: 120rpx;
+    height: 100rpx;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border: solid #28aeeb 2rpx;
+    border-right: none;
+    padding-left: 52rpx;
+}
+.blue-tooth-icon{
+    @extend %pa;
+    @extend %t50;
+    margin-top: -21rpx;
+    left: 20rpx;
+    width: 25rpx;
+    height: 43rpx;
+}
+.blue-tooth-bar{
+    width: 8rpx;
+    height: 100rpx;
+    background-color: #fff;
+}
+.blue-tooth-text{
+    font-size: 28rpx;
+    color: #28aeeb;
+}
+
+/*血糖*/
+.main{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin-top: 17rpx;
+}
+.inner{
+    @extend %pr;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    width: 450rpx;
+    height: 450rpx;
+    border-radius: 50%;
+    &.nor{
+        background-image: linear-gradient(#e9e9e9, #9ddfde, #00afaf);
+        text{
+            color: #00afaf;
+        }
+    }
+    &.lit{
+        background-image: linear-gradient(#e9e9e9, #38e0ee, #29b1eb);
+        text{
+            color: #29b1eb;
+        }
+    }
+    &.low{
+        background-image: linear-gradient(#e9e9e9, #b2b9cd, #a2aabe);
+        text{
+            color: #a2aabe;
+        }
+    }
+    &.up{
+        background-image: linear-gradient(#e9e9e9, #ff5656, #ff3a3a);
+        text{
+            color: #ff3a3a;
+        }
+    }
+}
+.con{
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+    width: 410rpx;
+    height: 410rpx;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.num{
+    margin-top: 100rpx;
+    font-size: 166rpx;
+    line-height: 140rpx;
+}
+.unit{
+    margin-top: 10rpx;
+    font-size: 22rpx;
+}
+.time{
+    @extend %pa;
+    @extend %r0;
+    @extend %l0;
+    @extend %tac;
+    @extend %fwb;
+    bottom: 88rpx;
+    font-size: 30rpx;
+}
+.prompt{
+    @extend %pa;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+    @extend %jcc;
+    @extend %aic;
+    background-color: #fff;
+    height: 88rpx;
+}
+.prompt-text{
+    @extend %db;
+    font-size: 30rpx;
+    color: #29aeeb;
+}
+.prompt-text-strong{
+    @extend %fwb;
+    margin-left: 5rpx;
+}
+
+/*计划*/
+.plan{
+    @extend %pr;
+    @extend %bsb;
+    height: 500rpx;
+    padding-top: 64rpx;
+}
+.plan-bg{
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    @extend %w100;
+    @extend %h100;
+}
+.plan-top{
+    @extend %pr;
+    @extend %df;
+    @extend %aic;
+    justify-content: space-between;
+    padding: 30rpx 60rpx 0;
+}
+.plan-button{
+    @extend %df;
+    @extend %aic;
+}
+.plan-button-icon{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+.plan-button-text{
+    font-size: 36rpx;
+    color: #fff;
+}
+.plan-add{
+    @extend %pa;
+    @extend %t0;
+    @extend %l50;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin-left: -64rpx;
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+}
+.plan-inner{
+    @extend %pr;
+    @extend %bsb;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: 202rpx;
+    margin: 118rpx 32rpx 0;
+    border: 1px solid #fff;
+    border-radius: 30rpx;
+}
+.plan-title{
+    @extend %pa;
+    @extend %l50;
+    @extend %r0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: 40rpx;
+    top: -20rpx;
+    width: 306rpx;
+    margin-left: -153rpx;
+    background-color: #28aeeb;
+}
+.plan-title-icon{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+.plan-title-text{
+    color: #fff;
+    font-size: 30rpx;
+}
+.plan-con{
+    @extend %w100;
+    //@extend %l0;
+    //@extend %r0;
+    @extend %df;
+    //top: 70rpx;
+}
+.plan-item{
+    @extend %df1;
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+}
+.plan-item-check{
+    @extend %pr;
+    @extend %bsb;
+    border: 1rpx solid #fff;
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 50%;
+}
+.plan-item-check-icon{
+    @extend %pa;
+    top: -1rpx;
+    left: -1rpx;
+    width: 44rpx;
+    height: 44rpx;
+}
+.plan-item-text{
+    font-size: 30rpx;
+    color: #fff;
+    margin-top: 20rpx;
+}

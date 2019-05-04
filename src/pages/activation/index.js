@@ -4,12 +4,12 @@ import './index.scss'
 import './index.wxml'
 
 import Http                         from 'plugins/http.plugin'
-import SourceMixin                  from 'mixins/source.mixin'
 import Router                       from 'plugins/router.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import Valid                        from 'utils/valid.util'
 import InputMixin                   from 'mixins/input.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
 import DataMixin                    from './data.mixin'
 
 const arrSrc = [

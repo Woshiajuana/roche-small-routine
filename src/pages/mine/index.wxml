@@ -1,0 +1,44 @@
+<view>
+    <view class="header">
+        <image class="user-image"
+               src="{{userInfo.avatarUrl}}"></image>
+        <view class="user-info">
+            <text>{{objUser.IsMember ? 'VIP用户' : '普通用户'}}</text>
+            <text class="user-name">{{objUser.Name || userInfo.nickName}}</text>
+        </view>
+    </view>
+    <view class="button"
+          bindtap="handleJump"
+          data-url="mine_introduce_index">
+        <text class="button-text"
+        >{{objUser.IsMember ? '续订' : '升级'}}专业服务</text>
+    </view>
+    <view class="base-info">
+        <view class="base-item">
+            <text class="base-label">登陆天数</text>
+            <text class="base-value">{{objUser.LoginDays}}</text>
+        </view>
+        <view class="base-border"></view>
+        <view class="base-item">
+            <text class="base-label">测糖次数</text>
+            <text class="base-value">{{objUser.TestSugarCount}}</text>
+        </view>
+        <view class="base-border"></view>
+        <view class="base-item">
+            <text class="base-label">周平均血糖</text>
+            <text class="base-value">{{objUser.Bloodsugar}}</text>
+        </view>
+    </view>
+    <view class="entry">
+        <view class="entry-item"
+              bindtap="handleJump"
+              wx:for="{{objView}}"
+              wx:key="item"
+              wx:for-item="item"
+              data-url="{{item.url}}">
+            <text class="entry-label">{{item.label}}</text>
+            <text class="entry-value">{{item.value}}</text>
+            <view class="entry-arrow"></view>
+        </view>
+    </view>
+</view>
