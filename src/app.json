@@ -12,9 +12,9 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#11b9ea",
-        "navigationBarTitleText": "罗氏小程序",
-        "navigationBarTextStyle": "white"
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "360°稳糖管家",
+        "navigationBarTextStyle": "black"
     },
     "permission": {
         "scope.userLocation": {
