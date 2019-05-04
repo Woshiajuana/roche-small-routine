@@ -32,4 +32,7 @@ export default {
     // 首页个人血糖基本信息
     Req_indexSugar: 'RocheApi/GetIndexSugar',
 
+    // 个人中心血糖基本信息
+    Req_mineSugar: 'RocheApi/GetUserSugar',
+
 }

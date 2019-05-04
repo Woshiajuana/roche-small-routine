@@ -4,11 +4,13 @@
         <view class="view-bg"></view>
         <!--用户-->
         <view class="user">
-            <image class="user-image"
-                   src="{{userInfo.avatarUrl}}"></image>
+            <image
+                class="user-image"
+                src="{{user$.avatarUrl}}"
+            ></image>
             <view class="user-info">
                 <text class="user-name user-text"
-                >{{objUser.Name || userInfo.nickName}}</text>
+                >{{objUser.Name || user$.nickName}}</text>
                 <view class="user-prompt">
                     <text class="user-text">360°稳糖管家已守护您</text>
                     <text class="user-text user-strong-text"
@@ -19,17 +21,17 @@
         </view>
         <!--/用户-->
 
-        <!--蓝牙-->
-        <view class="blue-tooth"
-              data-url="bluetooth_index"
-              bindtap="handleJump">
-            <image class="blue-tooth-icon"
-                   mode="aspectFit"
-                   src="../../assets/images/blue-tooth-icon.png"></image>
-            <view class="blue-tooth-bar"></view>
-            <text class="blue-tooth-text">蓝牙连接</text>
-        </view>
-        <!--/蓝牙-->
+        <!--&lt;!&ndash;蓝牙&ndash;&gt;-->
+        <!--<view class="blue-tooth"-->
+              <!--data-url="bluetooth_index"-->
+              <!--bindtap="handleJump">-->
+            <!--<image class="blue-tooth-icon"-->
+                   <!--mode="aspectFit"-->
+                   <!--src="../../assets/images/blue-tooth-icon.png"></image>-->
+            <!--<view class="blue-tooth-bar"></view>-->
+            <!--<text class="blue-tooth-text">蓝牙连接</text>-->
+        <!--</view>-->
+        <!--&lt;!&ndash;/蓝牙&ndash;&gt;-->
 
         <!--血糖-->
         <view class="main">
@@ -49,15 +51,15 @@
 
         <!--计划-->
         <view class="plan">
-            <image class="plan-bg" src="../../assets/images/home-plan-bg.png"></image>
+            <!--<image class="plan-bg" src="../../assets/images/home-plan-bg.png"></image>-->
             <view class="plan-top">
                 <view class="plan-button"
                       data-params="{{objWeb}}"
                       data-url="consult_index"
                       bindtap="handleJump"
                       wx:if="{{objUser.IsMember && objUser.IsUseCode}}">
-                    <image class="plan-button-icon"
-                           mode="aspectFit" src="../../assets/images/home-icon-zxwz.png"></image>
+                    <!--<image class="plan-button-icon"-->
+                           <!--mode="aspectFit" src="../../assets/images/home-icon-zxwz.png"></image>-->
                     <text class="plan-button-text">在线咨询</text>
                 </view>
                 <view class="plan-button" wx:if="{{!objUser.IsMember}}"></view>
@@ -65,8 +67,8 @@
                       data-params="{{objUser}}"
                       data-url="mine_report_index"
                       bindtap="handleJump">
-                    <image class="plan-button-icon"
-                           mode="aspectFit" src="../../assets/images/home-icon-xtbg.png"></image>
+                    <!--<image class="plan-button-icon"-->
+                           <!--mode="aspectFit" src="../../assets/images/home-icon-xtbg.png"></image>-->
                     <text class="plan-button-text">血糖报告</text>
                 </view>
             </view>
@@ -76,8 +78,8 @@
                   bindtap="handleJump"></view>
             <view class="plan-inner">
                 <view class="plan-title">
-                    <image class="plan-title-icon"
-                           mode="aspectFit" src="../../assets/images/home-icon-jhb.png"></image>
+                    <!--<image class="plan-title-icon"-->
+                           <!--mode="aspectFit" src="../../assets/images/home-icon-jhb.png"></image>-->
                     <text class="plan-title-text">今天的测糖计划</text>
                 </view>
                 <view class="plan-con">
@@ -87,14 +89,14 @@
                           wx:for-index="index"
                           wx:key="item">
                         <view class="plan-item-check">
-                            <image class="plan-item-check-icon"
-                                   wx:for="{{objUser.PlanTimeSteps}}"
-                                   wx:for-item="ite"
-                                   wx:for-index="ind"
-                                   wx:key="ite"
-                                   wx:if="{{ite.TimeStep === index + 1}}"
-                                   mode="aspectFit"
-                                   src="{{ite.IsComplete ? '../../assets/images/home-step-icon-2.png' : '../../assets/images/home-step-icon-1.png'}}"></image>
+                            <!--<image class="plan-item-check-icon"-->
+                                   <!--wx:for="{{objUser.PlanTimeSteps}}"-->
+                                   <!--wx:for-item="ite"-->
+                                   <!--wx:for-index="ind"-->
+                                   <!--wx:key="ite"-->
+                                   <!--wx:if="{{ite.TimeStep === index + 1}}"-->
+                                   <!--mode="aspectFit"-->
+                                   <!--src="{{ite.IsComplete ? '../../assets/images/home-step-icon-2.png' : '../../assets/images/home-step-icon-1.png'}}"></image>-->
                         </view>
                         <text class="plan-item-text">{{item}}</text>
                     </view>
