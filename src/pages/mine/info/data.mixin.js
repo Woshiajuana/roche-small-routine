@@ -1,13 +1,15 @@
+
 export default {
     data: {
-        objInput: {
+        formData: {
             Height: {
                 label: '身高',
                 placeholder: '请输入您的身高',
                 value: '',
+                key: 'formData.Height',
                 type: 'digit',
                 max: 6,
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入您的身高'
@@ -19,9 +21,10 @@ export default {
                 label: '体重',
                 placeholder: '请输入您的体重',
                 value: '',
+                key: 'formData.Weight',
                 type: 'digit',
                 max: 6,
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入您的体重'
@@ -34,8 +37,9 @@ export default {
                 placeholder: '请输入您的手机号',
                 type: 'number',
                 value: '',
+                key: 'formData.Mobile',
                 max: 11,
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入您的手机号'
@@ -47,8 +51,9 @@ export default {
                 placeholder: '请输入验证码',
                 type: 'number',
                 value: '',
+                key: 'formData.SmsCode',
                 max: 6,
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入验证码'
@@ -64,7 +69,8 @@ export default {
                 placeholder: '请输入糖化血红蛋白值',
                 type: 'digit',
                 value: '',
-                use_check: [
+                key: 'formData.RedProtein',
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入糖化血红蛋白值'
@@ -74,6 +80,7 @@ export default {
             LowSugar: {
                 label: '是否有过低血糖',
                 value: 1,
+                key: 'formData.LowSugar',
                 use_radio: [
                     {
                         label: '是',
@@ -89,7 +96,8 @@ export default {
                 label: '姓名',
                 placeholder: '请输入您的姓名',
                 value: '',
-                use_check: [
+                key: 'formData.Name',
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入您的姓名'
@@ -99,6 +107,7 @@ export default {
             Sex: {
                 label: '性别',
                 value: 1,
+                key: 'formData.Sex',
                 use_radio: [
                     {
                         label: '男',
@@ -112,8 +121,9 @@ export default {
             },
             Brithday: {
                 value: '',
+                key: 'formData.Brithday',
                 label: '出生年月',
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入您的出生年月'
@@ -122,6 +132,6 @@ export default {
             },
         },
         start: '1901-01-01',
-        end: formatData('yyyy-MM-dd'),
+        end: '',
     }
 }

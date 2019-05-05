@@ -14,7 +14,7 @@
         <view class="title-wrap">
             <text class="title-text">基本信息</text>
         </view>
-        <block wx:for="{{objInput}}"
+        <block wx:for="{{formData}}"
                wx:for-index="key"
                wx:key="key"
                wx:for-item="item">
@@ -25,13 +25,13 @@
                     <input
                         wx:if="{{!item.use_radio}}"
                         bindinput="bindInput"
-                        data-obj="objInput"
-                        data-key="{{key}}"
+                        data-item="{{item}}"
                         disabled="{{key === 'Mobile' && $params.IsMember && item.value}}"
                         type="{{item.type || 'text'}}"
                         maxlength="{{item.max || 20}}"
                         value="{{item.value}}"
-                        placeholder="{{item.placeholder}}"/>
+                        placeholder="{{item.placeholder}}"
+                    />
                 </view>
                 <text class="from-unit" wx:if="{{item.unit}}">{{item.unit}}</text>
                 <view class="from-radio" wx:if="{{item.use_radio}}">
@@ -41,12 +41,13 @@
                           wx:for-index="index"
                           wx:key="index"
                           bindtap="bindTap"
-                          data-obj="objInput"
-                          data-key="{{key}}"
+                          data-item="{{item}}"
                           data-value="{{radio.value}}">
-                        <image class="from-radio-image"
-                               mode="aspectFit"
-                               src="{{item.value == radio.value ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                        <image
+                            class="from-radio-image"
+                            mode="aspectFit"
+                            src="{{item.value == radio.value ? src$.active : src$.normal}}"
+                        ></image>
                         <text class="from-radio-text">{{radio.label}}</text>
                     </view>
                 </view>
@@ -82,8 +83,9 @@
                 </view>
             </picker>
         </block>
-        <button class="form-button"
-                formType="submit">
+        <button
+            class="form-button"
+            formType="submit">
             <text class="form-button-text">{{$params.from ? '下一步' : '保存'}}</text>
         </button>
     </form>

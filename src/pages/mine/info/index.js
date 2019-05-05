@@ -20,6 +20,8 @@ import DataMixin                    from './data.mixin'
 
 const arrSrc = [
     { key: 'banner', value: 'grzx-header-banner.jpg' },
+    { key: 'normal', value: 'select-nor-icon.png' },
+    { key: 'active', value: 'select-ative-icon.png' },
 ];
 
 Page(Mixin({
