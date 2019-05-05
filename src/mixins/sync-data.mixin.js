@@ -192,8 +192,8 @@ export default {
             return Store.set($BLUE_TOOTH_DATA, data);
         }).then(() => {
             Modal.toast('页面数据传输成功');
-            if (this.data.$params && this.data.$params.from === 'bluetooth_add_index') return Router.pop(3);
-            if (this.data.$params && this.data.$params.from === 'bluetooth_index') return Router.pop();
+            if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index') return Router.pop(3);
+            if (this.data.params$ && this.data.params$.from === 'bluetooth_index') return Router.pop();
             this.initData && this.initData();
         }).catch((err) => {
             Modal.toast(err);

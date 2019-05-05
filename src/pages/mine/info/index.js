@@ -46,7 +46,7 @@ Page(Mixin({
         this.reqUserInfo();
     },
     initData () {
-        let type = !this.data.$params.IsMember;
+        let type = !this.data.params$.IsMember;
         let objInput = {...this.data.objInput};
         if (type) {
             delete objInput.Mobile;
@@ -59,8 +59,8 @@ Page(Mixin({
         if (Valid.check(this.data.objInput)) return;
         let { formId } = e.detail;
         this.doSubWeChatFormId(formId, 'mine_info_index');
-        let from = this.data.$params.from || '';
-        let url = this.data.$params.to || 'mine_report_index';
+        let from = this.data.params$.from || '';
+        let url = this.data.params$.to || 'mine_report_index';
         Http(Http.API.Do_userInfo, data).then((res) => {
             !from && Modal.toast('保存成功');
             setTimeout(() => {

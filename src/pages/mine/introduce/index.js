@@ -29,7 +29,7 @@ Page(Mixin({
         let {
             IsMember,
             IsExpire,
-        } = this.data.$params;
+        } = this.data.params$;
         if (!IsMember)
             return Router.push('questionnaire_one_index', { IsMember: true });
         if (IsExpire)

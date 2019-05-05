@@ -11,12 +11,12 @@
                 src="{{user$.avatarUrl}}"
             ></image>
         </view>
-        <text class="prompt">{{$params.Bloodsugar ? '您的本次血糖值' : '暂无数据'}}</text>
+        <text class="prompt">{{params$.Bloodsugar ? '您的本次血糖值' : '暂无数据'}}</text>
         <view class="num-info">
-            <text class="num-value">{{$params.Bloodsugar ? $params.Bloodsugar : '--'}}</text>
+            <text class="num-value">{{params$.Bloodsugar ? params$.Bloodsugar : '--'}}</text>
             <text class="num-unit">mmol/L</text>
         </view>
-        <text class="conclusion-text">{{glsText[$params.Gls]}}</text>
+        <text class="conclusion-text">{{glsText[params$.Gls]}}</text>
         <progress class="progress" stroke-width="3" percent="{{progress}}" color="#54edf6" active/>
         <text class="text">您本月坚持测糖{{count}}次，完成进度{{progress}}%</text>
     </view>

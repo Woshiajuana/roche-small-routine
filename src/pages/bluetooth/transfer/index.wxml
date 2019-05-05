@@ -1,9 +1,9 @@
 <view>
     <view class="header">
-        <text>{{$params ? '传输已完成' : '暂无数据'}}</text>
+        <text>{{params$ ? '传输已完成' : '暂无数据'}}</text>
     </view>
     <view class="session"
-          wx:for="{{$params}}"
+          wx:for="{{params$}}"
           wx:for-item="item"
           wx:for-index="index"
           wx:key="index">

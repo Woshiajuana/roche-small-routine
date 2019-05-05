@@ -3,19 +3,29 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
-import Http                     from 'plugins/http.plugin'
-import Toast                    from 'plugins/toast.plugin'
-import Router                   from 'plugins/router.plugin'
-import Handle                   from 'mixins/mixin.handle'
-import ShareMixin               from 'mixins/share.mixin'
-import { getDate }              from 'wow-cool/lib/date.lib'
+import Http                         from 'plugins/http.plugin'
+import Router                       from 'plugins/router.plugin'
+import SourceMixin                  from 'mixins/source.mixin'
+import Mixin                        from 'utils/mixin.util'
+import ShareMixin                   from 'mixins/share.mixin'
+import UserMixin                    from 'mixins/user.mixin'
+import { getDate }                  from 'wow-cool/lib/date.lib'
 import {
     ARR_TIME_STEP,
     DAY_TEXT
-}                               from 'config/base.config'
+}                                   from 'config/base.config'
 
-Page(Handle({
-    mixins: [ShareMixin],
+const arrSrc = [
+    { key: 'bg', value: 'plan-bg.jpg' },
+    { key: 'icon', value: 'plan-active-icon.png' },
+];
+
+Page(Mixin({
+    mixins: [
+        ShareMixin,
+        SourceMixin,
+        UserMixin,
+    ],
     data: {
         arrTimeStep: ARR_TIME_STEP,
         result: '',
@@ -23,28 +33,57 @@ Page(Handle({
         desc1: '',
         desc2: '',
         dayTime: [],
-        dayText: DAY_TEXT,
+        dayText: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     },
-    onLoad(){
+    onLoad () {
+        // 获取用户信息
+        this.userGet();
+        // 显示面板
         wx.showShareMenu();
-    },
-    onShow () {
+        // 获取图片资源
+        this.sourceGet(arrSrc);
+        // 初始化数据
         this.initData();
-        this.getRecommendSugar();
+        // 获取血糖计划
+        this.reqRecommendSugar();
     },
-    getRecommendSugar () {
+    initData (arr) {
+        if (arr) {
+            arr.forEach((item) => {
+                let { Day, TimeStep } = item;
+                this.data.dayTime.forEach((it, ind) => {
+                    if (Day === 7) Day = 0;
+                    if (it[0] === Day) {
+                        let sItem = `dayTime[${TimeStep - 1}][${ind}]`;
+                        this.setData({[sItem]: 1});
+                    }
+                });
+            });
+            return;
+        }
+        let result = [];
+        for(let x = 0; x < 7; x++){
+            result[x] = [];
+            for(let y = 0; y < 8; y++){
+                if (y === 0) {
+                    result[x][y] = x % 7;
+                } else {
+                    result[x][y] = 0;
+                }
+            }
+        }
+        this.setData({
+            dayTime: result
+        });
+    },
+    reqRecommendSugar () {
         let Stime = getDate(0, 'yyyy-MM-dd');
         let Etime = getDate(6, 'yyyy-MM-dd');
-        let options = {
-            url: 'RocheApi/GetRecommendSugar',
-            loading: true,
-            data: {
-                Stime,
-                Etime,
-                Type: 1,
-            }
-        };
-        return Http(options).then((res) => {
+        return Http(Http.API.Req_recommendSugar, {
+            Stime,
+            Etime,
+            Type: 1,
+        }).then((res) => {
             let { DayCount, Desc, Steps } = res;
             let desc1 = '';
             let desc2 = '';
@@ -59,50 +98,10 @@ Page(Handle({
                 desc2,
             });
             this.initData(Steps)
-        }).catch((err) => {
-            Toast.error(err);
-        });
+        }).toast();
     },
-    initData (arr) {
-        // let dayText = [];
-        // for (let i = 0; i < 7; i++) {
-        //     let cur = new Date();
-        //     dayText.push(new Date(cur.setDate(cur.getDate() + i)).getDay())
-        // }
-        if (arr) {
-            arr.forEach((item) => {
-                let { Day, TimeStep } = item;
-                this.data.dayTime.forEach((it, ind) => {
-                    if (Day === 7) Day = 0;
-                    if (it[0] === Day) {
-                        let sItem = `dayTime[${ind}][${TimeStep}]`;
-                        this.setData({
-                            [sItem]: 1,
-                        });
-                    }
-                });
-            });
-            return;
-        }
-        let result = [];
-        for(let x = 0; x < 7; x++){
-            result[x] = [];
-            for(let y = 0; y < 8; y++){
-                if (y === 0) {
-                    // result[x][y] = dayText[x];
-                    result[x][y] = (x+1) % 7;
-                } else {
-                    result[x][y] = 0;
-                }
-            }
-        }
-        this.setData({
-            dayTime: result
-        });
-    },
-    handleJump(e) {
-        let { currentTarget } = e;
-        let url = currentTarget.dataset.url;
-        if (url) Router.push(url, {form: 'mine_programme_index'}, true);
+    // 立即开始测糖
+    handleJump () {
+        Router.root('home_index');
     }
 }));

@@ -28,13 +28,13 @@ Page(Mixin({
     data: {
         arrTimeStep: ARR_TIME_STEP,
         glsText: GLS_TEXT,
-        $params: ''
+        params$: ''
     },
     onLoad() {
         this.userGet();
-        Store.get($BLUE_TOOTH_DATA).then(($params) => {
-            console.log($params)
-            this.setData({$params})
+        Store.get($BLUE_TOOTH_DATA).then((params$) => {
+            console.log(params$)
+            this.setData({params$})
         }).catch((err) => {
             console.log(err)
         })

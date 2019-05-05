@@ -1,19 +1,27 @@
-<view>
+<view class="wrap">
+    <image
+        class="image"
+        mode="widthFix"
+        src="{{src$.bg}}"
+    ></image>
     <view class="header">
-        <text class="header-title">您的专属控糖方案</text>
+        <image class="avatar" src="{{user$.avatarUrl}}"></image>
+        <text>坚持30天养成测糖好习惯</text>
     </view>
     <view class="prompt">
-        <text class="prompt-text">以下是推荐给您的专属控糖方案</text>
         <text class="prompt-time">{{desc1}}</text>
         <text class="prompt-text">{{desc2}}</text>
     </view>
     <view class="table">
+        <view class="thead">
+            <text>您的专属测糖周计划</text>
+        </view>
         <view class="tr">
-            <view class="td td-0-0"><text class="text">本周</text></view>
+            <view class="td td-0-0">
+                <text class="text">本周</text>
+            </view>
             <view class="td td-0-1"
-                  wx:for="{{arrTimeStep}}"
-                  wx:for-item="item"
-                  wx:for-index="index"
+                  wx:for="{{dayText}}"
                   wx:key="item"
             ><text class="text">{{item}}</text></view>
         </view>
@@ -27,15 +35,21 @@
                   wx:for-item="ite"
                   wx:for-index="ind"
                   wx:key="ite">
-                <text class="text">{{dayText[ite]}}</text>
-                <view class="status"><view class="status-spot"></view></view>
+                <text class="text">{{arrTimeStep[ite]}}</text>
+                <image
+                    class="icon"
+                    wx:if="{{ind !== 0 && ite === 1}}"
+                    src="{{src$.icon}}"
+                ></image>
+                <view class="status" wx:else></view>
             </view>
         </view>
-        <text class="table-prompt">*您也可以根据您的时间，调整测糖日，如改为每周二四六测糖</text>
     </view>
-    <view class="button"
-          data-url="questionnaire_two_index"
-          bindtap="handleJump">
-        <text class="button-text">更新控糖方案</text>
-    </view>
+    <text class="table-prompt">*您也可以根据您的时间，调整测糖日,</text>
+    <text class="table-prompt">如改为每周二四六测糖</text>
+    <button
+        class="g-button button"
+        bindtap="handleJump"
+    >立即开始测糖
+    </button>
 </view>

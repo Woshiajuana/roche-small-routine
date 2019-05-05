@@ -26,7 +26,7 @@
                         wx:if="{{!item.use_radio}}"
                         bindinput="bindInput"
                         data-item="{{item}}"
-                        disabled="{{key === 'Mobile' && $params.IsMember && item.value}}"
+                        disabled="{{key === 'Mobile' && params$.IsMember && item.value}}"
                         type="{{item.type || 'text'}}"
                         maxlength="{{item.max || 20}}"
                         value="{{item.value}}"
@@ -86,7 +86,7 @@
         <button
             class="form-button"
             formType="submit">
-            <text class="form-button-text">{{$params.from ? '下一步' : '保存'}}</text>
+            <text class="form-button-text">{{params$.from ? '下一步' : '保存'}}</text>
         </button>
     </form>
 </view>
