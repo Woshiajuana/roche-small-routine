@@ -38,7 +38,7 @@ Page(Mixin({
     judgeUserStatus () {
         Auth.getToken().then(() => {
             let { to, params } = this.data;
-            to ? Router.push(to) : Router.push('home_index');
+            // to ? Router.push(to) : Router.push('home_index');
         }).catch(() => {
             this.setData({ loading: false });
         });
