@@ -1,0 +1,90 @@
+<view>
+    <view class="banner">
+        <image
+            class="banner-image"
+            src="{{src.banner}}"
+            mode="aspectFit"
+        ></image>
+        <text class="prompt-text">为了提供精准报告</text>
+        <text class="prompt-text">请完善以下个人信息</text>
+    </view>
+    <form class="from-wrap"
+          bindsubmit="handleSubmit"
+          report-submit>
+        <view class="title-wrap">
+            <text class="title-text">基本信息</text>
+        </view>
+        <block wx:for="{{objInput}}"
+               wx:for-index="key"
+               wx:key="key"
+               wx:for-item="item">
+            <view class="from-item {{(item.unit || item.use_code) && 'from-no-value'}}"
+                  wx:if="{{key !== 'Brithday'}}">
+                <label class="from-label">{{item.label}}</label>
+                <view class="from-value">
+                    <input
+                        wx:if="{{!item.use_radio}}"
+                        bindinput="bindInput"
+                        data-obj="objInput"
+                        data-key="{{key}}"
+                        disabled="{{key === 'Mobile' && $params.IsMember && item.value}}"
+                        type="{{item.type || 'text'}}"
+                        maxlength="{{item.max || 20}}"
+                        value="{{item.value}}"
+                        placeholder="{{item.placeholder}}"/>
+                </view>
+                <text class="from-unit" wx:if="{{item.unit}}">{{item.unit}}</text>
+                <view class="from-radio" wx:if="{{item.use_radio}}">
+                    <view class="from-radio-item"
+                          wx:for="{{item.use_radio}}"
+                          wx:for-item="radio"
+                          wx:for-index="index"
+                          wx:key="index"
+                          bindtap="bindTap"
+                          data-obj="objInput"
+                          data-key="{{key}}"
+                          data-value="{{radio.value}}">
+                        <image class="from-radio-image"
+                               mode="aspectFit"
+                               src="{{item.value == radio.value ? '../../../assets/images/select-ative-icon.png' : '../../../assets/images/select-nor-icon.png'}}"></image>
+                        <text class="from-radio-text">{{radio.label}}</text>
+                    </view>
+                </view>
+                <view class="from-code"
+                      bindtap="handleCode"
+                      data-tel="{{item.use_code.tel}}"
+                      data-count="{{item.use_code.count}}"
+                      hidden="{{!(item.use_code && count === 0)}}">
+                    <text>获取验证码</text>
+                </view>
+                <view class="from-code from-code-disabled"
+                      hidden="{{!(item.use_code && count !== 0)}}">
+                    <text>{{count}}s</text>
+                </view>
+            </view>
+            <picker
+                wx:if="{{key === 'Brithday'}}"
+                bindchange="bindChange"
+                data-obj="objInput"
+                data-key="{{key}}"
+                mode="date"
+                end="{{end}}">
+                <view class="from-item">
+                    <label class="from-label">出生年月</label>
+                    <view class="from-value">
+                        <input
+                            type="text"
+                            value="{{item.value}}"
+                            disabled
+                            placeholder="{{item.placeholder}}"/>
+                    </view>
+                    <view class="arrow"></view>
+                </view>
+            </picker>
+        </block>
+        <button class="form-button"
+                formType="submit">
+            <text class="form-button-text">{{$params.from ? '下一步' : '保存'}}</text>
+        </button>
+    </form>
+</view>

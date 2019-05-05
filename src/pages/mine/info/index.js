@@ -1,0 +1,79 @@
+//index.js
+import './index.json'
+import './index.scss'
+import './index.wxml'
+
+import Modal                        from 'plugins/modal.plugin'
+import Router                       from 'plugins/router.plugin'
+import Mixin                        from 'utils/mixin.util'
+import SourceMixin                  from 'mixins/source.mixin'
+import InputMixin                   from 'mixins/input.mixin'
+import UserMixin                    from 'mixins/user.mixin'
+import CodeMixin                    from 'mixins/code.mixin'
+import FormIdMixin                  from 'mixins/formid.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
+import Http                         from 'plugins/http.plugin'
+import DateUtil                     from 'utils/date.util'
+import Valid                        from 'utils/valid.util'
+import { formatData }               from 'wow-cool/lib/date.lib'
+import DataMixin                    from './data.mixin'
+
+const arrSrc = [
+    { key: 'banner', value: 'grzx-header-banner.jpg' },
+];
+
+Page(Mixin({
+    mixins: [
+        DataMixin,
+        InputMixin,
+        UserMixin,
+        RouterMixin,
+        CodeMixin,
+        FormIdMixin,
+        SourceMixin,
+    ],
+    onLoad (options) {
+        // 获取资源
+        this.sourceGet(arrSrc);
+        this.setData({ end: formatData('yyyy-MM-dd') });
+        // 获取页面参数
+        this.routerGetParams(options);
+        // 初始化参数数据
+        this.initData();
+        // 获取用户数据信息
+        this.reqUserInfo();
+    },
+    initData () {
+        let type = !this.data.$params.IsMember;
+        let objInput = {...this.data.objInput};
+        if (type) {
+            delete objInput.Mobile;
+            delete objInput.SmsCode;
+        }
+        this.setData({ objInput })
+    },
+    // 提交下一步
+    handleSubmit (e) {
+        if (Valid.check(this.data.objInput)) return;
+        let { formId } = e.detail;
+        this.doSubWeChatFormId(formId, 'mine_info_index');
+        let from = this.data.$params.from || '';
+        let url = this.data.$params.to || 'mine_report_index';
+        Http(Http.API.Do_userInfo, data).then((res) => {
+            !from && Modal.toast('保存成功');
+            setTimeout(() => {
+                from ? Router.push(url, {}, true) : Router.pop();
+            }, 1000);
+        }).toast();
+    },
+    // 获取用户数据
+    reqUserInfo () {
+        let { formData } = this.data;
+        Http(Http.API.Do_userInfo).then((res) => {
+            if (res.Brithday)
+                res.Brithday = DateUtil.formatTime(res.Brithday);
+            Valid.assignment(this, res, formData);
+            console.log(this.data.formData)
+        }).toast();
+    },
+}));

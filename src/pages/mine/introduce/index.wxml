@@ -1,0 +1,17 @@
+<view>
+
+    <view class="inner">
+        <image src="{{src.bg}}"></image>
+    </view>
+    <view class="footer">
+        <view class="footer-button color"
+              bindtap="handleJump">
+            <text class="footer-button-text">我有激活码</text>
+        </view>
+        <view class="footer-button"
+              bindtap="handleJumpApp">
+            <text class="footer-button-text">{{$params.IsMember ? '续订购买' : '升级购买'}}</text>
+        </view>
+    </view>
+    <text class="prompt">仅提供健康咨询或者健康建议，不属于诊疗活动</text>
+</view>
