@@ -40,4 +40,8 @@ export default {
     // 记录血糖，提交血糖记录
     Do_subTestSugar: 'RocheApi/SetTestSugar',
 
+    // 获取血糖记录
+    Req_testMonth: 'RocheApi/GetTestMonth',
+
+
 }

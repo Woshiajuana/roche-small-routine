@@ -1,5 +1,6 @@
 module.exports = {
     "activation_index": "/pages/activation/index",
+    "consult_index": "/pages/consult/index",
     "home_index": "/pages/home/index",
     "login_index": "/pages/login/index",
     "mine_index": "/pages/mine/index",
@@ -8,5 +9,7 @@ module.exports = {
     "questionnaire_answertwo_index": "/pages/questionnaire/answertwo/index",
     "questionnaire_info_index": "/pages/questionnaire/info/index",
     "questionnaire_programme_index": "/pages/questionnaire/programme/index",
-    "record_index": "/pages/record/index"
+    "record_index": "/pages/record/index",
+    "result_index": "/pages/result/index",
+    "web_index": "/pages/web/index"
 }

@@ -3,13 +3,13 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
-import Http                     from 'plugins/http.plugin'
-import Toast                    from 'plugins/toast.plugin'
-import Router                   from 'plugins/router.plugin'
-import Handle                   from 'mixins/mixin.handle'
-import RouterMixin              from 'mixins/router.mixin'
-import UserMixin                from 'mixins/user.mixin'
-import Calendar, {getMonthDay}  from 'utils/calendar.util'
+import Http                         from 'plugins/http.plugin'
+import Router                       from 'plugins/router.plugin'
+import RouterMixin                  from 'mixins/router.mixin'
+import UserMixin                    from 'mixins/user.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
+import Mixin                        from 'utils/mixin.util'
+import Calendar, {getMonthDay}      from 'utils/calendar.util'
 import {
     ARR_TIME_STEP,
     DAY_TEXT,
@@ -17,12 +17,15 @@ import {
     WEB_LINK,
 }                               from 'config/base.config'
 
-const app = getApp();
+const arrSrc = [
+    { key: 'bg', value: 'jgym-header-bg.jpg' },
+];
 
-Page(Handle({
+Page(Mixin({
     mixins: [
         RouterMixin,
         UserMixin,
+        SourceMixin,
     ],
     data: {
         glsText: GLS_TEXT,
@@ -36,8 +39,8 @@ Page(Handle({
         count: 0,
     },
     onLoad (options) {
+        this.sourceGet(arrSrc);
         this.userGet();
-        this.setData({ userInfo: app.globalData.userInfo });
         this.routerGetParams(options);
         this.getCalendar();
         this.getTestMonth();
@@ -83,22 +86,14 @@ Page(Handle({
     },
     // 获取血糖记录
     getTestMonth() {
-        let options = {
-            url: 'RocheApi/GetTestMonth',
-            loading: true,
-        };
-        return Http(options).then((res) => {
+        return Http(Http.API.Req_testMonth).then((res) => {
             this.initData(res);
-        }).catch((err) => {
-            Toast.error(err);
-        });
+        }).toast();
     },
     handleJump (e) {
         let { currentTarget } = e;
         let url = currentTarget.dataset.url;
         if (!url) return Router.root('home_index');
         if (url) return Router.root(url);
-        // let {IsMember} = this.data.userInfo;
-        // IsMember ? Router.push('web_index', WEB_LINK.JKZD) : Router.push(url);
     }
 }));

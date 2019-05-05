@@ -1,11 +1,15 @@
 <view>
     <!--头部-->
     <view class="header">
-        <image class="header-bg"
-               src="../../assets/images/jgym-header-bg.jpg"></image>
+        <image
+            class="header-bg"
+            src="{{src$.bg}}">
+        </image>
         <view class="user-head">
-            <image class="user-image"
-                   src="{{userInfo.avatarUrl}}"></image>
+            <image
+                class="user-image"
+                src="{{user$.avatarUrl}}"
+            ></image>
         </view>
         <text class="prompt">{{$params.Bloodsugar ? '您的本次血糖值' : '暂无数据'}}</text>
         <view class="num-info">
