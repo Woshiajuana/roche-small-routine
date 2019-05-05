@@ -1,5 +1,10 @@
 module.exports = {
     "activation_index": "/pages/activation/index",
+    "bluetooth_add_index": "/pages/bluetooth/add/index",
+    "bluetooth_explain_index": "/pages/bluetooth/explain/index",
+    "bluetooth_index": "/pages/bluetooth/index",
+    "bluetooth_synchronization_index": "/pages/bluetooth/synchronization/index",
+    "bluetooth_transfer_index": "/pages/bluetooth/transfer/index",
     "consult_index": "/pages/consult/index",
     "home_index": "/pages/home/index",
     "login_index": "/pages/login/index",

@@ -2,6 +2,11 @@
     "pages": [
         "pages/home/index",
         "pages/activation/index",
+        "pages/bluetooth/add/index",
+        "pages/bluetooth/explain/index",
+        "pages/bluetooth/index",
+        "pages/bluetooth/synchronization/index",
+        "pages/bluetooth/transfer/index",
         "pages/consult/index",
         "pages/login/index",
         "pages/mine/index",

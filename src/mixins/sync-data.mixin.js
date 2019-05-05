@@ -1,21 +1,21 @@
-import SDK, { EVENT_NAME }      from 'services/sdk.services'
-import Loading                  from 'plugins/loading.plugin'
-import Toast                    from 'plugins/toast.plugin'
-import Http                     from 'plugins/http.plugin'
-import { formatData }           from 'wow-cool/lib/date.lib'
-import WowCool                  from 'wow-cool/lib/array.lib'
-import Router                   from 'plugins/router.plugin'
-import Auth                     from 'plugins/auth.plugin'
-import Store                    from 'plugins/store.plugin'
-import Authorize, { SCOPE }     from 'plugins/authorize.plugin'
+import SDK, { EVENT_NAME }          from 'services/sdk.services'
+import Loading                      from 'plugins/loading.plugin'
+import Modal                        from 'plugins/modal.plugin'
+import Http                         from 'plugins/http.plugin'
+import { formatData }               from 'wow-cool/lib/date.lib'
+import WowCool                      from 'wow-cool/lib/array.lib'
+import Router                       from 'plugins/router.plugin'
+import Auth                         from 'plugins/auth.plugin'
+import Store                        from 'plugins/store.plugin'
+import Authorize, { SCOPE }         from 'plugins/authorize.plugin'
 import {
     $BLUE_TOOTH_DEVICE_ID_LIST,
     $BLUE_TOOTH_DATA,
-}                               from 'config/store.config'
+}                                   from 'config/store.config'
 import {
     ARR_TIME_STEP,
     ARR_TIME_STEP_KEY,
-}                               from 'config/base.config'
+}                                   from 'config/base.config'
 
 const EVENT_FUN = {};
 
@@ -36,8 +36,8 @@ export default {
             this.syncData();
         }).catch((err) => {
             let { errCode } = err;
-            if (errCode === -999) return Toast.error('您还未配对过设备，请先去配对设备');
-            Toast.error('同步数据需要地理位置授权哦')
+            if (errCode === -999) return Modal.toast('您还未配对过设备，请先去配对设备');
+            Modal.toast('同步数据需要地理位置授权哦')
         });
     },
     // 同步数据
@@ -45,7 +45,7 @@ export default {
         Loading.showLoading();
         Store.get($BLUE_TOOTH_DEVICE_ID_LIST).then((res) => {
             let blueTooth = res[0];
-            if(!blueTooth) return Toast.error('您还未配对过设备，请先去配对设备');
+            if(!blueTooth) return Modal.toast('您还未配对过设备，请先去配对设备');
             return SDK.syncData(blueTooth.deviceId)
         }).then((res) => {
             Loading.showLoading();
@@ -60,7 +60,7 @@ export default {
     },
     errorHandle ({ errMsg, errCode }) {
         if (errMsg === 'openBluetoothAdapter:fail:ble not available') {
-            Toast.confirm({
+            Modal.confirm({
                 content: '同步数据需要打开蓝牙，请确认手机蓝牙是否已打开？',
             }).then((res) => {
                 let { confirm } = res;
@@ -68,17 +68,17 @@ export default {
             });
             return;
         }
-        if (errCode === 10000) return Toast.error('未初始化蓝牙适配器');
-        if (errCode === 10001) return Toast.error('当前蓝牙适配器不可用');
-        if (errCode === 10002) return Toast.error('没有找到指定设备');
-        if (errCode === 10003) return Toast.error('连接失败');
-        if (errCode === 10004) return Toast.error('没有找到指定服务');
-        if (errCode === 10005) return Toast.error('没有找到指定特征值');
-        if (errCode === 10006) return Toast.error('当前连接已断开');
-        if (errCode === 10007) return Toast.error('当前特征值不支持此操作');
-        if (errCode === 10008) return Toast.error('其余所有系统上报的异常');
-        if (errCode === 10009) return Toast.error('您的手机不支持设备');
-        if (errCode === 10012) return Toast.error('连接超时，请重新再试');
+        if (errCode === 10000) return Modal.toast('未初始化蓝牙适配器');
+        if (errCode === 10001) return Modal.toast('当前蓝牙适配器不可用');
+        if (errCode === 10002) return Modal.toast('没有找到指定设备');
+        if (errCode === 10003) return Modal.toast('连接失败');
+        if (errCode === 10004) return Modal.toast('没有找到指定服务');
+        if (errCode === 10005) return Modal.toast('没有找到指定特征值');
+        if (errCode === 10006) return Modal.toast('当前连接已断开');
+        if (errCode === 10007) return Modal.toast('当前特征值不支持此操作');
+        if (errCode === 10008) return Modal.toast('其余所有系统上报的异常');
+        if (errCode === 10009) return Modal.toast('您的手机不支持设备');
+        if (errCode === 10012) return Modal.toast('连接超时，请重新再试');
     },
     // 监听事件
     monitorEvent () {
@@ -91,7 +91,7 @@ export default {
     },
     // 错误事件
     onErrorHandle (e) {
-        Toast.error(e);
+        Modal.toast(e);
         Loading.hideLoading();
         console.log('错误事件', e);
         this.destroyEvent();
@@ -191,12 +191,12 @@ export default {
             });
             return Store.set($BLUE_TOOTH_DATA, data);
         }).then(() => {
-            Toast.error('页面数据传输成功');
+            Modal.toast('页面数据传输成功');
             if (this.data.$params && this.data.$params.from === 'bluetooth_add_index') return Router.pop(3);
             if (this.data.$params && this.data.$params.from === 'bluetooth_index') return Router.pop();
             this.initData && this.initData();
         }).catch((err) => {
-            Toast.error(err);
+            Modal.toast(err);
         }).finally(() => {
             this.setData({
                 infoList: [],
