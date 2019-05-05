@@ -1,0 +1,270 @@
+@import '../../assets/scss/define';
+/*头部*/
+.header{
+    @extend %df;
+    @extend %aic;
+    height: j(328);
+    padding: 0 j(61);
+    background: linear-gradient(#63f4f9, #29adeb);
+}
+.button{
+    width: j(81);
+    height: j(81);
+}
+.num-wrap{
+    @extend %df;
+    @extend %df1;
+    @extend %fdc;
+    @extend %aic;
+}
+.num-label{
+    font-size: j(30);
+    color: #e2f6fc;
+}
+.num-value{
+    font-size: j(166);
+    color: #fff;
+    line-height: j(140);
+    margin: j(20);
+}
+.num-unit{
+    font-size: j(26);
+    color: #fff;
+}
+
+/*标尺*/
+.ruler{
+    @extend %w100;
+    @extend %pr;
+    @extend %bsb;
+    height: 110rpx;
+    background-color: #fff;
+    white-space: nowrap;
+}
+.rule-type{
+    @extend %pa;
+    @extend %t50;
+    @extend %l50;
+    width: 150rpx;
+    height: 100rpx;
+    margin-top: -50rpx;
+    margin-left: -72rpx;
+}
+.rule-inner{
+    @extend %dib;
+    @extend %h100;
+}
+.rule-item{
+    @extend %pr;
+    @extend %dib;
+    @extend %bsb;
+    width: 25rpx;
+    height: 21rpx;
+    &.rule-item-value{
+        .rule-item-sign{
+            height: 21rpx;
+        }
+    }
+    &:last-child{
+        width: 1rpx;
+    }
+}
+.rule-null-item{
+    @extend %dib;
+    width: 50%;
+    height: 21rpx;
+}
+.rule-item-sign{
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    height: 13rpx;
+    width: 1px;
+    background-color: #28aeed;
+}
+
+.rule-item-value-text{
+    @extend %pa;
+    @extend %l0;
+    font-size: 26rpx;
+    color: #28aeed;
+    top: 30rpx;
+    margin-left: 1rpx;
+    transform: translate3d(-50%, 0, 0);
+}
+
+/*时间*/
+.time{
+    @extend %w100;
+    @extend %bsb;
+    height: 157rpx;
+    background-color: #29aeeb;
+    white-space: nowrap;
+    .time-item:last-child,
+    .time-item:first-child{
+        margin-left: 30rpx;
+    }
+}
+.time-item{
+    @extend %bsb;
+    @extend %pr;
+    @extend %h100;
+    @extend %dib;
+    margin-right: 65rpx;
+    padding-top: 42rpx;
+}
+.time-item-active{
+    padding-top: 46rpx;
+    .time-item-bar,
+    .time-item-type{
+        @extend %db;
+    }
+    .time-item-text{
+        @extend %fwb;
+        font-size: 36rpx;
+    }
+}
+.time-item-text{
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 45rpx;
+    height: 45rpx;
+}
+.time-item-bar{
+    @extend %dn;
+    @extend %w100;
+    height: 1px;
+    background-color: #fff;
+    margin-top: 10rpx;
+}
+.time-item-type{
+    @extend %dn;
+    @extend %pa;
+    @extend %l50;
+    @extend %b0;
+    margin-left: -23rpx;
+    width: 0;
+    height: 0;
+    border-top: 23rpx solid rgba(0,0,0,0);
+    border-right: 23rpx solid rgba(0,0,0,0);
+    border-bottom: 23rpx solid #fff;
+    border-left: 23rpx solid rgba(0,0,0,0);
+}
+
+// 表单
+.form{
+
+}
+.input-item{
+    @extend %df;
+    @extend %aic;
+    @extend %bsb;
+    height: 98rpx;
+    border-bottom: 1px solid #efeff4;
+}
+.input-label{
+    @extend %db;
+    padding-left: 60rpx;
+    margin-right: 20rpx;
+    color: #575757;
+    font-size: 36rpx;
+}
+.input-value{
+    @extend %df1;
+    height: 50rpx;
+    input{
+        @extend %tar;
+        @extend %db;
+        @extend %w100;
+        @extend %h100;
+        @extend %bsb;
+        padding-right: 60rpx;
+        font-size: 36rpx;
+        color: #969696;
+    }
+}
+.form-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: 42rpx 60rpx 80rpx;
+    height: 80rpx;
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    border-radius: 40rpx;
+}
+.form-button-text{
+    color: #fff;
+    font-size: 36rpx;
+}
+.input-placeholder{
+    color: #999;
+    font-size: 32rpx;
+}
+
+// 弹窗
+.pop-wrap{
+    @extend %pf;
+    @extend %t0;
+    @extend %r0;
+    @extend %l0;
+    @extend %b0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 99;
+}
+.pop-inner{
+    @extend %pr;
+    @extend %bsb;
+    padding-top: 50rpx;
+    width: 670rpx;
+    height: 476rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+}
+.pop-header{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    image{
+        width: 62rpx;
+        height: 62rpx;
+        margin-right: 10rpx;
+    }
+    text{
+        font-size: 48rpx;
+        color: #28aeeb;
+    }
+}
+.pop-con{
+    margin-top: 40rpx;
+    line-height: 1.2;
+    padding: 0 55rpx;
+    text{
+        font-size: 26rpx;
+        color: #555;
+    }
+}
+.pop-footer{
+    @extend %df;
+    justify-content: space-between;
+    padding: 50rpx 20rpx 0;
+}
+.pop-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    width: 280rpx;
+    height: 68rpx;
+    border-radius: 34rpx;
+    background-image: linear-gradient(to right, #3bddf2, #2cbdf0);
+    &.color{
+        background-image: none;
+        background-color: #1e3666;
+    }
+    text{
+        font-size: 30rpx;
+        color: #fff;
+    }
+}

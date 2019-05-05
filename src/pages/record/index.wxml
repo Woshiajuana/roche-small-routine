@@ -1,0 +1,154 @@
+<view>
+    <!--头部-->
+    <view class="header">
+        <image class="button"
+               mode="aspectFit"
+               data-type="0"
+               bindtap="handleAddOrSub"
+               src="../../assets/images/jrxt-j-icon.png"></image>
+        <view class="num-wrap">
+            <text class="num-label">输入当前血糖值</text>
+            <text class="num-value">{{objHidden.Bloodsugar.value}}</text>
+            <text class="num-unit">mmol/L</text>
+        </view>
+        <image class="button"
+               mode="aspectFit"
+               data-type="1"
+               bindtap="handleAddOrSub"
+               src="../../assets/images/jrxt-jf-icon.png"></image>
+    </view>
+    <!--/头部-->
+    <!--标尺-->
+    <view class="ruler">
+        <scroll-view
+            scroll-x
+            scroll-left="{{scrollLeft}}"
+            class="ruler"
+            bindscroll="handleScroll">
+            <view class="rule-null-item"></view>
+            <view class="rule-inner">
+                <view class="rule-item {{item % 5 === 0 && 'rule-item-value'}}"
+                      wx:for="{{arrRuler}}"
+                      wx:for-item="item"
+                      wx:for-index="key"
+                      wx:key="key">
+                    <view class="rule-item-sign"></view>
+                    <text wx:if="{{item % 5 === 0}}" class="rule-item-value-text">{{(item / 5)}}</text>
+                </view>
+            </view>
+            <view class="rule-null-item"></view>
+        </scroll-view>
+        <image class="rule-type"
+               mode="aspectFit"
+               data-type="1"
+               src="../../assets/images/rule-type-icon2.png"></image>
+    </view>
+    <!--/标尺-->
+    <!--时间-->
+    <scroll-view
+        scroll-left="{{timeScrollLeft}}"
+        scroll-x
+        class="time">
+        <view class="time-item {{timeStep === item && 'time-item-active'}}"
+              bindtap="handleTimeStep"
+              data-value="{{item}}"
+              wx:for="{{arrTimeStep}}"
+              wx:for-item="item"
+              wx:for-index="key"
+              wx:key="key">
+            <text class="time-item-text">{{item}}</text>
+            <view class="time-item-bar"></view>
+            <view class="time-item-type"></view>
+        </view>
+    </scroll-view>
+    <!--/时间-->
+    <!--表单-->
+    <form bindsubmit="handleSubmit"
+          class="form"
+          report-submit>
+        <input type="text" hidden value="{{objHidden.Bloodsugar.value}}" name="Bloodsugar"/>
+        <input type="text" hidden value="{{timeStep}}" name="TimeStep"/>
+        <block wx:for="{{objInput}}"
+               wx:for-index="key"
+               wx:for-item="item"
+               wx:key="key">
+            <view class="input-item"
+                  wx:if="{{!item.mode}}">
+                <label class="input-label">{{item.label}}</label>
+                <view class="input-value">
+                    <input
+                        name="{{key}}"
+                        type="{{item.type || 'text'}}"
+                        bindinput="bindInput"
+                        data-obj="objInput"
+                        data-key="{{key}}"
+                        value="{{item.value}}"
+                        placeholder="{{item.placeholder}}"/>
+                </view>
+            </view>
+            <picker
+                wx:if="{{item.mode === 'date'}}"
+                bindchange="handleDateChange"
+                data-obj="objInput"
+                data-key="{{key}}"
+                mode="{{item.mode}}"
+                end="{{item.end}}"
+                start="{{item.start}}">
+                <view class="input-item">
+                    <label class="input-label">{{item.label}}</label>
+                    <view class="input-value">
+                        <input
+                            type="text"
+                            disabled
+                            name="{{key}}"
+                            value="{{item.value}}"
+                            placeholder="{{item.placeholder}}"/>
+                    </view>
+                </view>
+            </picker>
+            <picker
+                wx:if="{{item.mode === 'time'}}"
+                bindchange="bindChange"
+                data-obj="objInput"
+                data-key="{{key}}"
+                mode="{{item.mode}}"
+                end="{{item.end}}"
+                start="{{item.start}}">
+                <view class="input-item">
+                    <label class="input-label">{{item.label}}</label>
+                    <view class="input-value">
+                        <input
+                            type="text"
+                            disabled
+                            name="{{key}}"
+                            value="{{item.value}}"
+                            placeholder="{{item.placeholder}}"/>
+                    </view>
+                </view>
+            </picker>
+        </block>
+        <!--<button>Submit</button>-->
+        <button class="form-button"
+                formType="submit">
+            <text class="form-button-text">保存</text>
+        </button>
+    </form>
+    <!--/表单-->
+    <!--弹窗-->
+    <view class="pop-wrap" hidden="{{!is_pop}}">
+        <view class="pop-inner">
+            <view class="pop-header">
+                <image src="../../assets/images/jlxt-pop-icon.png"></image>
+                <text>记录血糖数值</text>
+            </view>
+            <view class="pop-con">
+                <text>您今日已有相同监测点的血糖记录了，如需更新请点击确认，若要修改监测点请点击返回。</text>
+            </view>
+            <view class="pop-footer">
+                <button class="pop-button color" bindtap="handleClose"><text>返回</text></button>
+                <button class="pop-button" bindtap="setTestSugar"><text>确认</text></button>
+            </view>
+        </view>
+    </view>
+    <!--/弹窗-->
+</view>

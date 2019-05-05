@@ -19,7 +19,6 @@ export default {
 
     // 提交设置form id
     Do_subWeChatFormId: 'WechatApi/SetWechatFormId',
-
     // 保存用户建档信息
     Do_setArchives: 'RocheApi/SetArchives',
 
@@ -34,5 +33,11 @@ export default {
 
     // 个人中心血糖基本信息
     Req_mineSugar: 'RocheApi/GetUserSugar',
+
+    // 记录血糖，验证是否当前时间段是否有数据
+    Req_testSugar: 'RocheApi/GetTestSugar',
+
+    // 记录血糖，提交血糖记录
+    Do_subTestSugar: 'RocheApi/SetTestSugar',
 
 }
