@@ -1,0 +1,136 @@
+@import '../../../assets/scss/define';
+/*头部*/
+.header{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: 268rpx;
+    background: linear-gradient( #24a3da , #52c6dd);
+}
+.header-title{
+    font-size: 60rpx;
+    color: #fff;
+}
+
+.prompt{
+    @extend %df;
+    @extend %aic;
+    @extend %bsb;
+    @extend %fdc;
+    @extend %jcc;
+    padding: 20rpx 30rpx;
+    text{
+        color: #28aeeb;
+    }
+}
+.prompt-text{
+    font-size: 22rpx;
+}
+.prompt-time{
+    @extend %fwb;
+    font-size: 36rpx;
+    margin: 10rpx 0;
+}
+
+.table{
+    border-top: 1rpx solid #ebebeb;
+}
+.tr{
+    @extend %df;
+    @extend %aic;
+    @extend %bsb;
+    height: 65rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    &:first-child{
+        height: 72rpx;
+    }
+}
+.td{
+    @extend %h100;
+    @extend %df1;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    border-right: 1rpx solid #ebebeb;
+    &:last-child{
+        border-right: none;
+    }
+    &.td-0-0{
+        background-color: #ebebeb;
+        text{
+            @extend %db;
+            @extend %fwb;
+            color: #8c8c8c;
+        }
+    }
+    &.td-0-1{
+        background-color: #28aeeb;
+        text{
+            @extend %db;
+            color: #fff;
+        }
+    }
+    &.td-1-0{
+        font-size: 18rpx;
+        text{
+            @extend %db;
+            color: #28aeeb;
+        }
+        .status{
+            @extend %dn;
+        }
+    }
+    &.td-suc{
+        .status{
+            @extend %pr;
+            width: 15rpx;
+            height: 15rpx;
+            border: 2rpx solid #28aeeb;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        .status-spot{
+            @extend %db;
+        }
+    }
+}
+.text{
+    @extend %dn;
+    font-size: 24rpx;
+}
+.status{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    width: 30rpx;
+    height: 4rpx;
+    background-color: #ebebeb;
+}
+.status-spot{
+    @extend %dn;
+    width: 6rpx;
+    height: 6rpx;
+    border-radius: 50%;
+    background-color: #28aeeb;
+}
+.table-prompt{
+    @extend %db;
+    @extend %tac;
+    font-size: 24rpx;
+    color: #ababab;
+    margin-top: 20rpx;
+}
+
+.button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: 42rpx 60rpx 80rpx;
+    height: 80rpx;
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    border-radius: 40rpx;
+}
+.button-text{
+    color: #fff;
+    font-size: 36rpx;
+}

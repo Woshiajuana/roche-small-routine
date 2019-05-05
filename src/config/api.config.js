@@ -43,5 +43,8 @@ export default {
     // 获取血糖记录
     Req_testMonth: 'RocheApi/GetTestMonth',
 
+    // 获取报告
+    Req_monthReport: 'RocheApi/GetMonthReport',
+
 
 }
