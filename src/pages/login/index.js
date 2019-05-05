@@ -51,7 +51,24 @@ Page(Mixin({
             IsOldUser, // 是否老用户
             IsUseCode, // 是否使用核销
         } = user;
-        
+
+        // 老会员用户
+        if (IsOldUser && IsMember )
+            return Router.root('home_index');
+        if (IsOldUser && !IsMember && IsArchives)
+            return Router.push('questionnaire_info_index', { IsMember });
+
+        if (!IsArchives)
+            return Router.push('questionnaire_info_index', { IsMember });
+        if (IsArchives) {
+
+        }
+
+        if (IsOldUser) {
+
+        } else {
+
+        }
         // let { to, params } = this.data;
         // to ? Router.root(to) : Router.root('home_index');
     },
