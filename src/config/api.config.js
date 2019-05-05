@@ -46,5 +46,6 @@ export default {
     // 获取报告
     Req_monthReport: 'RocheApi/GetMonthReport',
 
-
+    // 获取周报
+    Req_weekReport: 'RocheApi/GetWeekReport',
 }

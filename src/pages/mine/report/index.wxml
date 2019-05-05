@@ -20,20 +20,20 @@
     </view>
     <view class="table-head">
         <view class="table-title">
-            <image mode="aspectFit" src="../../../assets/images/xtbg-icon-5.png"></image>
+            <image mode="aspectFit" src="{{src$.icon1}}"></image>
             <text>本周血糖</text>
         </view>
         <view class="explain">
             <view class="explain-item low">
-                <image class="explain-icon" mode="aspectFit" src="../../../assets/images/xtbg-icon-1.png"></image>
+                <image class="explain-icon" mode="aspectFit" src="{{src$.icon2}}"></image>
                 <text class="explain-text">偏低</text>
             </view>
             <view class="explain-item nor">
-                <image class="explain-icon" mode="aspectFit" src="../../../assets/images/xtbg-icon-2.png"></image>
+                <image class="explain-icon" mode="aspectFit" src="{{src$.icon3}}"></image>
                 <text class="explain-text">正常</text>
             </view>
             <view class="explain-item up">
-                <image class="explain-icon" mode="aspectFit" src="../../../assets/images/xtbg-icon-3.png"></image>
+                <image class="explain-icon" mode="aspectFit" src="{{src$.icon4}}"></image>
                 <text class="explain-text">偏高</text>
             </view>
         </view>
@@ -107,7 +107,7 @@
         <view class="reminder">
             <view class="reminder-title">
                 <text>空腹或餐前血糖</text>
-                <image mode="aspectFit" src="../../../assets/images/xtbg-icon-9.png"></image>
+                <image mode="aspectFit" src="{{src$.icon5}}"></image>
             </view>
             <view class="reminder-num">
                 <text>{{weekReport.AvgFastingBeforeVal}}</text>
@@ -128,7 +128,7 @@
         <view class="reminder">
             <view class="reminder-title">
                 <text>餐后血糖</text>
-                <image mode="aspectFit" src="../../../assets/images/xtbg-icon-8.png"></image>
+                <image mode="aspectFit"  src="{{src$.icon6}}"></image>
             </view>
             <view class="reminder-num">
                 <text>{{weekReport.AvgAfterVal}}</text>
@@ -149,7 +149,7 @@
         <view class="reminder">
             <view class="reminder-title">
                 <text>低血糖</text>
-                <image mode="aspectFit" src="../../../assets/images/xtbg-icon-6.png"></image>
+                <image mode="aspectFit" src="{{src$.icon7}}"></image>
             </view>
             <view class="reminder-num">
                 <text>{{weekReport.AvgLowVal}}</text>
@@ -170,7 +170,7 @@
         <view class="reminder">
             <view class="reminder-title">
                 <text>血糖波动</text>
-                <image mode="aspectFit" src="../../../assets/images/xtbg-icon-7.png"></image>
+                <image mode="aspectFit" src="{{src$.icon8}}"></image>
             </view>
             <view class="reminder-data">
                 <view class="reminder-data-item nor">
@@ -197,16 +197,22 @@
 
     <view class="footer">
         <view class="footer-item">
-            <image class="left-icon" mode="aspectFit" src="../../../assets/images/xtbg-icon-4.png"></image>
+            <image
+                class="left-icon"
+                mode="aspectFit"
+                src="{{src$.icon9}}"
+            ></image>
             <text class="left-prompt">健康顾问</text>
             <text class="footer-text">科学规范地监测3个月</text>
             <text class="footer-text">可有效管理血糖，坚持哦！</text>
         </view>
         <view class="footer-item">
-            <image class="right-icon"
-                   bindtap="handlePreviewImage"
-                   mode="aspectFit"
-                   src="../../../assets/images/xtbg-ewm-icon.jpg"></image>
+            <image
+                class="right-icon"
+                bindtap="handlePreviewImage"
+                mode="aspectFit"
+                src="{{src$.icon10}}"
+            ></image>
             <text class="footer-text">关注罗氏血糖仪官方微信号</text>
             <text class="footer-text">获取更多控糖秘诀！</text>
         </view>

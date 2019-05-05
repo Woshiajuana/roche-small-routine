@@ -3,18 +3,35 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
-import Http                     from 'plugins/http.plugin'
-import Toast                    from 'plugins/toast.plugin'
-import Handle                   from 'mixins/mixin.handle'
-import ShareMixin               from 'mixins/share.mixin'
-import { getDate, formatData }  from 'wow-cool/lib/date.lib'
+import Http                         from 'plugins/http.plugin'
+import Modal                        from 'plugins/modal.plugin'
+import Mixin                        from 'utils/mixin.util'
+import ShareMixin                   from 'mixins/share.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
+import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
     ARR_TIME_STEP,
     DAY_TEXT
 }                               from 'config/base.config'
 let type = false;
-Page(Handle({
-    mixins: [ShareMixin],
+const arrSrc = [
+    { key: 'icon1', value: 'xtbg-icon-5.png' },
+    { key: 'icon2', value: 'xtbg-icon-1.png' },
+    { key: 'icon3', value: 'xtbg-icon-2.png' },
+    { key: 'icon4', value: 'xtbg-icon-3.png' },
+    { key: 'icon5', value: 'xtbg-icon-9.png' },
+    { key: 'icon6', value: 'xtbg-icon-8.png' },
+    { key: 'icon7', value: 'xtbg-icon-6.png' },
+    { key: 'icon8', value: 'xtbg-icon-7.png' },
+    { key: 'icon9', value: 'xtbg-icon-4.png' },
+    { key: 'icon10', value: 'xtbg-ewm-icon.jpg' },
+];
+
+Page(Mixin({
+    mixins: [
+        ShareMixin,
+        SourceMixin,
+    ],
     data: {
         arrTimeStep: ARR_TIME_STEP,
         result: '',
@@ -33,11 +50,10 @@ Page(Handle({
         isCurWeek: true,
     },
     onLoad () {
+        this.sourceGet(arrSrc);
         wx.showShareMenu();
         type = false;
-        this.setData({
-            curTime: new Date().getTime(),
-        });
+        this.setData({ curTime: new Date().getTime() });
         this.getDay();
         this.initData();
         this.getRecommendSugar();
@@ -134,26 +150,16 @@ Page(Handle({
     getRecommendSugar () {
         let Stime = this.data.sTime;
         let Etime = this.data.eTime;
-        let options = {
-            url: 'RocheApi/GetRecommendSugar',
-            loading: true,
-            data: {
-                Stime,
-                Etime,
-                Type: 2,
-            }
-        };
-        return Http(options).then((res) => {
+        Http(Http.API.Req_recommendSugar, {
+            Stime,
+            Etime,
+            Type: 2,
+        }).then((res) => {
             let { DayCount, Desc, Steps } = res;
-            this.setData({
-                DayCount,
-                Desc,
-            });
+            this.setData({ DayCount, Desc });
             if (!Steps) return;
             this.initData(Steps)
-        }).catch((err) => {
-            Toast.error(err);
-        });
+        }).toast();
     },
     // 初始化数据
     initData (arr) {
@@ -205,38 +211,18 @@ Page(Handle({
     getWeekReport () {
         let Stime = this.data.sTime;
         let Etime = this.data.eTime;
-        let options = {
-            url: 'RocheApi/GetWeekReport',
-            loading: true,
-            data: {
-                Stime,
-                Etime,
-            }
-        };
         let weekReport;
-        return Http(options).then((res) => {
+        Http(Http.API.Req_weekReport, {
+            Stime,
+            Etime,
+        }).then((res) => {
             weekReport = res || {};
         }).catch((err) => {
-            Toast.error(err);
+            Modal.toast(err);
             weekReport = {};
         }).finally(() => {
-            this.setData({
-                weekReport,
-            })
+            this.setData({ weekReport })
         });
     },
-    handlePreviewImage() {
-        // wx.previewImage({
-        //     current: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2854560059,552756199&fm=27&gp=0.jpg',
-        //     urls: ['https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2854560059,552756199&fm=27&gp=0.jpg'] // 需要预览的图片http链接列表
-        // });
-        // wx.getImageInfo({// 获取图片信息（此处可不要）
-        //     src: 'assets/images/xtbg-ewm-icon.png',
-        //     success: function (res) {
-        //         console.log(res.width)
-        //         console.log(res.height)
-        //     }
-        // })
-
-    }
+    handlePreviewImage() {}
 }));
