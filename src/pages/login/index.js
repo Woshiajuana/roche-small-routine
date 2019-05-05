@@ -9,7 +9,6 @@ import Router                       from 'plugins/router.plugin'
 import Auth                         from 'plugins/auth.plugin'
 import Http                         from 'plugins/http.plugin'
 
-const app = getApp();
 const arrSrc = [
     { key: 'bg', value: 'login-bg-2.jpg' },
 ];
@@ -22,27 +21,39 @@ Page(Mixin({
         sceneid: '',
         to: '',
         params: '',
-        loading: false,
+        loading: true,
     },
     onLoad (options) {
-        console.log(1)
         this.assignmentData(options);
         this.sourceGet(arrSrc);
-        this.judgeUserStatus();
+        this.judgeUserLoginStatus();
     },
     // 赋值
     assignmentData (options) {
         let { sceneid, to, params } = options;
         this.setData({ sceneid, to, params });
     },
-    // 判断用户状态
-    judgeUserStatus () {
-        Auth.getToken().then(() => {
-            let { to, params } = this.data;
-            // to ? Router.push(to) : Router.push('home_index');
+    // 判断用户登录状态
+    judgeUserLoginStatus () {
+        Auth.getToken().then((res) => {
+            this.judgeUserStatus(res);
         }).catch(() => {
             this.setData({ loading: false });
         });
+    },
+    // 判断用户状态
+    judgeUserStatus (user) {
+        console.log(user);
+        let {
+            IsArchives, // 是否建档
+            IsExpire, // 是否过期
+            IsMember, // 是否vip
+            IsOldUser, // 是否老用户
+            IsUseCode, // 是否使用核销
+        } = user;
+        
+        // let { to, params } = this.data;
+        // to ? Router.root(to) : Router.root('home_index');
     },
     // 授权并登录
     handleGetUser (e) {
@@ -55,7 +66,7 @@ Page(Mixin({
         Auth.login().then((result) => {
             return Http(Http.API.Do_userLogin, {
                 code: result,
-                sceneid: app.globalData.sceneid,
+                sceneid: this.data.sceneid,
             }, {
                 useAuth: false,
             });
@@ -64,10 +75,8 @@ Page(Mixin({
                 ...user,
                 ...result,
             });
-        }).then((user) => {
-            return console.log(user);
-            let { to, params } = this.data;
-            to ? Router.push(to) : Router.push('home_index');
+        }).then((res) => {
+            this.judgeUserStatus(res);
         }).toast();
     },
 }));
