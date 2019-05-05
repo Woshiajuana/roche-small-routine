@@ -62,7 +62,7 @@ Page(Mixin({
             Router.push('questionnaire_info_index', { IsMember }, true);
         } else {
             console.log(1)
-            return Router.push('questionnaire_info_index', { IsMember: true }, true);
+            return Router.push('questionnaire_info_index', { IsMember: false }, true);
             if (!IsArchives)
                 return Router.push('questionnaire_info_index', { IsMember }, true);
             Router.root('home_index');
