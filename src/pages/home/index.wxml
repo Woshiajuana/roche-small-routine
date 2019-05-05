@@ -57,8 +57,7 @@
                 </view>
                 <view class="plan-button" wx:if="{{!objUser.IsMember}}"></view>
                 <view class="plan-button"
-                      data-params="{{objUser}}"
-                      data-url="mine_report_index"
+                      data-url="bluetooth_index"
                       bindtap="handleJump">
                     <image
                         class="plan-button-icon"

@@ -18,7 +18,7 @@ const app = getApp();
 
 const arrSrc = [
     { key: 'icon', value: 'lylj-ing-icon.jpg' },
-    { key: 'null', value: 'lylj-null-icon.jpg' },
+    { key: 'nIcon', value: 'lylj-null-icon.jpg' },
     { key: 'result', value: 'lylj-result-icon.jpg' },
 ];
 
