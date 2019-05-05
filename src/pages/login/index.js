@@ -18,8 +18,30 @@ Page(Mixin({
     mixins: [
         SourceMixin,
     ],
-    onLoad () {
+    data: {
+        sceneid: '',
+        to: '',
+        params: '',
+        loading: true,
+    },
+    onLoad (options) {
+        this.assignmentData(options);
         this.sourceGet(arrSrc);
+        this.judgeUserStatus();
+    },
+    // 赋值
+    assignmentData (options) {
+        let { sceneid, to, params } = options;
+        this.setData({ sceneid, to, params });
+    },
+    // 判断用户状态
+    judgeUserStatus () {
+        Auth.getToken().then(() => {
+            let { to, params } = this.data;
+            to ? Router.push(to) : Router.push('home_index');
+        }).catch(() => {
+            this.setData({ loading: false });
+        });
     },
     // 授权并登录
     handleGetUser (e) {
@@ -41,8 +63,10 @@ Page(Mixin({
                 ...user,
                 ...result,
             });
-        }).then(() => {
-            return Router.push('questionnaire_info_index');
+        }).then((user) => {
+            return console.log(user);
+            let { to, params } = this.data;
+            to ? Router.push(to) : Router.push('home_index');
         }).toast();
     },
 }));

@@ -1,13 +1,15 @@
 @import '../../assets/scss/define';
 
 page,
+.inner,
 .wrap{
     @extend %w100;
     @extend %h100;
     @extend %oh;
+}
+.inner{
     background-color: #5f6774;
 }
-
 .image{
     @extend %pa;
     @extend %t0;
@@ -15,7 +17,7 @@ page,
     @extend %w100;
     height: auto;
 }
-.inner{
+.content{
     @extend %pa;
     @extend %t0;
     @extend %l0;
