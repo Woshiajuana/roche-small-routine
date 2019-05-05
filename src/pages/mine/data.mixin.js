@@ -3,6 +3,11 @@ export default {
     data: {
         objUser: {},
         objEntry: {
+            plan: {
+                label: '我的测糖计划',
+                url: 'mine_programme_index',
+                value: '',
+            },
             programme: {
                 label: '我的控糖方案',
                 url: 'mine_programme_index',
