@@ -31,8 +31,6 @@ const arrSrc = [
     { key: 'entryBg', value: 'home-entry-bg.png' },
 ];
 
-const app = getApp();
-
 Page(Mixin({
     mixins: [
         SourceMixin,
@@ -51,42 +49,17 @@ Page(Mixin({
         arrClass: ['low', 'lit', 'lit', 'nor', 'up'],
         objWeb: WEB_LINK.ZXWZ,
     },
-    onLoad (options) {
+    onLoad () {
         this.sourceGet(arrSrc);
         this.userGet();
         wx.showShareMenu();
-        let scene = '';
-        if (options.scene) scene = decodeURIComponent(options.scene);
-        console.log(options);
-        console.log(app.globalData.sceneid)
-        scene && (app.globalData.sceneid = scene);
     },
     // 生命周期回调—监听页面显示
     onShow () {
         Auth.getToken().then((info) => {
-            this.firFun(info);
+            this.getIndexSugar();
         }).catch(() => {
             Router.push('login_index');
-        });
-    },
-    // 用户登录执行的函数
-    firFun (info) {
-        // 获取用户数据
-        this.getUserInfo().then(() => {
-            let { IsArchives, IsMember} = info;
-            if (!IsArchives)
-                return Router.push('questionnaire_info_index', { IsMember });
-            let {
-                to,
-            } = app.globalData;
-            app.globalData.to = '';
-            if  (to === 'ZXWZ' && IsMember)
-                return this.jumpWebView(WEB_LINK.ZXWZ);
-            this.getIndexSugar();
-        }).catch((err) => {
-            let { code } = err;
-            if (code === -1) return Router.push('login_index');
-            Modal.toast(err);
         });
     },
     // 首页个人血糖基本信息
@@ -104,20 +77,10 @@ Page(Mixin({
                 IsExpire,  // 是否过期
                 IsUseCode, // 是否核销
             } = res;
-            app.globalData.userInfo.IsMember = res.IsMember;
-            Auth.updateToken({ IsMember, IsExpire, IsUseCode });
+            return Auth.updateToken({ IsMember, IsExpire, IsUseCode });
+        }).then(() => {
+            this.userGet();
         }).toast();
-    },
-    // 获取用户信息
-    getUserInfo () {
-        return Auth.getUserInfo().then((info) => {
-            // 用户已经授权
-            let {userInfo} = info;
-            this.setData({
-                userInfo: userInfo,
-            });
-            app.globalData.userInfo = userInfo;
-        })
     },
     // 跳转
     handleJump (e) {
@@ -126,7 +89,7 @@ Page(Mixin({
         let params = currentTarget.dataset.params;
         let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.objUser;
         if ( url === 'mine_report_index' && !IsPerfect ) {
-            return Router.push('mine_info_index', { from: 'home_index', IsMember: app.globalData.userInfo.IsMember});
+            return Router.push('mine_info_index', { from: 'home_index', IsMember});
         }
         if ( url === 'web_index' || url === 'consult_index' ) {
             if (IsExpire) {
