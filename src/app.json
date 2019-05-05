@@ -1,14 +1,15 @@
 {
     "pages": [
-        "pages/mine/index",
         "pages/home/index",
         "pages/activation/index",
         "pages/login/index",
+        "pages/mine/index",
         "pages/questionnaire/answerone/index",
         "pages/questionnaire/answerthree/index",
         "pages/questionnaire/answertwo/index",
         "pages/questionnaire/info/index",
-        "pages/questionnaire/programme/index"
+        "pages/questionnaire/programme/index",
+        "pages/record/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

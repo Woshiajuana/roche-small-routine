@@ -1,21 +1,25 @@
 <view>
     <!--头部-->
     <view class="header">
-        <image class="button"
-               mode="aspectFit"
-               data-type="0"
-               bindtap="handleAddOrSub"
-               src="../../assets/images/jrxt-j-icon.png"></image>
+        <image
+            class="button"
+            mode="aspectFit"
+            data-type="0"
+            bindtap="handleAddOrSub"
+            src="{{src$.reduce}}"
+        ></image>
         <view class="num-wrap">
             <text class="num-label">输入当前血糖值</text>
             <text class="num-value">{{objHidden.Bloodsugar.value}}</text>
             <text class="num-unit">mmol/L</text>
         </view>
-        <image class="button"
-               mode="aspectFit"
-               data-type="1"
-               bindtap="handleAddOrSub"
-               src="../../assets/images/jrxt-jf-icon.png"></image>
+        <image
+            class="button"
+            mode="aspectFit"
+            data-type="1"
+            bindtap="handleAddOrSub"
+            src="{{src$.add}}"
+        ></image>
     </view>
     <!--/头部-->
     <!--标尺-->
@@ -38,10 +42,12 @@
             </view>
             <view class="rule-null-item"></view>
         </scroll-view>
-        <image class="rule-type"
-               mode="aspectFit"
-               data-type="1"
-               src="../../assets/images/rule-type-icon2.png"></image>
+        <image
+            class="rule-type"
+            mode="aspectFit"
+            data-type="1"
+            src="{{src$.rule}}"
+        ></image>
     </view>
     <!--/标尺-->
     <!--时间-->
@@ -128,8 +134,9 @@
             </picker>
         </block>
         <!--<button>Submit</button>-->
-        <button class="form-button"
-                formType="submit">
+        <button
+            class="form-button"
+            formType="submit">
             <text class="form-button-text">保存</text>
         </button>
     </form>
@@ -138,7 +145,7 @@
     <view class="pop-wrap" hidden="{{!is_pop}}">
         <view class="pop-inner">
             <view class="pop-header">
-                <image src="../../assets/images/jlxt-pop-icon.png"></image>
+                <image src="{{src$.pop}}"></image>
                 <text>记录血糖数值</text>
             </view>
             <view class="pop-con">

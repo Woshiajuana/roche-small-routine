@@ -7,5 +7,6 @@ module.exports = {
     "questionnaire_answerthree_index": "/pages/questionnaire/answerthree/index",
     "questionnaire_answertwo_index": "/pages/questionnaire/answertwo/index",
     "questionnaire_info_index": "/pages/questionnaire/info/index",
-    "questionnaire_programme_index": "/pages/questionnaire/programme/index"
+    "questionnaire_programme_index": "/pages/questionnaire/programme/index",
+    "record_index": "/pages/record/index"
 }

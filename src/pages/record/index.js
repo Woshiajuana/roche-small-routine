@@ -4,11 +4,11 @@ import './index.scss'
 import './index.wxml'
 
 import Http                         from 'plugins/http.plugin'
-import Modal                        from 'plugins/modal.plugin'
 import Router                       from 'plugins/router.plugin'
 import InputMixin                   from 'mixins/input.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
 import FormIdMixin                  from 'mixins/formid.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
 import Valid                        from 'utils/valid.util'
 import Mixin                        from 'utils/mixin.util'
 import { formatData }               from 'wow-cool/lib/date.lib'
@@ -20,6 +20,12 @@ import {
 import DataMixin                    from './data.mixin'
 
 let deltaX = 0;
+const arrSrc = [
+    { key: 'reduce', value: 'jrxt-j-icon.png' },
+    { key: 'add', value: 'jrxt-jf-icon.png' },
+    { key: 'rule', value: 'rule-type-icon2.png' },
+    { key: 'pop', value: 'jlxt-pop-icon.png' },
+];
 
 Page(Mixin({
     mixins: [
@@ -27,7 +33,11 @@ Page(Mixin({
         RouterMixin,
         InputMixin,
         FormIdMixin,
+        SourceMixin,
     ],
+    onLoad () {
+        this.sourceGet(arrSrc);
+    },
     onReady () {
         deltaX = 0;
         let query = wx.createSelectorQuery();
