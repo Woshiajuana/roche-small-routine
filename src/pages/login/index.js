@@ -51,26 +51,18 @@ Page(Mixin({
             IsOldUser, // 是否老用户
             IsUseCode, // 是否使用核销
         } = user;
-
-        // 老会员用户
-        if (IsOldUser && IsMember )
-            return Router.root('home_index');
-        if (IsOldUser && !IsMember && IsArchives)
-            return Router.push('questionnaire_info_index', { IsMember });
-
-        if (!IsArchives)
-            return Router.push('questionnaire_info_index', { IsMember });
-        if (IsArchives) {
-
-        }
-
-        if (IsOldUser) {
+        if (IsMember) {
+            if ( IsOldUser )
+                return Router.root('home_index');
+            if ( IsUseCode )
+                return Router.root('home_index');
+            return Router.root('questionnaire_info_index', { IsMember });
 
         } else {
-
+            if (!IsArchives)
+                return Router.root('questionnaire_info_index', { IsMember });
+            Router.root('home_index');
         }
-        // let { to, params } = this.data;
-        // to ? Router.root(to) : Router.root('home_index');
     },
     // 授权并登录
     handleGetUser (e) {
