@@ -1,12 +1,9 @@
 <view>
     <view class="banner">
-        <image class="banner-image" src="{{src$.vBg}}"></image>
-         <block>
-            <text class="title">第一步</text>
-            <text class="prompt-text">我们需要您的一些基本信息</text>
-            <text class="prompt-text">从而更好的为您服务</text>
-            <text class="sub-title">基本信息</text>
-        </block>
+        <image
+            class="banner-image"
+            src="{{params$.IsMember ? src$.vBg : src$.bg}}"
+        ></image>
     </view>
     <form-view
         bindsubmit="handleSubmit"

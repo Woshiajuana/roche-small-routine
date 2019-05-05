@@ -31,6 +31,9 @@ Page(Mixin({
     // 赋值
     assignmentData (options) {
         let { sceneid, to, params } = options;
+        typeof sceneid === 'undefined' && (sceneid = '');
+        typeof to === 'undefined' && (to = '');
+        typeof params === 'undefined' && (params = '');
         this.setData({ sceneid, to, params });
     },
     // 判断用户登录状态
@@ -56,11 +59,12 @@ Page(Mixin({
                 return Router.root('home_index');
             if ( IsUseCode )
                 return Router.root('home_index');
-            return Router.root('questionnaire_info_index', { IsMember });
-
+            Router.push('questionnaire_info_index', { IsMember }, true);
         } else {
+            console.log(1)
+            return Router.push('questionnaire_info_index', { IsMember: true }, true);
             if (!IsArchives)
-                return Router.root('questionnaire_info_index', { IsMember });
+                return Router.push('questionnaire_info_index', { IsMember }, true);
             Router.root('home_index');
         }
     },

@@ -48,4 +48,8 @@ export default {
 
     // 获取周报
     Req_weekReport: 'RocheApi/GetWeekReport',
+
+    // VIP激活绑定判断
+    Do_activeService: 'RocheApi/ActiveService',
+
 }

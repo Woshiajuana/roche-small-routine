@@ -56,6 +56,19 @@ Page(Mixin({
     handleSubmit (event) {
         let { data, formId } = event.detail;
         this.doSubWeChatFormId(formId, 'questionnaire_one_index');
+        let { IsMember } = this.data.params$;
+        IsMember
+            ? this.doActiveService(data)
+            : this.doSetUserInfo(data);
+    },
+    // Vip 验证
+    doActiveService (data) {
+        Http(Http.API.Do_activeService, data).then((res) => {
+            console.log(res);
+        }).toast();
+    },
+    // 设置用户数据
+    doSetUserInfo (data) {
         Http(Http.API.Do_userInfo, data).then((res) => {
             Router.push(
                 'questionnaire_answerone_index',

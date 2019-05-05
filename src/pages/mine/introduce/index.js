@@ -5,6 +5,7 @@ import './index.wxml'
 
 import Mixin                        from 'utils/mixin.util'
 import RouterMixin                  from 'mixins/router.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
 import ShareMixin                   from 'mixins/share.mixin'
 import Router                       from 'plugins/router.plugin'
 import { SHOP_APP }                 from 'config/base.config'
@@ -18,6 +19,7 @@ Page(Mixin({
     mixins: [
         RouterMixin,
         ShareMixin,
+        SourceMixin,
     ],
     onLoad (options) {
         wx.showShareMenu();
