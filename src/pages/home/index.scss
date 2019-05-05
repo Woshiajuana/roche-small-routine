@@ -4,7 +4,12 @@ page{
     background-color: #fff;
 }
 .wrap{
-    background-color: #fff;
+    //@extend %df;
+    @extend %h100;
+}
+.inner{
+    @extend %h100;
+    background-color: #55c7f9;
 }
 .view-bg{
     @extend %pf;
@@ -21,6 +26,7 @@ page{
     height: j(100);
     padding-top: j(30);
     padding-left: j(30);
+    background-color: #fff;
     image{
         margin-right: j(27);
         width: j(100);
@@ -54,9 +60,10 @@ page{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    margin-top: j(17);
+    padding-top: j(17);
+    background-color: #fff;
 }
-.inner{
+.box{
     @extend %pr;
     @extend %df;
     @extend %aic;
@@ -139,10 +146,14 @@ page{
 
 /*计划*/
 .plan{
+    //@extend %df1;
+    @extend %df;
+    @extend %fdc;
     @extend %pr;
     @extend %bsb;
     @extend %oh;
     padding-top: j(64);
+    background-color: #fff;
 }
 .plan-bg{
     @extend %pa;
@@ -261,6 +272,11 @@ page{
         @extend %b0;
         height: j(180);
     }
+}
+.null{
+    //@extend %df1;
+    //@extend %w100;
+    //background-color: #55c7f9;
 }
 .entry-bg{
     @extend %pa;

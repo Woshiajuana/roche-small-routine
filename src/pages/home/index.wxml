@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="wrap">
-    <view hidden="{{loading}}">
-        <view class="view-bg"></view>
+    <view hidden="{{loading}}" class="inner">
+        <!--<view class="view-bg"></view>-->
         <!--用户-->
         <view class="user">
             <image
@@ -22,7 +22,7 @@
 
         <!--血糖-->
         <view class="main">
-            <view class="inner {{arrClass[objUser.Gls]}}">
+            <view class="box {{arrClass[objUser.Gls]}}">
                 <view class="con">
                     <text class="num">{{objUser.Bloodsugar}}</text>
                     <text class="unit">mmol/L</text>
@@ -114,6 +114,7 @@
                 <view class="entry-item"></view>
                 <view class="entry-item"></view>
             </view>
+            <view class="null"></view>
         </view>
         <!--/计划-->
     </view>
