@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view>
+    <view class="inner">
+        <image src="{{src$.bg}}"></image>
+        <text class="title-text">由掌上糖医健康顾问</text>
+        <text class="title-text">提供的图文咨询服务</text>
+        <text class="prompt-text">本服务致力于提供正确、完整的糖尿病咨询<br/>
+            仅提供健康资讯或健康建议，不属于诊疗活动<br/>
+            若您有相关疑问请务必征询医生或其他有医疗<br/>
+            资格的专业人士</text>
+    </view>
+    <button
+        class="button"
+        data-url="web_index"
+        bindtap="handleJump"
+    >进入咨询</button>
+</view>
+
+

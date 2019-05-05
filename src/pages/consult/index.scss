@@ -1,0 +1,35 @@
+@import '../../assets/scss/define';
+.inner{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %fdc;
+    padding-top: 170rpx;
+    line-height: 1.5;
+    image{
+        width: 132rpx;
+        height: 174rpx;
+        margin-bottom: 40rpx;
+    }
+}
+.title-text{
+    font-size: 40rpx;
+    color: #555;
+}
+.prompt-text{
+    text-align: center;
+    font-size: 28rpx;
+    color: #808080;
+    margin-top: 80rpx;
+}
+.button{
+    @extend %aic;
+    @extend %jcc;
+    height: 80rpx;
+    margin: 70rpx 60rpx;
+    line-height: 80rpx;
+    color: #fff;
+    font-size: 36rpx;
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    border-radius: 40rpx;
+}
