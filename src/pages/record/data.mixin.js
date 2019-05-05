@@ -1,7 +1,13 @@
 
+import {
+    ARR_TIME_STEP,
+    ARR_TIME_STEP_KEY,
+}                                   from 'config/base.config'
+import { formatData }               from 'wow-cool/lib/date.lib'
+
 export default {
     data: {
-        objInput: {
+        formData: {
             TestDate: {
                 label: '测量日期',
                 placeholder: '请输入',

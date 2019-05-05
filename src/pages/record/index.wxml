@@ -74,7 +74,7 @@
           report-submit>
         <input type="text" hidden value="{{objHidden.Bloodsugar.value}}" name="Bloodsugar"/>
         <input type="text" hidden value="{{timeStep}}" name="TimeStep"/>
-        <block wx:for="{{objInput}}"
+        <block wx:for="{{formData}}"
                wx:for-index="key"
                wx:for-item="item"
                wx:key="key">
@@ -135,10 +135,9 @@
         </block>
         <!--<button>Submit</button>-->
         <button
-            class="form-button"
-            formType="submit">
-            <text class="form-button-text">保存</text>
-        </button>
+            class="g-button form-button"
+            formType="submit"
+        >保存</button>
     </form>
     <!--/表单-->
     <!--弹窗-->

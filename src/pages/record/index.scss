@@ -4,8 +4,8 @@
     @extend %df;
     @extend %aic;
     height: j(328);
-    padding: 0 j(61);
-    background: linear-gradient(#63f4f9, #29adeb);
+    padding: 0 j(60);
+    background-color: #63f4f9;
 }
 .button{
     width: j(81);
@@ -187,14 +187,7 @@
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    margin: 42rpx 60rpx 80rpx;
-    height: 80rpx;
-    background: linear-gradient(to right, #39e2ee , #28aeeb);
-    border-radius: 40rpx;
-}
-.form-button-text{
-    color: #fff;
-    font-size: 36rpx;
+    margin: j(42) j(60) j(80);
 }
 .input-placeholder{
     color: #999;
