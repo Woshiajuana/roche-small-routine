@@ -22,9 +22,10 @@ Page(Mixin({
         sceneid: '',
         to: '',
         params: '',
-        loading: true,
+        loading: false,
     },
     onLoad (options) {
+        console.log(1)
         this.assignmentData(options);
         this.sourceGet(arrSrc);
         this.judgeUserStatus();
