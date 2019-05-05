@@ -1,16 +1,16 @@
 <view>
     <view class="header">
-        <image src="../../../assets/images/lylj-ing-icon.jpg"></image>
+        <image src="{{src$.icon}}"></image>
         <text>{{blueTooth ? '已发现1个设备，点击绑定' : '寻找设备中，请耐心等待...'}}</text>
     </view>
     <view class="inner">
         <view class="before" hidden="{{blueTooth !== '' && blueTooth !== null}}">
-            <image src="../../../assets/images/lylj-null-icon.jpg"></image>
+            <image src="{{src$.null}}"></image>
             <text>请确保待绑定设备在手机旁边</text>
             <text>并且已经开机</text>
         </view>
         <view class="after" hidden="{{blueTooth === null || blueTooth === ''}}">
-            <image src="../../../assets/images/lylj-result-icon.jpg"></image>
+            <image src="{{src$.result}}"></image>
             <text>{{blueTooth.name}}</text>
             <text class="no-text">{{blueTooth.deviceId}}</text>
         </view>

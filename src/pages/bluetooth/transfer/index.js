@@ -3,12 +3,12 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
-import Router                   from 'plugins/router.plugin'
-import Handle                   from 'mixins/mixin.handle'
-import Store                    from 'plugins/store.plugin'
-import WebViewMixin             from 'mixins/webview.mixin'
-import Auth                     from 'plugins/auth.plugin'
-import Toast                    from 'plugins/toast.plugin'
+import Router                       from 'plugins/router.plugin'
+import Mixin                        from 'utils/mixin.util'
+import Store                        from 'plugins/store.plugin'
+import WebViewMixin                 from 'mixins/webview.mixin'
+import Auth                         from 'plugins/auth.plugin'
+import Toast                        from 'plugins/toast.plugin'
 import {
     $BLUE_TOOTH_DEVICE_ID_LIST,
     $BLUE_TOOTH_DATA,
@@ -22,8 +22,10 @@ import {
 
 const app = getApp();
 
-Page(Handle({
-    mixins: [WebViewMixin],
+Page(Mixin({
+    mixins: [
+        WebViewMixin,
+    ],
     data: {
         arrTimeStep: ARR_TIME_STEP,
         glsText: GLS_TEXT,

@@ -3,13 +3,23 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
-import Handle                   from 'mixins/mixin.handle'
-import SyncMixin                from 'mixins/sync-data.mixin'
-import RouterMixin              from 'mixins/router.mixin'
+import Mixin                        from 'utils/mixin.util'
+import SyncMixin                    from 'mixins/sync-data.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
 
-Page(Handle({
-    mixins: [SyncMixin,RouterMixin],
+const arrSrc = [
+    { key: 'bg', value: 'sjtb-explain-bg.jpg' },
+];
+
+Page(Mixin({
+    mixins: [
+        SyncMixin,
+        RouterMixin,
+        SourceMixin,
+    ],
     onLoad (options) {
-        this.getParamsByUrl(options);
+        this.sourceGet(arrSrc);
+        this.routerGetParams(options);
     }
 }));

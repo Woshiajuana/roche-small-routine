@@ -4,10 +4,11 @@
         <text>传输到小程序的方法说明</text>
     </view>
     <view class="inner">
-        <image src="../../../assets/images/sjtb-explain-bg.jpg"></image>
+        <image src="{{src$.bg}}"></image>
     </view>
-    <view class="form-button"
-          bindtap="handleSync">
+    <view
+        class="form-button"
+        bindtap="handleSync">
         <text class="form-button-text">数据同步</text>
     </view>
     <import src="../../../templates/bluetooth-explain/index.wxml"/>

@@ -3,12 +3,23 @@ import './index.json'
 import './index.scss'
 import './index.wxml'
 
-import Router                   from 'plugins/router.plugin'
-import Handle                   from 'mixins/mixin.handle'
-import Authorize, { SCOPE }     from 'plugins/authorize.plugin'
-import Toast                    from 'plugins/toast.plugin'
+import Mixin                        from 'utils/mixin.util'
+import Router                       from 'plugins/router.plugin'
+import Authorize, { SCOPE }         from 'plugins/authorize.plugin'
+import Modal                        from 'plugins/modal.plugin'
+import SourceMixin                  from 'mixins/source.mixin'
 
-Page(Handle({
+const arrSrc = [
+    { key: 'bg', value: 'bdly-explain-bg.jpg' },
+];
+
+Page(Mixin({
+    mixins: [
+        SourceMixin,
+    ],
+    onLoad () {
+        this.sourceGet(arrSrc);
+    },
     // 跳转
     handleJump (e) {
         let { currentTarget } = e;
@@ -17,7 +28,7 @@ Page(Handle({
         Authorize(SCOPE.userLocation, '添加设备需要地理位置授权').then(() => {
             Router.push(url);
         }).catch(() => {
-            Toast.error('连接设备需要授权哦')
+            Modal.toast('连接设备需要授权哦')
         });
     },
 }));
