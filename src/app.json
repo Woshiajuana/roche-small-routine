@@ -1,9 +1,9 @@
 {
     "pages": [
+        "pages/mine/index",
         "pages/home/index",
         "pages/activation/index",
         "pages/login/index",
-        "pages/mine/index",
         "pages/questionnaire/answerone/index",
         "pages/questionnaire/answerthree/index",
         "pages/questionnaire/answertwo/index",

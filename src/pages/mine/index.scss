@@ -4,21 +4,22 @@
     @extend %df;
     @extend %aic;
     @extend %fdc;
-    height: 297rpx;
-    background-image: linear-gradient(#26a4dc, #5ecddb);
+    height: j(300);
+    background-color: #5ecddb;
+    //background-image: linear-gradient(#26a4dc, #5ecddb);
 }
 .user-image{
-    width: 156rpx;
-    height: 156rpx;
+    width: j(156);
+    height: j(156);
     border-radius: 50%;
-    margin-top: 50rpx;
+    margin-top: j(50);
 }
 .user-info{
-    margin-top: 30rpx;
+    margin-top: j(30);
     text{
-        margin: 0 5rpx;
+        margin: 0 j(5);;
         color: #fff;
-        font-size: 36rpx;
+        font-size: j(36);;
     }
 }
 .user-name{
@@ -30,22 +31,22 @@
     @extend %aic;
     @extend %jcc;
     @extend %bsb;
-    width: 288rpx;
-    height: 56rpx;
-    margin: 20rpx auto;
+    width: j(288);
+    height: j(56);
+    margin: j(20) auto;
     border: 1px solid #28aeeb;
-    border-radius: 28rpx;
+    border-radius: j(28);
 }
 .button-text{
     color: #28aeeb;
-    font-size: 36rpx;
+    font-size: j(36);
 }
 
 .base-info{
     @extend %df;
     @extend %aic;
-    padding: 60rpx 0;
-    border-bottom: 1rpx solid #efeff4;
+    padding: j(60) 0;
+    border-bottom: j(1) solid #efeff4;
 }
 .base-item{
     @extend %df1;
@@ -54,16 +55,16 @@
     @extend %aic;
 }
 .base-label{
-    font-size: 36rpx;
+    font-size: j(36);
     color: #ababab;
 }
 .base-value{
-    font-size: 80rpx;
+    font-size: j(80);
     color: #28aeeb;
 }
 .base-border{
-    width: 1rpx;
-    height: 94rpx;
+    width: j(1);
+    height: j(94);
     background-color: #c0c0c0;
 }
 
@@ -74,12 +75,12 @@
     @extend %df;
     @extend %aic;
     @extend %bsb;
-    height: 100rpx;
-    border-bottom: 1rpx solid #efeff4;
-    padding: 0 60rpx;
+    height: j(100);
+    border-bottom: j(1) solid #efeff4;
+    padding: 0 j(60);
     text{
         @extend %db;
-        font-size: 36rpx;
+        font-size: j(36);
     }
 }
 .entry-label{
@@ -90,13 +91,13 @@
     color: #969696;
 }
 .entry-arrow{
-    width: 20rpx;
-    height: 20rpx;
-    margin-left: 10rpx;
+    width: j(20);
+    height: j(20);
+    margin-left: j(10);
     transform: rotate(45deg);
     border-color: #c0c0c0;
-    border-top-width: 1rpx;
+    border-top-width: j(1);
     border-top-style: solid;
-    border-right-width: 1rpx;
+    border-right-width: j(1);
     border-right-style: solid;
 }

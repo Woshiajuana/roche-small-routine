@@ -19,8 +19,6 @@ import {
 }                                   from 'config/base.config'
 import DataMixin                    from './data.mixin'
 
-const app = getApp();
-
 Page(Mixin({
     mixins: [
         DataMixin,
@@ -29,6 +27,7 @@ Page(Mixin({
         UserMixin,
     ],
     onLoad () {
+        this.userGet();
         wx.showShareMenu();
     },
     onShow () {
