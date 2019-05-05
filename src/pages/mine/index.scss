@@ -26,6 +26,19 @@
     @extend %fwb;
 }
 
+.prompt{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    line-height: j(44);
+    text{
+        font-size: j(22);
+    }
+    .time{
+        color: #28aeeb;
+    }
+}
+
 .button{
     @extend %df;
     @extend %aic;
