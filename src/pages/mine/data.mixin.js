@@ -5,7 +5,7 @@ export default {
         objEntry: {
             plan: {
                 label: '我的测糖计划',
-                url: 'mine_programme_index',
+                url: 'programme_index',
                 value: '',
             },
             programme: {

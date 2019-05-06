@@ -7,15 +7,18 @@ export default {
         },
         // 测糖计划
         plan: {
-            url: '',
+            url: 'programme_index',
+            params: {
+                from: 'home_index',
+            },
         },
         // 打卡有礼
         gift: {
-            url: '',
+            url: 'clock_index',
         },
         // 血糖报告
         report: {
-            url: '',
-        }
+            url: 'report_monthly_index',
+        },
     },
 }
