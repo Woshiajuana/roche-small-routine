@@ -27,12 +27,10 @@ Page(Mixin({
         this.userGet();
     },
     // 跳转
-    handleJump (e) {
+    handleJump () {
         let { IsMember, IsExpire} = this.data.user$;
-        if (!IsMember)
-            return Router.push('questionnaire_info_index', { IsMember: true });
-        if (IsExpire)
-            return Router.push('activation_index', { IsMember: true });
+        if (!IsMember) return null;
+        if (IsExpire) return Router.push('activation_index', { IsMember });
         Modal.toast('服务期间内，不可再次激活');
     },
     handleJumpApp () {

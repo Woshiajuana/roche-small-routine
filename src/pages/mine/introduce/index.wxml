@@ -2,8 +2,9 @@
     <view class="inner">
         <image src="{{src$.bg}}"></image>
     </view>
-    <view class="footer">
+     <view class="footer">
         <view class="footer-button color"
+              wx:if="{{user$.IsMember}}"
               bindtap="handleJump">
             <text class="footer-button-text">我有激活码</text>
         </view>

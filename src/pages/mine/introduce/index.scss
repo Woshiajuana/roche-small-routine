@@ -61,13 +61,14 @@
 }
 .footer-button{
     @extend %df;
+    @extend %df1;
     @extend %aic;
     @extend %jcc;
-    width: 289rpx;
-    height: 68rpx;
-    border-radius: 34rpx;
+    height: j(68);
+    border-radius: j(34);
     background-image: linear-gradient(to right, #3bddf2, #2cbdf0);
     &.color{
+        margin-right: j(30);
         background-image: none;
         background-color: #1e3666;
     }
