@@ -1,7 +1,7 @@
 
-<view class="wrap g-vip-page">
+<view class="wrap">
     <view class="header">
-        <text></text>
+        <text>很棒哦，已经坚持完成一周的抽奖</text>
         <text class="prompt"></text>
     </view>
     <view class="inner">

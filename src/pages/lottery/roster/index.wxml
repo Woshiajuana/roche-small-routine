@@ -1,4 +1,26 @@
 
-<view class="wrap g-vip-page">
-
+<view class="wrap">
+    <view class="header">
+        <text class="title">中奖用户名单</text>
+        <text>恭喜以下用户获得奖品</text>
+    </view>
+    <view class="tab">
+        <view class="tab-item tab-btn"><text>上一天</text></view>
+        <view class="tab-item tab-text"><text>4月12日</text></view>
+        <view class="tab-item tab-btn"><text>下一天</text></view>
+    </view>
+    <view class="inner">
+        <scroll-view class="content" scroll-y>
+            <view
+                class="cell"
+                wx:for="{{arrList}}"
+                wx:key="{{index}}">
+                <image></image>
+                <text class="name">哈哈</text>
+                <view class="type">
+                    <text>已领取</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
 </view>

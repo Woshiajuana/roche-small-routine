@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/lottery/roster/index",
         "pages/lottery/index",
         "pages/login/index",
         "pages/activation/index",
@@ -12,7 +13,6 @@
         "pages/consult/index",
         "pages/home/index",
         "pages/journal/index",
-        "pages/lottery/roster/index",
         "pages/mine/index",
         "pages/mine/info/index",
         "pages/mine/introduce/index",

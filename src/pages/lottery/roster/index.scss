@@ -2,156 +2,83 @@
 
 page{
     @extend %h100;
-    background-color: #50575d;
+    @extend %fdc;
+    background-color: #fafafa;
 }
 .wrap{
-    @extend %df;
+    @extend %w100;
     @extend %h100;
-    @extend %pr;
+    @extend %df;
     @extend %fdc;
-    @extend %aic;
-    @extend %w100;
-    .bg{
-        @extend %pa;
-        @extend %t0;
-        @extend %l0;
-        @extend %w100;
-    }
 }
-
-.user{
-    @extend %pr;
+.header{
     @extend %df;
     @extend %fdc;
     @extend %aic;
+    @extend %jcc;
     @extend %w100;
     @extend %cfff;
-    padding-top: j(55);
-    font-size: j(30);
-    image{
-        width: j(140);
-        height: j(140);
-        border-radius: 50%;
-        background-color: red;
-        margin-bottom: j(20);
-    }
-}
-.statistics{
-    @extend %pr;
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
-    @extend %w100;
-    margin-top: j(30);
-}
-
-.statistics-item{
-    @extend %df;
-    @extend %pr;
-    @extend %aic;
-    @extend %fdc;
-    @extend %jcc;
-    color: #dedddd;
-    &:first-child,
-    &:last-child{
-        @extend %df1;
-    }
-    &:nth-child(2){
-        height: j(336);
-        width: j(336);
-    }
-    .label{
-        font-size: j(28);
-    }
-    .value{
-        font-size: j(68);
-    }
-    .unit{
-        font-size: j(18);
-    }
-}
-.statistics-inner{
-    .progress{
-        @extend %t0;
-        @extend %l0;
-        @extend %pa;
-        height: j(336);
-        width: j(336);
-    }
-    .value{
-        font-size: j(96);
-    }
-    .progress-inner{
-        @extend %t0;
-        @extend %l0;
-        @extend %pa;
-        height: j(336);
-        width: j(336);
-    }
-}
-
-.button{
-    @extend %pr;
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
-    @extend %cfff;
-    margin-top: j(75);
-    width: j(380);
-    height: j(80);
+    height: j(248);
+    background-color: #1e72c3;
     font-size: j(36);
-    border-radius: j(40);
-    background-image: linear-gradient(to right, #5097d7, #1b6fc3);
-    image{
-        width: j(40);
-        height: j(40);
-        margin-right: j(10);
+    .title{
+        margin-bottom: j(10);
+        font-size: j(55);
     }
 }
-.prompt{
-    @extend %pr;
+.tab{
     @extend %df;
-    @extend %fdc;
     @extend %aic;
-    @extend %cfff;
-    line-height: 1.5;
-    font-size: j(30);
-    margin-top: j(45);
-}
-.operate{
-    @extend %pr;
-    @extend %df;
-    @extend %oh;
+    @extend %bsb;
     @extend %w100;
+    @extend %jcs;
+    height: j(104);
+    padding: 0 j(60);
+    background-color: #fff;
+    color: #686868;
+    font-size: j(30);
+    box-shadow: 0 j(10) j(10) j(10) rgba(0,0,0,.03);
+    .tab-text{
+        color: #1e72c3;
+        font-size: j(36);
+    }
+}
+.inner{
+    @extend %df1;
+    @extend %oh;
+}
+.content{
+    @extend %h100;
+}
+.cell{
+    @extend %df;
+    @extend %aic;
+    @extend %bsb;
+    height: j(148);
+    border-bottom: j(1) solid #ddd;
+    padding: 0 j(60);
+    image{
+        width: j(86);
+        height: j(86);
+        border-radius: 50%;
+        margin-right: j(30);
+        background-color: red;
+    }
+}
+.name{
+    @extend %df1;
+    color: #333;
+    font-size: j(36);
+}
+.type{
+    @extend %df;
     @extend %aic;
     @extend %jcc;
-    padding-top: j(50);
-    image{
-        @extend %pa;
-        @extend %l50;
-        border: j(-50);
-        margin-left: j(-255);
-        width: j(510);
-        height: j(180);
-    }
+    @extend %cfff;
+    height: j(36);
+    width: j(112);
+    border-radius: j(18);
+    font-size: j(32);
+    background-color: #b9b9b9;
 }
-.operate-bg{
-    @extend %pa;
-    @extend %l50;
-    @extend %t0;
-    margin-left: j(-1500);
-    width: j(3000);
-    height: j(3000);
-    border-radius: 50%;
-    background-color: #1d71c4;
-}
-.operate-inner{
-    @extend %df;
-    width: j(510);
-}
-.operate-item{
-    @extend %pr;
-    @extend %df1;
-    height: j(180);
-    margin: 0 j(20);
-}
+
