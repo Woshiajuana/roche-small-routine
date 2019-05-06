@@ -22,7 +22,8 @@
             <text class="value">7.5</text>
             <text class="unit">mmol/L</text>
             <view class="progress">
-                <canvas class="progress-inner"  canvas-id="canvasProgress"></canvas>
+                <canvas class="progress-inner" canvas-id="canvasProgressBg"></canvas>
+                <canvas class="progress-inner" canvas-id="canvasProgress"></canvas>
             </view>
         </view>
         <view class="statistics-item">
@@ -32,7 +33,7 @@
         </view>
     </view>
     <view class="button">
-        <image></image>
+        <image src="{{src$.icon}}"></image>
         <text>领取打卡奖励</text>
     </view>
     <view class="prompt">
@@ -42,8 +43,10 @@
     <view class="null"></view>
     <view class="operate">
         <view class="operate-bg"></view>
-        <image></image>
-        <view class="operate-item"></view>
-        <view class="operate-item"></view>
+        <image src="{{src$.operate}}"></image>
+        <view class="operate-inner">
+            <view class="operate-item"></view>
+            <view class="operate-item"></view>
+        </view>
     </view>
 </view>

@@ -75,52 +75,63 @@ page{
         @extend %t0;
         @extend %l0;
         @extend %pa;
-        @extend %bsb;
-        border-radius: 50%;
         height: j(336);
         width: j(336);
-        border: j(10) solid #aba5a4;
     }
     .value{
         font-size: j(96);
     }
     .progress-inner{
+        @extend %t0;
+        @extend %l0;
+        @extend %pa;
         height: j(336);
         width: j(336);
     }
 }
 
 .button{
+    @extend %pr;
     @extend %df;
     @extend %aic;
     @extend %jcc;
+    @extend %cfff;
+    margin-top: j(75);
+    width: j(380);
+    height: j(80);
+    font-size: j(36);
+    border-radius: j(40);
+    background-image: linear-gradient(to right, #5097d7, #1b6fc3);
     image{
         width: j(40);
         height: j(40);
         margin-right: j(10);
     }
-    text{
-        @extend %cfff;
-        font-size: j(24);
-    }
 }
 .prompt{
+    @extend %pr;
     @extend %df;
     @extend %fdc;
     @extend %aic;
     @extend %cfff;
-    font-size: j(32);
+    line-height: 1.5;
+    font-size: j(30);
+    margin-top: j(45);
 }
 .operate{
     @extend %pr;
     @extend %df;
     @extend %oh;
-    height: j(180);
+    @extend %w100;
+    @extend %aic;
+    @extend %jcc;
+    padding-top: j(50);
     image{
         @extend %pa;
-        @extend %b0;
-        @extend %l0;
-        @extend %w100;
+        @extend %l50;
+        border: j(-50);
+        margin-left: j(-255);
+        width: j(510);
         height: j(180);
     }
 }
@@ -128,13 +139,19 @@ page{
     @extend %pa;
     @extend %l50;
     @extend %t0;
-    margin-left: j(-1000);
-    width: j(2000);
-    height: j(2000);
+    margin-left: j(-1500);
+    width: j(3000);
+    height: j(3000);
     border-radius: 50%;
     background-color: #1d71c4;
+}
+.operate-inner{
+    @extend %df;
+    width: j(510);
 }
 .operate-item{
     @extend %pr;
     @extend %df1;
+    height: j(180);
+    margin: 0 j(20);
 }

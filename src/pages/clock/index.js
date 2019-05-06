@@ -13,6 +13,8 @@ import DataMixin                    from './data.mixin'
 
 const arrSrc = [
     { key: 'bg', value: 'ctjd-bg.jpg' },
+    { key: 'icon', value: 'clock-icon.png' },
+    { key: 'operate', value: 'clock-btn-icon.png' },
 ];
 
 Page(Mixin({
@@ -24,20 +26,37 @@ Page(Mixin({
     onLoad () {
         this.sourceGet(arrSrc);
         this.userGet();
-        this.drawCircle();
+    },
+    onReady () {
+        this.drawProgressBg();
+        this.drawRunStart(1);
+    },
+    drawRunStart (target, step = 0) {
+        if (step >= target) return null;
+        this.drawCircle(step);
+        step += 0.1;
+        setTimeout(this.drawRunStart.bind(this), 50 ,target, step);
     },
     drawCircle (step){
         let context = wx.createCanvasContext('canvasProgress');
-        let gradient = context.createLinearGradient(200, 100, 100, 200);
-        gradient.addColorStop("0", "#2661DD");
-        gradient.addColorStop("0.5", "#40ED94");
-        gradient.addColorStop("1.0", "#5956CC");
-        context.setLineWidth(10);
-        context.setStrokeStyle(gradient);
+        context.setLineWidth(8);
+        context.setStrokeStyle('#b5a380'); // 设置圆环的颜色
         context.setLineCap('round');
         context.beginPath();
-        context.arc(110, 110, 100, -Math.PI / 2, step * Math.PI - Math.PI / 2, false);
+        context.arc(84, 84, 78, -Math.PI / 2, step * Math.PI - Math.PI / 2, false);
         context.stroke();
         context.draw()
+    },
+    drawProgressBg () {
+        // 使用 wx.createContext 获取绘图上下文 context
+        let context = wx.createCanvasContext('canvasProgressBg');
+        context.setLineWidth(4);// 设置圆环的宽度
+        context.setStrokeStyle('#adabad'); // 设置圆环的颜色
+        context.setLineCap('round') // 设置圆环端点的形状
+        context.beginPath();//开始一个新的路径
+        context.arc(84, 84, 78, 0, 2 * Math.PI, false);
+        //设置一个原点(110,110)，半径为100的圆的路径到当前路径
+        context.stroke();//对当前路径进行描边
+        context.draw();
     },
 }));
