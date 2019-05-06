@@ -1,0 +1,157 @@
+@import '../../assets/scss/define';
+
+page{
+    @extend %h100;
+    background-color: #50575d;
+}
+.wrap{
+    @extend %df;
+    @extend %h100;
+    @extend %pr;
+    @extend %fdc;
+    @extend %aic;
+    @extend %w100;
+    .bg{
+        @extend %pa;
+        @extend %t0;
+        @extend %l0;
+        @extend %w100;
+    }
+}
+
+.user{
+    @extend %pr;
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %w100;
+    @extend %cfff;
+    padding-top: j(55);
+    font-size: j(30);
+    image{
+        width: j(140);
+        height: j(140);
+        border-radius: 50%;
+        background-color: red;
+        margin-bottom: j(20);
+    }
+}
+.statistics{
+    @extend %pr;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %w100;
+    margin-top: j(30);
+}
+
+.statistics-item{
+    @extend %df;
+    @extend %pr;
+    @extend %aic;
+    @extend %fdc;
+    @extend %jcc;
+    color: #dedddd;
+    &:first-child,
+    &:last-child{
+        @extend %df1;
+    }
+    &:nth-child(2){
+        height: j(336);
+        width: j(336);
+    }
+    .label{
+        font-size: j(28);
+    }
+    .value{
+        font-size: j(68);
+    }
+    .unit{
+        font-size: j(18);
+    }
+}
+.statistics-inner{
+    .progress{
+        @extend %t0;
+        @extend %l0;
+        @extend %pa;
+        height: j(336);
+        width: j(336);
+    }
+    .value{
+        font-size: j(96);
+    }
+    .progress-inner{
+        @extend %t0;
+        @extend %l0;
+        @extend %pa;
+        height: j(336);
+        width: j(336);
+    }
+}
+
+.button{
+    @extend %pr;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    margin-top: j(75);
+    width: j(380);
+    height: j(80);
+    font-size: j(36);
+    border-radius: j(40);
+    background-image: linear-gradient(to right, #5097d7, #1b6fc3);
+    image{
+        width: j(40);
+        height: j(40);
+        margin-right: j(10);
+    }
+}
+.prompt{
+    @extend %pr;
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %cfff;
+    line-height: 1.5;
+    font-size: j(30);
+    margin-top: j(45);
+}
+.operate{
+    @extend %pr;
+    @extend %df;
+    @extend %oh;
+    @extend %w100;
+    @extend %aic;
+    @extend %jcc;
+    padding-top: j(50);
+    image{
+        @extend %pa;
+        @extend %l50;
+        border: j(-50);
+        margin-left: j(-255);
+        width: j(510);
+        height: j(180);
+    }
+}
+.operate-bg{
+    @extend %pa;
+    @extend %l50;
+    @extend %t0;
+    margin-left: j(-1500);
+    width: j(3000);
+    height: j(3000);
+    border-radius: 50%;
+    background-color: #1d71c4;
+}
+.operate-inner{
+    @extend %df;
+    width: j(510);
+}
+.operate-item{
+    @extend %pr;
+    @extend %df1;
+    height: j(180);
+    margin: 0 j(20);
+}

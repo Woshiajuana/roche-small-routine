@@ -1,7 +1,5 @@
 {
     "pages": [
-        "pages/clock/index",
-        "pages/mine/introduce/index",
         "pages/login/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
@@ -9,10 +7,15 @@
         "pages/bluetooth/index",
         "pages/bluetooth/synchronization/index",
         "pages/bluetooth/transfer/index",
+        "pages/clock/index",
         "pages/consult/index",
         "pages/home/index",
+        "pages/journal/index",
+        "pages/lottery/index",
+        "pages/lottery/roster/index",
         "pages/mine/index",
         "pages/mine/info/index",
+        "pages/mine/introduce/index",
         "pages/questionnaire/answerone/index",
         "pages/questionnaire/answerthree/index",
         "pages/questionnaire/answertwo/index",
@@ -56,5 +59,7 @@
             }
         ]
     },
-    "navigateToMiniProgramAppIdList": ["wxa3eefe9efc0fcfeb"]
+    "navigateToMiniProgramAppIdList": [
+        "wxa3eefe9efc0fcfeb"
+    ]
 }
