@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="wrap">
     <view hidden="{{loading}}" class="inner">
-        <!--<view class="view-bg"></view>-->
+
         <!--用户-->
         <view class="user">
             <image
@@ -45,8 +45,7 @@
             ></image>
             <view class="plan-top">
                 <view class="plan-button"
-                      data-params="{{objWeb}}"
-                      data-url="consult_index"
+                      data-url="journal_index"
                       bindtap="handleJump">
                     <image
                         class="plan-button-icon"
@@ -69,7 +68,6 @@
             </view>
             <view
                 class="plan-add"
-                data-params="{{objUser}}"
                 data-url="record_index"
                 bindtap="handleJump"
             ></view>
@@ -108,12 +106,15 @@
             <view class="entry">
                 <view class="entry-bg"></view>
                 <image src="{{src$.entryBg}}"></image>
-                <view class="entry-item"></view>
-                <view class="entry-item"></view>
-                <view class="entry-item"></view>
-                <view class="entry-item"></view>
+                <view
+                    class="entry-item"
+                    wx:for="{{objEntry}}"
+                    wx:key="index"
+                    data-url="{{item.url}}"
+                    data-params="{{item.params}}"
+                    bindtap="handleJump"
+                ></view>
             </view>
-            <view class="null"></view>
         </view>
         <!--/计划-->
     </view>

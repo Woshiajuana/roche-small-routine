@@ -11,14 +11,7 @@ page{
     @extend %h100;
     background-color: #55c7f9;
 }
-.view-bg{
-    @extend %pf;
-    @extend %b0;
-    @extend %l0;
-    @extend %r0;
-    height: j(200);
-    background-color: #41b8ea;
-}
+
 /*用户*/
 .user{
     @extend %df;
@@ -272,11 +265,6 @@ page{
         @extend %b0;
         height: j(180);
     }
-}
-.null{
-    //@extend %df1;
-    //@extend %w100;
-    //background-color: #55c7f9;
 }
 .entry-bg{
     @extend %pa;

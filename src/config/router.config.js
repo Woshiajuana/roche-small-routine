@@ -12,15 +12,14 @@ module.exports = {
     "mine_index": "/pages/mine/index",
     "mine_info_index": "/pages/mine/info/index",
     "mine_introduce_index": "/pages/mine/introduce/index",
-    "mine_month_index": "/pages/mine/month/index",
-    "mine_programme_index": "/pages/mine/programme/index",
-    "mine_report_index": "/pages/mine/report/index",
     "questionnaire_answerone_index": "/pages/questionnaire/answerone/index",
     "questionnaire_answerthree_index": "/pages/questionnaire/answerthree/index",
     "questionnaire_answertwo_index": "/pages/questionnaire/answertwo/index",
     "questionnaire_info_index": "/pages/questionnaire/info/index",
     "questionnaire_programme_index": "/pages/questionnaire/programme/index",
     "record_index": "/pages/record/index",
+    "report_monthly_index": "/pages/report/monthly/index",
+    "report_weekly_index": "/pages/report/weekly/index",
     "result_index": "/pages/result/index",
     "web_index": "/pages/web/index"
 }

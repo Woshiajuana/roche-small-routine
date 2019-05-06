@@ -5,7 +5,6 @@ import './index.wxml'
 
 import Auth                         from 'plugins/auth.plugin'
 import Http                         from 'plugins/http.plugin'
-import Modal                        from 'plugins/modal.plugin'
 import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
 import UserMixin                    from 'mixins/user.mixin'
@@ -19,7 +18,7 @@ import {
     DAY_TEXT,
     GLS_TEXT,
     WEB_LINK,
-}                               from 'config/base.config'
+}                                   from 'config/base.config'
 
 const arrSrc = [
     { key: 'norBg', value: 'home-nor-bg.png' },
@@ -58,53 +57,32 @@ Page(Mixin({
     },
     // 生命周期回调—监听页面显示
     onShow () {
-        Auth.getToken().then((info) => {
-            this.getIndexSugar();
-        }).catch(() => {
-            Router.push('login_index');
-        });
+        this.getIndexSugar();
     },
     // 首页个人血糖基本信息
     getIndexSugar () {
         Http(Http.API.Req_indexSugar, {}, {
             loading: false,
-        }).then((res = '') => {
+        }).then((res) => {
+            let objUser = res || {};
             this.setData({
-                objUser: res || {},
+                objUser,
                 'objUser.Bloodsugar': res.Bloodsugar ? res.Bloodsugar.toFixed(1) : res.Bloodsugar,
                 loading: false,
             });
-            let {
-                IsMember,
-                IsExpire,  // 是否过期
-                IsUseCode, // 是否核销
-            } = res;
+            let { IsMember, IsExpire, IsUseCode } = objUser;
             return Auth.updateToken({ IsMember, IsExpire, IsUseCode });
         }).then(() => {
             this.userGet();
         }).toast();
     },
     // 跳转
-    handleJump (e) {
-        let { currentTarget } = e;
-        let url = currentTarget.dataset.url;
-        let params = currentTarget.dataset.params;
-        let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.objUser;
-        if ( url === 'mine_report_index' && !IsPerfect ) {
+    handleJump (event) {
+        let { url, params } = event.dataset;
+        let { IsPerfect, IsMember, IsExpire } = this.data.objUser;
+        if (url === 'report_weekly_index' && !IsPerfect)
             return Router.push('mine_info_index', { from: 'home_index', IsMember});
-        }
-        if ( url === 'web_index' || url === 'consult_index' ) {
-            if (IsExpire) {
-                Modal.confirm({
-                    content: '你的会员VIP已过期，是否续期？',
-                }).then((res) => {
-                    let { confirm } = res;
-                    confirm && Router.push('mine_introduce_index');
-                });
-                return;
-            }
-            return this.jumpWebView(params);
-        }
+        !params && (params = {});
         Router.push(url, params);
     },
 }));
