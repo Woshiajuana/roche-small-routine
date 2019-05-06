@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/clock/index",
         "pages/mine/introduce/index",
         "pages/login/index",
         "pages/activation/index",
@@ -8,7 +9,6 @@
         "pages/bluetooth/index",
         "pages/bluetooth/synchronization/index",
         "pages/bluetooth/transfer/index",
-        "pages/clock/index",
         "pages/consult/index",
         "pages/home/index",
         "pages/mine/index",

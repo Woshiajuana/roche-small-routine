@@ -2,92 +2,77 @@
 
 page{
     @extend %h100;
-    background-color: #fff;
+    background-color: #50575d;
 }
 .wrap{
-    @extend %df;
+    //@extend %df;
     @extend %h100;
     @extend %pr;
     @extend %fdc;
-    image{
+    @extend %aic;
+    @extend %w100;
+    .bg{
+        @extend %pa;
+        @extend %t0;
+        @extend %l0;
         @extend %w100;
     }
 }
-.content{
-    @extend %df1;
-    @extend %df;
-    @extend %aic;
-    @extend %fdc;
-}
-.input-box{
+
+.user{
     @extend %pr;
-    margin-top: j(95);
-    width: j(630);
-    height: j(85);
-    input{
-        @extend %pa;
-        @extend %r0;
-        @extend %l0;
-        @extend %b0;
-        @extend %t0;
-        padding-right: 100%;
-        border: none;
-        color: transparent;
-        background-color: transparent;
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %w100;
+    @extend %cfff;
+    padding-top: j(55);
+    font-size: j(30);
+    image{
+        width: j(140);
+        height: j(140);
+        border-radius: 50%;
+        background-color: red;
+        margin-bottom: j(20);
     }
 }
-.ul{
-    @extend %df;
-    @extend %aic;
-    @extend %jcs;
-    width: j(630);
-    height: j(85);
-}
-.li{
-    @extend %bsb;
+.statistics{
+    @extend %pr;
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    @extend %fwb;
-    height: j(85);
-    width: j(85);
-    border: 1px solid #1d71c4;
-    border-radius: j(8);
-    color: #1d71c4;
-    font-size: j(52);
-}
-
-.button{
-    margin-top: j(85);
-}
-
-.footer{
     @extend %w100;
-    @extend %pr;
+}
+
+.statistics-item{
     @extend %df;
+    @extend %df1;
     @extend %aic;
     @extend %fdc;
     @extend %jcc;
-    @extend %oh;
-    height: j(185);
-    padding-top: j(20);
+    color: #dedddd;
+    .label{
+        font-size: j(28);
+    }
+    .value{
+        font-size: j(68);
+    }
+    .unit{
+        font-size: j(18);
+    }
 }
-.bg{
-    @extend %pa;
-    @extend %l50;
-    @extend %t0;
-    margin-left: j(-1000);
-    width: j(2000);
-    height: j(2000);
-    border-radius: 50%;
-    background-color: #1d71c4;
-}
-.prompt{
+.statistics-inner{
     @extend %pr;
-    line-height: j(35);
-    font-size: j(24);
-    color: #fff;
-    .color{
-        font-size: j(20);
+    height: j(336);
+    width: j(336);
+    .progress{
+        @extend %t0;
+        @extend %l0;
+        @extend %pa;
+        @extend %bsb;
+        border-radius: 50%;
+        height: j(336);
+        width: j(336);
+        border: j(2) solid #aba5a4;
     }
 }

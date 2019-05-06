@@ -1,42 +1,47 @@
 
 <view class="wrap g-vip-page">
     <image
+        class="bg"
         mode="widthFix"
         src="{{src$.bg}}"
     ></image>
-    <view class="content">
-        <view class="input-box">
-            <view class="ul">
-                <view
-                    class="li"
-                    wx:for="{{arrData}}"
-                    wx:key="{{index}}">
-                    <text>{{item}}</text>
-                </view>
-            </view>
-            <input
-                maxlength="6"
-                bindinput="bindInput"
-                data-item="{{formData.Code}}"
-                value="{{formData.Code.value}}"
-                type="number"
-            />
+    <view class="user">
+        <image src="{{user$.avatarUrl}}"></image>
+        <view class="user-name">
+            <text>{{user$.Name || user$.nickName}}</text>
         </view>
-        <button
-            bindtap="handleSubmit"
-            class="g-button button"
-        >立即激活</button>
     </view>
-    <view class="footer">
-        <view class="bg"></view>
-        <view class="prompt">
-            <text>如果您已购买专业版套餐，但尚未拿到激活码</text>
+    <view class="statistics">
+        <view class="statistics-item">
+            <text class="label">本周已完成</text>
+            <text class="value">2天</text>
+            <text class="unit"></text>
         </view>
-        <view class="prompt">
-            <text>请联系天猫客服 021-31227952 </text>
+        <view class="statistics-item statistics-inner">
+            <text class="label">您的本次血糖值</text>
+            <text class="value">7.5</text>
+            <text class="unit">mmol/L</text>
+            <view class="progress">
+                <canvas class="progress-inner"></canvas>
+            </view>
         </view>
-        <view class="prompt">
-            <text class="color">（周一至周五 9：00-18：00）</text>
+        <view class="statistics-item">
+            <text class="label">周计划测糖</text>
+            <text class="value">3天</text>
+            <text class="unit"></text>
         </view>
+    </view>
+    <view class="button">
+        <image></image>
+        <text>领取打卡奖励</text>
+    </view>
+    <view class="prompt">
+        <text>坚持是一种习惯</text>
+        <text>完成进度即可领取福利</text>
+    </view>
+    <view class="operate">
+        <image></image>
+        <view class="operate-item"></view>
+        <view class="operate-item"></view>
     </view>
 </view>
