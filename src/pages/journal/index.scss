@@ -2,7 +2,7 @@
 
 page{
     @extend %h100;
-    background-color: #fff;
+    background-color: #f2f2f2;
 }
 .wrap{
     @extend %df;
@@ -30,23 +30,32 @@ page{
 .tab{
     @extend %df;
     @extend %aic;
+    background-color: #fff;
 }
 .tab-item{
     @extend %df1;
+    @extend %pr;
     @extend %df;
     @extend %aic;
     @extend %jcc;
     @extend %fdc;
-    height: j(20);
-    color: #fff;
-    font-size: j(23);
+    height: j(98);
+    color: #333;
+    font-size: j(32);
     &.active{
-        background-color: #fff;
+        color: #2fb2e7;
+        .bar{
+            background-color: #2fb2e7;
+        }
     }
 }
 .bar{
-    width: j(50);
-    height: j(2);
+    @extend %pa;
+    @extend %l50;
+    margin-left: j(-15);
+    bottom: j(16);
+    width: j(30);
+    height: j(4);
     background-color: #fff;
 }
 .inner{
@@ -54,6 +63,7 @@ page{
     @extend %df;
     @extend %df1;
     @extend %w100;
+    @extend %oh;
 }
 .content{
     @extend %pa;

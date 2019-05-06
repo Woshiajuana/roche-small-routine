@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/journal/index",
         "pages/login/index",
+        "pages/journal/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
         "pages/bluetooth/explain/index",

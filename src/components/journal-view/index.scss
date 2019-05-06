@@ -5,5 +5,33 @@
     @extend %w100;
 }
 .inner{
+    @extend %h100;
+    @extend %w100;
+}
+.cell{
+    margin-top: j(10);
+    height: j(398);
+}
+.head{
+    height: j(100);
+    border-top: j(1) solid #ddd;
+    border-bottom: j(1) solid #ddd;
+}
+.con{
+
+}
+.con-item{
+
+}
+.label{
+
+}
+.value{
+
+}
+.unit{
+
+}
+.prompt{
 
 }
