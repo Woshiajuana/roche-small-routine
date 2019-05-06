@@ -1,15 +1,15 @@
 
 <view class="wrap">
     <view class="header">
-        <text>很棒哦，已经坚持完成一周的抽奖</text>
-        <text class="prompt"></text>
+        <text>很棒哦！已坚持完成一周测糖！</text>
+        <text class="prompt">恭喜你获得抽奖机会</text>
     </view>
     <view class="inner">
-        <image></image>
         <view class="content">
-            <text></text>
-            <image class="goods"></image>
+            <text>0元领试纸</text>
+            <image class="goods" src="{{src$.gift}}"></image>
         </view>
+        <image class="bg" src="{{src$.bg}}"></image>
     </view>
     <button class="g-button button">试试手气</button>
     <view class="link"><text>查看规则</text></view>

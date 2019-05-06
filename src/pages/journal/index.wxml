@@ -1,42 +1,24 @@
 
-<view class="wrap g-vip-page">
-    <image
-        mode="widthFix"
-        src="{{src$.bg}}"
-    ></image>
-    <view class="content">
-        <view class="input-box">
-            <view class="ul">
-                <view
-                    class="li"
-                    wx:for="{{arrData}}"
-                    wx:key="{{index}}">
-                    <text>{{item}}</text>
-                </view>
-            </view>
-            <input
-                maxlength="6"
-                bindinput="bindInput"
-                data-item="{{formData.Code}}"
-                value="{{formData.Code.value}}"
-                type="number"
-            />
-        </view>
-        <button
-            bindtap="handleSubmit"
-            class="g-button button"
-        >立即激活</button>
+<view class="wrap">
+    <view class="header">
+        <text class="title">一周血糖管理周报</text>
+        <text>坚持30天养成测糖好习惯</text>
     </view>
-    <view class="footer">
-        <view class="bg"></view>
-        <view class="prompt">
-            <text>如果您已购买专业版套餐，但尚未拿到激活码</text>
+    <view class="tab">
+        <view class="tab-item active">
+            <text></text>
+            <view class="bar"></view>
         </view>
-        <view class="prompt">
-            <text>请联系天猫客服 021-31227952 </text>
+        <view class="tab-item">
+            <text></text>
+            <view class="bar"></view>
         </view>
-        <view class="prompt">
-            <text class="color">（周一至周五 9：00-18：00）</text>
+        <view class="tab-item">
+            <text></text>
+            <view class="bar"></view>
         </view>
+    </view>
+    <view class="inner">
+        <journal-view class="content"></journal-view>
     </view>
 </view>

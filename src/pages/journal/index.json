@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "360°稳糖管家"
+    "navigationBarTitleText": "360°稳糖管家",
+    "usingComponents": {
+        "journal-view": "/components/journal-view/index"
+    }
 }

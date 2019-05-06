@@ -16,32 +16,60 @@ page{
     @extend %aic;
     @extend %jcc;
     @extend %w100;
+    @extend %fdc;
     @extend %cfff;
-    height: j(200);
-    background-color: #1d71c4;
+    @extend %bsb;
+    height: j(394);
+    font-size: j(36);
+    padding-bottom: j(146);
+    background-color: #2778c7;
 }
 .prompt{
-
+    margin-top: j(10);
+    font-size: j(50);
 }
 .inner{
-    image{
+    @extend %pr;
+    @extend %w100;
+    @extend %df;
+    @extend %jcc;
+    margin-top: j(-146);
+    .bg{
         @extend %pa;
         @extend %t0;
-        @extend %l0;
+        left: j(10);
+        height: j(606);
+        width: j(678);
     }
 }
 .content{
+    @extend %pr;
     @extend %df;
     @extend %fdc;
     @extend %aic;
+    @extend %jcc;
+    width: j(630);
+    color: #2778c7;
+    font-size: j(46);
+    height: j(564);
+    border-radius: j(20);
+    background-color: #fff;
+    box-shadow: 0 j(10) j(10) j(10) rgba(0,0,0,0.05);
 }
 .goods{
-    width: j(300);
-    height: j(300);
+    margin-top: j(72);
+    width: j(298);
+    height: j(282);
 }
 .link{
     color: #666;
     font-size: j(24);
     line-height: 1.5;
     border-bottom: j(1) solid #666;
+}
+.button{
+    margin-top: j(96);
+}
+.link{
+    margin-top: j(20);
 }

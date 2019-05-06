@@ -11,9 +11,8 @@ import SourceMixin                  from 'mixins/source.mixin'
 import UserMixin                    from 'mixins/user.mixin'
 
 const arrSrc = [
-    { key: 'bg', value: 'ctjd-bg.jpg' },
-    { key: 'icon', value: 'clock-icon.png' },
-    { key: 'operate', value: 'clock-btn-icon.png' },
+    { key: 'bg', value: 'gift-bg.png' },
+    { key: 'gift', value: 'gift.png' },
 ];
 
 Page(Mixin({
