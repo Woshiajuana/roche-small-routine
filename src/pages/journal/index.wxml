@@ -6,15 +6,15 @@
     </view>
     <view class="tab">
         <view class="tab-item active">
-            <text></text>
+            <text>血糖周报</text>
             <view class="bar"></view>
         </view>
         <view class="tab-item">
-            <text></text>
+            <text>血糖趋势</text>
             <view class="bar"></view>
         </view>
         <view class="tab-item">
-            <text></text>
+            <text>血糖日志</text>
             <view class="bar"></view>
         </view>
     </view>

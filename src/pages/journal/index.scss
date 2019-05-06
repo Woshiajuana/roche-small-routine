@@ -16,6 +16,7 @@ page{
 .header{
     @extend %df;
     @extend %aic;
+    @extend %fdc;
     @extend %jcc;
     @extend %cfff;
     height: j(248);
