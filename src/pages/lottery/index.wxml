@@ -1,9 +1,16 @@
 
 <view class="wrap g-vip-page">
     <view class="header">
-
+        <text></text>
+        <text class="prompt"></text>
     </view>
     <view class="inner">
-        
+        <image></image>
+        <view class="content">
+            <text></text>
+            <image class="goods"></image>
+        </view>
     </view>
+    <button class="g-button button">试试手气</button>
+    <view class="link"><text>查看规则</text></view>
 </view>
