@@ -65,12 +65,12 @@ Page(Mixin({
             loading: false,
         }).then((res) => {
             let objUser = res || {};
+            let { IsMember, IsExpire, IsUseCode, Bloodsugar } = objUser;
             this.setData({
                 objUser,
-                'objUser.Bloodsugar': res.Bloodsugar ? res.Bloodsugar.toFixed(1) : res.Bloodsugar,
+                'objUser.Bloodsugar': Bloodsugar ? Bloodsugar.toFixed(1) : Bloodsugar,
                 loading: false,
             });
-            let { IsMember, IsExpire, IsUseCode } = objUser;
             return Auth.updateToken({ IsMember, IsExpire, IsUseCode });
         }).then(() => {
             this.userGet();
@@ -81,7 +81,7 @@ Page(Mixin({
         let { url, params } = event.dataset;
         let { IsPerfect, IsMember, IsExpire } = this.data.objUser;
         if (url === 'report_weekly_index' && !IsPerfect)
-            return Router.push('mine_info_index', { from: 'home_index', IsMember});
+            return Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
         !params && (params = {});
         Router.push(url, params);
     },

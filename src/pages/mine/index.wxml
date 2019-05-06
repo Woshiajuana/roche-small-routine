@@ -15,7 +15,7 @@
     </view>
     <view class="button"
           bindtap="handleJump"
-          data-url="mine_introduce_index">
+          data-url="introduce_index">
         <text class="button-text">{{objUser.IsMember ? '续订' : '升级'}}专业服务</text>
     </view>
     <view class="base-info">
@@ -39,7 +39,8 @@
               bindtap="handleJump"
               wx:for="{{objEntry}}"
               wx:key="{{index}}"
-              data-item="{{item}}">
+              data-params="{{item.params}}"
+              data-url="{{item.url}}">
             <text class="entry-label">{{item.label}}</text>
             <text class="entry-value">{{item.value}}</text>
             <view class="entry-arrow"></view>
