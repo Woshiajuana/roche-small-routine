@@ -1,5 +1,8 @@
 @import './assets/scss/_g';
 
+.null{
+    @extend %df1;
+}
 .wrap{
     &.list-page{
         @extend %df;

@@ -22,7 +22,7 @@
             <text class="value">7.5</text>
             <text class="unit">mmol/L</text>
             <view class="progress">
-                <canvas class="progress-inner"></canvas>
+                <canvas class="progress-inner"  canvas-id="canvasProgress"></canvas>
             </view>
         </view>
         <view class="statistics-item">
@@ -39,7 +39,9 @@
         <text>坚持是一种习惯</text>
         <text>完成进度即可领取福利</text>
     </view>
+    <view class="null"></view>
     <view class="operate">
+        <view class="operate-bg"></view>
         <image></image>
         <view class="operate-item"></view>
         <view class="operate-item"></view>

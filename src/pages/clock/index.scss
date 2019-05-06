@@ -5,7 +5,7 @@ page{
     background-color: #50575d;
 }
 .wrap{
-    //@extend %df;
+    @extend %df;
     @extend %h100;
     @extend %pr;
     @extend %fdc;
@@ -42,15 +42,24 @@ page{
     @extend %aic;
     @extend %jcc;
     @extend %w100;
+    margin-top: j(30);
 }
 
 .statistics-item{
     @extend %df;
-    @extend %df1;
+    @extend %pr;
     @extend %aic;
     @extend %fdc;
     @extend %jcc;
     color: #dedddd;
+    &:first-child,
+    &:last-child{
+        @extend %df1;
+    }
+    &:nth-child(2){
+        height: j(336);
+        width: j(336);
+    }
     .label{
         font-size: j(28);
     }
@@ -62,9 +71,6 @@ page{
     }
 }
 .statistics-inner{
-    @extend %pr;
-    height: j(336);
-    width: j(336);
     .progress{
         @extend %t0;
         @extend %l0;
@@ -73,6 +79,62 @@ page{
         border-radius: 50%;
         height: j(336);
         width: j(336);
-        border: j(2) solid #aba5a4;
+        border: j(10) solid #aba5a4;
     }
+    .value{
+        font-size: j(96);
+    }
+    .progress-inner{
+        height: j(336);
+        width: j(336);
+    }
+}
+
+.button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    image{
+        width: j(40);
+        height: j(40);
+        margin-right: j(10);
+    }
+    text{
+        @extend %cfff;
+        font-size: j(24);
+    }
+}
+.prompt{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %cfff;
+    font-size: j(32);
+}
+.operate{
+    @extend %pr;
+    @extend %df;
+    @extend %oh;
+    height: j(180);
+    image{
+        @extend %pa;
+        @extend %b0;
+        @extend %l0;
+        @extend %w100;
+        height: j(180);
+    }
+}
+.operate-bg{
+    @extend %pa;
+    @extend %l50;
+    @extend %t0;
+    margin-left: j(-1000);
+    width: j(2000);
+    height: j(2000);
+    border-radius: 50%;
+    background-color: #1d71c4;
+}
+.operate-item{
+    @extend %pr;
+    @extend %df1;
 }
