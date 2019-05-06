@@ -55,5 +55,6 @@
                 "selectedIconPath": "assets/images/nav-mine-checked-icon.png"
             }
         ]
-    }
+    },
+    "navigateToMiniProgramAppIdList": ["wxa3eefe9efc0fcfeb"]
 }

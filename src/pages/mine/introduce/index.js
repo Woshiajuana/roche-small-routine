@@ -36,7 +36,8 @@ Page(Mixin({
     handleJumpApp () {
         wx.navigateToMiniProgram({
             ...SHOP_APP,
-            success(res) {}
+            success(res) {},
+            fail(){},
         })
     },
 }));
