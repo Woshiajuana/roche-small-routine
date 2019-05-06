@@ -264,7 +264,7 @@ page{
     @extend %aic;
     @extend %w100;
     margin-top: j(20);
-    height: j(230);
+    padding-top: j(50);
     image{
         @extend %pa;
         @extend %w100;

@@ -5,6 +5,7 @@ module.exports = {
     "bluetooth_index": "/pages/bluetooth/index",
     "bluetooth_synchronization_index": "/pages/bluetooth/synchronization/index",
     "bluetooth_transfer_index": "/pages/bluetooth/transfer/index",
+    "clock_index": "/pages/clock/index",
     "consult_index": "/pages/consult/index",
     "home_index": "/pages/home/index",
     "login_index": "/pages/login/index",

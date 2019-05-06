@@ -1,5 +1,4 @@
 <view>
-
     <view class="inner">
         <image src="{{src.bg}}"></image>
     </view>

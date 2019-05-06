@@ -12,6 +12,7 @@ import UserMixin                    from 'mixins/user.mixin'
 import WebViewMixin                 from 'mixins/webview.mixin'
 import ShareMixin                   from 'mixins/share.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import DataMixin                    from './data.mixin'
 
 import {
     ARR_TIME_STEP,
@@ -37,6 +38,7 @@ Page(Mixin({
         WebViewMixin,
         ShareMixin,
         UserMixin,
+        DataMixin,
     ],
     // 页面的初始数据
     data: {
