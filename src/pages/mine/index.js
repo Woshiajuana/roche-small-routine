@@ -4,9 +4,9 @@ import './index.scss'
 import './index.wxml'
 
 import Http                         from 'plugins/http.plugin'
-import Modal                        from 'plugins/modal.plugin'
 import Router                       from 'plugins/router.plugin'
 import Auth                         from 'plugins/auth.plugin'
+import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import UserMixin                    from 'mixins/user.mixin'
 import ShareMixin                   from 'mixins/share.mixin'
@@ -29,9 +29,17 @@ Page(Mixin({
     onLoad () {
         wx.showShareMenu();
         this.userGet();
+        this.assignmentData();
     },
     onShow () {
         this.getUserSugar();
+    },
+    // 赋值判断
+    assignmentData () {
+        let { objEntry, user$ } = this.data;
+        if (user$.IsMember) return null;
+        delete objEntry.programme;
+        this.setData({ objEntry });
     },
     // 个人中心血糖基本信息
     getUserSugar () {
@@ -53,7 +61,17 @@ Page(Mixin({
         let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.objUser;
         if ( ['mine_report_index', 'mine_month_index'].indexOf(url) > -1 && !IsPerfect )
             return Router.push('mine_info_index', { from: 'mine_index', to: url});
-        !params && (params = {});
-        Router.push(url, { form: 'mine_index', ...params });
+        if (url !== 'mine_control_index') {
+            !params && (params = {});
+            return Router.push(url, { form: 'mine_index', ...params });
+        }
+        if (IsExpire)
+            return Modal.confirm({
+                content: '你的会员VIP已过期，是否续期？',
+            }).then((res) => {
+                let { confirm } = res;
+                confirm && Router.push('introduce_index');
+            });
+        return this.jumpWebView(WEB_LINK.JKZD);
     }
 }));

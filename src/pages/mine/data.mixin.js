@@ -10,7 +10,7 @@ export default {
             },
             programme: {
                 label: '我的控糖方案',
-                url: 'mine_programme_index',
+                url: 'mine_control_index',
                 value: '',
             },
             weekly: {

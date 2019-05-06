@@ -6,6 +6,7 @@ import './index.wxml'
 import Auth                         from 'plugins/auth.plugin'
 import Http                         from 'plugins/http.plugin'
 import Router                       from 'plugins/router.plugin'
+import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import UserMixin                    from 'mixins/user.mixin'
 import WebViewMixin                 from 'mixins/webview.mixin'
@@ -79,7 +80,15 @@ Page(Mixin({
     // 跳转
     handleJump (event) {
         let { url, params } = event.dataset;
-        let { IsPerfect, IsMember, IsExpire } = this.data.objUser;
+        let { IsPerfect, IsMember, IsArchives } = this.data.objUser;
+        if (url === 'record_index' && !IsArchives)
+            return Modal.confirm({
+                content: '完成调查问卷才能测试血糖哦！',
+                confirmText: '去完成'
+            }).then((res) => {
+                let { confirm } = res;
+                confirm && Router.push('questionnaire_answerone_index', { IsMember });
+            });
         if (url === 'report_weekly_index' && !IsPerfect)
             return Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
         !params && (params = {});
