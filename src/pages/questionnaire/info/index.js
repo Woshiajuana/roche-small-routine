@@ -67,7 +67,7 @@ Page(Mixin({
         Http(Http.API.Do_activeService, data).then((res) => {
             Router.root('home_index');
         }).catch((err) => {
-            if (err.Status !== 202)
+            if (err.Status === 202)
                 return Router.push('activation_index', data, true);
             Modal.toast(err);
         });
