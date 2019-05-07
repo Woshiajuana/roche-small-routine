@@ -8,14 +8,14 @@ export default {
             },
             // 测糖计划
             plan: {
-                url: 'programme_index',
+                url: 'questionnaire_programme_index',
                 params: {
                     from: 'home_index',
                 },
             },
             // 打卡有礼
             gift: {
-                url: 'clock_index',
+                url: 'lottery_index',
             },
             // 血糖报告
             report: {

@@ -2,7 +2,7 @@
     <view class="banner">
         <image
             class="banner-image"
-            src="{{src.banner}}"
+            src="{{src$.banner}}"
             mode="aspectFit"
         ></image>
         <text class="prompt-text">为了提供精准报告</text>
@@ -66,8 +66,7 @@
             <picker
                 wx:if="{{key === 'Brithday'}}"
                 bindchange="bindChange"
-                data-obj="objInput"
-                data-key="{{key}}"
+                data-item="{{item}}"
                 mode="date"
                 end="{{end}}">
                 <view class="from-item">

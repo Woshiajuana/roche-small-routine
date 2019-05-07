@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "完善个人信息",
-    "usingComponents": {
-        "wow-view": "/components/wow-wx/wow-wx-ui/wow-view/index"
-    }
+    "navigationBarTitleText": "完善个人信息"
 }

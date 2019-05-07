@@ -32,7 +32,9 @@
             <text class="unit"></text>
         </view>
     </view>
-    <view class="button">
+    <view class="button"
+          data-url="lottery_index"
+          bindtap="handleJump">
         <image src="{{src$.icon}}"></image>
         <text>领取打卡奖励</text>
     </view>
@@ -45,8 +47,16 @@
         <view class="operate-bg"></view>
         <image src="{{src$.operate}}"></image>
         <view class="operate-inner">
-            <view class="operate-item"></view>
-            <view class="operate-item"></view>
+            <view
+                class="operate-item"
+                data-url="lottery_roster_index"
+                bindtap="handleJump"
+            ></view>
+            <view
+                class="operate-item"
+                data-url="report_monthly_index"
+                bindtap="handleJump"
+            ></view>
         </view>
     </view>
 </view>

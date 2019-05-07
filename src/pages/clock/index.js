@@ -59,4 +59,10 @@ Page(Mixin({
         context.stroke();//对当前路径进行描边
         context.draw();
     },
+    // 跳转
+    handleJump (event) {
+        let { url, params } = event.currentTarget.dataset;
+        !params && (params = {});
+        Router.push(url, params);
+    },
 }));

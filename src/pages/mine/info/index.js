@@ -47,16 +47,16 @@ Page(Mixin({
     },
     initData () {
         let type = !this.data.params$.IsMember;
-        let objInput = {...this.data.objInput};
+        let formData = {...this.data.formData};
         if (type) {
-            delete objInput.Mobile;
-            delete objInput.SmsCode;
+            delete formData.Mobile;
+            delete formData.SmsCode;
         }
-        this.setData({ objInput })
+        this.setData({ formData })
     },
     // 提交下一步
     handleSubmit (e) {
-        if (Valid.check(this.data.objInput)) return;
+        if (Valid.check(this.data.formData)) return;
         let { formId } = e.detail;
         this.doSubWeChatFormId(formId, 'mine_info_index');
         let from = this.data.params$.from || '';

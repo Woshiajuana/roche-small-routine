@@ -14,12 +14,12 @@ import UserMixin                    from 'mixins/user.mixin'
 import {
     $BLUE_TOOTH_DEVICE_ID_LIST,
     $BLUE_TOOTH_DATA,
-}                               from 'config/store.config'
+}                                   from 'config/store.config'
 import {
     ARR_TIME_STEP,
     DAY_TEXT,
     GLS_TEXT,
-}                               from 'config/base.config'
+}                                   from 'config/base.config'
 
 const arrSrc = [
     { key: 'refresh', value: 'tbxt-icon.png' },
