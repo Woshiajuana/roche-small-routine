@@ -79,7 +79,7 @@ Page(Mixin({
     },
     // 跳转
     handleJump (event) {
-        let { url, params } = event.dataset;
+        let { url, params } = event.currentTarget.dataset;
         let { IsPerfect, IsMember, IsArchives } = this.data.objUser;
         if (url === 'record_index' && !IsArchives)
             return Modal.confirm({

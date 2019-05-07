@@ -57,7 +57,7 @@ Page(Mixin({
     },
     // 跳转
     handleJump (event) {
-        let { url, params } = event.dataset;
+        let { url, params } = event.currentTarget.dataset;
         let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.objUser;
         if ( ['mine_report_index', 'mine_month_index'].indexOf(url) > -1 && !IsPerfect )
             return Router.push('mine_info_index', { from: 'mine_index', to: url});
