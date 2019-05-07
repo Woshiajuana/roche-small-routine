@@ -38,17 +38,15 @@ Page(Mixin({
         // 获取资源
         this.sourceGet(arrSrc);
         this.setData({ end: formatData('yyyy-MM-dd') });
+        this.userGet().then(this.initData.bind(this));
         // 获取页面参数
         this.routerGetParams(options);
-        // 初始化参数数据
-        this.initData();
         // 获取用户数据信息
         this.reqUserInfo();
     },
     initData () {
-        let type = !this.data.params$.IsMember;
-        let formData = {...this.data.formData};
-        if (type) {
+        let {user$, formData} = this.data;
+        if (!user$.IsMember) {
             delete formData.Mobile;
             delete formData.SmsCode;
         }

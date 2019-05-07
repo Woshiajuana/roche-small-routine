@@ -23,7 +23,9 @@ import DataMixin                    from './data.mixin'
 let deltaX = 0;
 const arrSrc = [
     { key: 'reduce', value: 'jrxt-j-icon.png' },
+    { key: 'vReduce', value: 'v-jrxt-j-icon.png' },
     { key: 'add', value: 'jrxt-jf-icon.png' },
+    { key: 'vAdd', value: 'v-jrxt-jf-icon.png' },
     { key: 'rule', value: 'rule-type-icon2.png' },
     { key: 'pop', value: 'jlxt-pop-icon.png' },
 ];

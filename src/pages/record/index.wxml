@@ -6,7 +6,7 @@
             mode="aspectFit"
             data-type="0"
             bindtap="handleAddOrSub"
-            src="{{src$.reduce}}"
+            src="{{user$.IsMember ? src$.vReduce : src$.reduce}}"
         ></image>
         <view class="num-wrap">
             <text class="num-label">输入当前血糖值</text>
@@ -18,7 +18,7 @@
             mode="aspectFit"
             data-type="1"
             bindtap="handleAddOrSub"
-            src="{{src$.add}}"
+            src="{{user$.IsMember ? src$.vAdd : src$.add}}"
         ></image>
     </view>
     <!--/头部-->

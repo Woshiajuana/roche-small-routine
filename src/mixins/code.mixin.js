@@ -10,7 +10,7 @@ export default {
         let { currentTarget } = e;
         let key = currentTarget.dataset.tel;
         let count = currentTarget.dataset.count;
-        let tel = this.data.objInput[key].value;
+        let tel = this.data.formData[key].value;
         if (!tel) return Modal.toast('请输入您的手机号');
         if (!Regular.isPhone(tel)) return Modal.toast('手机号输入错误');
         this.sendSms(tel, count);

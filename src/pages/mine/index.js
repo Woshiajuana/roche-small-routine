@@ -28,10 +28,10 @@ Page(Mixin({
     ],
     onLoad () {
         wx.showShareMenu();
-        this.userGet();
         this.assignmentData();
     },
     onShow () {
+        this.userGet();
         this.getUserSugar();
     },
     // 赋值判断

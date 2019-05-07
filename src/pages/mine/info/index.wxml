@@ -40,7 +40,7 @@
                           wx:for-item="radio"
                           wx:for-index="index"
                           wx:key="index"
-                          bindtap="bindTap"
+                          bindtap="bindInput"
                           data-item="{{item}}"
                           data-value="{{radio.value}}">
                         <image
@@ -65,7 +65,7 @@
             </view>
             <picker
                 wx:if="{{key === 'Brithday'}}"
-                bindchange="bindChange"
+                bindchange="bindInput"
                 data-item="{{item}}"
                 mode="date"
                 end="{{end}}">
