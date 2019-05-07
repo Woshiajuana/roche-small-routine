@@ -1,4 +1,10 @@
 @import '../../../assets/scss/define';
+
+.g-vip-page{
+    .banner{
+        background: #2677c8;
+    }
+}
 /*头部*/
 .banner{
     @extend %df;
@@ -105,17 +111,7 @@
     border-right-width: 1rpx;
     border-right-style: solid;
 }
-.form-button{
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
+.button{
     margin: 42rpx 60rpx 80rpx;
-    height: 80rpx;
-    background: linear-gradient(to right, #39e2ee , #28aeeb);
-    border-radius: 40rpx;
-}
-.form-button-text{
-    color: #fff;
-    font-size: 36rpx;
 }
 

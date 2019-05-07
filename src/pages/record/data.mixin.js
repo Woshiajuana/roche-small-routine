@@ -10,11 +10,12 @@ export default {
         formData: {
             TestDate: {
                 label: '测量日期',
+                key: 'formData.TestDate',
                 placeholder: '请输入',
                 value: formatData('yyyy-MM-dd', new Date()),
                 mode: 'date',
                 end: formatData('yyyy-MM-dd', new Date()),
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入测量日期'
@@ -23,12 +24,13 @@ export default {
             },
             TestTime: {
                 label: '测量时间',
+                key: 'formData.TestTime',
                 placeholder: '请输入',
                 value: formatData('hh:mm', new Date()),
                 mode: 'time',
                 start: '',
                 end: '',
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入测量时间'

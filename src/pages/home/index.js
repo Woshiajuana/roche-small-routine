@@ -53,11 +53,11 @@ Page(Mixin({
     },
     onLoad () {
         this.sourceGet(arrSrc);
-        this.userGet();
         wx.showShareMenu();
     },
     // 生命周期回调—监听页面显示
     onShow () {
+        this.userGet();
         this.getIndexSugar();
     },
     // 首页个人血糖基本信息
@@ -80,7 +80,7 @@ Page(Mixin({
     // 跳转
     handleJump (event) {
         let { url, params } = event.currentTarget.dataset;
-        let { IsPerfect, IsMember, IsArchives } = this.data.objUser;
+        let { IsPerfect, IsMember, IsArchives } = this.data.user$;
         if (url === 'record_index' && !IsArchives)
             return Modal.confirm({
                 content: '完成调查问卷才能测试血糖哦！',

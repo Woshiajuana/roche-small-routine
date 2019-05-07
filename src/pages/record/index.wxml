@@ -86,17 +86,15 @@
                         name="{{key}}"
                         type="{{item.type || 'text'}}"
                         bindinput="bindInput"
-                        data-obj="objInput"
-                        data-key="{{key}}"
+                        data-item="{{item}}"
                         value="{{item.value}}"
                         placeholder="{{item.placeholder}}"/>
                 </view>
             </view>
             <picker
                 wx:if="{{item.mode === 'date'}}"
-                bindchange="handleDateChange"
-                data-obj="objInput"
-                data-key="{{key}}"
+                bindchange="bindInput"
+                data-item="{{item}}"
                 mode="{{item.mode}}"
                 end="{{item.end}}"
                 start="{{item.start}}">
@@ -114,9 +112,8 @@
             </picker>
             <picker
                 wx:if="{{item.mode === 'time'}}"
-                bindchange="bindChange"
-                data-obj="objInput"
-                data-key="{{key}}"
+                bindchange="bindInput"
+                data-item="{{item}}"
                 mode="{{item.mode}}"
                 end="{{item.end}}"
                 start="{{item.start}}">

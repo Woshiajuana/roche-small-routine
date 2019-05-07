@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="wrap">
+<view class="wrap {{user$.IsMember && 'g-vip-page'}}">
     <view hidden="{{loading}}" class="inner">
 
         <!--用户-->

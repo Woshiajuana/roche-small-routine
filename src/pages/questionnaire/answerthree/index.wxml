@@ -1,4 +1,4 @@
-<view>
+<view class="{{params$.IsMember && 'g-vip-page'}}">
     <view class="banner">
         <text class="prompt-text">是否有以下</text>
         <view class="prompt">
@@ -37,9 +37,8 @@
                 </view>
             </view>
         </view>
-        <view class="form-button"
-              bindtap="handleSubmit">
-            <text class="form-button-text">完成</text>
-        </view>
+        <view class="g-button button"
+              bindtap="handleSubmit"
+        >完成</view>
     </view>
 </view>

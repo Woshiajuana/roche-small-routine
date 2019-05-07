@@ -1,4 +1,4 @@
-<view>
+<view class="{{params$.IsMember && 'g-vip-page'}}">
     <view class="banner {{params$.form && 'banner-from'}}">
         <text class="title" wx:if="{{!params$.form}}">第二步</text>
         <text class="prompt-text">回答3个相关问题</text>
@@ -136,9 +136,8 @@
                 </view>
             </view>
         </view>
-        <view class="form-button"
-              bindtap="handleSubmit">
-            <text class="form-button-text">下一步</text>
-        </view>
+        <view class="g-button button"
+              bindtap="handleSubmit"
+        >下一步</view>
     </view>
 </view>
