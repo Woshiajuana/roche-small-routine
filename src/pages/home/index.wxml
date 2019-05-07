@@ -41,7 +41,7 @@
             <image
                 class="plan-bg"
                 mode="widthFix"
-                src="{{src$.norBg}}"
+                src="{{user$.IsMember ? src$.vipBg : src$.norBg}}"
             ></image>
             <view class="plan-top">
                 <view class="plan-button"
@@ -105,7 +105,7 @@
 
             <view class="entry">
                 <view class="entry-bg"></view>
-                <image src="{{src$.entryBg}}"></image>
+                <image src="{{user$.IsMember ? src$.entryVBg : src$.entryBg}}"></image>
                 <view
                     class="entry-item"
                     wx:for="{{objEntry}}"

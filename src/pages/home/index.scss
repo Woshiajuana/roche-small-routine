@@ -1,4 +1,15 @@
 @import '../../assets/scss/define';
+
+
+.g-vip-page{
+    .plan-title{
+        background: #186dc0;
+    }
+    .inner,
+    .entry-bg{
+        background-color: #62a3db;
+    }
+}
 page{
     @extend %h100;
     background-color: #fff;
@@ -209,7 +220,7 @@ page{
     width: j(306);
     margin-left: j(-153);
     //background-color: #4bbde8;
-    background-image: linear-gradient(to bottom, #4dbee8, #4bbde8 );
+    background: linear-gradient(to bottom, #4dbee8, #4bbde8 );
 }
 .plan-title-icon{
     width: j(40);

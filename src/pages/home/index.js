@@ -23,13 +23,14 @@ import {
 
 const arrSrc = [
     { key: 'norBg', value: 'home-nor-bg.png' },
-    { key: 'vipBg', value: 'home-nor-bg.png' },
+    { key: 'vipBg', value: 'home-vip-bg.png' },
     { key: 'xtrz', value: 'home-icon-1.png' },
     { key: 'lylj', value: 'home-icon-2.png' },
     { key: 'jhb', value: 'home-icon-jhb.png' },
     { key: 'stepNor', value: 'home-step-icon-1.png' },
     { key: 'stepAct', value: 'home-step-icon-2.png' },
     { key: 'entryBg', value: 'home-entry-bg.png' },
+    { key: 'entryVBg', value: 'home-entry-vip-bg.png' },
 ];
 
 Page(Mixin({
