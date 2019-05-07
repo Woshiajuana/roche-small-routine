@@ -1,4 +1,12 @@
 @import '../../assets/scss/define';
+
+.g-vip-page{
+    .time,
+    .header{
+        background-color: #2578c6;
+    }
+}
+
 /*头部*/
 .header{
     @extend %df;

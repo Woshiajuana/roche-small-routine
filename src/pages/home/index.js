@@ -22,6 +22,7 @@ import {
 }                                   from 'config/base.config'
 
 const arrSrc = [
+    { key: 'kf', value: 'home-ej-icon.png' },
     { key: 'norBg', value: 'home-nor-bg.png' },
     { key: 'vipBg', value: 'home-vip-bg.png' },
     { key: 'xtrz', value: 'home-icon-1.png' },

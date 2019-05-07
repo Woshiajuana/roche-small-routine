@@ -8,6 +8,7 @@ import Router                       from 'plugins/router.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import SourceMixin                  from 'mixins/source.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
 import UserMixin                    from 'mixins/user.mixin'
 import DataMixin                    from './data.mixin'
 
@@ -20,16 +21,29 @@ const arrSrc = [
 Page(Mixin({
     mixins: [
         UserMixin,
+        RouterMixin,
         DataMixin,
         SourceMixin,
     ],
-    onLoad () {
+    data: {
+        objData: {},
+    },
+    onLoad (options) {
         this.sourceGet(arrSrc);
         this.userGet();
+        this.routerGetParams(options);
     },
     onReady () {
         this.drawProgressBg();
-        this.drawRunStart(1);
+        this.reqTestMonth();
+    },
+    reqTestMonth () {
+        Http(Http.API.Req_testMonth).then((res) => {
+            let objData = res || {};
+            this.setData({ objData });
+            let { Speed } = objData;
+            this.drawRunStart(+Speed / 10);
+        }).toast();
     },
     drawRunStart (target, step = 0) {
         if (step >= target) return null;

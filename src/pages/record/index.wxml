@@ -1,4 +1,4 @@
-<view>
+<view  class="wrap {{user$.IsMember && 'g-vip-page'}}">
     <!--头部-->
     <view class="header">
         <image

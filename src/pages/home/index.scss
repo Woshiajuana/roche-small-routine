@@ -23,6 +23,14 @@ page{
     background-color: #55c7f9;
 }
 
+.service{
+    position: absolute;
+    top: j(20);
+    right: j(15);
+    width: j(120);
+    height: j(120);
+}
+
 /*用户*/
 .user{
     @extend %df;

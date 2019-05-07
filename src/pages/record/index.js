@@ -9,6 +9,7 @@ import InputMixin                   from 'mixins/input.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
 import FormIdMixin                  from 'mixins/formid.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import UserMixin                    from 'mixins/user.mixin'
 import Valid                        from 'utils/valid.util'
 import Mixin                        from 'utils/mixin.util'
 import { formatData }               from 'wow-cool/lib/date.lib'
@@ -29,6 +30,7 @@ const arrSrc = [
 
 Page(Mixin({
     mixins: [
+        UserMixin,
         DataMixin,
         RouterMixin,
         InputMixin,
@@ -36,6 +38,7 @@ Page(Mixin({
         SourceMixin,
     ],
     onLoad () {
+        this.userGet();
         this.sourceGet(arrSrc);
     },
     onReady () {
@@ -183,7 +186,7 @@ Page(Mixin({
         data.TimeStep = this.data.arrTimeStep.indexOf(this.data.timeStep) + 1;
         data.Bloodsugar = +data.Bloodsugar;
         return Http(Http.API.Do_subTestSugar, data).then((res) => {
-            return Router.push('result_index', { Bloodsugar: res.Bloodsugar });
+            return Router.push('clock_index', { Bloodsugar: res.Bloodsugar });
         }).toast().finally(() => {
             this.setData({ is_pop: false });
         });

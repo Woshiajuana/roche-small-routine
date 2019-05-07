@@ -20,6 +20,8 @@
         </view>
         <!--/用户-->
 
+        <image class="service"  src="{{src$.kf}}"></image>
+
         <!--血糖-->
         <view class="main">
             <view class="box {{arrClass[objUser.Gls]}}">
