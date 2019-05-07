@@ -31,6 +31,7 @@ page{
     @extend %df;
     @extend %aic;
     background-color: #fff;
+    border-top: j(1) solid #ddd;
 }
 .tab-item{
     @extend %df1;
@@ -69,7 +70,8 @@ page{
     @extend %pa;
     @extend %t0;
     @extend %l0;
-    @extend %w100;
+    @extend %b0;
+    @extend %r0;
 }
 
 
