@@ -6,6 +6,6 @@ export default {
         return Http(Http.API.Do_subWeChatFormId, {
             form_id,
             remark,
-        }).then((res) => {}).toast();
+        }).then((res) => {}).null();
     }
 }

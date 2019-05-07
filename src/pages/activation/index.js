@@ -8,6 +8,7 @@ import Router                       from 'plugins/router.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import Valid                        from 'utils/valid.util'
+import RouterMixin                  from 'mixins/router.mixin'
 import InputMixin                   from 'mixins/input.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
 import DataMixin                    from './data.mixin'
@@ -20,10 +21,12 @@ Page(Mixin({
     mixins: [
         DataMixin,
         InputMixin,
+        RouterMixin,
         SourceMixin,
     ],
-    onLoad () {
+    onLoad (options) {
         this.sourceGet(arrSrc);
+        this.routerGetParams(options);
     },
     inputCallback () {
         let { formData, arrData } = this.data;
@@ -38,7 +41,10 @@ Page(Mixin({
     handleSubmit () {
         if (Valid.check(this.data.formData)) return null;
         let data = Valid.input(this.data.formData);
-        return Http(Http.API.Do_setMemberInfo, data).then((res) => {
+        return Http(Http.API.Do_setMemberInfo, {
+            ...data,
+            ...this.data.params$,
+        }).then((res) => {
             Modal.confirm({
                 content: '恭喜您，您的服务已开通！',
                 showCancel: false,

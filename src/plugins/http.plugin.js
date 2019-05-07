@@ -88,7 +88,7 @@ class Http {
                             });
                             return;
                         }
-                        if ([301, 302].indexOf(Status) > -1) {
+                        if ([202].indexOf(Status) > -1) {
                             return reject(data);
                         }
                         if (Status !== 0) {

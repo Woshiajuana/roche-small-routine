@@ -8,6 +8,7 @@ import Mixin                        from 'utils/mixin.util'
 import SourceMixin                  from 'mixins/source.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
 import FormIdMixin                  from 'mixins/formid.mixin'
+import Modal                        from 'plugins/modal.plugin'
 import Http                         from 'plugins/http.plugin'
 import Router                       from 'plugins/router.plugin'
 import Valid                        from 'utils/valid.util'
@@ -64,8 +65,12 @@ Page(Mixin({
     // Vip 验证
     doActiveService (data) {
         Http(Http.API.Do_activeService, data).then((res) => {
-            console.log(res);
-        }).toast();
+            Router.root('home_index');
+        }).catch((err) => {
+            if (err.Status !== 202)
+                return Router.push('activation_index', data, true);
+            Modal.toast(err);
+        });
     },
     // 设置用户数据
     doSetUserInfo (data) {
