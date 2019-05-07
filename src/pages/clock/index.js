@@ -42,7 +42,7 @@ Page(Mixin({
             let objData = res || {};
             this.setData({ objData });
             let { Speed } = objData;
-            this.drawRunStart(+Speed / 10);
+            this.drawRunStart(+Speed / 5);
         }).toast();
     },
     drawRunStart (target, step = 0) {
