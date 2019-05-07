@@ -8,6 +8,7 @@ import Router                       from 'plugins/router.plugin'
 import SourceMixin                  from 'mixins/source.mixin'
 import Mixin                        from 'utils/mixin.util'
 import ShareMixin                   from 'mixins/share.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
 import UserMixin                    from 'mixins/user.mixin'
 import { getDate }                  from 'wow-cool/lib/date.lib'
 import {
@@ -25,6 +26,7 @@ Page(Mixin({
         ShareMixin,
         SourceMixin,
         UserMixin,
+        RouterMixin,
     ],
     data: {
         arrTimeStep: ARR_TIME_STEP,
@@ -35,7 +37,8 @@ Page(Mixin({
         dayTime: [],
         dayText: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     },
-    onLoad () {
+    onLoad (options) {
+        this.routerGetParams(options);
         // 获取用户信息
         this.userGet();
         // 显示面板
@@ -102,6 +105,8 @@ Page(Mixin({
     },
     // 立即开始测糖
     handleJump () {
-        Router.root('home_index');
+        this.data.params$.from
+            ? Router.push('questionnaire_answerone_index', {}, true)
+            : Router.root('home_index');
     }
 }));

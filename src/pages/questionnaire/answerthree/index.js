@@ -56,8 +56,9 @@ Page(Mixin({
         }).then(() => {
             return Auth.updateToken({IsArchives: true});
         }).then(() => {
-            if (this.data.params$.form === 'questionnaire_programme_index') Router.push('questionnaire_programme_index', {}, true);
-            else Router.push('questionnaire_programme_index', {}, true);
+            Router.push('questionnaire_programme_index', {
+                from: this.data.params$.from,
+            }, true);
         }).toast();
     },
 }));

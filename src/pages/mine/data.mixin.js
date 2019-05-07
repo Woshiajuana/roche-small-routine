@@ -5,8 +5,11 @@ export default {
         objEntry: {
             plan: {
                 label: '我的测糖计划',
-                url: 'programme_index',
+                url: 'questionnaire_programme_index',
                 value: '',
+                params: {
+                    from: 'mine_index'
+                }
             },
             programme: {
                 label: '我的控糖方案',

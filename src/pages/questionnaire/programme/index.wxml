@@ -50,6 +50,5 @@
     <button
         class="g-button button"
         bindtap="handleJump"
-    >立即开始测糖
-    </button>
+    >{{params$.from ? '更新控糖方案' : '立即开始测糖'}}</button>
 </view>
