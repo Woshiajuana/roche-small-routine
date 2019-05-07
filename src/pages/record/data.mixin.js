@@ -7,10 +7,10 @@ import { formatData }               from 'wow-cool/lib/date.lib'
 
 export default {
     data: {
-        formData: {
+        objInput: {
             TestDate: {
                 label: '测量日期',
-                key: 'formData.TestDate',
+                key: 'objInput.TestDate',
                 placeholder: '请输入',
                 value: formatData('yyyy-MM-dd', new Date()),
                 mode: 'date',
@@ -24,7 +24,7 @@ export default {
             },
             TestTime: {
                 label: '测量时间',
-                key: 'formData.TestTime',
+                key: 'objInput.TestTime',
                 placeholder: '请输入',
                 value: formatData('hh:mm', new Date()),
                 mode: 'time',
@@ -41,6 +41,7 @@ export default {
                 label: '备注',
                 placeholder: '请输入',
                 value: '',
+                key: 'objInput.Remark',
             },
         },
         arrRuler: 151,
@@ -49,7 +50,7 @@ export default {
         objHidden: {
             Bloodsugar: {
                 value: '6.0',
-                use_check: [
+                use: [
                     {
                         nonempty: true,
                         prompt: '请输入当前血糖值'

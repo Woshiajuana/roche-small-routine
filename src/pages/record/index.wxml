@@ -74,7 +74,7 @@
           report-submit>
         <input type="text" hidden value="{{objHidden.Bloodsugar.value}}" name="Bloodsugar"/>
         <input type="text" hidden value="{{timeStep}}" name="TimeStep"/>
-        <block wx:for="{{formData}}"
+        <block wx:for="{{objInput}}"
                wx:for-index="key"
                wx:for-item="item"
                wx:key="key">
