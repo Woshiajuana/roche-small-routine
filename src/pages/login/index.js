@@ -87,6 +87,8 @@ Page(Mixin({
     userLogin (user) {
         Auth.login().then((result) => {
             return Http(Http.API.Do_userLogin, {
+                NickName: user.nickName,
+                AvatarUrl: user.avatarUrl,
                 code: result,
                 sceneid: this.data.sceneid,
             }, {
