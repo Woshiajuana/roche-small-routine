@@ -105,8 +105,9 @@ Page(Mixin({
     },
     // 立即开始测糖
     handleJump () {
+        let { IsMember } = this.data.user$;
         this.data.params$.from
-            ? Router.push('questionnaire_answerone_index', {}, true)
+            ? Router.push('questionnaire_answerone_index', { IsMember }, true)
             : Router.root('home_index');
     }
 }));
