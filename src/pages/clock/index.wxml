@@ -33,7 +33,7 @@
         </view>
     </view>
     <view class="button"
-          wx:if="{{objData.Item1 === objData.Item2}}"
+          wx:if="{{objData.Item1 !== objData.Item2}}"
           data-url="lottery_index"
           bindtap="handleJump">
         <image src="{{src$.icon}}"></image>

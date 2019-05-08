@@ -2,7 +2,7 @@
 
 .g-vip-page{
     .button{
-        background: #ddd;
+        background: #ddc7a2;
     }
 }
 
@@ -103,7 +103,7 @@ page{
     @extend %jcc;
     @extend %cfff;
     margin-top: j(75);
-    width: j(380);
+    padding: 0 j(30);
     height: j(80);
     font-size: j(36);
     border-radius: j(40);

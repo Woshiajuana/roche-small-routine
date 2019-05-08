@@ -26,7 +26,10 @@ Page(Mixin({
         SourceMixin,
     ],
     data: {
-        objData: {},
+        objData: {
+            Item1: 0,
+            Item2: 0,
+        },
     },
     onLoad (options) {
         this.sourceGet(arrSrc);
@@ -35,25 +38,16 @@ Page(Mixin({
     },
     onReady () {
         this.drawProgressBg();
-        // this.reqTestMonth();
         this.reqCurSignIn();
     },
     reqCurSignIn () {
         Http(Http.API.Req_curSignIn).then((res) => {
             let objData = res || {};
-            this.setData({ objData });
             let { Item1, Item2 } = objData;
+            this.setData({ objData });
             if (Item2 === 0) return this.drawRunStart(0);
             let progress = Item1 / Item2 * 2;
             this.drawRunStart(progress);
-        }).toast();
-    },
-    reqTestMonth () {
-        Http(Http.API.Req_testMonth).then((res) => {
-            let objData = res || {};
-            this.setData({ objData });
-            let { Speed } = objData;
-            this.drawRunStart(+Speed / 5);
         }).toast();
     },
     drawRunStart (target, step = 0) {

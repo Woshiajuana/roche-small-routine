@@ -9,6 +9,7 @@ import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import SourceMixin                  from 'mixins/source.mixin'
 import UserMixin                    from 'mixins/user.mixin'
+import { formatData }               from 'wow-cool/lib/date.lib'
 
 const arrSrc = [
     { key: 'bg', value: 'ctjd-bg.jpg' },
@@ -30,7 +31,9 @@ Page(Mixin({
         this.reqPrizeList();
     },
     reqPrizeList () {
-        Http(Http.API.Req_PrizeList).then((res) => {
+        Http(Http.API.Req_PrizeList, {
+            Data: '2019-05-08'
+        }).then((res) => {
             // let objData = res || {};
             // this.setData({ objData });
             // let { Speed } = objData;
