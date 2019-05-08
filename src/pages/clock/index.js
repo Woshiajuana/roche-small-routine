@@ -35,7 +35,16 @@ Page(Mixin({
     },
     onReady () {
         this.drawProgressBg();
-        this.reqTestMonth();
+        // this.reqTestMonth();
+        this.reqCurSignIn();
+    },
+    reqCurSignIn () {
+        Http(Http.API.Req_curSignIn).then((res) => {
+            // let objData = res || {};
+            // this.setData({ objData });
+            // let { Speed } = objData;
+            // this.drawRunStart(+Speed / 5);
+        }).toast();
     },
     reqTestMonth () {
         Http(Http.API.Req_testMonth).then((res) => {

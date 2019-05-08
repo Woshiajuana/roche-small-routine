@@ -52,4 +52,7 @@ export default {
     // VIP激活绑定判断
     Do_activeService: 'RocheApi/ActiveService',
 
+    // VIP打卡查询
+    Req_curSignIn: 'RocheApi/GetCurSignIn',
+
 }
