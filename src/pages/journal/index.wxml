@@ -5,20 +5,27 @@
         <text>坚持30天养成测糖好习惯</text>
     </view>
     <view class="tab">
-        <view class="tab-item active">
-            <text>血糖周报</text>
-            <view class="bar"></view>
-        </view>
-        <view class="tab-item">
-            <text>血糖趋势</text>
-            <view class="bar"></view>
-        </view>
-        <view class="tab-item">
-            <text>血糖日志</text>
+        <view class="tab-item {{curKey === index && 'active'}}"
+              bindtap="handleSwitch"
+              data-key="{{index}}"
+              wx:for="{{objData}}"
+              wx:key="{{index}}">
+            <text>{{objData.label}}</text>
             <view class="bar"></view>
         </view>
     </view>
     <view class="inner">
-        <journal-view class="content"></journal-view>
+        <trend-view
+            wx:if="{{curKey === 'trend'}}"
+            class="content"
+        ></trend-view>
+        <weekly-view
+            wx:if="{{curKey === 'weekly'}}"
+            class="content"
+        ></weekly-view>
+        <journal-view
+            wx:if="{{curKey === 'journal'}}"
+            class="content"
+        ></journal-view>
     </view>
 </view>

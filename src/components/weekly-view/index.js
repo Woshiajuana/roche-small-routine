@@ -5,14 +5,14 @@ import './index.wxml'
 
 import Http                         from 'plugins/http.plugin'
 import Modal                        from 'plugins/modal.plugin'
-import Mixin                        from 'utils/mixin.util'
+import Mixin                        from 'utils/mixin.component.util'
 import ShareMixin                   from 'mixins/share.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
     ARR_TIME_STEP,
     DAY_TEXT
-}                               from 'config/base.config'
+}                                   from 'config/base.config'
 let type = false;
 const arrSrc = [
     { key: 'icon1', value: 'xtbg-icon-5.png' },
@@ -49,18 +49,19 @@ Page(Mixin({
         weekReport: {},
         isCurWeek: true,
     },
-    onLoad () {
-        this.sourceGet(arrSrc);
-        wx.showShareMenu();
-        type = false;
-        this.setData({ curTime: new Date().getTime() });
-        this.getDay();
-        this.initData();
-        this.getRecommendSugar();
-        this.getWeekReport();
-    },
     // 获取当前时间下一周
 
+    lifetimes: {
+        attached () {
+            this.sourceGet(arrSrc);
+            type = false;
+            this.setData({ curTime: new Date().getTime() });
+            this.getDay();
+            this.initData();
+            this.getRecommendSugar();
+            this.getWeekReport();
+        },
+    },
     // 上下周
     handlePreOrNext (e) {
         if (type) return;

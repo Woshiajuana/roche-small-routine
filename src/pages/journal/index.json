@@ -1,6 +1,8 @@
 {
     "navigationBarTitleText": "360°稳糖管家",
     "usingComponents": {
-        "journal-view": "/components/journal-view/index"
+        "journal-view": "/components/journal-view/index",
+        "trend-view": "/components/trend-view/index",
+        "weekly-view": "/components/weekly-view/index"
     }
 }

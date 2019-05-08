@@ -10,6 +10,7 @@ import Mixin                        from 'utils/mixin.util'
 import Valid                        from 'utils/valid.util'
 import InputMixin                   from 'mixins/input.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import DataMixin                    from './data.mixin'
 
 const arrSrc = [
     { key: 'bg', value: 'activation-bg.jpg' },
@@ -17,10 +18,15 @@ const arrSrc = [
 
 Page(Mixin({
     mixins: [
+        DataMixin,
         InputMixin,
         SourceMixin,
     ],
     onLoad () {
         this.sourceGet(arrSrc);
+    },
+    handleSwitch (event) {
+        let { key } = event.currentTarget.dataset;
+        this.setData({ curKey: key });
     },
 }));

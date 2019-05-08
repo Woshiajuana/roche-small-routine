@@ -1,0 +1,61 @@
+@import '../../assets/scss/g';
+
+.wrap{
+    @extend %h100;
+    @extend %w100;
+}
+.inner{
+    @extend %h100;
+    @extend %w100;
+}
+.cell{
+    margin-top: j(20);
+    background-color: #fff;
+    padding-bottom: j(20);
+}
+.head{
+    @extend %bsb;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: j(98);
+    font-size: j(36);
+    color: #2d2d2d;
+    border-top: j(1) solid #ddd;
+    border-bottom: j(1) solid #ddd;
+    .color{
+        color: #28aeeb;
+    }
+}
+.con{
+    @extend %df;
+    @extend %w100;
+}
+.con-item{
+    @extend %df1;
+    @extend %fdc;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: j(230);
+    color: #2d2d2d;
+    .label{
+        font-size: j(36);
+    }
+    .value{
+        font-size: j(80);
+        color: #28aeeb;
+    }
+    .unit{
+        height: j(40);
+        line-height: j(40);
+        font-size: j(30);
+    }
+}
+.prompt{
+    @extend %df;
+    @extend %aic;
+    font-size: j(28);
+    color: #6b6b6b;
+    padding-left: j(110);
+}
