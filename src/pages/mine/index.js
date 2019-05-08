@@ -50,7 +50,7 @@ Page(Mixin({
                 objUser,
                 'objEntry.info.value': IsPerfect ? '已完善' : '待完善',
             });
-            return Auth.updateToken({ IsMember, IsExpire, IsUseCode });
+            return Auth.updateToken({ IsMember, IsExpire, IsUseCode, IsPerfect });
         }).then(() => {
             this.userGet();
         }).toast();

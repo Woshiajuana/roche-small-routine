@@ -26,7 +26,6 @@
                         wx:if="{{!item.use_radio}}"
                         bindinput="bindInput"
                         data-item="{{item}}"
-                        disabled="{{key === 'Mobile' && params$.IsMember && item.value}}"
                         type="{{item.type || 'text'}}"
                         maxlength="{{item.max || 20}}"
                         value="{{item.value}}"

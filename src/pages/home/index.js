@@ -68,13 +68,13 @@ Page(Mixin({
             loading: false,
         }).then((res) => {
             let objUser = res || {};
-            let { IsMember, IsExpire, IsUseCode, Bloodsugar } = objUser;
+            let { IsMember, IsExpire, IsUseCode, Bloodsugar, IsPerfect} = objUser;
             this.setData({
                 objUser,
                 'objUser.Bloodsugar': Bloodsugar ? Bloodsugar.toFixed(1) : Bloodsugar,
                 loading: false,
             });
-            return Auth.updateToken({ IsMember, IsExpire, IsUseCode });
+            return Auth.updateToken({ IsMember, IsExpire, IsUseCode, IsPerfect });
         }).then(() => {
             this.userGet();
         }).toast();
@@ -82,7 +82,13 @@ Page(Mixin({
     // 跳转
     handleJump (event) {
         let { url, params } = event.currentTarget.dataset;
-        let { IsPerfect, IsMember, IsArchives } = this.data.user$;
+        let { IsPerfect, IsMember, IsArchives, IsUseCode } = this.data.user$;
+        if (IsMember && !IsUseCode)
+            return Modal.confirm({
+                content: '您的服务包状态待激活！\n我们的控糖顾问将在1个工作日内与您联系请注意接听电话，谢谢',
+                showCancel: false,
+                confirmText: '知道了'
+            }).then((res) => {});
         if (url === 'record_index' && !IsArchives)
             return Modal.confirm({
                 content: '完成调查问卷才能测试血糖哦！',
@@ -91,7 +97,7 @@ Page(Mixin({
                 let { confirm } = res;
                 confirm && Router.push('questionnaire_answerone_index', { IsMember });
             });
-        if (url === 'report_weekly_index' && !IsPerfect)
+        if (url === 'report_index' && !IsPerfect)
             return Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
         !params && (params = {});
         Router.push(url, params);

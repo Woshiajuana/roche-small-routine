@@ -28,6 +28,7 @@ Page(Mixin({
     },
     assignmentData () {
         let { curKey } = this.data.params$;
+        if (!curKey) return null;
         this.setData({ curKey });
     },
     handleSwitch (event) {

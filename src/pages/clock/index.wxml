@@ -59,7 +59,7 @@
             ></view>
             <view
                 class="operate-item"
-                data-url="report_monthly_index"
+                data-url="report_index"
                 bindtap="handleJump"
             ></view>
         </view>

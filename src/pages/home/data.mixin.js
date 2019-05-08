@@ -19,7 +19,10 @@ export default {
             },
             // 血糖报告
             report: {
-                url: 'report_weekly_index',
+                url: 'report_index',
+                params: {
+                    curKey: 'weekly',
+                },
             },
         }
     },

@@ -59,6 +59,7 @@ Page(Mixin({
         this.doSubWeChatFormId(formId, 'mine_info_index');
         let from = this.data.params$.from || '';
         let url = this.data.params$.to || 'mine_report_index';
+        let data = Valid.input(this.data.formData);
         Http(Http.API.Do_userInfo, data).then((res) => {
             !from && Modal.toast('保存成功');
             setTimeout(() => {

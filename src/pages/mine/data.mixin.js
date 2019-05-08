@@ -18,8 +18,11 @@ export default {
             },
             weekly: {
                 label: '我的血糖周报',
-                url: 'report_weekly_index',
+                url: 'report_index',
                 value: '',
+                params: {
+                    curKey: 'weekly'
+                }
             },
             monthly: {
                 label: '我的血糖月报',

@@ -53,12 +53,13 @@ Page(Mixin({
             IsExpire, // 是否过期
             IsMember, // 是否vip
             IsOldUser, // 是否老用户
-            IsUseCode, // 是否使用核销
+            IsUseCode, // 掌糖是否核销
             IsVipFlow, // 是否走VIP流程
+            IsBindCode, // 平台是否核销
         } = user;
         // 先判断是否是会员
         if (IsMember) {
-            if (IsOldUser || IsUseCode)
+            if (IsOldUser || IsBindCode)
                 return Router.root('home_index');
             Router.root('questionnaire_info_index', { IsMember }, true);
         } else {
