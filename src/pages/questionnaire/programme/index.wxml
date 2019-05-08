@@ -1,4 +1,4 @@
-<view class="wrap">
+<view class="wrap {{user$.IsMember && 'g-vip-page'}}">
     <image
         class="image"
         mode="widthFix"
@@ -48,7 +48,7 @@
     <text class="table-prompt">*您也可以根据您的时间，调整测糖日,</text>
     <text class="table-prompt">如改为每周二四六测糖</text>
     <button
-        class="g-button button"
+        class="g-button button linear-gradient"
         bindtap="handleJump"
     >{{params$.from ? '更新控糖方案' : '立即开始测糖'}}</button>
 </view>

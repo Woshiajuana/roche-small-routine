@@ -1,5 +1,10 @@
 @import '../../../assets/scss/define';
 
+.g-vip-page{
+    .thead{
+        background: linear-gradient(to right, #5fa4dd , #1b70c3);
+    }
+}
 .wrap{
     @extend %df;
     @extend %fdc;

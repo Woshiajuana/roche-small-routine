@@ -63,8 +63,7 @@ Page(Mixin({
             return Router.push('mine_info_index', { from: 'mine_index', to: url});
         if (url !== 'mine_control_index') {
             !params && (params = {});
-            console.log(1)
-            return Router.push(url, { from: 'mine_index', ...params });
+            return Router.push(url, { IsMember, ...params });
         }
         if (IsExpire)
             return Modal.confirm({

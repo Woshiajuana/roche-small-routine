@@ -36,7 +36,7 @@ export default {
             },
             questionnaire: {
                 label: '更新疾病信息',
-                url: 'questionnaire_two_index',
+                url: 'questionnaire_answerone_index',
                 value: '',
             },
             bluetooth: {

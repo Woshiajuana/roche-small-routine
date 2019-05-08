@@ -1,7 +1,7 @@
 <view class="wrap">
     <scroll-view class="inner" scroll-y>
         <view class="canvas">
-            <ff-canvas id="ring-dom" canvas-id="ring" opts="{{ ringOpts }}"></ff-canvas>
+            <ff-canvas wx:if="{{canvasOpts}}" id="ring-dom" canvas-id="ring" opts="{{canvasOpts}}"></ff-canvas>
         </view>
         <view class="prompt">
             <text></text>
