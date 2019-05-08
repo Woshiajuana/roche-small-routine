@@ -20,7 +20,7 @@
         </view>
         <!--/用户-->
 
-        <image class="service"  src="{{src$.kf}}"></image>
+        <image wx:if="{{user$.IsMember}}" class="service"  src="{{src$.kf}}"></image>
 
         <!--血糖-->
         <view class="main">
