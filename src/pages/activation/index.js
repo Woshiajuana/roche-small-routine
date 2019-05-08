@@ -43,7 +43,7 @@ Page(Mixin({
         let data = Valid.input(this.data.formData);
         return Http(Http.API.Do_activeService, {
             ...data,
-            ...this.data.params$,
+            Mobile: this.data.params$.Mobile,
         }).then((res) => {
             Modal.confirm({
                 content: '恭喜您，您的服务已开通！',

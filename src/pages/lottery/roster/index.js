@@ -9,7 +9,7 @@ import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import SourceMixin                  from 'mixins/source.mixin'
 import UserMixin                    from 'mixins/user.mixin'
-import { formatData }               from 'wow-cool/lib/date.lib'
+import { formatData, getDate }      from 'wow-cool/lib/date.lib'
 
 const arrSrc = [
     { key: 'bg', value: 'ctjd-bg.jpg' },
@@ -23,21 +23,39 @@ Page(Mixin({
         SourceMixin,
     ],
     data: {
-        arrList: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        arrList: [],
+        curDate: '',
+        today: '',
     },
     onLoad () {
         this.sourceGet(arrSrc);
         this.userGet();
+        this.initData();
+        this.reqPrizeList();
+    },
+    initData () {
+        let curDate = formatData('yyyy-MM-dd');
+        this.setData({ curDate });
+    },
+    handlePrev () {
+        let { curDate } = this.data;
+        curDate = getDate(-1, 'yyyy-MM-dd', new Date(curDate));
+        this.setData({ curDate });
+        this.reqPrizeList();
+    },
+    handleNext () {
+        let { curDate } = this.data;
+        curDate = getDate(1, 'yyyy-MM-dd', new Date(curDate));
+        this.setData({ curDate });
         this.reqPrizeList();
     },
     reqPrizeList () {
+        let { curDate } = this.data;
         Http(Http.API.Req_PrizeList, {
-            Data: '2019-05-08'
+            Data: curDate
         }).then((res) => {
-            // let objData = res || {};
-            // this.setData({ objData });
-            // let { Speed } = objData;
-            // this.drawRunStart(+Speed / 5);
+            let arrList = res || {};
+            this.setData({ arrList });
         }).toast();
     },
 }));
