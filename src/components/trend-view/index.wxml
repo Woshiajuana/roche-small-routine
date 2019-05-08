@@ -1,25 +1,10 @@
 <view class="wrap">
     <scroll-view class="inner" scroll-y>
-        <view class="cell"
-              wx:for="{{arrList}}"
-              wx:key="{{index}}">
-             <view class="head">
-                <text>记录时间：</text>
-                <text class="color">2018-08-21 16:45</text>
-            </view>
-            <view class="con">
-                <view class="con-item">
-                    <text class="label">晚餐前</text>
-                    <text class="value">5.5</text>
-                    <text class="unit">mmol/L</text>
-                </view>
-                <view class="con-item">
-                    <text class="label">血糖状态</text>
-                    <text class="value">正常</text>
-                    <text class="unit"></text>
-                </view>
-            </view>
-            <view class="prompt"><text>一切正常</text></view>
+        <view class="canvas">
+            <ff-canvas id="ring-dom" canvas-id="ring" opts="{{ ringOpts }}"></ff-canvas>
+        </view>
+        <view class="prompt">
+            <text></text>
         </view>
     </scroll-view>
 </view>
