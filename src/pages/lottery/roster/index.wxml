@@ -21,8 +21,8 @@
                 class="cell"
                 wx:for="{{arrList}}"
                 wx:key="{{index}}">
-                <image></image>
-                <text class="name">哈哈</text>
+                <image src="{{item.UserHeadUrl}}"></image>
+                <text class="name">{{item.UserName}}</text>
                 <view class="type">
                     <text>已领取</text>
                 </view>
