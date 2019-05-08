@@ -10,7 +10,7 @@
               data-key="{{index}}"
               wx:for="{{objData}}"
               wx:key="{{index}}">
-            <text>{{objData.label}}</text>
+            <text>{{item.label}}</text>
             <view class="bar"></view>
         </view>
     </view>
