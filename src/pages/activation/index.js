@@ -41,7 +41,7 @@ Page(Mixin({
     handleSubmit () {
         if (Valid.check(this.data.formData)) return null;
         let data = Valid.input(this.data.formData);
-        return Http(Http.API.Do_setMemberInfo, {
+        return Http(Http.API.Do_activeService, {
             ...data,
             ...this.data.params$,
         }).then((res) => {

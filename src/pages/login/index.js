@@ -24,6 +24,7 @@ Page(Mixin({
         loading: true,
     },
     onLoad (options) {
+        console.log('options', options)
         this.assignmentData(options);
         this.sourceGet(arrSrc);
         this.judgeUserLoginStatus();
@@ -53,19 +54,27 @@ Page(Mixin({
             IsMember, // 是否vip
             IsOldUser, // 是否老用户
             IsUseCode, // 是否使用核销
+            IsVipFlow, // 是否走VIP流程
         } = user;
+        // 先判断是否是会员
         if (IsMember) {
-            if ( IsOldUser )
-                return Router.root('home_index');
-            if ( IsUseCode )
+            if (IsOldUser || IsUseCode)
                 return Router.root('home_index');
             Router.root('questionnaire_info_index', { IsMember }, true);
         } else {
-            console.log(1)
-            // return Router.push('questionnaire_info_index', { IsMember: false }, true);
-            if (!IsArchives)
-                return Router.root('questionnaire_info_index', { IsMember }, true);
-            Router.root('home_index');
+            if (IsOldUser) {
+                if (!IsArchives)
+                    return Router.root('questionnaire_info_index', { IsMember }, true);
+                return Router.root('home_index');
+            } else {
+                if (IsVipFlow) {
+                    return Router.root('questionnaire_info_index', { IsMember: true }, true);
+                } else {
+                    if (!IsArchives)
+                        return Router.root('questionnaire_info_index', { IsMember }, true);
+                    Router.root('home_index');
+                }
+            }
         }
     },
     // 授权并登录

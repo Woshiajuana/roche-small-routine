@@ -1,5 +1,5 @@
 
-<view class="wrap g-vip-page">
+<view class="wrap {{user$.IsMember && 'g-vip-page'}}">
     <image
         class="bg"
         mode="widthFix"
@@ -33,10 +33,15 @@
         </view>
     </view>
     <view class="button"
+          wx:if="{{objData.Item1 === objData.Item2}}"
           data-url="lottery_index"
           bindtap="handleJump">
         <image src="{{src$.icon}}"></image>
         <text>领取打卡奖励</text>
+    </view>
+    <view class="button"
+          wx:else>
+        <text>您还差 {{objData.Item2 - objData.Item1}} 天即可点亮圆环</text>
     </view>
     <view class="prompt">
         <text>坚持是一种习惯</text>

@@ -1,5 +1,11 @@
 @import '../../assets/scss/define';
 
+.g-vip-page{
+    .button{
+        background: #ddd;
+    }
+}
+
 page{
     @extend %h100;
     background-color: #50575d;
@@ -101,7 +107,7 @@ page{
     height: j(80);
     font-size: j(36);
     border-radius: j(40);
-    background-image: linear-gradient(to right, #5097d7, #1b6fc3);
+    background: linear-gradient(to right, #5097d7, #1b6fc3);
     image{
         width: j(40);
         height: j(40);
