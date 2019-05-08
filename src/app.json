@@ -1,6 +1,5 @@
 {
     "pages": [
-        "pages/journal/index",
         "pages/login/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
@@ -22,6 +21,7 @@
         "pages/questionnaire/info/index",
         "pages/questionnaire/programme/index",
         "pages/record/index",
+        "pages/report/index",
         "pages/report/monthly/index",
         "pages/report/weekly/index",
         "pages/result/index",

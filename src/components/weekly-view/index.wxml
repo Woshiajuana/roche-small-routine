@@ -1,8 +1,4 @@
-<view>
-    <view class="header">
-        <text class="header-prompt">一周血糖管理周报</text>
-        <text class="header-text">坚持30天养成测糖好习惯</text>
-    </view>
+<scroll-view scroll-y class="wrap">
     <view class="tab">
         <view class="tab-btn"
               data-count="-7"
@@ -194,7 +190,6 @@
             <!--</view>-->
         </view>
     </block>
-
     <view class="footer">
         <view class="footer-item">
             <image
@@ -217,4 +212,4 @@
             <text class="footer-text">获取更多控糖秘诀！</text>
         </view>
     </view>
-</view>
+</scroll-view>

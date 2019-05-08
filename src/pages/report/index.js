@@ -7,9 +7,8 @@ import Http                         from 'plugins/http.plugin'
 import Router                       from 'plugins/router.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
-import Valid                        from 'utils/valid.util'
-import InputMixin                   from 'mixins/input.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
 import DataMixin                    from './data.mixin'
 
 const arrSrc = [
@@ -19,11 +18,17 @@ const arrSrc = [
 Page(Mixin({
     mixins: [
         DataMixin,
-        InputMixin,
+        RouterMixin,
         SourceMixin,
     ],
-    onLoad () {
+    onLoad (options) {
         this.sourceGet(arrSrc);
+        this.routerGetParams(options);
+        this.assignmentData();
+    },
+    assignmentData () {
+        let { curKey } = this.data.params$;
+        this.setData({ curKey });
     },
     handleSwitch (event) {
         let { key } = event.currentTarget.dataset;

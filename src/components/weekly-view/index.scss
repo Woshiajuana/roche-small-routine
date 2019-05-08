@@ -1,17 +1,6 @@
 @import '../../assets/scss/define';
-/*头部*/
-.header{
-    @extend %df;
-    @extend %fdc;
-    @extend %jcc;
-    @extend %aic;
-    height: 268rpx;
-    padding: 0 60rpx;
-    background: linear-gradient( #24a3db , #51c5de);
-    line-height: 1.5;
-    text{
-        color: #fff;
-    }
+.wrap{
+    @extend %h100;
 }
 .header-prompt{
     font-size: 46rpx;
