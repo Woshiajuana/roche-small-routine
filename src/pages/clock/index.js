@@ -40,10 +40,12 @@ Page(Mixin({
     },
     reqCurSignIn () {
         Http(Http.API.Req_curSignIn).then((res) => {
-            // let objData = res || {};
-            // this.setData({ objData });
-            // let { Speed } = objData;
-            // this.drawRunStart(+Speed / 5);
+            let objData = res || {};
+            this.setData({ objData });
+            let { Item1, Item2 } = objData;
+            if (Item2 === 0) return this.drawRunStart(0);
+            let progress = Item1 / Item2 * 2;
+            this.drawRunStart(progress);
         }).toast();
     },
     reqTestMonth () {

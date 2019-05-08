@@ -55,4 +55,10 @@ export default {
     // VIP打卡查询
     Req_curSignIn: 'RocheApi/GetCurSignIn',
 
+    // 抽取本周打卡奖励
+    Do_luckDraw: 'RocheApi/LuckDraw',
+
+    // 获取中奖列表
+    Req_PrizeList: 'RocheApi/GetLuckPrizes',
+
 }

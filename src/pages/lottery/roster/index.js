@@ -27,5 +27,14 @@ Page(Mixin({
     onLoad () {
         this.sourceGet(arrSrc);
         this.userGet();
+        this.reqPrizeList();
+    },
+    reqPrizeList () {
+        Http(Http.API.Req_PrizeList).then((res) => {
+            // let objData = res || {};
+            // this.setData({ objData });
+            // let { Speed } = objData;
+            // this.drawRunStart(+Speed / 5);
+        }).toast();
     },
 }));

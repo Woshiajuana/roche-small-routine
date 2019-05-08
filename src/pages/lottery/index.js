@@ -24,4 +24,12 @@ Page(Mixin({
         this.sourceGet(arrSrc);
         this.userGet();
     },
+    handleLuckDraw () {
+        Http(Http.API.Do_luckDraw).then((res) => {
+            // let objData = res || {};
+            // this.setData({ objData });
+            // let { Speed } = objData;
+            // this.drawRunStart(+Speed / 5);
+        }).toast();
+    },
 }));

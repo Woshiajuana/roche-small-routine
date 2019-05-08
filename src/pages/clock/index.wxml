@@ -14,7 +14,7 @@
     <view class="statistics">
         <view class="statistics-item">
             <text class="label">本周已完成</text>
-            <text class="value">{{objData.PlanCount}}天</text>
+            <text class="value">{{objData.Item1}}天</text>
             <text class="unit"></text>
         </view>
         <view class="statistics-item statistics-inner">
@@ -28,7 +28,7 @@
         </view>
         <view class="statistics-item">
             <text class="label">周计划测糖</text>
-            <text class="value">{{objData.TestSugarCount}}天</text>
+            <text class="value">{{objData.Item2}}天</text>
             <text class="unit"></text>
         </view>
     </view>
