@@ -39,11 +39,13 @@ Page(Mixin({
     },
     // 判断用户登录状态
     judgeUserLoginStatus () {
-        Auth.getToken().then((res) => {
-            this.judgeUserStatus(res);
-        }).catch(() => {
-            this.setData({ loading: false });
-        });
+        Auth.logout().finally(() => {
+            Auth.getToken().then((res) => {
+                this.judgeUserStatus(res);
+            }).catch(() => {
+                this.setData({ loading: false });
+            });
+        })
     },
     // 判断用户状态
     judgeUserStatus (user) {

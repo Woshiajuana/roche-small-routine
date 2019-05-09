@@ -23,8 +23,6 @@
         "pages/record/index",
         "pages/report/index",
         "pages/report/monthly/index",
-        "pages/report/weekly/index",
-        "pages/result/index",
         "pages/web/index"
     ],
     "window": {
