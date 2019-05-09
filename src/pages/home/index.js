@@ -94,12 +94,6 @@ Page(Mixin({
             }
             return this.jumpWebView(WEB_LINK.ZXWZ);
         }
-        if (url === 'report_index' && IsMember && !IsUseCode)
-            return Modal.confirm({
-                content: '您的服务包状态待激活！\n我们的控糖顾问将在1个工作日内与您联系请注意接听电话，谢谢',
-                showCancel: false,
-                confirmText: '知道了'
-            }).then((res) => {});
         if (['record_index', 'clock_index'].indexOf(url) > -1 && !IsArchives)
             return Modal.confirm({
                 content: '完成调查问卷才能测试血糖哦！',

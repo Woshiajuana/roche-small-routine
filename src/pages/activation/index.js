@@ -46,13 +46,7 @@ Page(Mixin({
             ...data,
             Mobile: this.data.params$.Mobile,
         }).then((res) => {
-            Modal.confirm({
-                content: '恭喜您，您的服务已开通！',
-                showCancel: false,
-                confirmText: '返回首页',
-            }).then(() => {
-                Router.root('home_index');
-            });
+            this.setData({ isPopup: true });
         }).toast();
     },
     handleRoot () {
