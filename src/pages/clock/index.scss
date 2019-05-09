@@ -187,6 +187,8 @@ page{
     @extend %jcc;
     @extend %cfff;
     height: j(80);
+    width: j(300);
+    margin-left: j(-150);
     font-size: j(36);
     bottom: j(50);
     border-radius: j(40);

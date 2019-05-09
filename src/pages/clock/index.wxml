@@ -65,7 +65,11 @@
     </view>
     <div class="popup-wrap">
         <div class="popup-inner">
-            <image class="popup-image" src="{{src$.gift1}}"></image>
+            <image
+                class="popup-image"
+                src="{{src$.gift1}}"
+                mode="widthFix"
+            ></image>
             <button
                 class="popup-button"
             >前往领取</button>
