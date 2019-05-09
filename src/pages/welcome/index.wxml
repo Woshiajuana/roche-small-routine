@@ -1,0 +1,11 @@
+<view class="wrap g-vip-page">
+    <image
+        class="image"
+        mode="widthFix"
+        src="{{src$.bg}}"
+    ></image>
+    <button
+        class="g-button button"
+        bindtap="handleJump"
+    >立即使用</button>
+</view>

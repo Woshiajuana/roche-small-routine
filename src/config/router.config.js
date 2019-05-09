@@ -22,5 +22,6 @@ module.exports = {
     "record_index": "/pages/record/index",
     "report_index": "/pages/report/index",
     "report_monthly_index": "/pages/report/monthly/index",
-    "web_index": "/pages/web/index"
+    "web_index": "/pages/web/index",
+    "welcome_index": "/pages/welcome/index"
 }

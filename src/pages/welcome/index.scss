@@ -1,0 +1,25 @@
+@import '../../assets/scss/define';
+page{
+    @extend %w100;
+    @extend %h100;
+    background-color: #4798d4;
+}
+.wrap{
+    @extend %w100;
+    @extend %h100;
+    @extend %oh;
+}
+.image{
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    @extend %w100;
+    height: auto;
+}
+
+.button{
+    @extend %pa;
+    @extend %l50;
+    bottom: j(60);
+    margin-left: j(-315);
+}

@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/welcome/index",
         "pages/login/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
