@@ -1,4 +1,6 @@
 <view class="wrap">
+    <wxs src="../../wxs/filter.wxs" module="filter" />
+
     <scroll-view
         class="inner"
         bindscrolltolower="handleScrollToLower"
@@ -8,7 +10,7 @@
               wx:key="{{index}}">
              <view class="head">
                 <text>记录时间：</text>
-                <text class="color">2018-08-21 16:45</text>
+                <text class="color">{{filter.filterLastPlanTime(item.TestDate)}} {{item.TestTime}}</text>
             </view>
             <view class="con">
                 <view class="con-item">
