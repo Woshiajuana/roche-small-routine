@@ -16,6 +16,9 @@ const arrSrc = [
     { key: 'bg', value: 'ctjd-bg.jpg' },
     { key: 'icon', value: 'clock-icon.png' },
     { key: 'operate', value: 'clock-btn-icon.png' },
+    { key: 'gift1', value: 'gift-1.png' },
+    { key: 'gift2', value: 'gift-2.png' },
+    { key: 'gift3', value: 'gift-3.png' },
 ];
 
 Page(Mixin({

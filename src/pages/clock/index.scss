@@ -161,3 +161,39 @@ page{
     height: j(180);
     margin: 0 j(20);
 }
+.popup-wrap{
+    @extend %pf;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    background-color: rgba(0,0,0,.3);
+}
+.popup-inner{
+    @extend %pr;
+    width: j(631);
+    height: j(689);
+    background-color: #fff;
+    border-radius: j(10);
+}
+.popup-button{
+    @extend %df;
+    @extend %pa;
+    @extend %l50;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    height: j(80);
+    font-size: j(36);
+    bottom: j(50);
+    border-radius: j(40);
+    background-color: #1d71c4;
+}
+.popup-image{
+    @extend %w100;
+    @extend %pa;
+    @extend %t0;
+}
