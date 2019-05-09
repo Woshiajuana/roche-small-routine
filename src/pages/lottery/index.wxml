@@ -1,19 +1,12 @@
 
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
-    <view class="header">
-        <text>很棒哦！已坚持完成一周测糖！</text>
-        <text class="prompt">恭喜你获得抽奖机会</text>
-    </view>
-    <view class="inner">
-        <view class="content">
-            <text>0元领试纸</text>
-            <image class="goods" src="{{src$.gift}}"></image>
-        </view>
-        <image class="bg" src="{{src$.bg}}"></image>
-    </view>
+    <image
+        mode="widthFix"
+        src="{{src$.bg}}"
+    ></image>
     <button
         class="g-button button"
-        bindtap="handleLuckDraw"
-    >试试手气</button>
+        bindtap="handleJump"
+    >立即打卡</button>
     <view class="link"><text>查看规则</text></view>
 </view>

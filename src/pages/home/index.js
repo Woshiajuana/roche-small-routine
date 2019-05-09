@@ -100,7 +100,7 @@ Page(Mixin({
                 showCancel: false,
                 confirmText: '知道了'
             }).then((res) => {});
-        if (url === 'record_index' && !IsArchives)
+        if (['record_index', 'clock_index'].indexOf(url) > -1 && !IsArchives)
             return Modal.confirm({
                 content: '完成调查问卷才能测试血糖哦！',
                 confirmText: '去完成'
@@ -110,7 +110,18 @@ Page(Mixin({
             });
         if (url === 'report_index' && !IsPerfect)
             return Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
+        if (url === 'clock_index')
+            return this.reqCurSignIn();
         !params && (params = {});
         Router.push(url, params);
+    },
+    reqCurSignIn () {
+        Http(Http.API.Req_curSignIn).then((res) => {
+            let { Item1, Item2 } = res;
+            if (Item2 && Item1 === Item2)
+                Router.push('clock_index', { Bloodsugar: this.data.objUser.Bloodsugar });
+            else
+                Router.push('lottery_index');
+        }).toast();
     },
 }));
