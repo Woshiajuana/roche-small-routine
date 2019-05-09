@@ -33,9 +33,8 @@
         </view>
     </view>
     <view class="button"
-          wx:if="{{objData.Item1 !== objData.Item2}}"
-          data-url="lottery_index"
-          bindtap="handleJump">
+          wx:if="{{objData.Item1 === objData.Item2}}"
+          bindtap="handleLuckDraw">
         <image src="{{src$.icon}}"></image>
         <text>领取打卡奖励</text>
     </view>
