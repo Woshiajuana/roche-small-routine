@@ -22,6 +22,6 @@ Page(Mixin({
         this.userGet();
     },
     handleJump () {
-        Router.push('record_index');
+        Router.push('record_index', {}, true);
     },
 }));

@@ -188,7 +188,7 @@ Page(Mixin({
         data.TimeStep = this.data.arrTimeStep.indexOf(this.data.timeStep) + 1;
         data.Bloodsugar = +data.Bloodsugar;
         return Http(Http.API.Do_subTestSugar, data).then((res) => {
-            return Router.push('clock_index', { Bloodsugar: res.Bloodsugar });
+            return Router.push('clock_index', { Bloodsugar: res.Bloodsugar }, true);
         }).toast().finally(() => {
             this.setData({ is_pop: false });
         });

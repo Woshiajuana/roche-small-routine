@@ -106,17 +106,23 @@ page{
     @extend %df;
     @extend %fdc;
     @extend %aic;
-    width: j(640);
+    width: j(630);
     background-color: #fff;
     border-radius: j(16);
-    padding: j(16);
+    padding: j(50) 0;
+    line-height: 1.4;
 }
 .popup-title{
-    font-size: j(32);
+    font-size: j(51);
     color: #333;
 }
 .popup-content{
+    @extend %df;
+    @extend %fdc;
+    justify-content: center;
+    margin-top: j(20);
     align-items: center;
+    padding: 0 j(46);
 }
 .popup-prompt{
     color: #333;
@@ -126,6 +132,9 @@ page{
     @extend %df;
     @extend %aic;
     @extend %jcc;
+    width: j(300);
+    margin-top: j(20);
+    background-color: #c7ad75;
     height: j(80);
     border-radius: j(40);
     color: #fff;
