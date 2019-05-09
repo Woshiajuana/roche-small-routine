@@ -63,7 +63,7 @@ Page(Mixin({
         if (IsMember) {
             if (IsOldUser || IsBindCode)
                 return Router.root('home_index');
-            Router.root('questionnaire_info_index', { IsMember }, true);
+            Router.root('welcome_index', { IsMember }, true);
         } else {
             if (IsOldUser) {
                 if (!IsArchives)
@@ -71,7 +71,7 @@ Page(Mixin({
                 return Router.root('home_index');
             } else {
                 if (IsVipFlow) {
-                    return Router.root('questionnaire_info_index', { IsMember: true }, true);
+                    return Router.root('welcome_index', { IsMember: true }, true);
                 } else {
                     if (!IsArchives)
                         return Router.root('questionnaire_info_index', { IsMember }, true);
@@ -89,6 +89,7 @@ Page(Mixin({
     // 用户登录
     userLogin (user) {
         Auth.login().then((result) => {
+            // return console.log(result)
             return Http(Http.API.Do_userLogin, {
                 NickName: user.nickName,
                 AvatarUrl: user.avatarUrl,
