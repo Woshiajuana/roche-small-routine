@@ -45,12 +45,12 @@ Page(Mixin({
     getUserSugar () {
         Http(Http.API.Req_mineSugar).then((res) => {
             let objUser = res || {};
-            let { IsMember, IsExpire, IsUseCode, IsPerfect } = objUser;
+            let { IsMember, IsExpire, IsUseCode, IsPerfect, IsArchives } = objUser;
             this.setData({
                 objUser,
                 'objEntry.info.value': IsPerfect ? '已完善' : '待完善',
             });
-            return Auth.updateToken({ IsMember, IsExpire, IsUseCode, IsPerfect });
+            return Auth.updateToken({ IsMember, IsExpire, IsUseCode, IsPerfect, IsArchives });
         }).then(() => {
             this.userGet();
         }).toast();
@@ -58,7 +58,7 @@ Page(Mixin({
     // 跳转
     handleJump (event) {
         let { url, params } = event.currentTarget.dataset;
-        let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.objUser;
+        let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.user$;
         if ( ['mine_report_index', 'mine_month_index'].indexOf(url) > -1 && !IsPerfect )
             return Router.push('mine_info_index', { from: 'mine_index', to: url});
         if (url !== 'mine_control_index') {

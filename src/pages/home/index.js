@@ -68,13 +68,13 @@ Page(Mixin({
             loading: false,
         }).then((res) => {
             let objUser = res || {};
-            let { IsMember, IsExpire, IsUseCode, Bloodsugar, IsPerfect} = objUser;
+            let { IsMember, IsExpire, IsUseCode, Bloodsugar, IsPerfect, IsArchives} = objUser;
             this.setData({
                 objUser,
                 'objUser.Bloodsugar': Bloodsugar ? Bloodsugar.toFixed(1) : Bloodsugar,
                 loading: false,
             });
-            return Auth.updateToken({ IsMember, IsExpire, IsUseCode, IsPerfect });
+            return Auth.updateToken({ IsMember, IsExpire, IsUseCode, IsPerfect, IsArchives });
         }).then(() => {
             this.userGet();
         }).toast();

@@ -91,3 +91,40 @@ page{
         font-size: j(20);
     }
 }
+.popup{
+    @extend %pf;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    background-color: rgba(0,0,0,0.3);
+}
+.popup-inner{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    background-color: #fff;
+    border-radius: j(16);
+    padding: j(16);
+}
+.popup-title{
+
+}
+.popup-content{
+
+}
+.popup-prompt{
+
+}
+.popup-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: j(80);
+    border-radius: j(40);
+    color: #fff;
+    font-size: j(30);
+}
