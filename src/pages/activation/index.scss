@@ -111,13 +111,15 @@ page{
     padding: j(16);
 }
 .popup-title{
-
+    font-size: j(32);
+    color: #333;
 }
 .popup-content{
-
+    align-items: center;
 }
 .popup-prompt{
-
+    color: #333;
+    font-size: j(32);
 }
 .popup-button{
     @extend %df;
