@@ -59,3 +59,12 @@
     color: #6b6b6b;
     padding-left: j(110);
 }
+.loading{
+    @extend %df;
+    @extend %w100;
+    @extend %aic;
+    @extend %jcc;
+    height: j(200);
+    font-size: j(32);
+    color: #666;
+}

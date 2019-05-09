@@ -26,8 +26,10 @@ Component(Mixin({
         },
     },
     data: {
-        count: 0,
-        arrList: [1,1,1,1,1,1,1,1,1,1,1,1,1]
+        arrList: [],
+        PageIndex: 1,
+        PageSize: 20,
+        Count: 0
     },
     lifetimes: {
         attached () {
@@ -36,58 +38,26 @@ Component(Mixin({
         },
     },
     methods: {
+        handleScrollToLower () {
+            console.log(1)
+            let { PageIndex, Count, arrList} = this.data;
+            if (arrList.length >= Count) return null;
+            PageIndex++;
+            this.setData({PageIndex});
+            this.reqJournalList();
+        },
         reqJournalList () {
-            return Http(Http.API.Req_journalList).then((res) => {
-                let arrList = res || [];
-                this.setData({ arrList });
-            }).toast();
-        },
-        formatData (event) {
-            let { detail, currentTarget } = event;
-            let { item, value } = currentTarget.dataset;
-            if (typeof value === 'undefined') value = detail.value;
-            return { value, item };
-        },
-        handleFormInput (event) {
-            let { value, item } = this.formatData(event);
-            this.setData({[`${item.key}.value`]: value});
-        },
-        // 数据提交
-        handleSubmit (event) {
-            if (Valid.check(this.data.formData)) return null;
-            let data = Valid.input(this.data.formData);
-            this.triggerEvent('submit', {
-                formId: event.detail.formId,
-                data,
-            });
-        },
-        // 弹窗声明
-        handleFormPop () {
-            this.triggerEvent('pop');
-        },
-        // 获取验证码
-        handleFormCode (event) {
-            let { value, item } = this.formatData(event);
-            if (!value) return Modal.toast('请输入您的手机号');
-            if (!Regular.isPhone(value)) return Modal.toast('手机号输入错误');
-            this.reqSendSms(value, item.useCode.count);
-        },
-        // 获取验证码
-        reqSendSms (Mobile, count) {
-            return Http(Http.API.Req_sendSms, {
-                Mobile,
+            let { PageIndex, PageSize, arrList } = this.data;
+            return Http(Http.API.Req_journalList, {
+                PageIndex,
+                PageSize,
             }).then((res) => {
-                Modal.toast('发送验证码成功');
-                this.countDown(count);
+                let obj = res || {};
+                let Count = obj.Count || '';
+                let Data = obj.Data || [];
+                arrList = [...arrList, ...Data];
+                this.setData({ Count, arrList });
             }).toast();
-        },
-        // 计数
-        countDown (count) {
-            this.setData({ count });
-            if (count <= 0) return;
-            setTimeout(() => {
-                this.countDown(--count);
-            },1000)
         },
     }
 }));
