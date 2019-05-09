@@ -32,9 +32,16 @@ Component(Mixin({
     lifetimes: {
         attached () {
             this.sourceGet(arrSrc);
+            this.reqJournalList();
         },
     },
     methods: {
+        reqJournalList () {
+            return Http(Http.API.Req_journalList).then((res) => {
+                let arrList = res || [];
+                this.setData({ arrList });
+            }).toast();
+        },
         formatData (event) {
             let { detail, currentTarget } = event;
             let { item, value } = currentTarget.dataset;

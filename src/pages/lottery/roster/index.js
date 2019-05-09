@@ -51,7 +51,7 @@ Page(Mixin({
     },
     reqPrizeList () {
         let { curDate } = this.data;
-        Http(Http.API.Req_PrizeList, {
+        Http(Http.API.Req_prizeList, {
             Data: curDate
         }).then((res) => {
             let arrList = res || {};

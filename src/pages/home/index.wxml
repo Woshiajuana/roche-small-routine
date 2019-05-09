@@ -20,7 +20,13 @@
         </view>
         <!--/用户-->
 
-        <image wx:if="{{user$.IsMember}}" class="service"  src="{{src$.kf}}"></image>
+        <image
+            bindtap="handleJump"
+            data-url="consult_index"
+            wx:if="{{user$.IsMember}}"
+            class="service"
+            src="{{src$.kf}}"
+        ></image>
 
         <!--血糖-->
         <view class="main">

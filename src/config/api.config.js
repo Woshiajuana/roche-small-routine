@@ -59,6 +59,9 @@ export default {
     Do_luckDraw: 'RocheApi/LuckDraw',
 
     // 获取中奖列表
-    Req_PrizeList: 'RocheApi/GetLuckPrizes',
+    Req_prizeList: 'RocheApi/GetLuckPrizes',
+
+    // 获取血糖日志
+    Req_journalList: 'RocheApi/GetBloodsugarTestRecordLogList',
 
 }
