@@ -25,6 +25,7 @@ Page(Mixin({
         SourceMixin,
     ],
     onLoad (options) {
+        console.log(1)
         this.sourceGet(arrSrc);
         this.routerGetParams(options);
     },
@@ -53,5 +54,8 @@ Page(Mixin({
                 Router.root('home_index');
             });
         }).toast();
+    },
+    handleRoot () {
+        Router.root('home_index');
     },
 }));

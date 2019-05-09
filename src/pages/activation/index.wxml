@@ -34,7 +34,10 @@
                 <text class="popup-prompt">我的们控糖顾问将在1个工作日内</text>
                 <text class="popup-prompt">与您联系请注意接听电话，谢谢</text>
             </view>
-            <button class="popup-button">知道了</button>
+            <button
+                bindtap="handleRoot"
+                class="popup-button"
+            >知道了</button>
         </view>
     </view>
     <view class="footer">

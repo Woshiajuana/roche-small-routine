@@ -106,6 +106,7 @@ page{
     @extend %df;
     @extend %fdc;
     @extend %aic;
+    width: j(640);
     background-color: #fff;
     border-radius: j(16);
     padding: j(16);
