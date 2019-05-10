@@ -63,16 +63,16 @@
             ></view>
         </view>
     </view>
-    <div class="popup-wrap">
-        <div class="popup-inner">
-            <image
-                class="popup-image"
-                src="{{src$.gift1}}"
-                mode="widthFix"
-            ></image>
-            <button
-                class="popup-button"
-            >前往领取</button>
-        </div>
-    </div>
+    <!--<div class="popup-wrap">-->
+        <!--<div class="popup-inner">-->
+            <!--<image-->
+                <!--class="popup-image"-->
+                <!--src="{{src$.gift1}}"-->
+                <!--mode="widthFix"-->
+            <!--&gt;</image>-->
+            <!--<button-->
+                <!--class="popup-button"-->
+            <!--&gt;前往领取</button>-->
+        <!--</div>-->
+    <!--</div>-->
 </view>

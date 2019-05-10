@@ -8,6 +8,12 @@ import SourceMixin                  from 'mixins/source.mixin'
 import Valid                        from 'utils/valid.util'
 import Regular                      from 'utils/regular.util'
 import Http                         from 'plugins/http.plugin'
+import {
+    ARR_TIME_STEP,
+    DAY_TEXT,
+    GLS_TEXT,
+    WEB_LINK,
+}                                   from 'config/base.config'
 
 const arrSrc = [
     { key: 'normal', value: 'select-nor-icon.png' },
@@ -29,7 +35,9 @@ Component(Mixin({
         arrList: [],
         PageIndex: 1,
         PageSize: 20,
-        Count: 0
+        Count: 0,
+        arrTimeStep: ARR_TIME_STEP,
+        glsText: GLS_TEXT,
     },
     lifetimes: {
         attached () {
