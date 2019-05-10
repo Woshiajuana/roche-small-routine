@@ -1,19 +1,19 @@
 
 <view class="wrap">
-    <!--<view class="header">-->
-        <!--<text class="title">一周血糖管理周报</text>-->
-        <!--<text>坚持30天养成测糖好习惯</text>-->
-    <!--</view>-->
-    <!--<view class="tab">-->
-        <!--<view class="tab-item {{curKey === index && 'active'}}"-->
-              <!--bindtap="handleSwitch"-->
-              <!--data-key="{{index}}"-->
-              <!--wx:for="{{objData}}"-->
-              <!--wx:key="{{index}}">-->
-            <!--<text>{{item.label}}</text>-->
-            <!--<view class="bar"></view>-->
-        <!--</view>-->
-    <!--</view>-->
+    <view class="header">
+        <text class="title">一周血糖管理周报</text>
+        <text>坚持30天养成测糖好习惯</text>
+    </view>
+    <view class="tab">
+        <view class="tab-item {{curKey === index && 'active'}}"
+              bindtap="handleSwitch"
+              data-key="{{index}}"
+              wx:for="{{objData}}"
+              wx:key="{{index}}">
+            <text>{{item.label}}</text>
+            <view class="bar"></view>
+        </view>
+    </view>
     <view class="inner">
         <trend-view
             wx:if="{{curKey === 'trend'}}"

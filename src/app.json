@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/home/index",
         "pages/report/index",
         "pages/record/index",
         "pages/login/index",
@@ -11,7 +12,6 @@
         "pages/bluetooth/transfer/index",
         "pages/clock/index",
         "pages/consult/index",
-        "pages/home/index",
         "pages/lottery/index",
         "pages/lottery/roster/index",
         "pages/mine/index",
