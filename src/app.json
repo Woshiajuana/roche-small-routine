@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/record/index",
         "pages/report/index",
+        "pages/record/index",
         "pages/login/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
