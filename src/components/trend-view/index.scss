@@ -1,5 +1,7 @@
 @import '../../assets/scss/g';
-
+page{
+    background-color: #fff;
+}
 .wrap{
     @extend %h100;
     @extend %w100;

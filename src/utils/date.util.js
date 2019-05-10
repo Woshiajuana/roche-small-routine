@@ -122,4 +122,8 @@ export default {
         time = time.replace(/[^0-9]/ig, '');
         return this.formatData('yyyy-MM-dd', new Date(+time))
     },
+
+    getSixDay () {
+
+    },
 }
