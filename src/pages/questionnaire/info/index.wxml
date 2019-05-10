@@ -9,6 +9,7 @@
         bindsubmit="handleSubmit"
         bindpop="handlePop"
         formData="{{formData}}"
+        params="{{params$}}"
     ></form-view>
     <view class="pop-wrap" wx:if="{{isPop}}">
         <view class="pop-inner">

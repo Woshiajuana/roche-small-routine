@@ -24,6 +24,10 @@ Component(Mixin({
             type: Object,
             value: {},
         },
+        params: {
+            type: Object,
+            value: {},
+        }
     },
     data: {
         count: 0,

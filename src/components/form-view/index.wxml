@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<form class="form-wrap"
+<form class="form-wrap {{params.IsMember && 'g-vip-page'}}"
       bindsubmit="handleSubmit"
       report-submit>
 
@@ -105,7 +105,7 @@
 
     </block>
     <button
-        class="g-button form-button"
+        class="g-button linear-gradient form-button"
         formType="submit"
     >下一步</button>
 </form>
