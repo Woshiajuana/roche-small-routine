@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "我的血糖报告"
+    "navigationBarTitleText": "我的血糖报告",
+    "usingComponents": {
+        "ff-canvas": "/components/f2-canvas/index"
+    }
 }

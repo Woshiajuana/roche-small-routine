@@ -18,11 +18,24 @@
             <text>下一月</text>
         </view>
     </view>
+
+    <block wx:if="{{weekReport.HaveReport}}">
+        <view class="canvas">
+            <ff-canvas id="canvas-dom" canvas-id="canvas-dom"></ff-canvas>
+        </view>
+        <image
+            mode="widthFix"
+            class="canvas-image"
+            src="{{src$.bg}}"
+        ></image>
+    </block>
+
     <view class="weekly">
         <view class="weekly-head {{!weekReport.HaveReport && 'null'}}">
             <text>{{weekReport.HaveReport ? weekReport.MonitorSummary : isCurWeek ? '您的月报将于下月生成，请继续坚持定期测糖的好习惯哦！' : '您的监测频率过低，无法生成月报'}}</text>
         </view>
         <block wx:if="{{weekReport.HaveReport}}">
+
             <view class="weekly-cell">
                 <view class="weekly-cell-text">
                     <text>本月总计</text>

@@ -1,4 +1,16 @@
 @import '../../../assets/scss/define';
+page{
+    background-color: #fafafa;
+}
+.canvas{
+    @extend %w100;
+    height: j(750);
+    background-color: #fafafa;
+    border-top: j(1) solid #ddd;
+}
+.canvas-image{
+    @extend %w100;
+}
 /*头部*/
 .header{
     @extend %df;
@@ -178,7 +190,7 @@
 }
 
 .weekly{
-    margin-top: 60rpx;
+    //margin-top: 60rpx;
 }
 .weekly-head{
     @extend %df;

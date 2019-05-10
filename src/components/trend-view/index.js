@@ -15,20 +15,20 @@ import {
     WEB_LINK,
 }                                   from 'config/base.config'
 
-const data1 = [
-    { "year": '05-06', "type": "早餐", "value": 6 },
-    { "year": '05-06', "type": "中餐", "value": 6 },
-    { "year": '05-06', "type": "晚餐", "value": 6 },
-    { "year": '05-07', "type": "早餐", "value": 6 },
-    { "year": '05-07', "type": "中餐", "value": 6 },
-    { "year": '05-07', "type": "晚餐", "value": 6 },
-    { "year": '05-08', "type": "早餐", "value": 6 },
-    { "year": '05-08', "type": "中餐", "value": 6 },
-    { "year": '05-08', "type": "晚餐", "value": 6 },
-    { "year": '05-09', "type": "早餐", "value": 6 },
-    { "year": '05-09', "type": "中餐", "value": 6 },
-    { "year": '05-09', "type": "晚餐", "value": 6 },
-];
+// const data1 = [
+//     { "year": '05-06', "type": "早餐", "value": 6 },
+//     { "year": '05-06', "type": "中餐", "value": 6 },
+//     { "year": '05-06', "type": "晚餐", "value": 6 },
+//     { "year": '05-07', "type": "早餐", "value": 6 },
+//     { "year": '05-07', "type": "中餐", "value": 6 },
+//     { "year": '05-07', "type": "晚餐", "value": 6 },
+//     { "year": '05-08', "type": "早餐", "value": 6 },
+//     { "year": '05-08', "type": "中餐", "value": 6 },
+//     { "year": '05-08', "type": "晚餐", "value": 6 },
+//     { "year": '05-09', "type": "早餐", "value": 6 },
+//     { "year": '05-09', "type": "中餐", "value": 6 },
+//     { "year": '05-09', "type": "晚餐", "value": 6 },
+// ];
 
 let LineChart = null;
 

@@ -3,6 +3,57 @@ import wxF2                     from 'utils/wx-f2.min'
 
 export const F2 = wxF2;
 
+// export const getRadarChart = (data = []) => {
+//     let chart = null;
+//     let max = 0;
+//     data.forEach((item) => {
+//         if (item.score > max)
+//             max = item.score;
+//     });
+//     return {
+//         init (canvas, width, height) {
+//             chart = new F2.Chart({
+//                 el: canvas,
+//                 width,
+//                 height,
+//                 padding: ['auto', 50],
+//             });
+//             chart.coord('polar');
+//             chart.source(data, {
+//                 score: {
+//                     min: 0,
+//                     max,
+//                     nice: false,
+//                     tickCount: 4
+//                 } 
+//             });
+//             chart.area().position('item*score').color('user').animate({
+//                 appear: {
+//                     animation: 'groupWaveIn'
+//                 }
+//             });
+//             chart.line().position('item*score').color('user').animate({
+//                 appear: {
+//                     animation: 'groupWaveIn'
+//                 }
+//             });
+//             chart.point().position('item*score').color('user').style({
+//                 stroke: '#fff',
+//                 lineWidth: 1
+//             }).animate({
+//                 appear: {
+//                     delay: 300
+//                 }
+//             });
+//             chart.render();
+//             return chart;
+//         },
+//         update (data) {
+//             chart.changeData(data);
+//         },
+//     }
+// };
+
 export const getLineChart = (data = [], ticks = []) => {
     let chart = null;
     return {
