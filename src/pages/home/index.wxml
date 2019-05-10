@@ -53,7 +53,7 @@
             ></image>
             <view class="plan-top">
                 <view class="plan-button"
-                      data-url="journal_index"
+                      data-url="report_index"
                       bindtap="handleJump">
                     <image
                         class="plan-button-icon"
