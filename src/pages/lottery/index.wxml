@@ -8,5 +8,15 @@
         class="g-button button"
         bindtap="handleJump"
     >立即打卡</button>
-    <view class="link"><text>查看规则</text></view>
+    <view class="link" bindtap="handleJump"><text>查看规则</text></view>
+    <view class="popup" wx:if="{{isPopup}}">
+        <view class="popup-inner">
+            <text class="popup-title">活动即将推出</text>
+            <text class="popup-title">敬请期待</text>
+            <button
+                bindtap="handleRoot"
+                class="popup-button"
+            >返回首页</button>
+        </view>
+    </view>
 </view>

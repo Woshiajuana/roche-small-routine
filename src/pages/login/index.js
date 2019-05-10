@@ -62,23 +62,27 @@ Page(Mixin({
         // 先判断是否是会员
         if (IsMember) {
             if (IsOldUser || IsBindCode)
-                return Router.root('home_index');
+                return this.judgeToPage();
             Router.root('welcome_index', { IsMember }, true);
         } else {
             if (IsOldUser) {
                 if (!IsArchives)
                     return Router.root('questionnaire_info_index', { IsMember }, true);
-                return Router.root('home_index');
+                return this.judgeToPage();
             } else {
                 if (IsVipFlow) {
                     return Router.root('welcome_index', { IsMember: true }, true);
                 } else {
                     if (!IsArchives)
                         return Router.root('questionnaire_info_index', { IsMember }, true);
-                    Router.root('home_index');
+                    this.judgeToPage();
                 }
             }
         }
+    },
+    judgeToPage () {
+        let { to } = this.data;
+        return to ? Router.root(to, true) : Router.root('home_index');
     },
     // 授权并登录
     handleGetUser (e) {

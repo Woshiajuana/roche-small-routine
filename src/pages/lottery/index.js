@@ -17,11 +17,17 @@ Page(Mixin({
         UserMixin,
         SourceMixin,
     ],
+    data: {
+        isPopup: false,
+    },
     onLoad () {
         this.sourceGet(arrSrc);
         this.userGet();
     },
     handleJump () {
-        Router.push('record_index', {}, true);
+        this.setData({isPopup: true});
     },
+    handleRoot () {
+        Router.root('home_index');
+    }
 }));

@@ -32,19 +32,19 @@
             <text class="unit"></text>
         </view>
     </view>
-    <view class="button"
-          wx:if="{{objData.Item1 === objData.Item2}}"
-          bindtap="handleLuckDraw">
-        <image src="{{src$.icon}}"></image>
-        <text>领取打卡奖励</text>
-    </view>
-    <view class="button"
-          wx:else>
-        <text>您还差 {{objData.Item2 - objData.Item1}} 天即可点亮圆环</text>
-    </view>
+    <!--<view class="button"-->
+          <!--wx:if="{{objData.Item1 === objData.Item2}}"-->
+          <!--bindtap="handleLuckDraw">-->
+        <!--<image src="{{src$.icon}}"></image>-->
+        <!--<text>领取打卡奖励</text>-->
+    <!--</view>-->
     <view class="prompt">
         <text>坚持是一种习惯</text>
-        <text>完成进度即可领取福利</text>
+    </view>
+    <view class="button">
+        <text>您还差 </text>
+        <text class="color">{{objData.Item2 - objData.Item1}} </text>
+        <text> 天即可点亮圆环</text>
     </view>
     <view class="null"></view>
     <view class="operate">

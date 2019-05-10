@@ -65,7 +65,7 @@ Page(Mixin({
         context.setStrokeStyle('#b5a380'); // 设置圆环的颜色
         context.setLineCap('round');
         context.beginPath();
-        context.arc(84, 84, 78, -Math.PI / 2, step * Math.PI - Math.PI / 2, false);
+        context.arc(84, 84, 70, -Math.PI / 2, step * Math.PI - Math.PI / 2, false);
         context.stroke();
         context.draw()
     },
@@ -76,7 +76,7 @@ Page(Mixin({
         context.setStrokeStyle('#adabad'); // 设置圆环的颜色
         context.setLineCap('round') // 设置圆环端点的形状
         context.beginPath();//开始一个新的路径
-        context.arc(84, 84, 78, 0, 2 * Math.PI, false);
+        context.arc(84, 84, 70, 0, 2 * Math.PI, false);
         //设置一个原点(110,110)，半径为100的圆的路径到当前路径
         context.stroke();//对当前路径进行描边
         context.draw();

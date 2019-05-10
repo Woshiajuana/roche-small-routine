@@ -26,3 +26,45 @@ page{
 .button{
     margin-top: j(96);
 }
+.popup{
+    @extend %pf;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    background-color: rgba(0,0,0,0.3);
+}
+.popup-inner{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    width: j(630);
+    background-color: #fff;
+    border-radius: j(16);
+    padding: j(50) 0;
+    line-height: 1.4;
+}
+.popup-title{
+    font-size: j(51);
+    color: #333;
+}
+.g-vip-page{
+    .popup-button{
+        background: linear-gradient(to right, #5fa4dd , #1b70c3);
+    }
+}
+.popup-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    width: j(300);
+    margin-top: j(20);
+    background: linear-gradient(to right, #39e1ee , #28aeeb);
+    height: j(80);
+    border-radius: j(40);
+    color: #fff;
+    font-size: j(30);
+}

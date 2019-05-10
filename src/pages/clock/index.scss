@@ -113,6 +113,12 @@ page{
         height: j(40);
         margin-right: j(10);
     }
+    .color{
+        font-style: italic;
+        font-size: j(42);
+        color: #ead6b4;
+        margin: 0 j(5);
+    }
 }
 .prompt{
     @extend %pr;
