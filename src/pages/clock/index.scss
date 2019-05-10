@@ -10,6 +10,12 @@ page{
     @extend %h100;
     background-color: #50575d;
 }
+.return{
+    @extend %pa;
+    top: j(20);
+    left: j(20);
+    width: j(175);
+}
 .wrap{
     @extend %df;
     @extend %h100;
@@ -107,7 +113,7 @@ page{
     height: j(80);
     font-size: j(36);
     border-radius: j(40);
-    background: linear-gradient(to right, #5097d7, #1b6fc3);
+    background: linear-gradient(to right, #2dbeec, #28aeeb);
     image{
         width: j(40);
         height: j(40);
@@ -155,7 +161,7 @@ page{
     width: j(3000);
     height: j(3000);
     border-radius: 50%;
-    background-color: #1d71c4;
+    background-color: #30c2ee;
 }
 .operate-inner{
     @extend %df;

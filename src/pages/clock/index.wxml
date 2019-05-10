@@ -42,9 +42,14 @@
         <text>坚持是一种习惯</text>
     </view>
     <view class="button">
-        <text>您还差 </text>
-        <text class="color">{{objData.Item2 - objData.Item1}} </text>
-        <text> 天即可点亮圆环</text>
+        <block wx:if="{{objData.Item1 === objData.Item2}}">
+            <text>您还差 </text>
+            <text class="color">{{objData.Item2 - objData.Item1}} </text>
+            <text> 天即可点亮圆环</text>
+        </block>
+        <block wx:else>
+            <text>恭喜您，已完成打卡任务，点亮圆环</text>
+        </block>
     </view>
     <view class="null"></view>
     <view class="operate">
@@ -63,6 +68,13 @@
             ></view>
         </view>
     </view>
+
+    <image
+        mode="widthFix"
+        class="return"
+        src="{{src$.return}}"
+        bindtap="handleRoot"
+    ></image>
     <!--<div class="popup-wrap">-->
         <!--<div class="popup-inner">-->
             <!--<image-->

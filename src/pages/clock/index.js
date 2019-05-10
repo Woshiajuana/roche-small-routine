@@ -15,7 +15,8 @@ import DataMixin                    from './data.mixin'
 const arrSrc = [
     { key: 'bg', value: 'ctjd-bg.jpg' },
     { key: 'icon', value: 'clock-icon.png' },
-    { key: 'operate', value: 'clock-btn-icon.png' },
+    { key: 'return', value: 'daka-return-icon.png' },
+    { key: 'operate', value: 'clock-btn-icon1.png' },
     { key: 'gift1', value: 'gift-1.png' },
     { key: 'gift2', value: 'gift-2.png' },
     { key: 'gift3', value: 'gift-3.png' },
@@ -88,5 +89,13 @@ Page(Mixin({
             // let { Speed } = objData;
             // this.drawRunStart(+Speed / 5);
         }).toast();
+    },
+    handleJump() {
+        let { currentTarget } = e;
+        let url = currentTarget.dataset.url;
+        Router.push(url);
+    },
+    handleRoot (){
+        Router.root('home_index');
     },
 }));
