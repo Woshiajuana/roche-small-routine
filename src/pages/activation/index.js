@@ -25,7 +25,6 @@ Page(Mixin({
         SourceMixin,
     ],
     onLoad (options) {
-        console.log(1)
         this.sourceGet(arrSrc);
         this.routerGetParams(options);
     },

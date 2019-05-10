@@ -3,10 +3,6 @@ import './index.wxml'
 import './index.scss'
 
 import Mixin                        from 'utils/mixin.component.util'
-import Modal                        from 'plugins/modal.plugin'
-import SourceMixin                  from 'mixins/source.mixin'
-import Valid                        from 'utils/valid.util'
-import Regular                      from 'utils/regular.util'
 import Http                         from 'plugins/http.plugin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
@@ -19,26 +15,19 @@ import {
     WEB_LINK,
 }                                   from 'config/base.config'
 
-
-const data2 = [
-    { "year": '2018-10', "type": "United States", "value": 11 },
-    { "year": '2018-10', "type": "Florida", "value": 22 },
-    { "year": '2018-10', "type": "xx", "value": 33 },
-    { "year": '2018-11', "type": "United States", "value": 44 },
-    { "year": '2018-11', "type": "Florida", "value": 55 },
-    { "year": '2018-11', "type": "xx", "value": 66 },
-    { "year": '2018-12', "type": "United States", "value": 77 },
-    { "year": '2018-12', "type": "Florida", "value": 4.8 },
-    { "year": '2018-12', "type": "xx", "value": 77 },
-    { "year": '2019-01', "type": "United States", "value": 55 },
-    { "year": '2019-01', "type": "Florida", "value": 66 },
-    { "year": '2019-01', "type": "xx", "value": 444 },
-    { "year": '2019-02', "type": "United States", "value": 66 },
-    { "year": '2019-02', "type": "Florida", "value": 55 },
-    { "year": '2019-02', "type": "xx", "value": 33 },
-    { "year": '2019-03', "type": "United States", "value": 22 },
-    { "year": '2019-03', "type": "Florida", "value": 11 },
-    { "year": '2019-03', "type": "xx", "value": 33 },
+const data1 = [
+    { "year": '05-06', "type": "早餐", "value": 6 },
+    { "year": '05-06', "type": "中餐", "value": 6 },
+    { "year": '05-06', "type": "晚餐", "value": 6 },
+    { "year": '05-07', "type": "早餐", "value": 6 },
+    { "year": '05-07', "type": "中餐", "value": 6 },
+    { "year": '05-07', "type": "晚餐", "value": 6 },
+    { "year": '05-08', "type": "早餐", "value": 6 },
+    { "year": '05-08', "type": "中餐", "value": 6 },
+    { "year": '05-08', "type": "晚餐", "value": 6 },
+    { "year": '05-09', "type": "早餐", "value": 6 },
+    { "year": '05-09', "type": "中餐", "value": 6 },
+    { "year": '05-09', "type": "晚餐", "value": 6 },
 ];
 
 let LineChart = null;
@@ -79,15 +68,7 @@ Component(Mixin({
         },
         // 赋值
         assignmentData () {
-            LineChart = getLineChart(data2, this.data.arrDate);
-            // LineChart = getLineChart(data2, [
-            //     '2018-10',
-            //     '2018-11',
-            //     '2018-12',
-            //     '2019-01',
-            //     '2019-02',
-            //     '2019-03',
-            // ]);
+            LineChart = getLineChart([], this.data.arrDate);
             this.setData({
                 ['canvasOpts.onInit']: LineChart.init,
             });

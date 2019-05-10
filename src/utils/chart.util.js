@@ -15,7 +15,7 @@ export const getLineChart = (data = [], ticks = []) => {
             });
             chart.source(data, {
                 year: {
-                    tickCount: 6,
+                    // tickCount: 6,
                     range: [0, 1],
                     ticks,
                 },

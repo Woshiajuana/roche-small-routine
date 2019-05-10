@@ -12,6 +12,6 @@ export default {
                 label: '血糖日志'
             },
         },
-        curKey: 'trend'
+        curKey: 'weekly'
     }
 }
