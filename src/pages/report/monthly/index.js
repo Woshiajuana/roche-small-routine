@@ -92,22 +92,22 @@ Page(Mixin({
     },
 
     // 雷达图
-    drawRadar (data) {
+    updateRadarData (data) {
+        let arr = [data.AvgVal, data.AvgAfterVal, data.AvgLowVal, data.AvgFastingBeforeVal ];
         data = [
             ['血糖波动', data.AvgVal || 0],
             ['餐后血糖', data.AvgAfterVal || 0],
             ['低血糖状况', data.AvgLowVal || 0],
             ['空腹餐前血糖', data.AvgFastingBeforeVal || 0],
         ];
-        let arr = [data.AvgVal, data.AvgAfterVal, data.AvgLowVal, data.AvgFastingBeforeVal ];
-        let max = Math.max.apply(null, arr) + 2;
+        let max = Math.max.apply(null, arr) + 1;
         this.drawArcEdge();
         //设置数据
         this.drawRegion(data,'rgba(52, 157, 255, 0.2)', max);
         //设置文本数据
         // this.drawTextCans(data);
         //设置节点
-        this.drawCircle(data, '#349dff', 8);
+        this.drawCircle(data, '#349dff', max);
         //开始绘制
         radCtx.draw()
     },
@@ -195,9 +195,6 @@ Page(Mixin({
             isCurWeek: cTime === formatData('yyyy-MM'),
         })
     },
-    updateRadarData (data) {
-        this.drawRadar(data);
-    },
     updateChartData (data) {
         let result = [];
         data.forEach((item) => {
@@ -275,6 +272,7 @@ Page(Mixin({
             Modal.toast(err);
             objRadar = {};
         }).finally(() => {
+            console.log(1, objRadar)
             this.updateRadarData(objRadar);
         });
     },

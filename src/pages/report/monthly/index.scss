@@ -11,6 +11,7 @@ page{
 .canvas{
     @extend %pr;
     @extend %w100;
+    @extend %oh;
     height: j(750);
     background-color: #fafafa;
     border-top: j(1) solid #ddd;
