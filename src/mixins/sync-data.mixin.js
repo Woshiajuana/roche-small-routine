@@ -35,6 +35,7 @@ export default {
         }).then(() => {
             this.syncData();
         }).catch((err) => {
+            this.setData({tapType: false});
             let { errCode } = err;
             if (errCode === -999) return Modal.toast('您还未配对过设备，请先去配对设备');
             Modal.toast('同步数据需要地理位置授权哦')
