@@ -19,8 +19,25 @@
         </view>
     </view>
 
-    <view class="canvas">
-        <canvas class='radarCanvas' width="360" height="360" canvas-id='radarCanvas'></canvas>
+    <view class="radar-canvas">
+        <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
+        <view class="radar-text color-1">
+            <text class="value">1</text>
+            <text>血糖波动</text>
+        </view>
+        <view class="radar-text color-2">
+            <text class="value">2</text>
+            <text>餐后血糖</text>
+        </view>
+        <view class="radar-text color-3">
+            <text class="value">3</text>
+            <text>低血糖状况</text>
+        </view>
+        <view class="radar-text color-4">
+            <text class="value">4</text>
+            <text>空腹餐前</text>
+            <text>血糖</text>
+        </view>
     </view>
 
 

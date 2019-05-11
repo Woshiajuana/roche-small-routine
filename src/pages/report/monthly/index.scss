@@ -2,11 +2,62 @@
 page{
     background-color: #fafafa;
 }
+.radarCanvas{
+    position: absolute;
+    width: j(750);
+    height: j(750);
+}
+.radar-canvas,
 .canvas{
+    @extend %pr;
     @extend %w100;
     height: j(750);
     background-color: #fafafa;
     border-top: j(1) solid #ddd;
+}
+.radar-text{
+    @extend %pa;
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+    width: j(160);
+    font-size: j(24);
+    color: #666;
+    &.color-1{
+        @extend %l50;
+        @extend %t0;
+        margin-left: j(-80);
+        .value{
+            color: #ff7f52;
+        }
+    }
+    &.color-2{
+        @extend %t50;
+        @extend %r0;
+        margin-top: j(-30);
+        .value{
+            color: #ff7f52;
+        }
+    }
+    &.color-3{
+        @extend %l50;
+        @extend %b0;
+        margin-left: j(-80);
+        .value{
+            color: #ff7f52;
+        }
+    }
+    &.color-4{
+        @extend %t50;
+        @extend %l0;
+        margin-top: j(-30);
+        .value{
+            color: #ff7f52;
+        }
+    }
+    .value{
+        font-size: j(46);
+    }
 }
 .canvas-image{
     @extend %w100;

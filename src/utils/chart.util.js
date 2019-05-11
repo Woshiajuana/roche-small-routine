@@ -103,7 +103,9 @@ export const getLineChart = (data = [], ticks = []) => {
             //         legend.setItems(chart.getLegendItems().country);
             //     }
             // });
-            chart.line().position('year*value').shape('smooth').color('type');
+
+            chart.area().position('year*value').color('type').shape('smooth');
+            chart.line().position('year*value').color('type').shape('smooth');
             // chart.point().position('year*value').color('type');
             chart.render();
             return chart;
