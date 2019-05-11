@@ -24,7 +24,7 @@
         </view>
         <button
             bindtap="handleSubmit"
-            class="g-button button"
+            class="g-button button linear-gradient"
         >立即激活</button>
     </view>
     <view class="popup" wx:if="{{isPopup}}">

@@ -63,7 +63,7 @@ Page(Mixin({
         if (IsMember) {
             if (IsOldUser || IsBindCode)
                 return this.judgeToPage();
-            Router.root('welcome_index', { IsMember }, true);
+            Router.root('questionnaire_info_index', { IsMember: true }, true);
         } else {
             if (IsOldUser) {
                 if (!IsArchives)
@@ -71,7 +71,7 @@ Page(Mixin({
                 return this.judgeToPage();
             } else {
                 if (IsVipFlow) {
-                    return Router.root('welcome_index', { IsMember: true }, true);
+                    Router.root('questionnaire_info_index', { IsMember: true }, true);
                 } else {
                     if (!IsArchives)
                         return Router.root('questionnaire_info_index', { IsMember }, true);

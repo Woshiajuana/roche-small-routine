@@ -95,10 +95,10 @@ Page(Mixin({
     updateRadarData (data) {
         let arr = [data.AvgVal, data.AvgAfterVal, data.AvgLowVal, data.AvgFastingBeforeVal ];
         data = [
-            ['血糖波动', data.AvgVal || 0],
             ['餐后血糖', data.AvgAfterVal || 0],
             ['低血糖状况', data.AvgLowVal || 0],
             ['空腹餐前血糖', data.AvgFastingBeforeVal || 0],
+            ['血糖波动', data.AvgVal || 0],
         ];
         let max = Math.max.apply(null, arr) + 1;
         this.drawArcEdge();
