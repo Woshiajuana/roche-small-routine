@@ -19,16 +19,18 @@
         </view>
     </view>
 
-    <block wx:if="{{weekReport.HaveReport}}">
+    <block>
         <view class="canvas">
             <ff-canvas id="canvas-dom" canvas-id="canvas-dom"></ff-canvas>
         </view>
 
-        <button
-            data-count="-1"
-            bindtap="handlePreOrNext"
-            class="button"
-        >上一月</button>
+        <div class="button-group">
+            <button
+                data-count="-1"
+                bindtap="handlePreOrNext"
+                class="button"
+            >查看上月</button>
+        </div>
 
         <image
             mode="widthFix"
@@ -36,6 +38,16 @@
             src="{{src$.bg}}"
         ></image>
     </block>
+
+    <view class="trend">
+        <view class="trend-head">
+            <text>本月血糖趋势</text>
+        </view>
+        <view class="canvas">
+            <ff-canvas id="line-dom" canvas-id="line-dom" opts="{{lineChartOpts}}"></ff-canvas>
+        </view>
+    </view>
+
 
     <view class="weekly">
         <view class="weekly-head {{!weekReport.HaveReport && 'null'}}">

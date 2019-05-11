@@ -62,6 +62,8 @@ Page(Mixin({
         this.getArrDate();
         this.assignmentData();
         this.getMonthReport();
+        this.reqSugarSpider();
+        this.reqMonthlyTrend();
     },
     // 赋值
     assignmentData () {
@@ -205,6 +207,8 @@ Page(Mixin({
         }
         this.initData(count);
         this.getMonthReport();
+        this.reqSugarSpider();
+        this.reqMonthlyTrend();
     },
     // 获取
     getMonthReport () {
@@ -220,7 +224,6 @@ Page(Mixin({
             Modal.toast(err);
             weekReport = {};
         }).finally(() => {
-            this.updateRadarData(weekReport);
             this.setData({weekReport})
         });
     },
@@ -229,7 +232,7 @@ Page(Mixin({
         let Stime = this.data.sTime;
         let Etime = this.data.eTime;
         let weekData;
-        return Http(Http.API.Req_monthReport, {
+        return Http(Http.API.Req_sugarTrend, {
             Stime,
             Etime,
         }).then((res) => {
@@ -240,5 +243,22 @@ Page(Mixin({
         }).finally(() => {
             this.updateChartData(weekData);
         });
-    }
+    },
+    // 获取血糖蜘蛛图
+    reqSugarSpider () {
+        let Stime = this.data.sTime;
+        let Etime = this.data.eTime;
+        let weekData;
+        return Http(Http.API.Req_sugarSpider, {
+            Stime,
+            Etime,
+        }).then((res) => {
+            weekData = res || {};
+        }).catch((err) => {
+            Modal.toast(err);
+            weekData = {};
+        }).finally(() => {
+            this.updateRadarData(weekData);
+        });
+    },
 }));

@@ -64,4 +64,10 @@ export default {
     // 获取血糖日志
     Req_journalList: 'RocheApi/GetBloodsugarTestRecordLogList',
 
+    // 获取趋势图
+    Req_sugarTrend: 'RocheApi/GetSugarTrend',
+
+    // 获取蜘蛛图
+    Req_sugarSpider: 'RocheApi/GetSpider',
+
 }

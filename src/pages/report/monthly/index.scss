@@ -11,6 +11,29 @@ page{
 .canvas-image{
     @extend %w100;
 }
+.trend{
+    .canvas{
+        height: j(600);
+    }
+}
+.button-group{
+    @extend %df;
+    @extend %w100;
+    @extend %aic;
+    @extend %jcc;
+}
+.button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    width: j(300);
+    height: j(80);
+    font-size: j(32);
+    border-radius: j(40);
+    margin: j(20) 0;
+    background: linear-gradient( #24a3db , #51c5de);
+}
 /*头部*/
 .header{
     @extend %df;
@@ -188,7 +211,27 @@ page{
 .explain-text{
     font-size: 36rpx;
 }
-
+.trend-head{
+    @extend %tac;
+    @extend %w100;
+    height: j(200);
+    padding: j(45) j(60) 0;
+    background: linear-gradient( #24a3db , #51c5de);
+    font-size: j(32);
+    color: #fff;
+}
+.trend{
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+    padding-bottom: j(80);
+    .canvas{
+        width: j(700);
+        margin-top: j(-120);
+        border-radius: j(10);
+        box-shadow: 0 j(10) j(10) j(10) rgba(0,0,0,.05);
+    }
+}
 .weekly{
     //margin-top: 60rpx;
 }

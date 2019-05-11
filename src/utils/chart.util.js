@@ -25,7 +25,7 @@ export const F2 = wxF2;
 //                     max,
 //                     nice: false,
 //                     tickCount: 4
-//                 } 
+//                 }
 //             });
 //             chart.area().position('item*score').color('user').animate({
 //                 appear: {
@@ -77,30 +77,30 @@ export const getLineChart = (data = [], ticks = []) => {
                 //     }
                 // }
             });
-            chart.tooltip({
-                custom: true, // 自定义 tooltip 内容框
-                showXTip: true,
-                onChange(obj) {
-                    const legend = chart.get('legendController').legends.top[0];
-                    const tooltipItems = obj.items;
-                    const legendItems = legend.items;
-                    const map = {};
-                    legendItems.map(item => {
-                        map[item.name] = Object.assign({}, item);
-                    });
-                    tooltipItems.map(item => {
-                        const { name, value } = item;
-                        if (map[name]) {
-                            map[name].value = value;
-                        }
-                    });
-                    legend.setItems(Object.values(map));
-                },
-                onHide() {
-                    const legend = chart.get('legendController').legends.top[0];
-                    legend.setItems(chart.getLegendItems().country);
-                }
-            });
+            // chart.tooltip({
+            //     custom: true, // 自定义 tooltip 内容框
+            //     showXTip: true,
+            //     onChange(obj) {
+            //         const legend = chart.get('legendController').legends.top[0];
+            //         const tooltipItems = obj.items;
+            //         const legendItems = legend.items;
+            //         const map = {};
+            //         legendItems.map(item => {
+            //             map[item.name] = Object.assign({}, item);
+            //         });
+            //         tooltipItems.map(item => {
+            //             const { name, value } = item;
+            //             if (map[name]) {
+            //                 map[name].value = value;
+            //             }
+            //         });
+            //         legend.setItems(Object.values(map));
+            //     },
+            //     onHide() {
+            //         const legend = chart.get('legendController').legends.top[0];
+            //         legend.setItems(chart.getLegendItems().country);
+            //     }
+            // });
             chart.line().position('year*value').shape('smooth').color('type');
             // chart.point().position('year*value').color('type');
             chart.render();
