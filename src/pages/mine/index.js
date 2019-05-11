@@ -28,10 +28,9 @@ Page(Mixin({
     ],
     onLoad () {
         wx.showShareMenu();
-        this.assignmentData();
     },
     onShow () {
-        this.userGet();
+        this.userGet().then(this.assignmentData.bind(this));
         this.getUserSugar();
     },
     // 赋值判断
