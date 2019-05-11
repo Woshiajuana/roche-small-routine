@@ -19,6 +19,11 @@
         </view>
     </view>
 
+    <view class="canvas">
+        <canvas class='radarCanvas' width="360" height="360" canvas-id='radarCanvas'></canvas>
+    </view>
+
+
     <block>
         <view class="canvas">
             <ff-canvas id="canvas-dom" canvas-id="canvas-dom"></ff-canvas>
