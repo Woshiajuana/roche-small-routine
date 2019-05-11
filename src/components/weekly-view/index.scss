@@ -156,16 +156,15 @@
             color: #29b1eb;
         }
     }
+    image{
+        width: 30rpx;
+        height: 30rpx;
+        margin-right: 10rpx;
+    }
+    text{
+        font-size: 36rpx;
+    }
 }
-.explain-icon{
-    width: 30rpx;
-    height: 30rpx;
-    margin-right: 10rpx;
-}
-.explain-text{
-    font-size: 36rpx;
-}
-
 .weekly{
     margin-top: 60rpx;
 }

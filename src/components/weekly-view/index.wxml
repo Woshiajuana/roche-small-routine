@@ -21,16 +21,16 @@
         </view>
         <view class="explain">
             <view class="explain-item low">
-                <image class="explain-icon" mode="aspectFit" src="{{src$.icon2}}"></image>
-                <text class="explain-text">偏低</text>
+                <image mode="aspectFit" src="{{src$.icon2}}"></image>
+                <text>偏低</text>
             </view>
             <view class="explain-item nor">
-                <image class="explain-icon" mode="aspectFit" src="{{src$.icon3}}"></image>
-                <text class="explain-text">正常</text>
+                <image mode="aspectFit" src="{{src$.icon3}}"></image>
+                <text>正常</text>
             </view>
             <view class="explain-item up">
-                <image class="explain-icon" mode="aspectFit" src="{{src$.icon4}}"></image>
-                <text class="explain-text">偏高</text>
+                <image mode="aspectFit" src="{{src$.icon4}}"></image>
+                <text>偏高</text>
             </view>
         </view>
     </view>

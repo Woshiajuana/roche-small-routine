@@ -48,22 +48,21 @@ Component(Mixin({
         attached () {
             this.getDay();
             this.assignmentData();
-            this.getRecommendSugar();
+            this.reqMonthlyTrend();
         },
     },
     methods: {
-        // 获取报告
-        getRecommendSugar () {
+        // 获取血糖趋势图
+        reqMonthlyTrend () {
             let Stime = this.data.sTime;
             let Etime = this.data.eTime;
-            Http(Http.API.Req_recommendSugar, {
+            let weekData;
+            return Http(Http.API.Req_sugarTrend, {
                 Stime,
                 Etime,
-                Type: 2,
             }).then((res) => {
-                let { Steps } = res;
-                // ARR_TIME_STEP
-                this.updateChartData(Steps);
+                weekData = res || {};
+                this.updateChartData(weekData);
             }).toast();
         },
         // 赋值
@@ -77,9 +76,10 @@ Component(Mixin({
         updateChartData (data) {
             let result = [];
             data.forEach((item) => {
+                let time = item.TestDate.replace(/[^0-9]/ig, '');
                 result.push({
-                    year: this.data.arrDate[item.Day],
-                    type: ARR_TIME_STEP[item.TimeStep - 1],
+                    year: formatData('MM-dd', new Date(+time)),
+                    type: ARR_TIME_STEP[item.TimeStepExt - 1],
                     value: item.Bloodsugar,
                 })
             });
@@ -156,7 +156,7 @@ Component(Mixin({
         },
         getDayArr (index, max) {
             let result = [];
-            while (max > index) {
+            while (max >= index) {
                 result.push(getDate(index, 'MM-dd'));
                 index++;
             }
