@@ -74,6 +74,7 @@ Page(Mixin({
             onInit: '',
         },
         arrDate: [],
+        objRadar: {},
     },
     onLoad () {
         this.sourceGet(arrSrc);
@@ -93,10 +94,10 @@ Page(Mixin({
     // 雷达图
     drawRadar (data) {
         data = [
-            ['血糖波动', data.AvgVal],
-            ['餐后血糖', data.AvgAfterVal],
-            ['低血糖状况', data.AvgLowVal],
-            ['空腹餐前血糖', data.AvgFastingBeforeVal],
+            ['血糖波动', data.AvgVal || 0],
+            ['餐后血糖', data.AvgAfterVal || 0],
+            ['低血糖状况', data.AvgLowVal || 0],
+            ['空腹餐前血糖', data.AvgFastingBeforeVal || 0],
         ];
         let arr = [data.AvgVal, data.AvgAfterVal, data.AvgLowVal, data.AvgFastingBeforeVal ];
         let max = Math.max.apply(null, arr) + 2;
@@ -264,17 +265,17 @@ Page(Mixin({
     reqSugarSpider () {
         let Stime = this.data.sTime;
         let Etime = this.data.eTime;
-        let weekData;
+        let objRadar;
         return Http(Http.API.Req_sugarSpider, {
             Stime,
             Etime,
         }).then((res) => {
-            weekData = res || {};
+            objRadar = res || {};
         }).catch((err) => {
             Modal.toast(err);
-            weekData = {};
+            objRadar = {};
         }).finally(() => {
-            this.updateRadarData(weekData);
+            this.updateRadarData(objRadar);
         });
     },
 }));

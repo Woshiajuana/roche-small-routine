@@ -19,31 +19,29 @@
         </view>
     </view>
 
-    <view class="radar-canvas">
-        <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
-        <view class="radar-text color-1">
-            <text class="value">1</text>
-            <text>血糖波动</text>
-        </view>
-        <view class="radar-text color-2">
-            <text class="value">2</text>
-            <text>餐后血糖</text>
-        </view>
-        <view class="radar-text color-3">
-            <text class="value">3</text>
-            <text>低血糖状况</text>
-        </view>
-        <view class="radar-text color-4">
-            <text class="value">4</text>
-            <text>空腹餐前</text>
-            <text>血糖</text>
-        </view>
-    </view>
+
 
 
     <block>
-        <view class="canvas">
-            <ff-canvas id="canvas-dom" canvas-id="canvas-dom"></ff-canvas>
+        <view class="radar-canvas">
+            <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
+            <view class="radar-text color-1">
+                <text class="value">{{objRadar.AvgVal || 0}}</text>
+                <text>血糖波动</text>
+            </view>
+            <view class="radar-text color-2">
+                <text class="value">{{objRadar.AvgAfterVal|| 0}}</text>
+                <text>餐后血糖</text>
+            </view>
+            <view class="radar-text color-3">
+                <text class="value">{{objRadar.AvgLowVal|| 0}}</text>
+                <text>低血糖状况</text>
+            </view>
+            <view class="radar-text color-4">
+                <text class="value">{{objRadar.AvgFastingBeforeVal|| 0}}</text>
+                <text>空腹餐前</text>
+                <text>血糖</text>
+            </view>
         </view>
 
         <div class="button-group">
