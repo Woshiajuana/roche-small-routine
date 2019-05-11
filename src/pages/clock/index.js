@@ -90,10 +90,10 @@ Page(Mixin({
             // this.drawRunStart(+Speed / 5);
         }).toast();
     },
-    handleJump() {
+    handleJump(e) {
         let { currentTarget } = e;
         let url = currentTarget.dataset.url;
-        Router.push(url);
+        url ? Router.push(url) : Modal.toast('敬请期待');
     },
     handleRoot (){
         Router.root('home_index');

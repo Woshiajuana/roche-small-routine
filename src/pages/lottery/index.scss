@@ -13,6 +13,7 @@ page{
     image{
         @extend %w100;
         height: auto;
+        min-height: j(924);
     }
 }
 

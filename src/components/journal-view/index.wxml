@@ -10,12 +10,12 @@
               wx:key="{{index}}">
              <view class="head">
                 <text>记录时间：</text>
-                <text class="color">{{filter.filterTime(item.TestDate)}} {{item.TestTime}}</text>
+                <text class="color">{{item.TestDate && filter.filterTime(item.TestDate)}} {{item.TestTime}}</text>
             </view>
             <view class="con">
                 <view class="con-item">
                     <text class="label">{{arrTimeStep[item.TimeStep - 1]}}</text>
-                    <text class="value">{{filter.filterSugar(item.Bloodsugar)}}</text>
+                    <text class="value">{{item.Bloodsugar && filter.filterSugar(item.Bloodsugar)}}</text>
                     <text class="unit">mmol/L</text>
                 </view>
                 <view class="con-item">

@@ -1,10 +1,9 @@
 {
     "pages": [
         "pages/login/index",
-        "pages/report/monthly/index",
-        "pages/bluetooth/explain/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
+        "pages/bluetooth/explain/index",
         "pages/bluetooth/index",
         "pages/bluetooth/synchronization/index",
         "pages/bluetooth/transfer/index",
@@ -23,6 +22,7 @@
         "pages/questionnaire/programme/index",
         "pages/record/index",
         "pages/report/index",
+        "pages/report/monthly/index",
         "pages/web/index",
         "pages/welcome/index"
     ],
@@ -46,13 +46,13 @@
         "list": [
             {
                 "pagePath": "pages/home/index",
-                "text": "首页",
+                "text": "管家首页",
                 "iconPath": "assets/images/nav-home-icon.png",
                 "selectedIconPath": "assets/images/nav-home-checked-icon.png"
             },
             {
                 "pagePath": "pages/mine/index",
-                "text": "我的",
+                "text": "个人中心",
                 "iconPath": "assets/images/nav-mine-icon.png",
                 "selectedIconPath": "assets/images/nav-mine-checked-icon.png"
             }

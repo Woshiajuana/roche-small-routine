@@ -58,7 +58,6 @@
         <view class="operate-inner">
             <view
                 class="operate-item"
-                data-url="lottery_roster_index"
                 bindtap="handleJump"
             ></view>
             <view
