@@ -18,12 +18,12 @@ import {
 
 import {
     getLineChart,
-    getRadarChart,
     F2
 }                                   from 'utils/chart.util'
 let type = false;
-// let LineChart = null;
-// let RadarChart = null;
+
+let LineChart = null;
+
 const arrSrc = [
     { key: 'bg', value: 'yb-bg.jpg' },
     { key: 'icon1', value: 'xtbg-icon-9.png' },
@@ -49,6 +49,7 @@ Page(Mixin({
         lineChartOpts:  {
             onInit: '',
         },
+        arrDate: [],
     },
     onLoad () {
         this.sourceGet(arrSrc);
@@ -58,17 +59,28 @@ Page(Mixin({
             cTime: formatData('yyyy-MM'),
         });
         this.initData('-1');
+        this.getArrDate();
         this.assignmentData();
         this.getMonthReport();
     },
     // 赋值
     assignmentData () {
-        // LineChart = getLineChart([], this.data.arrDate);
-        // RadarChart = getRadarChart([]);
-        // this.setData({
-        //     ['lineChartOpts.onInit']: LineChart.init,
-        //     ['radarChartOpts.onInit']: RadarChart.init,
-        // });
+        LineChart = getLineChart([], this.data.arrDate);
+        this.setData({
+            ['lineChartOpts.onInit']: LineChart.init,
+        });
+    },
+    // 获取当前月分
+    getArrDate () {
+        let { sTime, eTime, arrDate} = this.data;
+        sTime = +formatData('dd', new Date(sTime));
+        eTime = +formatData('dd', new Date(eTime));
+        while (sTime <= eTime) {
+            arrDate.push(sTime);
+            sTime++;
+        }
+        this.setData({ arrDate });
+        console.log(arrDate)
     },
     // 获取当前时间下一周
     initData(type) {
@@ -169,18 +181,18 @@ Page(Mixin({
         }, 300);
     },
     updateChartData (data) {
-        // let result = [];
-        // data.forEach((item) => {
-        //     result.push({
-        //         year: this.data.arrDate[item.Day],
-        //         type: ARR_TIME_STEP[item.TimeStep - 1],
-        //         value: item.Bloodsugar,
-        //     })
-        // });
-        // console.log(result)
-        // setTimeout(() => {
-        //     LineChart && LineChart.update(result);
-        // }, 800);
+        let result = [];
+        data.forEach((item) => {
+            result.push({
+                year: this.data.arrDate[item.Day],
+                type: ARR_TIME_STEP[item.TimeStep - 1],
+                value: item.Bloodsugar,
+            })
+        });
+        console.log(result)
+        setTimeout(() => {
+            LineChart && LineChart.update(result);
+        }, 800);
     },
     // 上下月
     handlePreOrNext (e) {
@@ -194,7 +206,7 @@ Page(Mixin({
         this.initData(count);
         this.getMonthReport();
     },
-    // 获取周报
+    // 获取
     getMonthReport () {
         let Stime = this.data.sTime;
         let Etime = this.data.eTime;
@@ -212,4 +224,21 @@ Page(Mixin({
             this.setData({weekReport})
         });
     },
+    // 获取血糖趋势图
+    reqMonthlyTrend () {
+        let Stime = this.data.sTime;
+        let Etime = this.data.eTime;
+        let weekData;
+        return Http(Http.API.Req_monthReport, {
+            Stime,
+            Etime,
+        }).then((res) => {
+            weekData = res || {};
+        }).catch((err) => {
+            Modal.toast(err);
+            weekData = {};
+        }).finally(() => {
+            this.updateChartData(weekData);
+        });
+    }
 }));

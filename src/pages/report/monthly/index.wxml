@@ -23,6 +23,13 @@
         <view class="canvas">
             <ff-canvas id="canvas-dom" canvas-id="canvas-dom"></ff-canvas>
         </view>
+
+        <button
+            data-count="-1"
+            bindtap="handlePreOrNext"
+            class="button"
+        >上一月</button>
+
         <image
             mode="widthFix"
             class="canvas-image"
