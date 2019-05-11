@@ -132,7 +132,7 @@ Page(Mixin({
             radCtx.lineTo(x, y);
         }
         radCtx.closePath();
-        radCtx.setFillStyle(color)
+        radCtx.setFillStyle(color);
         radCtx.fill();
     },
     //画点
