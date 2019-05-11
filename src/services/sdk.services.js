@@ -1,13 +1,13 @@
 
 import SDK                      from 'utils/sdk.util'
 import Loading                  from 'plugins/loading.plugin'
-import Authorize, { SCOPE }     from 'plugins/authorize.plugin'
+import Authorize                from 'plugins/authorize.plugin'
 
 export default {
     // 搜索
     searchRoche: () => new Promise((resolve, reject) => {
         Loading.showNavigationBarLoading();
-        Authorize(SCOPE.userLocation).then(() => {
+        Authorize(Authorize.SCOPE.userLocation).then(() => {
             SDK.searchRoche({
                 success: (res) => {
                     resolve(res);

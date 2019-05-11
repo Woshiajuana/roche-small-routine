@@ -7,7 +7,7 @@ import WowCool                      from 'wow-cool/lib/array.lib'
 import Router                       from 'plugins/router.plugin'
 import Auth                         from 'plugins/auth.plugin'
 import Store                        from 'plugins/store.plugin'
-import Authorize, { SCOPE }         from 'plugins/authorize.plugin'
+import Authorize                    from 'plugins/authorize.plugin'
 import {
     $BLUE_TOOTH_DEVICE_ID_LIST,
     $BLUE_TOOTH_DATA,
@@ -30,7 +30,7 @@ export default {
     handleSync () {
         if (this.data.tapType) return;
         this.setData({tapType: true});
-        Authorize(SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
+        Authorize(Authorize.SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
             return Store.get($BLUE_TOOTH_DEVICE_ID_LIST);
         }).then(() => {
             this.syncData();

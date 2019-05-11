@@ -2,10 +2,16 @@
 page{
     background-color: #fafafa;
 }
+.radar-canvas{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    overflow: hidden !important;
+}
 .radarCanvas{
-    position: absolute;
-    width: j(750);
-    height: j(750);
+    width: j(680);
+    height: j(680);
+    overflow: hidden !important;
 }
 .radar-canvas,
 .canvas{
@@ -64,7 +70,9 @@ page{
     @extend %w100;
 }
 .trend{
+    overflow: hidden !important;
     .canvas{
+        overflow: hidden !important;
         height: j(600);
     }
 }
