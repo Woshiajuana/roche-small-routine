@@ -1,5 +1,7 @@
 
-import wxF2                     from 'utils/wx-f2.min'
+// import wxF2                     from 'utils/wx-f2.min'
+const app = getApp();
+const wxF2 = app.globalData.F2;
 
 export const F2 = wxF2;
 

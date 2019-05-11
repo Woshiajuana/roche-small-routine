@@ -5,6 +5,7 @@ import './app.scss'
 import './wxs/filter.wxs'
 
 import Mixin                        from 'utils/mixin.util'
+import F2                           from 'utils/wx-f2.min'
 
 // app.js
 App(Mixin({
@@ -16,5 +17,6 @@ App(Mixin({
         sceneid: '',
         blueTooth: {},
         to: '',
+        F2,
     },
 }));

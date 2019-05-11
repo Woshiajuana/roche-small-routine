@@ -3,7 +3,9 @@
 import './index.json'
 import './index.scss'
 import './index.wxml'
-import F2 from 'utils/wx-f2.min'
+// import F2 from 'utils/wx-f2.min'
+const app = getApp();
+const F2 = app.globalData.F2;
 
 Component({
   /**
