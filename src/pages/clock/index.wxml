@@ -43,12 +43,12 @@
     </view>
     <view class="button">
         <block wx:if="{{objData.Item1 === objData.Item2}}">
+            <text>恭喜您，已完成打卡任务，点亮圆环</text>
+        </block>
+        <block wx:else>
             <text>您还差 </text>
             <text class="color">{{objData.Item2 - objData.Item1}} </text>
             <text> 天即可点亮圆环</text>
-        </block>
-        <block wx:else>
-            <text>恭喜您，已完成打卡任务，点亮圆环</text>
         </block>
     </view>
     <view class="null"></view>
