@@ -7,9 +7,8 @@
             src="{{src$.bg}}"
         ></image>
         <view class="content">
-            <text class="title">360°稳糖管家</text>
-            <text class="prompt">定制专属控糖方案 时刻追踪血糖情况</text>
-            <text class="prompt">守护您的健康生活</text>
+            <text class="title">罗氏360°稳糖计划</text>
+            <text class="prompt">轻松管理您的每一次测糖</text>
         </view>
         <button
             class="g-button button"

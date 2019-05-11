@@ -52,17 +52,19 @@ Page(Mixin({
     },
     initData (arr) {
         if (arr) {
+            let { dayTime } = this.data;
+            console.log('dayTime', dayTime)
+            console.log('arr', arr)
             arr.forEach((item) => {
                 let { Day, TimeStep } = item;
-                this.data.dayTime.forEach((it, ind) => {
+                dayTime.forEach((it, ind) => {
                     if (Day === 7) Day = 0;
                     if (it[0] === Day) {
-                        let sItem = `dayTime[${TimeStep - 1}][${ind}]`;
-                        this.setData({[sItem]: 1});
+                        dayTime[TimeStep-1][ind] = 1;
                     }
                 });
             });
-            return;
+            return this.setData({ dayTime });
         }
         let result = [];
         for(let x = 0; x < 7; x++){
