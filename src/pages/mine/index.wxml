@@ -16,7 +16,7 @@
     <view class="button"
           bindtap="handleJump"
           data-url="mine_introduce_index">
-        <text class="button-text">{{objUser.IsMember ? '续订' : '升级'}}专业服务</text>
+        <text class="button-text">{{objUser.IsMember ? '续订' : '升级专业'}}服务</text>
     </view>
     <view class="base-info">
         <view class="base-item">

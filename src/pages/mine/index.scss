@@ -1,7 +1,17 @@
 @import '../../assets/scss/define';
 .g-vip-page{
     .header{
-        background-color: #62a3db;
+        background-color: #2f7ec9;
+    }
+    .base-value{
+        color: #2f7ec9;
+    }
+    .button{
+        border: 1px solid #2f7ec9;
+    }
+    .button-text{
+        color: #2f7ec9;
+        font-size: j(36);
     }
 }
 /*头部*/
