@@ -48,8 +48,8 @@ wx.getSystemInfo({
 
 var numCount = 4;
 var numSlot = 20;
-var mW = 750*rpx;
-var mH = 750*rpx;
+var mW = 680*rpx;
+var mH = 680*rpx;
 var mCenter = mW / 2; //中心点
 var mCenterY = mH / 2; //中心点
 var mAngle = Math.PI * 2 / numCount; //角度
@@ -205,6 +205,7 @@ Page(Mixin({
                 value: item.Bloodsugar,
             })
         });
+        console.log(result)
         setTimeout(() => {
             LineChart && LineChart.update(result);
         }, 800);
