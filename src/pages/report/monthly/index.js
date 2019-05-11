@@ -274,6 +274,7 @@ Page(Mixin({
             objRadar = {};
         }).finally(() => {
             console.log(1, objRadar)
+            this.setData({objRadar});
             this.updateRadarData(objRadar);
         });
     },
