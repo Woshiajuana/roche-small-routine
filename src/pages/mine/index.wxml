@@ -1,4 +1,5 @@
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
+    <wxs src="../../wxs/filter.wxs" module="filter" />
     <view class="header">
         <image
             class="user-image"
@@ -9,11 +10,10 @@
             <text class="user-name">{{objUser.Name || user$.nickName}}</text>
         </view>
     </view>
-    <view class="prompt">
+    <view class="prompt" wx:if="{{objUser.IsMember && objUser.MemberBeginDate && objUser.MemberDate}}">
         <text>360°稳糖计划VIP有效期：</text>
         <text class="time"
-              wx:if="{{objUser.IsMember}}"
-        >{{objUser.MemberBeginDate}}——{{objUser.MemberDate}}</text>
+        >{{filter.filterTimeDate(objUser.MemberBeginDate)}}——{{filter.filterTimeDate(objUser.MemberDate)}}</text>
     </view>
     <view class="button"
           bindtap="handleJump"

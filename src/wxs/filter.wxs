@@ -43,12 +43,17 @@ function filterTime (date) {
     date = date.replace(getRegExp("[^0-9]", "ig"), '');
     return formatData(date, 'yyyy-MM-dd');
 }
-
+function filterTimeDate (date) {
+    if (!date) return '--/--/--';
+    date = date.replace(getRegExp("[^0-9]", "ig"), '');
+    return formatData(date, 'yyyy年MM月dd')+'日';
+}
 function filterSugar (value) {
     return value ? value.toFixed(1) : 0;
 }
 
 module.exports = {
+    filterTimeDate: filterTimeDate,
     filterTime: filterTime,
     filterSugar: filterSugar,
 };
