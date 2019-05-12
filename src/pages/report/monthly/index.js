@@ -13,7 +13,8 @@ import {
 }                                   from 'wow-cool/lib/date.lib'
 import {
     ARR_TIME_STEP,
-    DAY_TEXT
+    DAY_TEXT,
+    CANVAS_X,
 }                                   from 'config/base.config'
 
 import {
@@ -90,7 +91,6 @@ Page(Mixin({
         this.reqSugarSpider();
         this.reqMonthlyTrend();
     },
-
     // 雷达图
     updateRadarData (data) {
         let arr = [data.AvgVal, data.AvgAfterVal, data.AvgLowVal, data.AvgFastingBeforeVal ];
@@ -148,10 +148,10 @@ Page(Mixin({
             radCtx.fill();
         }
     },
-
     // 赋值
     assignmentData () {
-        LineChart = getLineChart([], this.data.arrDate);
+        LineChart = getLineChart([], []);
+        // LineChart = getLineChart([], this.data.arrDate);
         this.setData({
             ['lineChartOpts.onInit']: LineChart.init,
         });
@@ -197,11 +197,15 @@ Page(Mixin({
     },
     updateChartData (data) {
         let result = [];
+        data.reverse();
         data.forEach((item) => {
             let time = item.TestDate.replace(/[^0-9]/ig, '');
+            let type = CANVAS_X[item.TimeStepExt - 1] || '';
+            let year = formatData('dd', new Date(+time));
             result.push({
-                year: formatData('dd', new Date(+time)),
-                type: ARR_TIME_STEP[item.TimeStepExt - 1],
+                year: year + type,
+                // type: ARR_TIME_STEP[item.TimeStepExt - 1],
+                type: type,
                 value: item.Bloodsugar,
             })
         });
@@ -250,10 +254,10 @@ Page(Mixin({
             Stime,
             Etime,
         }).then((res) => {
-            weekData = res || {};
+            weekData = res || [];
         }).catch((err) => {
             Modal.toast(err);
-            weekData = {};
+            weekData = [];
         }).finally(() => {
             this.updateChartData(weekData);
         });

@@ -13,6 +13,7 @@ import {
     DAY_TEXT,
     GLS_TEXT,
     WEB_LINK,
+    CANVAS_X,
 }                                   from 'config/base.config'
 
 // const data1 = [
@@ -61,7 +62,7 @@ Component(Mixin({
                 Stime,
                 Etime,
             }).then((res) => {
-                weekData = res || {};
+                weekData = res || [];
                 this.updateChartData(weekData);
             }).toast();
         },
@@ -75,11 +76,16 @@ Component(Mixin({
 
         updateChartData (data) {
             let result = [];
+            data.reverse();
             data.forEach((item) => {
                 let time = item.TestDate.replace(/[^0-9]/ig, '');
+                let type = CANVAS_X[item.TimeStepExt - 1] || '';
+                let year = formatData('dd', new Date(+time));
                 result.push({
-                    year: formatData('MM-dd', new Date(+time)),
-                    type: ARR_TIME_STEP[item.TimeStepExt - 1],
+                    year: year + type,
+                    type: type,
+                    // year: formatData('MM-dd', new Date(+time)),
+                    // type: ARR_TIME_STEP[item.TimeStepExt - 1],
                     value: item.Bloodsugar,
                 })
             });

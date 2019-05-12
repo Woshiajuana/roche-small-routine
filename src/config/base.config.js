@@ -1,6 +1,8 @@
 
 export const ARR_TIME_STEP = ['空腹', '早餐后', '午餐前', '午餐后', '晚餐前', '晚餐后', '睡前'];
 
+export const CANVAS_X = ['空腹血糖', '餐后血糖', '餐前血糖', '餐后血糖', '餐前血糖', '餐后血糖','空腹血糖'];
+
 export const ARR_TIME_STEP_KEY = [
     { start: '00:00', end: '08:00' },
     { start: '08:01', end: '10:30' },
