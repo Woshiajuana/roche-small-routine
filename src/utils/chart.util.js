@@ -72,12 +72,13 @@ export const getLineChart = (data = [], ticks = []) => {
                     range: [0, 1],
                     ticks,
                 },
-                // value: {
-                //     tickCount: 10,
-                //     formatter(val) {
-                //         return val;
-                //     }
-                // }
+                value: {
+                    // tickCount: 10,
+                    min: 0,
+                    formatter(val) {
+                        return val;
+                    }
+                }
             });
             // chart.tooltip({
             //     custom: true, // 自定义 tooltip 内容框
