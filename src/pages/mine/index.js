@@ -72,5 +72,8 @@ Page(Mixin({
                 confirm && Router.push('mine_introduce_index');
             });
         return this.jumpWebView(WEB_LINK.JKZD);
+    },
+    handlePopClose () {
+        this.setData({isPopup: false});
     }
 }));

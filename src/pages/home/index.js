@@ -107,6 +107,8 @@ Page(Mixin({
                     confirm && Router.push('mine_introduce_index');
                 });
             }
+            if (!IsUseCode)
+                return this.setData({isPopup: true});
             return this.jumpWebView(WEB_LINK.JKZD);
         }
         // 问卷
