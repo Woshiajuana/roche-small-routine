@@ -40,8 +40,8 @@
     @extend %bsb;
     @extend %fdc;
     @extend %aic;
-    height: j(188);
-    padding: j(25) 0;
+    min-height: j(188);
+    padding: j(25) j(16);
     line-height: 1.5;
     text{
         @extend %cfff;

@@ -57,7 +57,7 @@ Page(Mixin({
     // 跳转
     handleJump (event) {
         let { url, params } = event.currentTarget.dataset;
-        let { IsPerfect, IsMember, IsExpire } = this.data.user$;
+        let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.user$;
         if ( ['report_index', 'report_monthly_index'].indexOf(url) > -1 && !IsPerfect )
             return Router.push('mine_info_index', { from: 'mine_index', to: url});
         if (url !== 'mine_control_index') {
@@ -71,6 +71,8 @@ Page(Mixin({
                 let { confirm } = res;
                 confirm && Router.push('mine_introduce_index');
             });
+        if (!IsUseCode)
+            return this.setData({isPopup: true});
         return this.jumpWebView(WEB_LINK.JKZD);
     },
     handlePopClose () {

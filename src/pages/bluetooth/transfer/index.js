@@ -28,7 +28,8 @@ Page(Mixin({
     data: {
         arrTimeStep: ARR_TIME_STEP,
         glsText: GLS_TEXT,
-        params$: ''
+        params$: '',
+        isPopup: false,
     },
     onLoad() {
         this.userGet();
@@ -55,6 +56,10 @@ Page(Mixin({
             });
             return;
         }
+        if (!IsUseCode)  return this.setData({isPopup: true});
         this.jumpWebView(WEB_LINK.JKZD);
+    },
+    handlePopClose () {
+        this.setData({isPopup: false});
     }
 }));

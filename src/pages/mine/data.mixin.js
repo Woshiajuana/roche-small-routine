@@ -2,7 +2,7 @@
 export default {
     data: {
         objUser: {},
-        isPopup: true,
+        isPopup: false,
         objEntry: {
             plan: {
                 label: '我的测糖计划',
