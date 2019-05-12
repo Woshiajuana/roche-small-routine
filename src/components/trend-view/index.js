@@ -98,15 +98,15 @@ Component(Mixin({
             switch (day){
                 case 0:
                     result = {
-                        sTime: getDate(-6, 'MM-dd'),
-                        eTime: getDate(0, 'MM-dd'),
+                        sTime: getDate(-6, 'yyyy-MM-dd'),
+                        eTime: getDate(0, 'yyyy-MM-dd'),
                     };
                     arrDate = this.getDayArr(-6, 0);
                     break;
                 case 1:
                     result = {
-                        sTime: getDate(0, 'MM-dd'),
-                        eTime: getDate(6, 'MM-dd'),
+                        sTime: getDate(0, 'yyyy-MM-dd'),
+                        eTime: getDate(6, 'yyyy-MM-dd'),
                     };
                     arrDate = this.getDayArr(0, 6);
                     break;
