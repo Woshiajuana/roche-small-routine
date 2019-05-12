@@ -94,7 +94,11 @@ Page(Mixin({
     handleJump(e) {
         let { currentTarget } = e;
         let url = currentTarget.dataset.url;
-        url ? Router.push(url) : Modal.toast('敬请期待');
+        if (!url) Modal.toast('敬请期待');
+        let { IsArchives, IsMember } = this.data.user$;
+        IsArchives
+            ? Router.push(url)
+            : Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
     },
     handleRoot (){
         Router.root('home_index');
