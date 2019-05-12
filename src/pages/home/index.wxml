@@ -125,6 +125,21 @@
             </view>
         </view>
         <!--/计划-->
+
+        <view class="popup" wx:if="{{isPopup}}">
+            <view class="popup-inner">
+                <view class="popup-content">
+                    <text class="popup-prompt">我们将安排您专属的控糖顾问</text>
+                    <text class="popup-prompt">在1~2个工作日内与您联系</text>
+                    <text class="popup-prompt">并开通此项服务</text>
+                    <text class="popup-prompt">请注意接听电话，谢谢</text>
+                </view>
+                <button
+                    bindtap="handlePopClose"
+                    class="popup-button"
+                >知道了</button>
+            </view>
+        </view>
     </view>
     <loading hidden="{{!loading}}">加载中</loading>
 </view>

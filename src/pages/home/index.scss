@@ -300,3 +300,53 @@ page{
     @extend %df1;
     height: j(180);
 }
+
+.popup{
+    @extend %pf;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    background-color: rgba(0,0,0,0.3);
+}
+.popup-inner{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    width: j(630);
+    background-color: #fff;
+    border-radius: j(16);
+    padding: j(50) 0;
+    line-height: 1.4;
+}
+.popup-title{
+    font-size: j(51);
+    color: #333;
+}
+.popup-content{
+    @extend %df;
+    @extend %fdc;
+    justify-content: center;
+    margin-top: j(20);
+    align-items: center;
+    padding: 0 j(46);
+}
+.popup-prompt{
+    color: #333;
+    font-size: j(32);
+}
+.popup-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    width: j(300);
+    margin-top: j(20);
+    background: linear-gradient(to right, #5fa4dd , #1b70c3);
+    height: j(80);
+    border-radius: j(40);
+    color: #fff;
+    font-size: j(30);
+}

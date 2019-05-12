@@ -51,7 +51,7 @@ Page(Mixin({
                 content: '你的会员VIP已过期，是否续期？',
             }).then((res) => {
                 let { confirm } = res;
-                confirm && Router.push('introduce_index');
+                confirm && Router.push('mine_introduce_index');
             });
             return;
         }

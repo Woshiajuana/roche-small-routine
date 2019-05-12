@@ -1,6 +1,7 @@
 
 export default {
     data: {
+        isPopup: false,
         objEntry: {
             // vip权益
             equity: {

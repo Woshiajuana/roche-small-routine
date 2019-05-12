@@ -83,6 +83,7 @@ Page(Mixin({
     handleJump (event) {
         let { url, params } = event.currentTarget.dataset;
         let { IsPerfect, IsMember, IsArchives, IsUseCode, IsExpire } = this.data.user$;
+        // 客服问答
         if (url === 'consult_index') {
             if (IsExpire) {
                 return Modal.confirm({
@@ -92,8 +93,23 @@ Page(Mixin({
                     confirm && Router.push('mine_introduce_index');
                 });
             }
+            if (!IsUseCode)
+                return this.setData({isPopup: true});
             return this.jumpWebView(WEB_LINK.ZXWZ);
         }
+        // 控糖
+        if (url === 'questionnaire_programme_index' && IsMember) {
+            if (IsExpire) {
+                return Modal.confirm({
+                    content: '你的会员VIP已过期，是否续期？',
+                }).then((res) => {
+                    let { confirm } = res;
+                    confirm && Router.push('mine_introduce_index');
+                });
+            }
+            return this.jumpWebView(WEB_LINK.JKZD);
+        }
+        // 问卷
         if (['record_index', 'clock_index'].indexOf(url) > -1 && !IsArchives)
             return Modal.confirm({
                 content: '完成调查问卷才能测试血糖哦！',
@@ -102,8 +118,10 @@ Page(Mixin({
                 let { confirm } = res;
                 confirm && Router.push('questionnaire_answerone_index', { IsMember });
             });
+        // 周报
         if (url === 'report_index' && !IsPerfect)
             return Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
+        // 打卡
         if (url === 'clock_index')
             return this.reqCurSignIn();
         !params && (params = {});
@@ -118,4 +136,7 @@ Page(Mixin({
                 Router.push('lottery_index');
         }).toast();
     },
+    handlePopClose () {
+        this.setData({isPopup: false});
+    }
 }));
