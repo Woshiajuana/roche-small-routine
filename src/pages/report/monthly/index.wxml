@@ -22,7 +22,7 @@
 
 
 
-    <block>
+    <block wx:if="{{weekReport.HaveReport}}">
         <view class="radar-canvas">
             <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
             <view class="radar-text color-1">
