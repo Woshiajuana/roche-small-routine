@@ -255,7 +255,6 @@ Page(Mixin({
             Modal.toast(err);
             weekData = {};
         }).finally(() => {
-            console.log('执行了')
             this.updateChartData(weekData);
         });
     },
@@ -273,7 +272,6 @@ Page(Mixin({
             Modal.toast(err);
             objRadar = {};
         }).finally(() => {
-            console.log(1, objRadar)
             this.setData({objRadar});
             this.updateRadarData(objRadar);
         });
