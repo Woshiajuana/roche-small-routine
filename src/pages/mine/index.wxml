@@ -11,7 +11,9 @@
     </view>
     <view class="prompt">
         <text>360°稳糖计划VIP有效期：</text>
-        <text class="time">2018年9月1日——2018年9月30日</text>
+        <text class="time"
+              wx:if="{{objUser.IsMember}}"
+        >{{objUser.MemberBeginDate}}——{{objUser.MemberDate}}</text>
     </view>
     <view class="button"
           bindtap="handleJump"
