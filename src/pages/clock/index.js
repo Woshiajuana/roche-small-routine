@@ -52,13 +52,14 @@ Page(Mixin({
             if (Item2 === 0) return this.drawRunStart(0);
             let progress = Item1 / Item2 * 2;
             console.log('progress',progress)
-            this.drawRunStart(progress);
+            progress && this.drawRunStart(progress);
         }).toast();
     },
     drawRunStart (target, step = 0) {
-        if (step > target) return null;
-        step += 0.1;
+        if (step > +target.toFixed(2)) return null;
         this.drawCircle(step);
+        step += 0.1;
+        step = +step.toFixed(2);
         setTimeout(this.drawRunStart.bind(this), 50 ,target, step);
     },
     drawCircle (step){
