@@ -42,7 +42,7 @@
         <text>坚持是一种习惯</text>
     </view>
     <view class="button">
-        <block wx:if="{{objData.Item1 === objData.Item2}}">
+        <block wx:if="{{objData.Item1 >= objData.Item2}}">
             <text>恭喜您，已完成打卡任务，点亮圆环</text>
         </block>
         <block wx:else>

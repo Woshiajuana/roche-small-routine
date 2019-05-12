@@ -51,6 +51,7 @@ Page(Mixin({
             this.setData({ objData });
             if (Item2 === 0) return this.drawRunStart(0);
             let progress = Item1 / Item2 * 2;
+            console.log('progress',progress)
             this.drawRunStart(progress);
         }).toast();
     },
