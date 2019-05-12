@@ -73,8 +73,9 @@ export const getLineChart = (data = [], ticks = []) => {
                     ticks,
                 },
                 value: {
-                    // tickCount: 10,
+                    tickCount: 5,
                     min: 0,
+                    max: 20,
                     formatter(val) {
                         return val;
                     }
