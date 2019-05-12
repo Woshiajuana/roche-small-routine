@@ -1,12 +1,12 @@
 {
     "pages": [
-        "pages/bluetooth/transfer/index",
         "pages/login/index",
+        "pages/questionnaire/programme/index",
+        "pages/bluetooth/transfer/index",
         "pages/report/monthly/index",
         "pages/home/index",
         "pages/report/index",
         "pages/record/index",
-        "pages/questionnaire/programme/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
         "pages/bluetooth/explain/index",

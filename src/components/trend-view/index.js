@@ -81,13 +81,16 @@ Component(Mixin({
                 let time = item.TestDate.replace(/[^0-9]/ig, '');
                 let type = CANVAS_X[item.TimeStepExt - 1] || '';
                 let year = formatData('dd', new Date(+time));
-                result.push({
-                    year: year + type,
-                    type: type,
-                    // year: formatData('MM-dd', new Date(+time)),
-                    // type: ARR_TIME_STEP[item.TimeStepExt - 1],
-                    value: item.Bloodsugar,
-                })
+                if (item.Bloodsugar) {
+                    result.push({
+                        year: year + item.TimeStepExt,
+                        type: type,
+                        // year: formatData('MM-dd', new Date(+time)),
+                        // type: ARR_TIME_STEP[item.TimeStepExt - 1],
+                        value: item.Bloodsugar,
+                    })
+                }
+
             });
             console.log(result)
             setTimeout(() => {
