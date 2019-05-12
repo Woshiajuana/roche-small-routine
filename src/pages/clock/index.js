@@ -95,8 +95,8 @@ Page(Mixin({
         let { currentTarget } = e;
         let url = currentTarget.dataset.url;
         if (!url) Modal.toast('敬请期待');
-        let { IsArchives, IsMember } = this.data.user$;
-        IsArchives
+        let { IsPerfect, IsMember } = this.data.user$;
+        IsPerfect
             ? Router.push(url)
             : Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
     },
