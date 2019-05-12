@@ -1,5 +1,20 @@
 <view class="wrap">
     <scroll-view class="inner" scroll-y>
+        <view class="tab">
+            <view class="tab-btn"
+                  data-count="-7"
+                  bindtap="handlePreOrNext">
+                <text>上一周</text>
+            </view>
+            <view class="tab-prompt">
+                <text class="tab-prompt-text">{{vSTime2}} - {{vETime2}}</text>
+            </view>
+            <view class="tab-btn right"
+                  data-count="7"
+                  bindtap="handlePreOrNext">
+                <text>下一周</text>
+            </view>
+        </view>
         <view class="canvas">
             <ff-canvas wx:if="{{canvasOpts}}" id="canvas-dom" canvas-id="canvas" opts="{{canvasOpts}}"></ff-canvas>
         </view>

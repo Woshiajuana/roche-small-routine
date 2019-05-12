@@ -14,3 +14,30 @@ page{
     @extend %w100;
     height: j(600);
 }
+.tab{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: 105rpx;
+    padding: 0 60rpx;
+}
+.tab-btn{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    text{
+        font-size: 30rpx;
+        color: #686868;
+    }
+}
+.tab-prompt{
+    @extend %df1;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: 0 20rpx;
+    text{
+        font-size: 36rpx;
+        color: #28aeeb;
+    }
+}

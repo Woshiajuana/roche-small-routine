@@ -88,6 +88,7 @@ Component(Mixin({
         },
         // 获取日期
         getDay (cTime) {
+            console.log(cTime)
             let curTime = cTime || this.data.curTime;
             let date = new Date(curTime);
             let day = date.getDay();

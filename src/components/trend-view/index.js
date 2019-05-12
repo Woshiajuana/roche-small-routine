@@ -4,6 +4,7 @@ import './index.scss'
 
 import Mixin                        from 'utils/mixin.component.util'
 import Http                         from 'plugins/http.plugin'
+import Modal                        from 'plugins/modal.plugin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
     getLineChart,
@@ -32,6 +33,7 @@ import {
 // ];
 
 let LineChart = null;
+let type = false;
 
 Component(Mixin({
     mixins: [
@@ -44,15 +46,45 @@ Component(Mixin({
         sTime: '',
         eTime: '',
         arrDate: [],
+
+        vSTime2: '',
+        vETime2: '',
+
+        curTime: new Date().getTime(),
+        isCurWeek: true,
+
     },
     lifetimes: {
         attached () {
+            type = false;
+            this.setData({ curTime: new Date().getTime() });
             this.getDay();
             this.assignmentData();
             this.reqMonthlyTrend();
         },
     },
     methods: {
+        // 上下周
+        handlePreOrNext (e) {
+            if (type) return;
+            type = true;
+            setTimeout(() => {type = false}, 1000);
+            let { currentTarget } = e;
+            let count = +currentTarget.dataset.count;
+            let date = new Date(this.data.curTime);
+            date.setDate(date.getDate() + count);
+            let curTime = date.getTime();
+            let { sTime, eTime } = this.getDay(new Date().getTime());
+            let endTime = new Date(eTime.replace(/-/g, '\/') + ' 23:59:59').getTime();
+            let strTime = new Date(sTime.replace(/-/g, '\/') + ' 00:00:00').getTime();
+            if (curTime > endTime) return Modal.toast('下一周还没开始哦');
+            this.setData({
+                curTime,
+                isCurWeek: (curTime < endTime && curTime > strTime),
+            });
+            this.getDay();
+            this.reqMonthlyTrend();
+        },
         // 获取血糖趋势图
         reqMonthlyTrend () {
             let Stime = this.data.sTime;
@@ -99,69 +131,75 @@ Component(Mixin({
         },
 
         // 获取日期
-        getDay () {
-            let date = new Date();
+        getDay (cTime) {
+            let curTime = cTime || this.data.curTime;
+            let date = new Date(curTime);
             let day = date.getDay();
             let arrDate = [];
             let result = '';
             switch (day){
                 case 0:
                     result = {
-                        sTime: getDate(-6, 'yyyy-MM-dd'),
-                        eTime: getDate(0, 'yyyy-MM-dd'),
+                        sTime: getDate(-6, 'yyyy-MM-dd', new Date(curTime)),
+                        eTime: getDate(0, 'yyyy-MM-dd', new Date(curTime)),
                     };
                     arrDate = this.getDayArr(-6, 0);
                     break;
                 case 1:
                     result = {
-                        sTime: getDate(0, 'yyyy-MM-dd'),
-                        eTime: getDate(6, 'yyyy-MM-dd'),
+                        sTime: getDate(0, 'yyyy-MM-dd', new Date(curTime)),
+                        eTime: getDate(6, 'yyyy-MM-dd', new Date(curTime)),
                     };
                     arrDate = this.getDayArr(0, 6);
                     break;
                 case 2:
                     result = {
-                        sTime: getDate(-1, 'yyyy-MM-dd'),
-                        eTime: getDate(5, 'yyyy-MM-dd'),
+                        sTime: getDate(-1, 'yyyy-MM-dd', new Date(curTime)),
+                        eTime: getDate(5, 'yyyy-MM-dd', new Date(curTime)),
                     };
                     arrDate = this.getDayArr(-1, 5);
                     break;
                 case 3:
                     result = {
-                        sTime: getDate(-2, 'yyyy-MM-dd'),
-                        eTime: getDate(4, 'yyyy-MM-dd'),
+                        sTime: getDate(-2, 'yyyy-MM-dd', new Date(curTime)),
+                        eTime: getDate(4, 'yyyy-MM-dd', new Date(curTime)),
                     };
                     arrDate = this.getDayArr(-2, 4);
                     break;
                 case 4:
                     result = {
-                        sTime: getDate(-3, 'yyyy-MM-dd'),
-                        eTime: getDate(3, 'yyyy-MM-dd'),
+                        sTime: getDate(-3, 'yyyy-MM-dd', new Date(curTime)),
+                        eTime: getDate(3, 'yyyy-MM-dd', new Date(curTime)),
                     };
                     arrDate = this.getDayArr(-3, 3);
                     break;
                 case 5:
                     result = {
-                        sTime: getDate(-4, 'yyyy-MM-dd'),
-                        eTime: getDate(2, 'yyyy-MM-dd'),
+                        sTime: getDate(-4, 'yyyy-MM-dd', new Date(curTime)),
+                        eTime: getDate(2, 'yyyy-MM-dd', new Date(curTime)),
                     };
                     arrDate = this.getDayArr(-4, 2);
                     break;
                 case 6:
                     result = {
-                        sTime: getDate(-5, 'yyyy-MM-dd'),
-                        eTime: getDate(1, 'yyyy-MM-dd'),
+                        sTime: getDate(-5, 'yyyy-MM-dd', new Date(curTime)),
+                        eTime: getDate(1, 'yyyy-MM-dd', new Date(curTime)),
                     };
                     arrDate = this.getDayArr(-5, 1);
                     break;
             }
             let { sTime, eTime } = result;
-            this.setData({
-                sTime,
-                eTime,
-                arrDate,
-            });
-            console.log(this.data);
+            console.log(result)
+            if (!cTime) {
+                this.setData({
+                    sTime,
+                    eTime,
+                    arrDate,
+                    vSTime2: formatData('MM月dd日', new Date(sTime)),
+                    vETime2: formatData('MM月dd日', new Date(eTime)),
+                });
+            }
+            return result;
         },
         getDayArr (index, max) {
             let result = [];
