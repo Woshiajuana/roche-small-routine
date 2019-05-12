@@ -56,9 +56,9 @@ Page(Mixin({
         }).toast();
     },
     drawRunStart (target, step = 0) {
-        if (step >= target) return null;
-        this.drawCircle(step);
+        if (step > target) return null;
         step += 0.1;
+        this.drawCircle(step);
         setTimeout(this.drawRunStart.bind(this), 50 ,target, step);
     },
     drawCircle (step){
