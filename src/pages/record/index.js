@@ -66,8 +66,8 @@ Page(Mixin({
         let time = this.data.objInput.TestTime.value;
         // this.judgeTimeStep(time);
     },
-    handleDateChange (e) {
-        this.bindChange(e);
+    inputCallback (item, value) {
+        if (item.key !== 'objInput.TestDate') return null;
         let date = this.data.objInput.TestDate.value;
         let cur = formatData('yyyy-MM-dd');
         date === cur

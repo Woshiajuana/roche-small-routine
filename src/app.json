@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/record/index",
         "pages/home/index",
         "pages/login/index",
         "pages/report/monthly/index",
@@ -22,7 +23,6 @@
         "pages/questionnaire/answerthree/index",
         "pages/questionnaire/answertwo/index",
         "pages/questionnaire/info/index",
-        "pages/record/index",
         "pages/web/index",
         "pages/welcome/index"
     ],
