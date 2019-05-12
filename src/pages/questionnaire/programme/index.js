@@ -53,14 +53,10 @@ Page(Mixin({
     initData (arr) {
         if (arr) {
             let { dayTime } = this.data;
+            console.log(dayTime)
             arr.forEach((item) => {
                 let { Day, TimeStep } = item;
-                dayTime.forEach((it, ind) => {
-                    if (Day === 7) Day = 0;
-                    if (it[0] === Day) {
-                        dayTime[TimeStep-1][ind+1] = 1;
-                    }
-                });
+                dayTime[TimeStep-1][Day] = 1;
             });
             return this.setData({ dayTime });
         }
