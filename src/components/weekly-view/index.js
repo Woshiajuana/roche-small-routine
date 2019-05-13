@@ -38,7 +38,7 @@ Component(Mixin({
         DayCount: '',
         Desc: '',
         dayTime: [],
-        dayText: DAY_TEXT,
+        dayText: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
         sTime: '',
         eTime: '',
 
@@ -168,31 +168,40 @@ Component(Mixin({
         initData (arr) {
             if (arr) {
                 let result = {};
+                let { dayTime } = this.data;
                 arr.forEach((item) => {
                     let { Day, TimeStep, Bloodsugar, Gls} = item;
-                    this.data.dayTime.forEach((it, ind) => {
-                        if (Day === 7) Day = 0;
-                        if (it[0] === Day && TimeStep !== 0) {
-                            let sItem = `dayTime[${ind}][${TimeStep}]`;
-                            let key = `key_${ind}${TimeStep}`;
-                            result[key] = {
-                                sItem: sItem,
-                                item: item,
-                                type: Gls === 3 ? 'nor' : Gls < 3 ? 'low' : 'up',
-                            };
-                        }
-                    });
+                    dayTime[TimeStep-1][Day] = {
+                        ...item,
+                        type: Gls === 3 ? 'nor' : Gls < 3 ? 'low' : 'up',
+                        Bloodsugar: item.Bloodsugar && item.Bloodsugar.toFixed(1),
+                    };
+                    // this.data.dayTime.forEach((it, ind) => {
+                    //     if (Day === 7) Day = 0;
+                    //     if (it[0] === Day && TimeStep !== 0) {
+                    //         let sItem = `dayTime[${ind}][${TimeStep}]`;
+                    //         let key = `key_${ind}${TimeStep}`;
+                    //         result[key] = {
+                    //             sItem: sItem,
+                    //             item: item,
+                    //             type: Gls === 3 ? 'nor' : Gls < 3 ? 'low' : 'up',
+                    //         };
+                    //     }
+                    // });
                 });
-                for (let key in result) {
-                    let {sItem, item, type} = result[key];
-                    this.setData({
-                        [sItem]: {
-                            ...item,
-                            Bloodsugar: item.Bloodsugar && item.Bloodsugar.toFixed(1),
-                            type,
-                        },
-                    });
-                }
+                this.setData({dayTime});
+                console.log('dayTime',this.data.dayTime)
+                // console.log('result', result)
+                // for (let key in result) {
+                //     let {sItem, item, type} = result[key];
+                //     this.setData({
+                //         [sItem]: {
+                //             ...item,
+                //             Bloodsugar: item.Bloodsugar && item.Bloodsugar.toFixed(1),
+                //             type,
+                //         },
+                //     });
+                // }
                 return;
             }
             let result = [];
@@ -200,7 +209,7 @@ Component(Mixin({
                 result[x] = [];
                 for(let y = 0; y < 8; y++){
                     if (y === 0) {
-                        result[x][y] = (x+1) % 7;
+                        result[x][y] = x % 7;
                     } else {
                         result[x][y] = -1;
                     }

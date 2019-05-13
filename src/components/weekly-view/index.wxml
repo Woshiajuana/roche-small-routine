@@ -38,7 +38,7 @@
         <view class="tr">
             <view class="td td-0-0"><text class="text">本周</text></view>
             <view class="td td-0-1"
-                  wx:for="{{arrTimeStep}}"
+                  wx:for="{{dayText}}"
                   wx:for-item="item"
                   wx:for-index="index"
                   wx:key="item"
@@ -56,7 +56,7 @@
                   wx:key="ite">
                 <text class="text {{ite.Bloodsugar && 'num'}}"
                       wx:if="{{ite !== -1}}"
-                >{{ind === 0 ? dayText[ite] : ite.Bloodsugar}}</text>
+                >{{ind === 0 ? arrTimeStep[ite] : ite.Bloodsugar}}</text>
                 <view class="status" wx:if="{{ite === -1}}"></view>
             </view>
         </view>
