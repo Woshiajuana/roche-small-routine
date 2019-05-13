@@ -35,11 +35,11 @@ export default {
                 url: 'mine_info_index',
                 value: '',
             },
-            questionnaire: {
-                label: '更新疾病信息',
-                url: 'questionnaire_answerone_index',
-                value: '',
-            },
+            // questionnaire: {
+            //     label: '更新疾病信息',
+            //     url: 'questionnaire_answerone_index',
+            //     value: '',
+            // },
             bluetooth: {
                 label: '绑定Performa Connect血糖仪',
                 url: 'bluetooth_index',

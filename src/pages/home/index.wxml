@@ -53,6 +53,7 @@
             ></image>
             <view class="plan-top">
                 <view class="plan-button"
+                      data-params="{{objParams}}"
                       data-url="report_index"
                       bindtap="handleJump">
                     <image

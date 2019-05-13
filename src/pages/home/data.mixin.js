@@ -2,6 +2,9 @@
 export default {
     data: {
         isPopup: false,
+        objParams: {
+            curKey: 'journal'
+        },
         objEntry: {
             // vip权益
             equity: {

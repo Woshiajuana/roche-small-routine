@@ -46,36 +46,36 @@ export default {
                     }
                 ]
             },
-            SmsCode: {
-                label: '验证码',
-                placeholder: '请输入验证码',
-                type: 'number',
-                value: '',
-                key: 'formData.SmsCode',
-                max: 6,
-                use: [
-                    {
-                        nonempty: true,
-                        prompt: '请输入验证码'
-                    }
-                ],
-                use_code: {
-                    tel: 'Mobile',
-                    count: 60,
-                },
-            },
+            // SmsCode: {
+            //     label: '验证码',
+            //     placeholder: '请输入验证码',
+            //     type: 'number',
+            //     value: '',
+            //     key: 'formData.SmsCode',
+            //     max: 6,
+            //     use: [
+            //         {
+            //             nonempty: true,
+            //             prompt: '请输入验证码'
+            //         }
+            //     ],
+            //     use_code: {
+            //         tel: 'Mobile',
+            //         count: 60,
+            //     },
+            // },
             RedProtein: {
                 label: '糖化血红蛋白值',
                 placeholder: '请输入糖化血红蛋白值',
                 type: 'digit',
                 value: '',
                 key: 'formData.RedProtein',
-                use: [
-                    {
-                        nonempty: true,
-                        prompt: '请输入糖化血红蛋白值'
-                    }
-                ]
+                // use: [
+                //     {
+                //         nonempty: true,
+                //         prompt: '请输入糖化血红蛋白值'
+                //     }
+                // ]
             },
             LowSugar: {
                 label: '是否有过低血糖',

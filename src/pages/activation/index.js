@@ -45,7 +45,8 @@ Page(Mixin({
             ...data,
             Mobile: this.data.params$.Mobile,
         }).then((res) => {
-            this.setData({ isPopup: true });
+            Router.root('home_index');
+            // this.setData({ isPopup: true });
         }).toast();
     },
     handleRoot () {
