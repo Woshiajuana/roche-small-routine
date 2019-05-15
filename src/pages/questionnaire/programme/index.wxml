@@ -6,11 +6,11 @@
     ></image>
     <view class="header">
         <image class="avatar" src="{{user$.avatarUrl}}"></image>
-        <text>坚持30天养成测糖好习惯</text>
+        <text>{{user$.Name || user$.nickName}}</text>
     </view>
     <view class="prompt">
         <text class="prompt-time">{{desc1}}</text>
-        <text class="prompt-text">{{desc2}}</text>
+        <text class="prompt-text">坚持30天养成测糖好习惯</text>
     </view>
     <view class="table">
         <view class="thead">

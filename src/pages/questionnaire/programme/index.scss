@@ -2,7 +2,19 @@
 
 .g-vip-page{
     .thead{
-        background: linear-gradient(to right, #5fa4dd , #1b70c3);
+        background: linear-gradient(to right, #5fa4dd , #1e71c4);
+    }
+    &.td-0-1{
+        text{
+            @extend %db;
+            color: #1e71c4;
+        }
+    }
+    &.td-1-0{
+        text{
+            @extend %db;
+            color: #1e71c4;
+        }
     }
 }
 .wrap{
@@ -39,13 +51,11 @@
     @extend %pr;
     @extend %bsb;
     @extend %fdc;
-    @extend %aic;
+    width: j(640);
     min-height: j(188);
-    padding: j(25) j(16);
+    padding: j(25) 0;
     line-height: 1.5;
-    text{
-        @extend %cfff;
-    }
+    color: #e5e4e4;
 }
 .prompt-text{
     font-size: j(27);
