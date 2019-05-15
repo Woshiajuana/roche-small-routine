@@ -53,6 +53,7 @@ Component(Mixin({
         curTime: new Date().getTime(),
         isCurWeek: true,
 
+        isNotData: false,
     },
     lifetimes: {
         attached () {
@@ -95,6 +96,9 @@ Component(Mixin({
                 Etime,
             }).then((res) => {
                 weekData = res || [];
+                this.setData({
+                    isNotData: weekData.length === 0
+                });
                 this.updateChartData(weekData);
             }).toast();
         },
