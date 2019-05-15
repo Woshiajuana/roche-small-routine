@@ -22,6 +22,14 @@ page{
     background-color: #fafafa;
     border-top: j(1) solid #ddd;
 }
+.canvas-prompt{
+    @extend %pa;
+    @extend %l0;
+    @extend %r0;
+    @extend %tac;
+    font-size: j(28);
+    top: j(300);
+}
 .radar-text{
     @extend %pa;
     @extend %df;

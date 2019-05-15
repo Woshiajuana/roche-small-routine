@@ -64,7 +64,8 @@
             <text>本月血糖趋势</text>
         </view>
         <view class="canvas">
-            <ff-canvas id="line-dom" canvas-id="line-dom" opts="{{lineChartOpts}}"></ff-canvas>
+            <ff-canvas wx:if="{{!isNotData}}" id="line-dom" canvas-id="line-dom" opts="{{lineChartOpts}}"></ff-canvas>
+            <text wx:else class="canvas-prompt">数据不足，无法分析</text>
         </view>
     </view>
 

@@ -11,6 +11,7 @@ page{
     @extend %w100;
 }
 .canvas{
+    @extend %pr;
     @extend %w100;
     height: j(600);
 }

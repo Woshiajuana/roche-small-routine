@@ -76,6 +76,8 @@ Page(Mixin({
         },
         arrDate: [],
         objRadar: {},
+
+        isNotData: false,
     },
     onLoad () {
         this.sourceGet(arrSrc);
@@ -262,6 +264,9 @@ Page(Mixin({
             Modal.toast(err);
             weekData = [];
         }).finally(() => {
+            this.setData({
+                isNotData: weekData.length === 0,
+            });
             this.updateChartData(weekData);
         });
     },
