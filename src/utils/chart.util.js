@@ -106,9 +106,9 @@ export const getLineChart = (data = [], ticks = []) => {
             //     }
             // });
 
-            chart.area().position('year*value').color('type').shape('smooth');
+            // chart.area().position('year*value').color('type').shape('smooth');
             chart.line().position('year*value').color('type').shape('smooth');
-            // chart.point().position('year*value').color('type');
+            chart.point().position('year*value').color('type');
             chart.render();
             return chart;
         },
