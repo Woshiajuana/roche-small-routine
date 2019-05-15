@@ -14,6 +14,7 @@ import DataMixin                    from './data.mixin'
 
 const arrSrc = [
     { key: 'bg', value: 'ctjd-bg.jpg' },
+    { key: 'progressBg', value: 'progress-bg.png' },
     { key: 'icon', value: 'clock-icon.png' },
     { key: 'return', value: 'daka-return-icon.png' },
     { key: 'operate', value: 'clock-btn-icon1.png' },
@@ -22,6 +23,15 @@ const arrSrc = [
     { key: 'gift2', value: 'gift-2.png' },
     { key: 'gift3', value: 'gift-3.png' },
 ];
+
+var rpx;
+//获取屏幕宽度，获取自适应单位
+wx.getSystemInfo({
+    success: function(res) {
+        rpx = res.windowWidth / 750;
+    },
+});
+
 
 Page(Mixin({
     mixins: [
@@ -42,7 +52,7 @@ Page(Mixin({
         this.routerGetParams(options);
     },
     onReady () {
-        this.drawProgressBg();
+        // this.drawProgressBg();
         this.reqCurSignIn();
     },
     reqCurSignIn () {
@@ -65,11 +75,11 @@ Page(Mixin({
     },
     drawCircle (step){
         let context = wx.createCanvasContext('canvasProgress');
-        context.setLineWidth(8);
-        context.setStrokeStyle('#b5a380'); // 设置圆环的颜色
+        context.setLineWidth(12 * rpx);
+        context.setStrokeStyle('#e9bf88'); // 设置圆环的颜色
         context.setLineCap('round');
         context.beginPath();
-        context.arc(84, 84, 70, -Math.PI / 2, step * Math.PI - Math.PI / 2, false);
+        context.arc(168 * rpx, 168 * rpx, 140 * rpx, -Math.PI / 2, step * Math.PI - Math.PI / 2, false);
         context.stroke();
         context.draw()
     },

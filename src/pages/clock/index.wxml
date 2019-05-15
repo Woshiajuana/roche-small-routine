@@ -22,7 +22,8 @@
             <text class="value">{{params$.Bloodsugar}}</text>
             <text class="unit">mmol/L</text>
             <view class="progress">
-                <canvas class="progress-inner" canvas-id="canvasProgressBg"></canvas>
+                <image class="progress-bg" src="{{src$.progressBg}}"></image>
+                <!--<canvas class="progress-inner" canvas-id="canvasProgressBg"></canvas>-->
                 <canvas class="progress-inner" canvas-id="canvasProgress"></canvas>
             </view>
         </view>

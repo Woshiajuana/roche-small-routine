@@ -103,6 +103,15 @@ page{
         height: j(336);
         width: j(336);
     }
+    .progress-bg{
+        @extend %pa;
+        @extend %t50;
+        @extend %l50;
+        margin-top: j(-323);
+        margin-left: j(-320);
+        height: j(640);
+        width: j(640);
+    }
 }
 
 .button{
