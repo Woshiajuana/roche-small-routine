@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/report/index",
         "pages/activation/index",
         "pages/clock/index",
         "pages/questionnaire/programme/index",
@@ -21,7 +22,6 @@
         "pages/questionnaire/answertwo/index",
         "pages/questionnaire/info/index",
         "pages/record/index",
-        "pages/report/index",
         "pages/report/monthly/index",
         "pages/web/index",
         "pages/welcome/index"

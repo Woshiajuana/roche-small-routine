@@ -19,7 +19,10 @@
             <ff-canvas wx:if="{{canvasOpts}}" id="canvas-dom" canvas-id="canvas" opts="{{canvasOpts}}"></ff-canvas>
         </view>
         <view class="prompt">
-            <text></text>
+            <text class="text">*以上为2型糖尿病血糖控制理想水平</text>
+            <text class="text">妊娠糖尿病血糖理想范围：4.0-5.3mmol/L</text>
+            <text class="text">1型糖尿病血糖理想范围：成人：3.9-10.0mmol/L</text>
+            <text class="text">儿童：5.0-10.0mmol/L</text>
         </view>
     </scroll-view>
 </view>
