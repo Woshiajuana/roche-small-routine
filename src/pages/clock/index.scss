@@ -4,6 +4,9 @@
     .button{
         background: linear-gradient(to right, #5fa4dd , #1b70c3);
     }
+    .operate-bg{
+        background-color: #1b70c3;
+    }
 }
 
 page{
@@ -73,7 +76,7 @@ page{
         width: j(336);
     }
     .label{
-        font-size: j(24);
+        font-size: j(28);
     }
     .value{
         font-size: j(60);
@@ -109,11 +112,11 @@ page{
     @extend %jcc;
     @extend %cfff;
     margin-top: j(75);
-    padding: 0 j(30);
-    height: j(80);
+    width: j(400);
+    height: j(70);
     font-size: j(36);
-    border-radius: j(40);
-    background: linear-gradient(to right, #2dbeec, #28aeeb);
+    border-radius: j(35);
+    background: linear-gradient(to right, #39e1ee , #28aeeb);
     image{
         width: j(40);
         height: j(40);
@@ -129,12 +132,19 @@ page{
 .prompt{
     @extend %pr;
     @extend %df;
-    @extend %fdc;
     @extend %aic;
     @extend %cfff;
-    line-height: 1.5;
-    font-size: j(30);
-    margin-top: j(45);
+    font-size: j(28);
+    margin-top: j(10);
+    .color{
+        font-style: italic;
+        font-size: j(36);
+        color: #ead6b4;
+        margin: 0 j(5);
+    }
+    .font{
+        font-size: j(36);
+    }
 }
 .operate{
     @extend %pr;

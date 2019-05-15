@@ -17,6 +17,7 @@ const arrSrc = [
     { key: 'icon', value: 'clock-icon.png' },
     { key: 'return', value: 'daka-return-icon.png' },
     { key: 'operate', value: 'clock-btn-icon1.png' },
+    { key: 'vOperate', value: 'clock-btn-icon.png' },
     { key: 'gift1', value: 'gift-1.png' },
     { key: 'gift2', value: 'gift-2.png' },
     { key: 'gift3', value: 'gift-3.png' },

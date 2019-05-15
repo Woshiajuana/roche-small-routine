@@ -14,7 +14,7 @@
     <view class="statistics">
         <view class="statistics-item">
             <text class="label">本周已完成</text>
-            <text class="value">{{objData.Item1}}天</text>
+            <text class="value">{{objData.Item1}}次</text>
             <text class="unit"></text>
         </view>
         <view class="statistics-item statistics-inner">
@@ -28,7 +28,7 @@
         </view>
         <view class="statistics-item">
             <text class="label">周计划测糖</text>
-            <text class="value">{{objData.Item2}}天</text>
+            <text class="value">{{objData.Item2}}次</text>
             <text class="unit"></text>
         </view>
     </view>
@@ -38,23 +38,32 @@
         <!--<image src="{{src$.icon}}"></image>-->
         <!--<text>领取打卡奖励</text>-->
     <!--</view>-->
-    <view class="prompt">
-        <text>坚持是一种习惯</text>
-    </view>
-    <view class="button">
-        <block wx:if="{{objData.Item1 >= objData.Item2}}">
-            <text>恭喜您，已完成打卡任务，点亮圆环</text>
-        </block>
-        <block wx:else>
-            <text>您还差 </text>
+    <block wx:if="{{objData.Item1 >= objData.Item2}}">
+        <view class="prompt">
+            <text class="font">恭喜您!</text>
+        </view>
+        <view class="prompt">
+            <text class="font">完成打卡任务，已点亮圆环</text>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="prompt">
+            <text>坚持是一种习惯</text>
+        </view>
+        <view class="prompt">
+            <text class="font">您还差 </text>
             <text class="color">{{objData.Item2 - objData.Item1}} </text>
-            <text> 天即可点亮圆环</text>
-        </block>
+            <text class="font"> 次打卡即可点亮圆环</text>
+        </view>
+    </block>
+
+    <view class="button" bindtap="handleRoot">
+        <text>返回首页</text>
     </view>
     <view class="null"></view>
     <view class="operate">
         <view class="operate-bg"></view>
-        <image src="{{src$.operate}}"></image>
+        <image src="{{user$.IsMember ? src$.vOperate : src$.operate}}"></image>
         <view class="operate-inner">
             <view
                 class="operate-item"
@@ -68,12 +77,12 @@
         </view>
     </view>
 
-    <image
-        mode="widthFix"
-        class="return"
-        src="{{src$.return}}"
-        bindtap="handleRoot"
-    ></image>
+    <!--<image-->
+        <!--mode="widthFix"-->
+        <!--class="return"-->
+        <!--src="{{src$.return}}"-->
+        <!--bindtap="handleRoot"-->
+    <!--&gt;</image>-->
     <!--<div class="popup-wrap">-->
         <!--<div class="popup-inner">-->
             <!--<image-->
