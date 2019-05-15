@@ -1,9 +1,9 @@
 {
     "pages": [
+        "pages/activation/index",
         "pages/clock/index",
         "pages/questionnaire/programme/index",
         "pages/login/index",
-        "pages/activation/index",
         "pages/bluetooth/add/index",
         "pages/bluetooth/explain/index",
         "pages/bluetooth/index",

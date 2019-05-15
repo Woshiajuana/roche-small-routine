@@ -51,9 +51,9 @@ page{
     @extend %fwb;
     height: j(85);
     width: j(85);
-    border: 1px solid #1d71c4;
+    border: 1px solid #474747;
     border-radius: j(8);
-    color: #1d71c4;
+    color: #474747;
     font-size: j(52);
 }
 
@@ -69,8 +69,9 @@ page{
     @extend %fdc;
     @extend %jcc;
     @extend %oh;
-    height: j(185);
-    padding-top: j(20);
+    padding-bottom: j(50);
+    //height: j(185);
+    //padding-top: j(20);
 }
 .bg{
     @extend %pa;
@@ -84,11 +85,12 @@ page{
 }
 .prompt{
     @extend %pr;
-    line-height: j(35);
-    font-size: j(24);
-    color: #fff;
+    line-height: 1.5;
+    font-size: j(32);
+    color: #474747;
     .color{
-        font-size: j(20);
+        color: #1d71c4;
+        border-bottom: j(1) solid #1d71c4;
     }
 }
 .popup{
