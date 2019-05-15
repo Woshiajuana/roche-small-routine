@@ -45,9 +45,13 @@ page{
 .prompt{
     font-size: j(24);
     color: #474747;
-    line-height: 1.3;
+    line-height: 1.5;
+    padding: 0 j(60) j(50);
     .text{
         @extend %db;
+    }
+    .padding{
+        padding-left: j(272);
     }
 }
 
