@@ -17,8 +17,8 @@ const arrSrc = [
     { key: 'progressBg', value: 'progress-bg.png' },
     { key: 'icon', value: 'clock-icon.png' },
     { key: 'return', value: 'daka-return-icon.png' },
-    { key: 'operate', value: 'clock-btn-icon1.png' },
-    { key: 'vOperate', value: 'clock-btn-icon.png' },
+    { key: 'operate', value: 'clock-btn-iconnor.png' },
+    { key: 'vOperate', value: 'clock-btn-iconvip.png' },
     { key: 'gift1', value: 'gift-1.png' },
     { key: 'gift2', value: 'gift-2.png' },
     { key: 'gift3', value: 'gift-3.png' },
@@ -107,10 +107,7 @@ Page(Mixin({
         let { currentTarget } = e;
         let url = currentTarget.dataset.url;
         if (!url) Modal.toast('敬请期待');
-        let { IsPerfect, IsMember } = this.data.user$;
-        IsPerfect
-            ? Router.push(url)
-            : Router.push('mine_info_index', { from: 'home_index', IsMember, to: url});
+        Router.push(url, { curKey: 'weekly' });
     },
     handleRoot (){
         Router.root('home_index');

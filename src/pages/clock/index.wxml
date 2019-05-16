@@ -68,6 +68,7 @@
         <view class="operate-inner">
             <view
                 class="operate-item"
+                data-url="report_index"
                 bindtap="handleJump"
             ></view>
             <view
