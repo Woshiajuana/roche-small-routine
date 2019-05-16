@@ -107,7 +107,7 @@ Page(Mixin({
         let { currentTarget } = e;
         let url = currentTarget.dataset.url;
         if (!url) Modal.toast('敬请期待');
-        Router.push(url, { curKey: 'weekly' });
+        Router.push(url, { curKey: 'journal' });
     },
     handleRoot (){
         Router.root('home_index');
