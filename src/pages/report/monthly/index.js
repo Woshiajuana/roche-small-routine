@@ -207,7 +207,8 @@ Page(Mixin({
             if (item.Bloodsugar) {
                 result.push({
                     year: year + item.TimeStepExt,
-                    type: type,
+                    // type: type,
+                    type: '血糖趋势',
                     // year: formatData('MM-dd', new Date(+time)),
                     // type: ARR_TIME_STEP[item.TimeStepExt - 1],
                     value: item.Bloodsugar,
