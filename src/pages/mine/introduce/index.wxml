@@ -13,5 +13,5 @@
             <text class="footer-button-text">{{user$.IsMember ? '续订购买' : '升级购买'}}</text>
         </view>
     </view>
-    <text class="prompt">仅提供健康咨询或者健康建议，不属于诊疗活动</text>
+    <text class="prompt">仅提供健康咨询或者健康建议，不属于诊疗活动。若您对健康有任何疑问，请务必征询医生或其他有医疗资格的专业人士。</text>
 </view>

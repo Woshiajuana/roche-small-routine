@@ -72,7 +72,7 @@
             ></view>
             <view
                 class="operate-item"
-                data-url="report_index"
+                data-url="questionnaire_programme_index"
                 bindtap="handleJump"
             ></view>
         </view>

@@ -2,6 +2,22 @@
 page{
     background-color: #fafafa;
 }
+.g-vip-page{
+    .button{
+        background: linear-gradient(to right, #5fa4dd , #1b70c3);
+    }
+    .header{
+        background: #1b70c3;
+    }
+    .tab-prompt{
+        color: #1b70c3;
+    }
+    .trend-head,
+    .weekly-head{
+        background: #1b70c3;
+    }
+
+}
 .radar-canvas{
     @extend %df;
     @extend %aic;

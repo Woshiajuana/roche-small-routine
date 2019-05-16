@@ -2,6 +2,32 @@
 .wrap{
     @extend %h100;
 }
+.g-vip-page{
+    .tab-prompt{
+        color: #1b70c3;
+    }
+    .table-title{
+        color: #1b70c3;
+    }
+    .td{
+        &.td-0-1{
+            background-color: #1b70c3;
+        }
+        &.td-1-0{
+            text{
+                color: #1b70c3;
+            }
+        }
+    }
+    .weekly-head{
+        background: linear-gradient(to right, #5fa4dd , #1b70c3);
+    }
+    .weekly-cell{
+        text{
+            color: #1b70c3;
+        }
+    }
+}
 .header-prompt{
     font-size: 46rpx;
 }

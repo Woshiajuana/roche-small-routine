@@ -5,6 +5,7 @@ import './index.scss'
 import Mixin                        from 'utils/mixin.component.util'
 import Http                         from 'plugins/http.plugin'
 import Modal                        from 'plugins/modal.plugin'
+import UserMixin                    from 'mixins/user.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
     getLineChart,
@@ -37,7 +38,7 @@ let type = false;
 
 Component(Mixin({
     mixins: [
-
+        UserMixin,
     ],
     data: {
         canvasOpts:  {
@@ -58,6 +59,7 @@ Component(Mixin({
     lifetimes: {
         attached () {
             type = false;
+            this.userGet();
             this.setData({ curTime: new Date().getTime() });
             this.getDay();
             this.assignmentData();

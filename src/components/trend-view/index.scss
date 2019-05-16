@@ -2,6 +2,11 @@
 page{
     background-color: #fff;
 }
+.g-vip-page{
+    .tab-prompt{
+        color: #1b70c3;
+    }
+}
 .wrap{
     @extend %h100;
     @extend %w100;

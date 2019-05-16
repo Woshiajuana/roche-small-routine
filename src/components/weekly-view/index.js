@@ -8,6 +8,7 @@ import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.component.util'
 import ShareMixin                   from 'mixins/share.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import UserMixin                    from 'mixins/user.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
     ARR_TIME_STEP,
@@ -31,6 +32,7 @@ Component(Mixin({
     mixins: [
         ShareMixin,
         SourceMixin,
+        UserMixin,
     ],
     data: {
         arrTimeStep: ARR_TIME_STEP,
@@ -55,6 +57,7 @@ Component(Mixin({
         attached () {
             this.sourceGet(arrSrc);
             type = false;
+            this.userGet();
             this.setData({ curTime: new Date().getTime() });
             this.getDay();
             this.initData();

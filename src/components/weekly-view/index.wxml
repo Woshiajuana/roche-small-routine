@@ -1,4 +1,4 @@
-<scroll-view scroll-y class="wrap">
+<scroll-view scroll-y class="wrap {{user$.IsMember && 'g-vip-page'}}">
     <view class="tab">
         <view class="tab-btn"
               data-count="-7"

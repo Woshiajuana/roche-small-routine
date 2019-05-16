@@ -13,6 +13,11 @@ page{
         @extend %w100;
     }
 }
+.g-vip-page{
+    .header{
+        background-color: #1b70c3;
+    }
+}
 .header{
     @extend %df;
     @extend %aic;

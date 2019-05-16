@@ -6,6 +6,7 @@ import './index.wxml'
 import Mixin                        from 'utils/mixin.util'
 import SourceMixin                  from 'mixins/source.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
+import UserMixin                    from 'mixins/user.mixin'
 import DataMixin                    from './data.mixin'
 
 const arrSrc = [
@@ -17,8 +18,10 @@ Page(Mixin({
         DataMixin,
         RouterMixin,
         SourceMixin,
+        UserMixin,
     ],
     onLoad (options) {
+        this.userGet();
         this.sourceGet(arrSrc);
         this.routerGetParams(options);
         this.assignmentData();

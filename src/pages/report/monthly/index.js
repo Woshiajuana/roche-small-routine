@@ -8,6 +8,7 @@ import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import ShareMixin                   from 'mixins/share.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import UserMixin                    from 'mixins/user.mixin'
 import {
     formatData
 }                                   from 'wow-cool/lib/date.lib'
@@ -64,6 +65,7 @@ Page(Mixin({
         DataMixin,
         ShareMixin,
         SourceMixin,
+        UserMixin,
     ],
     data: {
         sTime: '',
@@ -81,6 +83,7 @@ Page(Mixin({
     },
     onLoad () {
         this.sourceGet(arrSrc);
+        this.userGet();
         wx.showShareMenu();
         type = false;
         this.setData({
