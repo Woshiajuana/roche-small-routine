@@ -114,7 +114,7 @@ Page(Mixin({
         // 问卷
         if (['record_index', 'clock_index'].indexOf(url) > -1 && !IsArchives)
             return Modal.confirm({
-                content: '完成调查问卷才能测试血糖哦！',
+                content: '为了给您提供专属的测糖计划，我们需要收集一下您的病史相关信息！',
                 confirmText: '去完成'
             }).then((res) => {
                 let { confirm } = res;
