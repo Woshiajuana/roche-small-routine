@@ -9,6 +9,7 @@ import Mixin                        from 'utils/mixin.util'
 import ShareMixin                   from 'mixins/share.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
 import UserMixin                    from 'mixins/user.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
 import {
     formatData
 }                                   from 'wow-cool/lib/date.lib'
@@ -81,8 +82,9 @@ Page(Mixin({
 
         isNotData: false,
     },
-    onLoad () {
+    onLoad (options) {
         this.sourceGet(arrSrc);
+        this.routerGetParams(options);
         this.userGet();
         wx.showShareMenu();
         type = false;
@@ -95,6 +97,14 @@ Page(Mixin({
         this.getMonthReport();
         this.reqSugarSpider();
         this.reqMonthlyTrend();
+    },
+    onShareAppMessage () {
+        let { AccessToken, OpenId } = this.user$;
+        return {
+            title: '360° 稳糖管家',
+            path: `/pages/report/monthly/index?token=${AccessToken}&openid=${OpenId}`,
+            imageUrl: 'http://mmbiz.qpic.cn/mmbiz_jpg/7P9iboeqZDgsWxZ2yvqLP8nYxwicib4ln1KTZmh1EfEmNKrP890afVkvglCoqvm5lxhTZvZKeA2xH8HjYEWLUhPlQ/0?wx_fmt=jpeg',
+        }
     },
     // 雷达图
     updateRadarData (data) {

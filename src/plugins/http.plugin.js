@@ -27,14 +27,19 @@ class Http {
 
     _fetch () {
         return new Promise((resolve, reject) => {
+            let AccessToken, OpenId;
             Auth.getToken().then((res) => {
-                let {
-                    AccessToken,
-                    OpenId,
-                } = res;
+                AccessToken = res.AccessToken;
+                OpenId = res.OpenId;
+            }).catch(() => {}).finally(() => {
+                if (this.data.OpenId) OpenId = this.data.OpenId;
+                if (this.data.AccessToken) {
+                    AccessToken = this.data.AccessToken;
+                    delete this.data.AccessToken;
+                }
                 this.useOpenId && (this.data.OpenId = OpenId);
                 AccessToken && (this.url = `${this.url}?access_token=${AccessToken}`);
-            }).catch(() => {}).finally(() => {
+
                 this._log('请求参数', this.data);
                 if (this.useAuth && !this.data.OpenId) {
                     return Router.root('login_index', {}, true);
