@@ -32,7 +32,7 @@
 
     <!--血糖-->
     <view class="main">
-        <view class="inner {{arrClass[objUser.Gls]}}">
+        <view class="inner {{arrClass[objData.Gls]}}">
             <view class="con">
                 <text class="num">{{objData.Bloodsugar ? objData.Bloodsugar : '--'}}</text>
                 <text class="unit">mmol/L</text>

@@ -58,13 +58,17 @@ Page(Mixin({
         Store.remove($BLUE_TOOTH_DATA)
     },
     initData() {
+        console.log('initData')
         Store.get($BLUE_TOOTH_DATA).then((res) => {
             let objData = res[0];
+            console.log('objData', objData)
             this.setData({
                 objData,
-                'objUser.Bloodsugar': objData.Bloodsugar ? objData.Bloodsugar.toFixed(1) : objData.Bloodsugar,
+                'objUser.Bloodsugar': objData.Bloodsugar ? (+objData.Bloodsugar).toFixed(1) : objData.Bloodsugar,
             });
-        }).catch(() => {})
+        }).catch((e) => {
+            console.log('initData', e)
+        })
     },
     // 首页个人血糖基本信息
     getIndexSugar () {
