@@ -70,4 +70,7 @@ export default {
     // 获取蜘蛛图
     Req_sugarSpider: 'RocheApi/GetSpider',
 
+    // 蓝牙传输数据
+    Do_setTestSugarList: 'RocheApi/SetTestSugarList',
+
 }

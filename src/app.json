@@ -1,7 +1,6 @@
 {
     "pages": [
         "pages/login/index",
-        "pages/mine/introduce/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
         "pages/bluetooth/explain/index",
@@ -15,6 +14,7 @@
         "pages/lottery/roster/index",
         "pages/mine/index",
         "pages/mine/info/index",
+        "pages/mine/introduce/index",
         "pages/questionnaire/answerone/index",
         "pages/questionnaire/answerthree/index",
         "pages/questionnaire/answertwo/index",

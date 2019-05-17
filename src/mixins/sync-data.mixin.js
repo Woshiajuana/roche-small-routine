@@ -170,14 +170,10 @@ export default {
             data.forEach((item) => {
                 item.OpenId = OpenId
             });
-            let options = {
-                url: 'RocheApi/SetTestSugarList',
-                loading: false,
-                data,
+            return Http(Http.API.Do_setTestSugarList, data, {
                 useOpenId: false,
-                auth: false,
-            };
-            return Http(options)
+                useAuth: false,
+            });
         }).then((res) => {
             let data = res || [];
             data.forEach((item) => {

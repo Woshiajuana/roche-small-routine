@@ -42,6 +42,7 @@ Page(Mixin({
             app.globalData.blueTooth = res;
             blueTooth = res || {};
         }).catch((e) => {
+            console.log('搜索蓝牙结果', e)
             let err = e || {};
             this.errorHandle(err);
         }).finally(() => {
