@@ -117,3 +117,75 @@ export const getLineChart = (data = [], ticks = []) => {
         }
     }
 };
+
+export const getWeekLineChart = (data = [], ticks = []) => {
+    let chart = null;
+    console.log('ticks',ticks)
+    return {
+        init (canvas, width, height) {
+            chart = new F2.Chart({
+                el: canvas,
+                width,
+                height,
+                padding: ['auto', 50],
+            });
+            chart.source(data, {
+                year: {
+                    // type: 'timeCat',
+                    // mask: 'MM/DD',
+                    // tickCount: 2,
+                    range: [0, 1],
+                    ticks,
+                    // min: ticks[0],
+                    // max: ticks[ticks.length],
+                },
+                value: {
+                    tickCount: 5,
+                    min: 0,
+                    max: 20,
+                    formatter(val) {
+                        return val;
+                    }
+                }
+            });
+            // chart.guide().regionFilter({
+            //     start: ['min', 4.4],
+            //     end: ['max', 10],
+            //     color: '#fb8605'
+            // });
+            // chart.tooltip({
+            //     custom: true, // 自定义 tooltip 内容框
+            //     showXTip: true,
+            //     onChange(obj) {
+            //         const legend = chart.get('legendController').legends.top[0];
+            //         const tooltipItems = obj.items;
+            //         const legendItems = legend.items;
+            //         const map = {};
+            //         legendItems.map(item => {
+            //             map[item.name] = Object.assign({}, item);
+            //         });
+            //         tooltipItems.map(item => {
+            //             const { name, value } = item;
+            //             if (map[name]) {
+            //                 map[name].value = value;
+            //             }
+            //         });
+            //         legend.setItems(Object.values(map));
+            //     },
+            //     onHide() {
+            //         const legend = chart.get('legendController').legends.top[0];
+            //         legend.setItems(chart.getLegendItems().country);
+            //     }
+            // });
+
+            // chart.area().position('year*value').color('type').shape('smooth');
+            chart.line().position('year*value').color('type').shape('smooth');
+            chart.point().position('year*value').color('type');
+            chart.render();
+            return chart;
+        },
+        update (data) {
+            chart.changeData(data);
+        }
+    }
+};
