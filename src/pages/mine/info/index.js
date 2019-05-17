@@ -56,6 +56,7 @@ Page(Mixin({
     handleSubmit (e) {
         if (Valid.check(this.data.formData)) return;
         let { formId } = e.detail;
+        let { IsMember } = this.data.user$;
         this.doSubWeChatFormId(formId, 'mine_info_index');
         let from = this.data.params$.from || '';
         let url = this.data.params$.to || 'mine_report_index';
@@ -63,7 +64,7 @@ Page(Mixin({
         Http(Http.API.Do_userInfo, data).then((res) => {
             !from && Modal.toast('保存成功');
             setTimeout(() => {
-                from ? Router.push(url, {}, true) : Router.pop();
+                from ? Router.push(url, { IsMember }, true) : Router.pop();
             }, 1000);
         }).toast();
     },

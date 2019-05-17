@@ -34,6 +34,10 @@ export default {
                 label: '个人信息',
                 url: 'mine_info_index',
                 value: '',
+                params: {
+                    from: 'mine_index',
+                    to: 'questionnaire_answerone_index',
+                }
             },
             // questionnaire: {
             //     label: '更新疾病信息',
