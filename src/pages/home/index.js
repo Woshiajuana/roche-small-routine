@@ -114,7 +114,7 @@ Page(Mixin({
         // 问卷
         if (['record_index', 'clock_index'].indexOf(url) > -1 && !IsArchives)
             return Modal.confirm({
-                content: '为便于我们为您提供更专业的测频建议，还请协助我们提供以下信息',
+                content: '为便于我们为您提供专业的测频建议，还请协助我们提供以下信息',
                 confirmText: '去完成'
             }).then((res) => {
                 let { confirm } = res;
