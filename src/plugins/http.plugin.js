@@ -33,7 +33,7 @@ class Http {
                     OpenId,
                 } = res;
                 this.useOpenId && (this.data.OpenId = OpenId);
-                this.useAuth && AccessToken && (this.url = `${this.url}?access_token=${AccessToken}`);
+                AccessToken && (this.url = `${this.url}?access_token=${AccessToken}`);
             }).catch(() => {}).finally(() => {
                 this._log('请求参数', this.data);
                 if (this.useAuth && !this.data.OpenId) {
