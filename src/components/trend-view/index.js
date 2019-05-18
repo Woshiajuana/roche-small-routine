@@ -6,6 +6,7 @@ import Mixin                        from 'utils/mixin.component.util'
 import Http                         from 'plugins/http.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import UserMixin                    from 'mixins/user.mixin'
+import SourceMixin                  from 'mixins/source.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
     getWeekLineChart,
@@ -36,10 +37,14 @@ import {
 
 let LineChart = null;
 let type = false;
+const arrSrc = [
+    { key: 'bg', value: 'mb-bg.jpg' },
+];
 
 Component(Mixin({
     mixins: [
         UserMixin,
+        SourceMixin,
     ],
     data: {
         canvasOpts:  {
@@ -59,6 +64,7 @@ Component(Mixin({
     },
     lifetimes: {
         attached () {
+            this.sourceGet(arrSrc);
             type = false;
             this.userGet();
             this.setData({ curTime: new Date().getTime() });

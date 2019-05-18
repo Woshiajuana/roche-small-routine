@@ -28,6 +28,11 @@ page{
     @extend %w100;
     height: j(600);
 }
+.canvas-null{
+    //@extend %w100;
+    width: j(680) !important;
+    margin-left: j(35);
+}
 .canvas-prompt{
     @extend %pa;
     @extend %l0;

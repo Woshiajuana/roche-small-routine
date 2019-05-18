@@ -78,8 +78,16 @@ export const getWeekLineChart = (data = [], ticks = []) => {
                 }
             });
             // chart.area().position('year*value').color('type').shape('smooth');
-            chart.line().position('year*value').color('type').shape('smooth');
-            chart.point().position('year*value').color('type');
+            chart.line().position('year*value').color('type', function () {
+                return '#dedede'
+            }).shape('smooth');
+            chart.point().position('year*value').color('value', function (val) {
+                if (val > 10)
+                    return '#F95727';
+                if (val < 4.4)
+                    return '#a2aabe';
+                return '#2fb2e7';
+            });
             chart.render();
             return chart;
         },

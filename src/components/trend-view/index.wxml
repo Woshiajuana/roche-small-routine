@@ -16,13 +16,19 @@
             </view>
         </view>
         <view class="canvas">
-            <div class="canvas-bg"></div>
-            <ff-canvas
-                wx:if="{{!isNotData}}"
-                id="canvas-dom"
-                canvas-id="canvas" opts="{{canvasOpts}}"
-            ></ff-canvas>
-            <text wx:else class="canvas-prompt">数据不足，无法分析</text>
+            <block wx:if="{{!isNotData}}">
+                <div class="canvas-bg"></div>
+                <ff-canvas
+                    id="canvas-dom"
+                    canvas-id="canvas" opts="{{canvasOpts}}"
+                ></ff-canvas>
+            </block>
+            <image
+                class="canvas-null"
+                wx:else
+                mode="widthFix"
+                src="{{src$.bg}}"
+            ></image>
         </view>
         <view class="prompt">
             <text class="text">*以上为2型糖尿病血糖控制理想水平</text>
