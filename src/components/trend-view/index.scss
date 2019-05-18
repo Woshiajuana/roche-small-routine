@@ -7,6 +7,14 @@ page{
         color: #1b70c3;
     }
 }
+.canvas-bg{
+    @extend %pa;
+    left: j(90);
+    right: j(90);
+    bottom: j(160);
+    height: j(118);
+    background-color: #b7f194;
+}
 .wrap{
     @extend %h100;
     @extend %w100;

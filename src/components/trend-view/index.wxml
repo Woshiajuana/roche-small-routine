@@ -16,6 +16,7 @@
             </view>
         </view>
         <view class="canvas">
+            <div class="canvas-bg"></div>
             <ff-canvas
                 wx:if="{{!isNotData}}"
                 id="canvas-dom"

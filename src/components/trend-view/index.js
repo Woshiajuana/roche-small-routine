@@ -8,7 +8,7 @@ import Modal                        from 'plugins/modal.plugin'
 import UserMixin                    from 'mixins/user.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import {
-    getLineChart,
+    getWeekLineChart,
 }                                   from 'utils/chart.util'
 import {
     ARR_TIME_STEP,
@@ -16,6 +16,7 @@ import {
     GLS_TEXT,
     WEB_LINK,
     CANVAS_X,
+    ARR_TIME_X,
 }                                   from 'config/base.config'
 
 // const data1 = [
@@ -106,7 +107,7 @@ Component(Mixin({
         },
         // 赋值
         assignmentData () {
-            LineChart = getLineChart([], this.data.arrDate);
+            LineChart = getWeekLineChart([], this.data.arrDate);
             this.setData({
                 ['canvasOpts.onInit']: LineChart.init,
             });
@@ -117,11 +118,11 @@ Component(Mixin({
             data.reverse();
             data.forEach((item) => {
                 let time = item.TestDate.replace(/[^0-9]/ig, '');
-                let type = CANVAS_X[item.TimeStepExt - 1] || '';
-                let year = formatData('dd', new Date(+time));
+                let year = formatData('MMdd', new Date(+time));
+                let num = (+item.TimeStepExt*1.4).toFixed(1);
                 if (item.Bloodsugar) {
                     result.push({
-                        year: year + item.TimeStepExt,
+                        year: +`9${year}${num}`,
                         type: '血糖趋势',
                         // year: formatData('MM-dd', new Date(+time)),
                         // type: ARR_TIME_STEP[item.TimeStepExt - 1],
@@ -210,7 +211,7 @@ Component(Mixin({
         getDayArr (index, max) {
             let result = [];
             while (max >= index) {
-                result.push(getDate(index, 'MM-dd'));
+                result.push(+`9${getDate(index, 'MMdd')}0`);
                 index++;
             }
             return result;
