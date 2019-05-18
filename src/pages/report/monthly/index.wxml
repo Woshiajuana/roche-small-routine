@@ -18,32 +18,27 @@
             <text>下一月</text>
         </view>
     </view>
-
-
-
-
     <block wx:if="{{weekReport.HaveReport}}">
         <view class="radar-canvas">
             <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
             <view class="radar-text color-1">
-                <text class="value">{{objRadar.AvgVal || 0}}</text>
+                <text class="value">{{objRadar.AvgVal || 0}}分</text>
                 <text>血糖波动</text>
             </view>
             <view class="radar-text color-2">
-                <text class="value">{{objRadar.AvgAfterVal|| 0}}</text>
+                <text class="value">{{objRadar.AvgAfterVal|| 0}}分</text>
                 <text>餐后血糖</text>
             </view>
             <view class="radar-text color-3">
-                <text class="value">{{objRadar.AvgLowVal|| 0}}</text>
+                <text class="value">{{objRadar.AvgLowVal|| 0}}分</text>
                 <text>低血糖状况</text>
             </view>
             <view class="radar-text color-4">
-                <text class="value">{{objRadar.AvgFastingBeforeVal|| 0}}</text>
+                <text class="value">{{objRadar.AvgFastingBeforeVal|| 0}}分</text>
                 <text>空腹餐前</text>
                 <text>血糖</text>
             </view>
         </view>
-
         <div class="button-group">
             <button
                 data-count="-1"
@@ -51,13 +46,18 @@
                 class="button"
             >查看上月</button>
         </div>
-
-        <image
-            mode="widthFix"
-            class="canvas-image"
-            src="{{src$.bg}}"
-        ></image>
     </block>
+    <image
+        wx:else
+        mode="widthFix"
+        class="canvas-image"
+        src="{{src$.bg1}}"
+    ></image>
+    <image
+        mode="widthFix"
+        class="canvas-image"
+        src="{{src$.bg}}"
+    ></image>
 
     <view class="trend">
         <view class="trend-head">

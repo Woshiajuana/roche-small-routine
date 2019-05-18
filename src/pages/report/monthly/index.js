@@ -30,6 +30,7 @@ let LineChart = null;
 
 const arrSrc = [
     { key: 'bg', value: 'yb-bg.jpg' },
+    { key: 'bg1', value: 'yb-zzt-bg.jpg' },
     { key: 'icon1', value: 'xtbg-icon-9.png' },
     { key: 'icon2', value: 'xtbg-icon-8.png' },
     { key: 'icon3', value: 'xtbg-icon-6.png' },
@@ -118,7 +119,7 @@ Page(Mixin({
     },
     // 第一步：绘制6个圆，你可以通过修改numSlot的数的大小，来确定绘制几个圆
     drawArcEdge () {
-        radCtx.setStrokeStyle('#eeeeee'); //设置线的颜色
+        radCtx.setStrokeStyle('#ddd'); //设置线的颜色
         radCtx.setLineWidth(1);  //设置线宽
         for (var i = 0; i < numSlot; i++) {  //需要几个圆就重复几次
             // //计算半径
