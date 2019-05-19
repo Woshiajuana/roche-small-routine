@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node cmd -d dist&&node cmd -p&&node cmd -c src/assets/images:dist/assets/images&&node cmd -i -r BD&&webpack --watch --config ./build/webpack.dev.config.js",
     "test": "node cmd -d dist&&node cmd -p&&node cmd -c src/assets/images:dist/assets/images&&node cmd -i -r CS&&webpack --watch --config ./build/webpack.dev.config.js",
-    "build": "node cmd -d dist&&node cmd -p&&node cmd -c src/assets/images:dist/assets/images&&node cmd -i -r SC&&webpack --watch --config ./build/webpack.prod.config.js",
+    "build": "node cmd -d dist&&node cmd -p&&node cmd -c src/assets/images:dist/assets/images&&node cmd -i -r SC&&webpack --watch --config ./build/webpack.dev.config.js",
     "clear": "node cmd -d dist",
     "router": "node cmd -p",
     "serve": "serve -p 10011"
