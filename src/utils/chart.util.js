@@ -8,7 +8,7 @@ export const F2 = wxF2;
 export const getLineChart = (data = [], ticks = []) => {
     let chart = null;
     function render (chart, data, ticks) {
-        console.log('ticks',ticks)
+        console.log('ticks1',ticks)
         chart.source(data, {
             year: {
                 // type: 'timeCat',
@@ -46,6 +46,8 @@ export const getLineChart = (data = [], ticks = []) => {
     }
     return {
         init (canvas, width, height) {
+            // if (chart) return chart;
+            console.log('init')
             chart = new F2.Chart({
                 el: canvas,
                 width,
@@ -56,9 +58,12 @@ export const getLineChart = (data = [], ticks = []) => {
             return chart;
         },
         update (data, ticks) {
-            chart.clear();
-            render(chart, data, ticks); // 加载新数据
-            // chart.changeData(data);
+            console.log('update')
+            if (chart) {
+                chart.clear();
+                render(chart, data, ticks); // 加载新数据
+                // chart.changeData(data);
+            }
         }
     }
 };
@@ -114,9 +119,11 @@ export const getWeekLineChart = (data = [], ticks = []) => {
             return chart;
         },
         update (data, ticks) {
-            chart.clear();
-            render(chart, data, ticks); // 加载新数据
-            // chart.changeData(data);
+            if (chart) {
+                chart.clear();
+                render(chart, data, ticks); // 加载新数据
+                // chart.changeData(data);
+            }
         }
     }
 };

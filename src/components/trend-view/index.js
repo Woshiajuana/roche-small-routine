@@ -120,7 +120,6 @@ Component(Mixin({
         },
 
         updateChartData (data) {
-            console.log('1',this.data.arrDate)
             let result = [];
             data.reverse();
             data.forEach((item) => {
