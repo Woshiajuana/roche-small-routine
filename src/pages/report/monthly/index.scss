@@ -38,6 +38,14 @@ page{
     background-color: #fafafa;
     border-top: j(1) solid #ddd;
 }
+.canvas-bg{
+    @extend %pa;
+    left: j(65);
+    right: j(65);
+    height: j(108);
+    bottom: j(165);
+    background-color: #b7f194;
+}
 .canvas-null{
     @extend %df;
     @extend %aic;

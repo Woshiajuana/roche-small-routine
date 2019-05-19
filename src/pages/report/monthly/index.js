@@ -92,7 +92,7 @@ Page(Mixin({
             cTime: formatData('yyyy-MM'),
         });
         this.initData('-1');
-        this.getArrDate();
+        // this.initData();
         this.assignmentData();
         this.getMonthReport();
         this.reqSugarSpider();
@@ -165,14 +165,19 @@ Page(Mixin({
     },
     // 获取当前月分
     getArrDate () {
-        let { sTime, eTime, arrDate} = this.data;
-        arrDate = [];
-        let sT= +formatData('MMdd', new Date(sTime));
-        let eT = +formatData('MMdd', new Date(eTime));
+        let { sTime, eTime} = this.data;
+        let arrDate = [];
+        let sT= formatData('MMdd', new Date(sTime));
+        let eT = formatData('MMdd', new Date(eTime));
+        let m = formatData('MM', new Date(eTime));
         arrDate.push(+`9${sT}0`);
+        arrDate.push(+`9${m}050`);
+        arrDate.push(+`9${m}100`);
+        arrDate.push(+`9${m}150`);
+        arrDate.push(+`9${m}200`);
+        arrDate.push(+`9${m}250`);
         arrDate.push(+`9${eT}0`);
         this.setData({ arrDate });
-        console.log(arrDate)
     },
     // 获取当前时间下一周
     initData(type) {
@@ -199,7 +204,8 @@ Page(Mixin({
             eTime,
             cTime,
             isCurWeek: cTime === formatData('yyyy-MM'),
-        })
+        });
+        this.getArrDate();
     },
     updateChartData (data) {
         let result = [];
@@ -218,7 +224,7 @@ Page(Mixin({
         });
         console.log(result)
         setTimeout(() => {
-            LineChart && LineChart.update(result);
+            LineChart && LineChart.update(result, this.data.arrDate);
         }, 800);
     },
     // 上下月
