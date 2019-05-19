@@ -100,6 +100,7 @@ Page(Mixin({
     },
     // 雷达图
     updateRadarData (data) {
+        radCtx = wx.createCanvasContext("radarCanvas");
         let arr = [data.AvgVal, data.AvgAfterVal, data.AvgLowVal, data.AvgFastingBeforeVal ];
         data = [
             ['餐后血糖', data.AvgAfterVal || 0],
@@ -293,7 +294,9 @@ Page(Mixin({
             objRadar = {};
         }).finally(() => {
             this.setData({objRadar});
-            this.updateRadarData(objRadar);
+            setTimeout(() => {
+                this.updateRadarData(objRadar);
+            }, 500);
         });
     },
 }));
