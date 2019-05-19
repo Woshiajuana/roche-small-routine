@@ -37,6 +37,7 @@ const arrSrc = [
     { key: 'icon4', value: 'xtbg-icon-7.png' },
     { key: 'icon5', value: 'xtbg-icon-4.png' },
     { key: 'icon6', value: 'xtbg-ewm-icon.jpg' },
+    { key: 'bgNull', value: 'mb-bg.jpg' },
 ];
 
 
@@ -156,8 +157,8 @@ Page(Mixin({
     },
     // 赋值
     assignmentData () {
-        LineChart = getLineChart([], []);
-        // LineChart = getLineChart([], this.data.arrDate);
+        // LineChart = getLineChart([], []);
+        LineChart = getLineChart([], this.data.arrDate);
         this.setData({
             ['lineChartOpts.onInit']: LineChart.init,
         });
@@ -165,12 +166,11 @@ Page(Mixin({
     // 获取当前月分
     getArrDate () {
         let { sTime, eTime, arrDate} = this.data;
-        sTime = +formatData('dd', new Date(sTime));
-        eTime = +formatData('dd', new Date(eTime));
-        while (sTime <= eTime) {
-            arrDate.push(sTime);
-            sTime++;
-        }
+        arrDate = [];
+        let sT= +formatData('MMdd', new Date(sTime));
+        let eT = +formatData('MMdd', new Date(eTime));
+        arrDate.push(+`9${sT}0`);
+        arrDate.push(+`9${eT}0`);
         this.setData({ arrDate });
         console.log(arrDate)
     },
@@ -206,15 +206,12 @@ Page(Mixin({
         data.reverse();
         data.forEach((item) => {
             let time = item.TestDate.replace(/[^0-9]/ig, '');
-            let type = CANVAS_X[item.TimeStepExt - 1] || '';
-            let year = formatData('dd', new Date(+time));
+            let year = formatData('MMdd', new Date(+time));
+            let num = (+item.TimeStepExt*1.4).toFixed(1);
             if (item.Bloodsugar) {
                 result.push({
-                    year: year + item.TimeStepExt,
-                    // type: type,
-                    type: '血糖趋势',
-                    // year: formatData('MM-dd', new Date(+time)),
-                    // type: ARR_TIME_STEP[item.TimeStepExt - 1],
+                    year: +`9${year}${num}`,
+                    type: '血糖趋势(mmol/L)',
                     value: item.Bloodsugar,
                 })
             }

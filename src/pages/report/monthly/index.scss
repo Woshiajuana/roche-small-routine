@@ -38,6 +38,16 @@ page{
     background-color: #fafafa;
     border-top: j(1) solid #ddd;
 }
+.canvas-null{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+}
+.canvas{
+    image{
+        @extend %w100;
+    }
+}
 .canvas-prompt{
     @extend %pa;
     @extend %l0;

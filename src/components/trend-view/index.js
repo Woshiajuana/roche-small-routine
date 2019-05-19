@@ -120,6 +120,7 @@ Component(Mixin({
         },
 
         updateChartData (data) {
+            console.log('1',this.data.arrDate)
             let result = [];
             data.reverse();
             data.forEach((item) => {
@@ -129,7 +130,7 @@ Component(Mixin({
                 if (item.Bloodsugar) {
                     result.push({
                         year: +`9${year}${num}`,
-                        type: '血糖趋势',
+                        type: '血糖趋势(mmol/L)',
                         // year: formatData('MM-dd', new Date(+time)),
                         // type: ARR_TIME_STEP[item.TimeStepExt - 1],
                         value: item.Bloodsugar,
@@ -139,7 +140,7 @@ Component(Mixin({
             });
             console.log(result)
             setTimeout(() => {
-                LineChart && LineChart.update(result);
+                LineChart && LineChart.update(result, this.data.arrDate);
             }, 800);
         },
 
@@ -156,49 +157,49 @@ Component(Mixin({
                         sTime: getDate(-6, 'yyyy-MM-dd', new Date(curTime)),
                         eTime: getDate(0, 'yyyy-MM-dd', new Date(curTime)),
                     };
-                    arrDate = this.getDayArr(-6, 0);
+                    arrDate = this.getDayArr(-6, 0, curTime);
                     break;
                 case 1:
                     result = {
                         sTime: getDate(0, 'yyyy-MM-dd', new Date(curTime)),
                         eTime: getDate(6, 'yyyy-MM-dd', new Date(curTime)),
                     };
-                    arrDate = this.getDayArr(0, 6);
+                    arrDate = this.getDayArr(0, 6, curTime);
                     break;
                 case 2:
                     result = {
                         sTime: getDate(-1, 'yyyy-MM-dd', new Date(curTime)),
                         eTime: getDate(5, 'yyyy-MM-dd', new Date(curTime)),
                     };
-                    arrDate = this.getDayArr(-1, 5);
+                    arrDate = this.getDayArr(-1, 5, curTime);
                     break;
                 case 3:
                     result = {
                         sTime: getDate(-2, 'yyyy-MM-dd', new Date(curTime)),
                         eTime: getDate(4, 'yyyy-MM-dd', new Date(curTime)),
                     };
-                    arrDate = this.getDayArr(-2, 4);
+                    arrDate = this.getDayArr(-2, 4, curTime);
                     break;
                 case 4:
                     result = {
                         sTime: getDate(-3, 'yyyy-MM-dd', new Date(curTime)),
                         eTime: getDate(3, 'yyyy-MM-dd', new Date(curTime)),
                     };
-                    arrDate = this.getDayArr(-3, 3);
+                    arrDate = this.getDayArr(-3, 3, curTime);
                     break;
                 case 5:
                     result = {
                         sTime: getDate(-4, 'yyyy-MM-dd', new Date(curTime)),
                         eTime: getDate(2, 'yyyy-MM-dd', new Date(curTime)),
                     };
-                    arrDate = this.getDayArr(-4, 2);
+                    arrDate = this.getDayArr(-4, 2, curTime);
                     break;
                 case 6:
                     result = {
                         sTime: getDate(-5, 'yyyy-MM-dd', new Date(curTime)),
                         eTime: getDate(1, 'yyyy-MM-dd', new Date(curTime)),
                     };
-                    arrDate = this.getDayArr(-5, 1);
+                    arrDate = this.getDayArr(-5, 1, curTime);
                     break;
             }
             let { sTime, eTime } = result;
@@ -214,10 +215,10 @@ Component(Mixin({
             }
             return result;
         },
-        getDayArr (index, max) {
+        getDayArr (index, max, curTime) {
             let result = [];
             while (max >= index) {
-                result.push(+`9${getDate(index, 'MMdd')}0`);
+                result.push(+`9${getDate(index, 'MMdd', new Date(curTime))}0`);
                 index++;
             }
             return result;

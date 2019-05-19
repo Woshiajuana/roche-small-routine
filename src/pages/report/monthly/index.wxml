@@ -18,7 +18,7 @@
             <text>下一月</text>
         </view>
     </view>
-    <block wx:if="{{weekReport.HaveReport}}">
+    <block wx:if="{{weekReport.HaveReport && objRadar.AvgVal && objRadar.AvgAfterVal && objRadar.AvgLowVal && objRadar.AvgFastingBeforeVal}}">
         <view class="radar-canvas">
             <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
             <view class="radar-text color-1">
@@ -63,9 +63,14 @@
         <view class="trend-head">
             <text>本月血糖趋势</text>
         </view>
-        <view class="canvas">
-            <ff-canvas wx:if="{{!isNotData}}" id="line-dom" canvas-id="line-dom" opts="{{lineChartOpts}}"></ff-canvas>
-            <text wx:else class="canvas-prompt">数据不足，无法分析</text>
+        <view wx:if="{{!isNotData}}" class="canvas">
+            <ff-canvas id="line-dom" canvas-id="line-dom" opts="{{lineChartOpts}}"></ff-canvas>
+        </view>
+        <view wx:else class="canvas canvas-null">
+            <image
+                mode="widthFix"
+                src="{{src$.bgNull}}"
+            ></image>
         </view>
     </view>
 
