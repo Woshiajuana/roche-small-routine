@@ -74,7 +74,7 @@ page{
     color: #666;
     &.color-1{
         @extend %l50;
-        @extend %t0;
+        top: j(25);
         margin-left: j(-80);
         .value{
             color: #ff7f52;

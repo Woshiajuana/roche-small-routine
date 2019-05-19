@@ -13,7 +13,7 @@ import UserMixin                    from 'mixins/user.mixin'
 import DataMixin                    from './data.mixin'
 
 const arrSrc = [
-    { key: 'bg', value: 'ctjd-bg.jpg' },
+    { key: 'bg', value: 'ctjd-bg.jpg?1' },
     { key: 'progressBg', value: 'progress-bg.png' },
     { key: 'icon', value: 'clock-icon.png' },
     { key: 'return', value: 'daka-return-icon.png' },

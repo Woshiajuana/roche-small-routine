@@ -22,19 +22,23 @@
         <view class="radar-canvas">
             <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
             <view class="radar-text color-1">
-                <text class="value">{{objRadar.AvgVal || 0}}分</text>
+                <text class="value" wx:if="{{objRadar.AvgVal}}">{{objRadar.AvgVal || 0}}分</text>
+                <text wx:else>{{objRadar.WaveRemark}}</text>
                 <text>血糖波动</text>
             </view>
             <view class="radar-text color-2">
-                <text class="value">{{objRadar.AvgAfterVal|| 0}}分</text>
+                <text class="value" wx:if="{{objRadar.AvgAfterVal}}">{{objRadar.AvgAfterVal|| 0}}分</text>
+                <text wx:else>{{objRadar.AfterRemark}}</text>
                 <text>餐后血糖</text>
             </view>
             <view class="radar-text color-3">
-                <text class="value">{{objRadar.AvgLowVal|| 0}}分</text>
+                <text class="value" wx:if="{{objRadar.AvgLowVal}}">{{objRadar.AvgLowVal|| 0}}分</text>
+                <text wx:else>{{objRadar.LowRemark}}</text>
                 <text>低血糖状况</text>
             </view>
             <view class="radar-text color-4">
-                <text class="value">{{objRadar.AvgFastingBeforeVal|| 0}}分</text>
+                <text class="value" wx:if="{{objRadar.AvgFastingBeforeVal}}">{{objRadar.AvgFastingBeforeVal|| 0}}分</text>
+                <text wx:else>{{objRadar.FastingBeforeRemark}}</text>
                 <text>空腹餐前</text>
                 <text>血糖</text>
             </view>
