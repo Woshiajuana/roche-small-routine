@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="wrap">
+    <view class="inner" hidden="{{loading}}">
+        <image
+            class="image"
+            mode="widthFix"
+            src="{{src$.bg}}"
+        ></image>
+        <view class="content">
+            <text class="title">罗氏360°稳糖计划</text>
+            <text class="prompt">轻松管理您的每一次测糖</text>
+        </view>
+        <button
+            class="g-button button"
+            open-type="getUserInfo"
+            bindgetuserinfo="handleGetUser"
+        >立即使用</button>
+    </view>
+    <loading hidden="{{!loading}}">加载中</loading>
+</view>
+
+

@@ -1,0 +1,49 @@
+@import '../../assets/scss/define';
+
+page,
+.inner,
+.wrap{
+    @extend %w100;
+    @extend %h100;
+    @extend %oh;
+}
+.inner{
+    background-color: #5f6774;
+}
+.image{
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    @extend %w100;
+    height: auto;
+}
+.content{
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+    @extend %fdc;
+    @extend %pr;
+    @extend %aic;
+    padding-top: j(110);
+    line-height: 1.3;
+    text{
+        @extend %cfff;
+    }
+}
+.title{
+    font-size: j(62);
+    margin-bottom: j(10);
+}
+.prompt{
+    font-size: j(30);
+}
+.button{
+    @extend %pa;
+    left: j(60);
+    right: j(60);
+    bottom: j(96);
+    color: #fff;
+}

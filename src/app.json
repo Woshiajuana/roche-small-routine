@@ -23,6 +23,7 @@
         "pages/record/index",
         "pages/report/index",
         "pages/report/monthly/index",
+        "pages/transition/index",
         "pages/web/index",
         "pages/welcome/index"
     ],
