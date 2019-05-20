@@ -32,6 +32,7 @@ Page(Mixin({
     // 赋值
     assignmentData (options) {
         let { sceneid, to, params } = options;
+        if (options.scene) sceneid = decodeURIComponent(options.scene);
         typeof sceneid === 'undefined' && (sceneid = '');
         typeof to === 'undefined' && (to = '');
         typeof params === 'undefined' && (params = '');
