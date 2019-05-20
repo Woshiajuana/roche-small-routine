@@ -74,11 +74,11 @@ Page(Mixin({
                 return this.judgeToPage();
             Router.root('questionnaire_info_index', { IsMember: true }, true);
         } else {
-            if (IsOldUser) {
-                if (!IsArchives)
-                    return Router.root('questionnaire_info_index', { IsMember }, true);
-                return this.judgeToPage();
-            } else {
+            // if (IsOldUser) {
+            //     if (!IsArchives)
+            //         return Router.root('questionnaire_info_index', { IsMember }, true);
+            //     return this.judgeToPage();
+            // } else {
                 if (IsVipFlow) {
                     Router.root('questionnaire_info_index', { IsMember: true }, true);
                 } else {
@@ -86,7 +86,7 @@ Page(Mixin({
                         return Router.root('questionnaire_info_index', { IsMember }, true);
                     this.judgeToPage();
                 }
-            }
+            // }
         }
     },
     judgeToPage () {
