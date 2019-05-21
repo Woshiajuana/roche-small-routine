@@ -24,6 +24,7 @@ Page(Mixin({
         loading: true,
     },
     onLoad (options) {
+        console.log('version => 1.2.11');
         console.log('options', options)
         this.assignmentData(options);
         this.sourceGet(arrSrc);
