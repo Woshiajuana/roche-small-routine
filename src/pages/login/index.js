@@ -11,6 +11,7 @@ import Http                         from 'plugins/http.plugin'
 
 const arrSrc = [
     { key: 'bg', value: 'login-bg-2.jpg' },
+    { key: 'logo', value: 'wx-logo.png' },
 ];
 
 Page(Mixin({
