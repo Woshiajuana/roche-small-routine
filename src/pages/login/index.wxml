@@ -1,22 +1,37 @@
-<!--index.wxml-->
 <view class="wrap">
-    <view class="inner" hidden="{{loading}}">
-        <image
-            class="image"
-            mode="widthFix"
-            src="{{src$.bg}}"
-        ></image>
-        <view class="content">
-            <text class="title">罗氏360°稳糖计划</text>
-            <text class="prompt">轻松管理您的每一次测糖</text>
-        </view>
+    <image class="bg" mode="widthFix" src="{{src$.bg}}"></image>
+
+    <image class="logo" mode="widthFix" src="../../assets/images/logo.png"></image>
+
+    <view class="title">
+        <text>罗氏360°稳糖计划</text>
+    </view>
+
+    <view class="sub-title">
+        <text>轻松管理您的每一次测糖</text>
+    </view>
+
+    <view class="bar"></view>
+
+    <view class="prompt">
+        <text>该程序将获取以下授权</text>
+    </view>
+
+    <view class="prompt">
+        <view class="dot"></view>
+        <text>将获取您的公开信息（昵称、头像等）</text>
+    </view>
+
+    <view class="operate">
         <button
-            class="g-button button"
+            class="operate-button"
+            bindtap="handleRefuse"
+        >拒绝</button>
+        <button
+            class="operate-button g-button"
             open-type="getUserInfo"
             bindgetuserinfo="handleGetUser"
-        >立即使用</button>
+        >允许</button>
     </view>
-    <loading hidden="{{!loading}}">加载中</loading>
 </view>
-
 
