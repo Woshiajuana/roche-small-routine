@@ -1,7 +1,7 @@
 <view class="wrap">
     <image class="bg" mode="widthFix" src="{{src$.bg}}"></image>
 
-    <image class="logo" mode="widthFix" src="../../assets/images/wx.png"></image>
+    <image class="logo" mode="widthFix" src="../../assets/images/wx-logo.png"></image>
 
     <view class="title">
         <text>罗氏360°稳糖计划</text>

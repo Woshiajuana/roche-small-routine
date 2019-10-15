@@ -6,10 +6,10 @@ export default {
             curKey: 'journal'
         },
         objEntry: {
-            // vip权益
-            equity: {
-                url: 'mine_introduce_index',
-            },
+            // // vip权益
+            // equity: {
+            //     url: 'mine_introduce_index',
+            // },
             // 测糖计划
             plan: {
                 url: 'questionnaire_programme_index',

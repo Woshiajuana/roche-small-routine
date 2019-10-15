@@ -8,6 +8,7 @@ import Http                         from 'plugins/http.plugin'
 import Router                       from 'plugins/router.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
+import JumpMixin                    from 'mixins/jump.mixin'
 import UserMixin                    from 'mixins/user.mixin'
 import WebViewMixin                 from 'mixins/webview.mixin'
 import ShareMixin                   from 'mixins/share.mixin'
@@ -41,6 +42,7 @@ Page(Mixin({
         ShareMixin,
         UserMixin,
         DataMixin,
+        JumpMixin,
     ],
     // 页面的初始数据
     data: {
@@ -59,8 +61,9 @@ Page(Mixin({
     },
     // 生命周期回调—监听页面显示
     onShow () {
-        this.userGet();
-        this.getIndexSugar();
+        this.userGet().then(() => {
+            this.getIndexSugar();
+        });
     },
     // 首页个人血糖基本信息
     getIndexSugar () {

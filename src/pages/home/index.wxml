@@ -1,21 +1,29 @@
 <!--index.wxml-->
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
-    <view hidden="{{loading}}" class="inner">
 
         <!--用户-->
         <view class="user">
             <image
                 src="{{user$.avatarUrl}}"
             ></image>
-            <view class="user-info">
-                <text class="user-name"
-                >{{objUser.Name || user$.nickName}}</text>
-                <view class="user-prompt">
-                    <text>360°稳糖管家已守护您</text>
-                    <text class="strong"
-                    >{{objUser.LoginDays}}</text>
-                    <text>天</text>
-                </view>
+            <view class="user-info"
+                  data-url="login_index"
+                  data-type="{{!user$.nickName}}"
+                  bindtap="handleJumpPage">
+                <block wx:if="{{user$.nickName}}">
+                    <text class="user-name">{{objUser.Name || user$.nickName}}</text>
+                    <view class="user-prompt">
+                        <text>360°稳糖管家已守护您</text>
+                        <text class="strong">{{objUser.LoginDays}}</text>
+                        <text>天</text>
+                    </view>
+                </block>
+               <block wx:else>
+                   <text class="user-name">请点击登录！</text>
+                   <view class="user-prompt">
+                       <text>您好，登录之后有新天地哦...</text>
+                   </view>
+               </block>
             </view>
         </view>
         <!--/用户-->
@@ -30,7 +38,7 @@
 
         <!--血糖-->
         <view class="main">
-            <view class="box {{arrClass[objUser.Gls]}}">
+            <view class="box {{arrClass[objUser.Gls]}} {{!user$.nickName && 'nor'}}">
                 <view class="con">
                     <text class="num">{{objUser.Bloodsugar}}</text>
                     <text class="unit">mmol/L</text>
@@ -141,6 +149,4 @@
                 >知道了</button>
             </view>
         </view>
-    </view>
-    <loading hidden="{{!loading}}">加载中</loading>
 </view>

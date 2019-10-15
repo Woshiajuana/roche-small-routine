@@ -22,11 +22,10 @@ Page(Mixin({
         sceneid: '',
         to: '',
         params: '',
-        loading: true,
     },
     onLoad (options) {
-        console.log('version => 1.2.11');
-        console.log('options', options)
+        console.log('version => 1.2.12 => time: 2019/10/15');
+        console.log('options', options);
         this.assignmentData(options);
         this.sourceGet(arrSrc);
         this.judgeUserLoginStatus();
@@ -43,13 +42,7 @@ Page(Mixin({
     // 判断用户登录状态
     judgeUserLoginStatus () {
         if (this.data.sceneid) {
-            Auth.logout().finally(() => {
-                Auth.getToken().then((res) => {
-                    this.judgeUserStatus(res);
-                }).catch(() => {
-                    this.setData({ loading: false });
-                });
-            })
+            Auth.logout();
         }else {
             Auth.getToken().then((res) => {
                 this.judgeUserStatus(res);
@@ -76,19 +69,13 @@ Page(Mixin({
                 return this.judgeToPage();
             Router.root('questionnaire_info_index', { IsMember: true }, true);
         } else {
-            // if (IsOldUser) {
-            //     if (!IsArchives)
-            //         return Router.root('questionnaire_info_index', { IsMember }, true);
-            //     return this.judgeToPage();
-            // } else {
-                if (IsVipFlow) {
-                    Router.root('questionnaire_info_index', { IsMember: true }, true);
-                } else {
-                    if (!IsArchives)
-                        return Router.root('questionnaire_info_index', { IsMember }, true);
-                    this.judgeToPage();
-                }
-            // }
+            if (IsVipFlow) {
+                Router.root('questionnaire_info_index', { IsMember: true }, true);
+            } else {
+                if (!IsArchives)
+                    return Router.root('questionnaire_info_index', { IsMember }, true);
+                this.judgeToPage();
+            }
         }
     },
     judgeToPage () {
@@ -104,7 +91,6 @@ Page(Mixin({
     // 用户登录
     userLogin (user) {
         Auth.login().then((result) => {
-            // return console.log(result)
             return Http(Http.API.Do_userLogin, {
                 NickName: user.nickName,
                 AvatarUrl: user.avatarUrl,
@@ -122,5 +108,8 @@ Page(Mixin({
         }).then((res) => {
             this.judgeUserStatus(res);
         }).toast();
+    },
+    handleRefuse () {
+        Router.root('home_index');
     },
 }));
