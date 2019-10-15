@@ -31,8 +31,8 @@ const arrSrc = [
     { key: 'jhb', value: 'home-icon-jhb.png' },
     { key: 'stepNor', value: 'home-step-icon-1.png' },
     { key: 'stepAct', value: 'home-step-icon-2.png' },
-    { key: 'entryBg', value: 'home-entry-bg.png' },
-    { key: 'entryVBg', value: 'home-entry-vip-bg.png' },
+    { key: 'entryBg', value: 'home-entry-bg1015.png' },
+    { key: 'entryVBg', value: 'home-entry-vip-bg1015.png' },
 ];
 
 Page(Mixin({
