@@ -40,7 +40,7 @@
         <view class="main">
             <view class="box {{arrClass[objUser.Gls]}} {{!user$.nickName && 'nor'}}">
                 <view class="con">
-                    <text class="num">{{objUser.Bloodsugar}}</text>
+                    <text class="num">{{user$.nickName ? objUser.Bloodsugar : '-.-'}}</text>
                     <text class="unit">mmol/L</text>
                     <text class="time">{{objUser.TestDate}} {{arrTimeStep[objUser.TimeStep - 1]}}</text>
                 </view>

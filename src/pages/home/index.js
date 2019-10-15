@@ -84,6 +84,13 @@ Page(Mixin({
     },
     // 跳转
     handleJump (event) {
+        let { nickName } = this.data.user$ || {};
+        if (!nickName) {
+            return Modal.confirm('使用该功能，请先登录哦').then((res) => {
+                let { confirm } = res;
+                confirm && Router.push('login_index');
+            }).null();
+        }
         let { url, params } = event.currentTarget.dataset;
         let { IsPerfect, IsMember, IsArchives, IsUseCode, IsExpire } = this.data.user$;
         // 客服问答

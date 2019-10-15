@@ -30,8 +30,10 @@ Page(Mixin({
         wx.showShareMenu();
     },
     onShow () {
-        this.userGet().then(this.assignmentData.bind(this));
-        this.getUserSugar();
+        this.userGet().then(() => {
+            this.assignmentData();
+            this.getUserSugar();
+        });
     },
     // 赋值判断
     assignmentData () {
@@ -56,6 +58,13 @@ Page(Mixin({
     },
     // 跳转
     handleJump (event) {
+        let { nickName } = this.data.user$ || {};
+        if (!nickName) {
+            return Modal.confirm('使用该功能，请先登录哦').then((res) => {
+                let { confirm } = res;
+                confirm && Router.push('login_index');
+            }).null();
+        }
         let { url, params } = event.currentTarget.dataset;
         let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.user$;
         if ( ['report_index', 'report_monthly_index'].indexOf(url) > -1 && !IsPerfect )
