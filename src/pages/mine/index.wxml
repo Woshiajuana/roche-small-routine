@@ -1,14 +1,24 @@
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
     <wxs src="../../wxs/filter.wxs" module="filter" />
-    <view class="header">
+    <view class="header"
+          data-url="login_index"
+          data-type="{{!user$.nickName}}"
+          bindtap="handleJumpPage">
         <image
             class="user-image"
             src="{{user$.avatarUrl}}"
         ></image>
-        <view class="user-info">
-            <text>{{objUser.IsMember ? 'VIP用户' : '普通用户'}}</text>
-            <text class="user-name">{{objUser.Name || user$.nickName}}</text>
-        </view>
+        <block wx:if="{{user$.nickName}}">
+            <view class="user-info">
+                <text>{{objUser.IsMember ? 'VIP用户' : '普通用户'}}</text>
+                <text class="user-name">{{objUser.Name || user$.nickName}}</text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="user-info">
+                <text>您好，请点击登录！</text>
+            </view>
+        </block>
     </view>
     <view class="prompt" wx:if="{{objUser.IsMember && objUser.MemberBeginDate && objUser.MemberDate}}">
         <text>360°稳糖计划VIP有效期：</text>
@@ -23,17 +33,17 @@
     <view class="base-info">
         <view class="base-item">
             <text class="base-label">登陆天数</text>
-            <text class="base-value">{{objUser.LoginDays}}</text>
+            <text class="base-value">{{user$.nickName ? objUser.LoginDays : '--'}}</text>
         </view>
         <view class="base-border"></view>
         <view class="base-item">
             <text class="base-label">测糖次数</text>
-            <text class="base-value">{{objUser.TestSugarCount}}</text>
+            <text class="base-value">{{user$.nickName ? objUser.TestSugarCount : '--'}}</text>
         </view>
         <view class="base-border"></view>
         <view class="base-item">
             <text class="base-label">周平均血糖</text>
-            <text class="base-value">{{objUser.Bloodsugar}}</text>
+            <text class="base-value">{{user$.nickName ? objUser.Bloodsugar : '--'}}</text>
         </view>
     </view>
     <view class="entry">

@@ -8,6 +8,7 @@ import Router                       from 'plugins/router.plugin'
 import Auth                         from 'plugins/auth.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
+import JumpMixin                    from 'mixins/jump.mixin'
 import UserMixin                    from 'mixins/user.mixin'
 import ShareMixin                   from 'mixins/share.mixin'
 import WebViewMixin                 from 'mixins/webview.mixin'
@@ -25,6 +26,7 @@ Page(Mixin({
         WebViewMixin,
         ShareMixin,
         UserMixin,
+        JumpMixin,
     ],
     onLoad () {
         wx.showShareMenu();
