@@ -8,6 +8,7 @@ import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import InputMixin                   from 'mixins/input.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import BleMixin                     from 'mixins/ble.mixin'
 import SDK                          from 'services/sdk.services'
 import Loading                      from 'plugins/loading.plugin'
 import Store                        from 'plugins/store.plugin'
@@ -24,6 +25,7 @@ const arrSrc = [
 
 Page(Mixin({
     mixins: [
+        BleMixin,
         InputMixin,
         SourceMixin,
     ],
@@ -32,25 +34,32 @@ Page(Mixin({
         isPop: false,
     },
     onLoad () {
-        // 搜索蓝牙
         this.searchRoche();
         this.sourceGet(arrSrc);
     },
+
     searchRoche () {
-        let blueTooth = '';
-        SDK.searchRoche().then((res) => {
-            app.globalData.blueTooth = res;
-            blueTooth = res || {};
-        }).catch((e) => {
-            console.log('搜索蓝牙结果', e)
-            let err = e || {};
-            this.errorHandle(err);
-        }).finally(() => {
-            this.setData({ blueTooth });
-        })
+        // 搜索蓝牙
+        this.bleSearchRoche().then((e) => {
+            console.log('搜索蓝牙结果', e);
+            this.setData({ blueTooth: e[0] });
+            wx.stopBluetoothDevicesDiscovery();
+        }).catch(this.errorHandle.bind(this));
+        //
+        // let blueTooth = '';
+        // SDK.searchRoche().then((res) => {
+        //     app.globalData.blueTooth = res;
+        //     blueTooth = res || {};
+        // }).catch((e) => {
+        //     console.log('搜索蓝牙结果', e)
+        //     let err = e || {};
+        //     this.errorHandle(err);
+        // }).finally(() => {
+        //     this.setData({ blueTooth });
+        // })
     },
     errorHandle ({ errMsg, errCode }) {
-        if (errMsg === 'openBluetoothAdapter:fail:ble not available') {
+        if (errMsg.indexOf('openBluetoothAdapter:fail') > -1 ) {
             setTimeout(() => {
                 Modal.confirm({
                     content: '链接设备需要打开蓝牙，请确认手机蓝牙是否已打开？',
@@ -92,6 +101,12 @@ Page(Mixin({
         }
         Loading.showLoading();
         let result = {};
+        this.blePairRoche(deviceId).then((res) => {
+            Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index',deviceId, serviceId: res });
+        }).catch((err) => {
+            console.log(err);
+        });
+        return;
         SDK.pairRoche(deviceId).then((res) => {
             result = {errCode: 0};
         }).catch((err) => {
