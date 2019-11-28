@@ -1,8 +1,8 @@
 {
     "pages": [
+        "pages/bluetooth/add/index",
         "pages/home/index",
         "pages/activation/index",
-        "pages/bluetooth/add/index",
         "pages/bluetooth/explain/index",
         "pages/bluetooth/index",
         "pages/bluetooth/synchronization/index",

@@ -1,4 +1,17 @@
 @import '../../../assets/scss/define';
+
+page{
+    @extend %h100;
+}
+.flex-wrap{
+    @extend %df;
+    @extend %h100;
+    @extend %fdc;
+}
+.flex-1{
+    @extend %df1;
+}
+
 /*头部*/
 .header{
     @extend %df;
@@ -42,20 +55,35 @@
     @extend %jcc;
     @extend %aic;
     line-height: 1.6;
-    image{
-        margin: 75rpx 0 40rpx;
-        width: 390rpx;
-        height: 550rpx;
-    }
-    text{
-        font-size: 46rpx;
-        color: #6b6b6b;
-    }
-    .no-text{
-        font-size: 36rpx;
-        color: #ababab;
-    }
 }
+.device-item{
+    @extend %df;
+    @extend %aic;
+    @extend %w100;
+    @extend %bsb;
+    padding: j(10) j(40);
+    border-bottom: 1px solid #ddd;
+}
+.device-icon{
+    width: j(100);
+    height: auto;
+}
+.device-item-con{
+    @extend %df1;
+}
+.device-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cp;
+    @extend %cfff;
+    width: j(180);
+    height: j(60);
+    font-size: j(30);
+    border-radius: j(10);
+    background: linear-gradient(to right, #39e1ee , #28aeeb);
+}
+
 .tel{
     @extend %df;
     @extend %fdc;

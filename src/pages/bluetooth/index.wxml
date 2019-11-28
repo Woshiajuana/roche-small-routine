@@ -18,16 +18,16 @@
     </view>
 
     <!--蓝牙-->
-    <view class="blue-tooth"
-          bindtap="handleJump">
-        <image
-            class="blue-tooth-icon"
-            mode="aspectFit"
-            src="{{src$.refresh}}"
-        ></image>
-        <view class="blue-tooth-bar"></view>
-        <text class="blue-tooth-text">同步数据</text>
-    </view>
+<!--    <view class="blue-tooth"-->
+<!--          bindtap="handleJump">-->
+<!--        <image-->
+<!--            class="blue-tooth-icon"-->
+<!--            mode="aspectFit"-->
+<!--            src="{{src$.refresh}}"-->
+<!--        ></image>-->
+<!--        <view class="blue-tooth-bar"></view>-->
+<!--        <text class="blue-tooth-text">同步数据</text>-->
+<!--    </view>-->
     <!--/蓝牙-->
 
     <!--血糖-->
@@ -50,13 +50,13 @@
     <view class="form-button"
           data-url="bluetooth_explain_index"
           bindtap="handleJump">
-        <text class="form-button-text">首次添加蓝牙设备</text>
-    </view>
-    <view class="form-button form-button-te"
-          data-url="bluetooth_synchronization_index"
-          bindtap="handleJump">
         <text class="form-button-text">我要同步数据</text>
     </view>
+<!--    <view class="form-button form-button-te"-->
+<!--          data-url="bluetooth_synchronization_index"-->
+<!--          bindtap="handleJump">-->
+<!--        <text class="form-button-text">我要同步数据</text>-->
+<!--    </view>-->
 
     <!--底部button-->
     <view class="footer">

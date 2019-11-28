@@ -42,5 +42,6 @@ Page(Mixin({
         },(err) => {
             console.log('失败', err);
         });
-    }
+    },
+
 }));

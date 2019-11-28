@@ -30,11 +30,11 @@ Page(Mixin({
         SourceMixin,
     ],
     data: {
-        blueTooth: '',
+        blueTooth: '213',
         isPop: false,
     },
     onLoad () {
-        this.searchRoche();
+        // this.searchRoche();
         this.sourceGet(arrSrc);
     },
 
@@ -42,21 +42,9 @@ Page(Mixin({
         // 搜索蓝牙
         this.bleSearchRoche().then((e) => {
             console.log('搜索蓝牙结果', e);
-            this.setData({ blueTooth: e[0] });
+            this.setData({ blueTooth: e });
             wx.stopBluetoothDevicesDiscovery();
         }).catch(this.errorHandle.bind(this));
-        //
-        // let blueTooth = '';
-        // SDK.searchRoche().then((res) => {
-        //     app.globalData.blueTooth = res;
-        //     blueTooth = res || {};
-        // }).catch((e) => {
-        //     console.log('搜索蓝牙结果', e)
-        //     let err = e || {};
-        //     this.errorHandle(err);
-        // }).finally(() => {
-        //     this.setData({ blueTooth });
-        // })
     },
     errorHandle ({ errMsg, errCode }) {
         if (errMsg.indexOf('openBluetoothAdapter:fail') > -1 ) {
@@ -93,38 +81,21 @@ Page(Mixin({
         Router.push(url);
     },
     // 配对
-    handlePairRoche() {
-        let { deviceId } = this.data.blueTooth;
+    handlePairRoche(e) {
+        const { deviceId } = e.currentTarget.dataset;
         if (!deviceId) {
             Modal.toast('没有发现设备，请先搜索设备');
+            this.setData({ blueTooth: '' });
             return this.searchRoche();
         }
         Loading.showLoading();
-        let result = {};
         this.blePairRoche(deviceId).then((res) => {
             Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index',deviceId, serviceId: res });
         }).catch((err) => {
-            console.log(err);
-        });
-        return;
-        SDK.pairRoche(deviceId).then((res) => {
-            result = {errCode: 0};
-        }).catch((err) => {
-            result = err;
-            this.errorHandle(err);
+            Modal.toast('绑定失败，请删除设备和手机链接后重新绑定');
         }).finally(() => {
             Loading.hideLoading();
-            let { errCode } = result;
-            if (errCode !== 0 && errCode !== -1) return Modal.toast(result);
-            Modal.confirm({
-                content: '是否配对成功？',
-            }).then((res) => {
-                let { confirm } = res;
-                console.log(this.data.blueTooth)
-                confirm && Store.set($BLUE_TOOTH_DEVICE_ID_LIST, [this.data.blueTooth]);
-                confirm && Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index'});
-            });
-        })
+        });
     },
     onUnload () {
         let {deviceId} = app.globalData.blueTooth;

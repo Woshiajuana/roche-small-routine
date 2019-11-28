@@ -1,7 +1,7 @@
-<view>
+<view class="flex-wrap">
     <view class="header">
         <image src="{{src$.icon}}"></image>
-        <text>{{blueTooth ? '已发现1个设备，点击绑定' : '寻找设备中，请耐心等待...'}}</text>
+        <text>{{blueTooth ? '已发现'+ blueTooth.length +'个设备，点击绑定' : '寻找设备中，请耐心等待...'}}</text>
     </view>
     <view class="inner">
         <view class="before" hidden="{{blueTooth !== '' && blueTooth !== null}}">
@@ -10,15 +10,17 @@
             <text>并且已经开机</text>
         </view>
         <view class="after" hidden="{{blueTooth === null || blueTooth === ''}}">
-            <image src="{{src$.result}}"></image>
-            <text>{{blueTooth.name}}</text>
-            <text class="no-text">{{blueTooth.deviceId}}</text>
-        </view>
-        <view class="form-button"
-              hidden="{{blueTooth === null || blueTooth === ''}}"
-              data-value="{{true}}"
-              bindtap="handlePairRoche">
-            <text class="form-button-text">绑定</text>
+            <view class="device-item"
+                  data-device-id="{{item.deviceId}}"
+                  wx:for="{{blueTooth}}"
+                  wx:key="item">
+                <image mode="widthFix" class="device-icon" src="{{src$.result}}"></image>
+                <view class="device-item-con">
+                    <text>{{item.name}}</text>
+                    <text class="no-text">{{item.deviceId}}</text>
+                </view>
+                <view class="device-button" bindtap="handlePairRoche"><text>绑定</text></view>
+            </view>
         </view>
     </view>
     <view hidden="{{blueTooth}}">
@@ -37,6 +39,7 @@
             </view>
         </view>
     </view>
+    <view class="flex-1"></view>
     <import src="../../../templates/bluetooth-explain/index.wxml"/>
     <template is="bluetoothExplain"></template>
 </view>
