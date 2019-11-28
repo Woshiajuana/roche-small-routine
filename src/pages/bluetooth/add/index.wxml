@@ -27,6 +27,12 @@
                 </view>
             </view>
         </view>
+        <view class="form-button"
+              hidden="{{blueTooth === null || blueTooth === ''}}"
+              data-value="{{true}}"
+              bindtap="searchRoche">
+            <text class="form-button-text">重新搜索</text>
+        </view>
     </view>
     <view hidden="{{blueTooth}}">
         <view class="tel">

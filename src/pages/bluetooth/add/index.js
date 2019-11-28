@@ -37,14 +37,19 @@ Page(Mixin({
         this.searchRoche();
         this.sourceGet(arrSrc);
     },
-
     searchRoche () {
+        this.setData({ blueTooth: '' });
+        let blueTooth = '';
         // 搜索蓝牙
         this.bleSearchRoche().then((e) => {
+            blueTooth = e;
             console.log('搜索蓝牙结果', e);
-            this.setData({ blueTooth: e });
-            wx.stopBluetoothDevicesDiscovery();
-        }).catch(this.errorHandle.bind(this));
+        }).catch(this.errorHandle.bind(this)).finally(() => {
+            this.setData({ blueTooth });
+            setTimeout( () => {
+                wx.stopBluetoothDevicesDiscovery();
+            }, 1000);
+        });
     },
     errorHandle ({ errMsg, errCode }) {
         if (errMsg.indexOf('openBluetoothAdapter:fail') > -1 ) {
