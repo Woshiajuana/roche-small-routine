@@ -70,6 +70,8 @@ page{
 }
 .device-item-con{
     @extend %df1;
+    @extend %df;
+    @extend %fdc;
 }
 .device-button{
     @extend %df;
