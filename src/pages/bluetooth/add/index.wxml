@@ -11,15 +11,20 @@
         </view>
         <view class="after" hidden="{{blueTooth === null || blueTooth === ''}}">
             <view class="device-item"
-                  data-device-id="{{item.deviceId}}"
                   wx:for="{{blueTooth}}"
+                  wx:for-item="item"
                   wx:key="item">
                 <image mode="widthFix" class="device-icon" src="{{src$.result}}"></image>
                 <view class="device-item-con">
                     <text>{{item.name}}</text>
                     <text class="no-text">{{item.deviceId}}</text>
                 </view>
-                <view class="device-button" bindtap="handlePairRoche"><text>绑定</text></view>
+                <view
+                    class="device-button"
+                    bindtap="handlePairRoche"
+                    data-device-id="{{item.deviceId}}">
+                    <text>绑定</text>
+                </view>
             </view>
         </view>
     </view>

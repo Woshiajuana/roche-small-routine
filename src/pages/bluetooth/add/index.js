@@ -30,11 +30,11 @@ Page(Mixin({
         SourceMixin,
     ],
     data: {
-        blueTooth: '213',
+        blueTooth: '',
         isPop: false,
     },
     onLoad () {
-        // this.searchRoche();
+        this.searchRoche();
         this.sourceGet(arrSrc);
     },
 

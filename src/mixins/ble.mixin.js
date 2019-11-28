@@ -28,6 +28,7 @@ export default {
 
     // 同步数据
     bleSyncData (deviceId, serviceId, callback, callback2, callback3) {
+        console.log('开始同步数据')
         SDK.syncData(deviceId, serviceId, callback, callback2, callback3);
     },
 
