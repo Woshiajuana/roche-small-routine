@@ -11,6 +11,7 @@ import Store                        from 'plugins/store.plugin'
 import SyncMixin                    from 'mixins/sync-data.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
 import UserMixin                    from 'mixins/user.mixin'
+import Authorize                    from 'plugins/authorize.plugin'
 import {
     $BLUE_TOOTH_DEVICE_ID_LIST,
     $BLUE_TOOTH_DATA,
@@ -95,5 +96,16 @@ Page(Mixin({
         }
         if (url === 'mine_index') return Router.root('mine_index');
         Router.push(url, {Bloodsugar: this.data.Bloodsugar, from: 'bluetooth_index'});
+    },
+    // 跳转
+    handleJumpPlus (e) {
+        let { currentTarget } = e;
+        let url = currentTarget.dataset.url;
+        if (url === 'record_index') return Router.push(url);
+        Authorize(Authorize.SCOPE.userLocation, '添加设备需要地理位置授权').then(() => {
+            Router.push(url, { from: 'bluetooth_index' });
+        }).catch(() => {
+            Modal.toast('连接设备需要授权哦')
+        });
     },
 }));

@@ -182,8 +182,13 @@
     }
 }
 .form-button-te{
+    @extend %bsb;
     background-image: none;
-    background-color: #1e3666;
+    background-color: transparent;
+    border: 1rpx #1e3666 solid;
+    text{
+        color: #1e3666;
+    }
 }
 .form-button-text{
     color: #fff;

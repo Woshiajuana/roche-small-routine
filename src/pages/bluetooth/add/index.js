@@ -8,6 +8,7 @@ import Modal                        from 'plugins/modal.plugin'
 import Mixin                        from 'utils/mixin.util'
 import InputMixin                   from 'mixins/input.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
 import BleMixin                     from 'mixins/ble.mixin'
 import SDK                          from 'services/sdk.services'
 import Loading                      from 'plugins/loading.plugin'
@@ -27,13 +28,15 @@ Page(Mixin({
     mixins: [
         BleMixin,
         InputMixin,
+        RouterMixin,
         SourceMixin,
     ],
     data: {
         blueTooth: '',
         isPop: false,
     },
-    onLoad () {
+    onLoad (options) {
+        this.routerGetParams(options);
         this.searchRoche();
         this.sourceGet(arrSrc);
     },
@@ -95,7 +98,7 @@ Page(Mixin({
         }
         Loading.showLoading();
         this.blePairRoche(deviceId).then((res) => {
-            Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index',deviceId, serviceId: res });
+            Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index',deviceId, serviceId: res, ...this.data.params$ });
         }).catch((err) => {
             Modal.toast('绑定失败，请删除设备和手机链接后重新绑定');
         }).finally(() => {
