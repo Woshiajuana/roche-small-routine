@@ -58,6 +58,8 @@
         <text class="form-button-text">我要同步数据</text>
     </view>
 
+    <view class="tips"><text>*请确认血糖仪蓝牙已开启，并置于手机旁</text></view>
+
     <!--底部button-->
     <view class="footer">
         <view class="footer-button"

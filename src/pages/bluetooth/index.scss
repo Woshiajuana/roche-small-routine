@@ -1,4 +1,7 @@
 @import '../../assets/scss/define';
+.wrap{
+    padding-bottom: 120rpx;
+}
 /*头部*/
 .header{
     @extend %df;
@@ -181,14 +184,10 @@
         margin-bottom: 80rpx;
     }
 }
+
 .form-button-te{
-    @extend %bsb;
     background-image: none;
-    background-color: transparent;
-    border: 1rpx #1e3666 solid;
-    text{
-        color: #1e3666;
-    }
+    background-color: #1e3666;
 }
 .form-button-text{
     color: #fff;
@@ -244,4 +243,11 @@
         @extend %cfff;
         font-size: 36rpx;
     }
+}
+
+.tips{
+    @extend %tac;
+    line-height: 2;
+    color: #6b6b6b;
+    font-size: 22rpx;
 }
