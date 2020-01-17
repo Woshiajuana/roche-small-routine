@@ -8,6 +8,8 @@ import Router                       from 'plugins/router.plugin'
 import Authorize                    from 'plugins/authorize.plugin'
 import Modal                        from 'plugins/modal.plugin'
 import SourceMixin                  from 'mixins/source.mixin'
+import DeviceMixin                  from 'mixins/device.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
 
 const arrSrc = [
     { key: 'bg', value: 'bdly-explain-bg.jpg' },
@@ -16,8 +18,11 @@ const arrSrc = [
 Page(Mixin({
     mixins: [
         SourceMixin,
+        DeviceMixin,
+        RouterMixin,
     ],
-    onLoad () {
+    onLoad (options) {
+        this.routerGetParams(options);
         this.sourceGet(arrSrc);
     },
     // 跳转

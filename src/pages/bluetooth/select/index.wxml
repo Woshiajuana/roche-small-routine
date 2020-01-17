@@ -2,9 +2,9 @@
     <view class="item {{numIndex === index && 'active'}}"
           bindtap="handleSelect"
           data-index="{{index}}"
-          wx:for="{{arrDevice}}"
+          wx:for="{{device$}}"
           wx:key="index">
-        <image class="image" src="{{item.src}}" mode="widthFix"></image>
+        <image class="image" src="{{item.selectSrc}}" mode="widthFix"></image>
     </view>
 </view>
 <view class="form-button"
