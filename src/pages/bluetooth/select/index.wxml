@@ -1,0 +1,24 @@
+<view class="list">
+    <view class="item {{numIndex === index && 'active'}}"
+          bindtap="handleSelect"
+          data-index="{{index}}"
+          wx:for="{{arrDevice}}"
+          wx:key="index">
+        <image class="image" src="{{item.src}}" mode="widthFix"></image>
+    </view>
+</view>
+<view class="form-button"
+      data-url="bluetooth_add_index"
+      bindtap="handleJump">
+    <text class="form-button-text">确认</text>
+</view>
+<view class="prompt">
+    <text>部分安卓机型，无法正常使用蓝牙连接</text>
+    <text
+        class="link"
+        data-url="record_index"
+        bindtap="handleJump"
+    >点击前往手动记录</text>
+</view>
+<import src="../../../templates/bluetooth-explain/index.wxml"/>
+<template is="bluetoothExplain"></template>
