@@ -33,12 +33,12 @@ Page(Mixin({
         DeviceMixin,
     ],
     data: {
-        blueTooth: '',
+        blueTooth: {},
         isPop: false,
     },
     onLoad (options) {
         this.routerGetParams(options);
-        this.searchRoche();
+        // this.searchRoche();
         this.sourceGet(arrSrc);
     },
     searchRoche () {

@@ -55,6 +55,19 @@ page{
     @extend %jcc;
     @extend %aic;
     line-height: 1.6;
+    image{
+        margin: 75rpx 0 40rpx;
+        width: 360rpx;
+        height: 550rpx;
+    }
+    text{
+        font-size: 46rpx;
+        color: #6b6b6b;
+    }
+    .no-text{
+        font-size: 36rpx;
+        color: #ababab;
+    }
 }
 .device-item{
     @extend %df;

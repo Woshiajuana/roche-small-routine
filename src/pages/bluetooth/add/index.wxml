@@ -5,6 +5,24 @@
     </view>
     <view class="inner">
         <view class="before" hidden="{{blueTooth !== '' && blueTooth !== null}}">
+            <image src="{{src$.nIcon}}" mode="widthFix"></image>
+            <text>请确保待绑定设备在手机旁边</text>
+            <text>并且已经开机</text>
+        </view>
+        <view class="after" hidden="{{blueTooth === null || blueTooth === ''}}">
+            <image src="{{device$[params$.index].addBeforeSrc}}"></image>
+            <text>{{blueTooth.name}}</text>
+            <text class="no-text">{{blueTooth.deviceId}}</text>
+        </view>
+        <view class="form-button"
+              hidden="{{blueTooth === null || blueTooth === ''}}"
+              data-value="{{true}}"
+              bindtap="handlePairRoche">
+            <text class="form-button-text">绑定</text>
+        </view>
+    </view>
+    <view class="inner" style="display: none">
+        <view class="before" hidden="{{blueTooth !== '' && blueTooth !== null}}">
             <image src="{{src$.nIcon}}"></image>
             <text>请确保待绑定设备在手机旁边</text>
             <text>并且已经开机</text>
