@@ -12,7 +12,7 @@ import RouterMixin                  from 'mixins/router.mixin'
 import BleMixin                     from 'mixins/ble.mixin'
 import SDK                          from 'services/sdk.services'
 import Loading                      from 'plugins/loading.plugin'
-import Store                        from 'plugins/store.plugin'
+import DeviceMixin                  from 'mixins/device.mixin'
 import {
     $BLUE_TOOTH_DEVICE_ID_LIST
 }                                   from 'config/store.config'
@@ -30,6 +30,7 @@ Page(Mixin({
         InputMixin,
         RouterMixin,
         SourceMixin,
+        DeviceMixin,
     ],
     data: {
         blueTooth: '',

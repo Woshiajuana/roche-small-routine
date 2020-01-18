@@ -31,7 +31,7 @@ Page(Mixin({
         let url = currentTarget.dataset.url;
         if (url === 'record_index') return Router.push(url);
         Authorize(Authorize.SCOPE.userLocation, '添加设备需要地理位置授权').then(() => {
-            Router.push(url);
+            Router.push(url, this.data.params$);
         }).catch(() => {
             Modal.toast('连接设备需要授权哦')
         });
