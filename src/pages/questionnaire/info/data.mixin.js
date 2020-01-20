@@ -81,7 +81,7 @@ export default {
                 }
             },
             isAgree: {
-                value: true,
+                value: false,
                 mold: 'agree',
                 key: 'formData.isAgree',
                 isPop: false,
@@ -90,7 +90,7 @@ export default {
                         rule: (value) => {
                             return !!value;
                         },
-                        prompt: '请先同意协议'
+                        prompt: '请阅读并同意《360°稳糖管家服务隐私声明》'
                     }
                 ]
             },
