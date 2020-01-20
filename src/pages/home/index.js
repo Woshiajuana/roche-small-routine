@@ -79,8 +79,10 @@ Page(Mixin({
             });
             return Auth.updateToken({ IsMember, IsExpire, IsUseCode, IsPerfect, IsArchives });
         }).then(() => {
+            // this.userGet();
+        }).toast().finally(() => {
             this.userGet();
-        }).toast();
+        });
     },
     // 跳转
     handleJump (event) {

@@ -84,7 +84,9 @@ class Http {
                                 let pages = getCurrentPages();    //获取加载的页面
                                 let first_url = pages[0].route;    //当前页面url
                                 let cur_url = pages[pages.length-1].route;    //当前页面url
-                                cur_url === 'login_index' ? reject(Message) : Router.root('login_index', {}, true);
+                                reject('Token已过期请重新登录');
+                                // cur_url === 'login_index' ? reject(Message) : Router.root('login_index', {}, true);
+                                ['login_index', 'home_index'].indexOf(cur_url) > -1 ? console.log(Message) : Router.root('home_index');
                             });
                             return;
                         }
