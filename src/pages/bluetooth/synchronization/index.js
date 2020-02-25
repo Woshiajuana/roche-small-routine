@@ -4,9 +4,7 @@ import './index.scss'
 import './index.wxml'
 
 import Mixin                        from 'utils/mixin.util'
-// import SyncMixin                    from 'mixins/sync-data.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
-import SourceMixin                  from 'mixins/source.mixin'
 import DeviceMixin                  from 'mixins/device.mixin'
 import BleMixin                     from 'mixins/ble.mixin'
 import Modal                        from 'plugins/modal.plugin'
@@ -28,10 +26,6 @@ import {
     ARR_TIME_STEP_KEY,
 }                                   from 'config/base.config'
 
-const arrSrc = [
-    { key: 'bg', value: 'sjtb-explain-bg.jpg' },
-];
-
 Page(Mixin({
     data: {
         infoList: '',
@@ -41,22 +35,21 @@ Page(Mixin({
     mixins: [
         BleMixin,
         DeviceMixin,
-        // SyncMixin,
         RouterMixin,
-        SourceMixin,
     ],
     onLoad (options) {
-        this.sourceGet(arrSrc);
         this.routerGetParams(options);
-        // this.getStatus();
+        this.getStatus();
     },
     getStatus () {
         let { deviceId, serviceId } = this.data.params$;
-        this.bleGetStatus(deviceId, serviceId).then((res) => {
-            console.log('取特征值成功', res);
-        }).catch((err) => {
-            console.log('取特征值失败', err);
-        });
+        if (deviceId && serviceId) {
+            this.bleGetStatus(deviceId, serviceId).then((res) => {
+                console.log('取特征值成功', res);
+            }).catch((err) => {
+                console.log('取特征值失败', err);
+            });
+        }
     },
     handleSync1 () {
         Loading.showLoading();
@@ -181,7 +174,7 @@ Page(Mixin({
             this.setData({
                 infoList: [],
                 contextList: [],
-            })
+            });
         });
     }
 }));

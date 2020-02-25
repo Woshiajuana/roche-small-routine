@@ -10,7 +10,7 @@ export default {
                 explainText: '罗氏®血糖仪Performa Connect',
                 addBeforeSrc: Source('20200117-a-b-1.jpg'),
                 addAfterSrc: Source('20200117-a-b-1.jpg'),
-                syncSrc: Source('20200117-s-2.jpg'),
+                syncSrc: Source('sjtb-explain-bg.jpg'),
             },
             {
                 selectSrc: Source('20200117-s-2.png'),
