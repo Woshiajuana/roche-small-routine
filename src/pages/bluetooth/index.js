@@ -79,23 +79,9 @@ Page(Mixin({
     },
     // 跳转
     handleJump (e) {
-        let { currentTarget } = e;
-        let url = currentTarget.dataset.url;
-        if (!url) {
-            Store.get($BLUE_TOOTH_DEVICE_ID_LIST).then(() =>{
-                this.handleSync();
-            }).catch(() => {
-                return Modal.confirm({
-                    content: '您还未配对过设备，请先去配对设备',
-                }).then((res) => {
-                    let { confirm } = res;
-                    confirm && Router.push('bluetooth_explain_index');
-                });
-            });
-            return;
-        }
+        let { url, to = '' } = e.currentTarget.dataset;
         if (url === 'mine_index') return Router.root('mine_index');
-        Router.push(url, {Bloodsugar: this.data.Bloodsugar, from: 'bluetooth_index'});
+        Router.push(url, { Bloodsugar: this.data.Bloodsugar, from: 'bluetooth_index', to });
     },
     // 跳转
     handleJumpPlus (e) {

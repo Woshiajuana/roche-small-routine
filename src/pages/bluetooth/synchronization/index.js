@@ -7,6 +7,7 @@ import Mixin                        from 'utils/mixin.util'
 // import SyncMixin                    from 'mixins/sync-data.mixin'
 import RouterMixin                  from 'mixins/router.mixin'
 import SourceMixin                  from 'mixins/source.mixin'
+import DeviceMixin                  from 'mixins/device.mixin'
 import BleMixin                     from 'mixins/ble.mixin'
 import Modal                        from 'plugins/modal.plugin'
 import Http                         from 'plugins/http.plugin'
@@ -39,6 +40,7 @@ Page(Mixin({
     },
     mixins: [
         BleMixin,
+        DeviceMixin,
         // SyncMixin,
         RouterMixin,
         SourceMixin,
@@ -46,7 +48,7 @@ Page(Mixin({
     onLoad (options) {
         this.sourceGet(arrSrc);
         this.routerGetParams(options);
-        this.getStatus();
+        // this.getStatus();
     },
     getStatus () {
         let { deviceId, serviceId } = this.data.params$;

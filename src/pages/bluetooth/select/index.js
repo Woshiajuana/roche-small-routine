@@ -7,6 +7,7 @@ import Mixin                        from 'utils/mixin.util'
 import Router                       from 'plugins/router.plugin'
 import SourceMixin                  from 'mixins/source.mixin'
 import DeviceMixin                  from 'mixins/device.mixin'
+import RouterMixin                  from 'mixins/router.mixin'
 
 const arrSrc = [
     { key: 's1', value: '20200117-s-1.png' },
@@ -18,11 +19,13 @@ Page(Mixin({
     mixins: [
         SourceMixin,
         DeviceMixin,
+        RouterMixin,
     ],
     data: {
         numIndex: 0,
     },
-    onLoad () {
+    onLoad (options) {
+        this.routerGetParams(options);
         this.sourceGet(arrSrc);
     },
     // 选择
@@ -31,9 +34,7 @@ Page(Mixin({
         this.setData({ numIndex: index });
     },
     // 跳转
-    handleJump (e) {
-        let { currentTarget } = e;
-        let url = currentTarget.dataset.url;
-        Router.push(url, { index: this.data.numIndex });
+    handleJump () {
+        Router.push(this.data.params$.to, { index: this.data.numIndex });
     },
 }));

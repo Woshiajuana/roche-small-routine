@@ -4,7 +4,7 @@
         <text>传输到小程序的方法说明</text>
     </view>
     <view class="inner">
-        <image src="{{src$.bg}}"></image>
+        <image src="{{device$[params$.index].syncSrc}}"></image>
     </view>
     <view
         class="form-button"

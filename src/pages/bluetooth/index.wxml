@@ -49,12 +49,14 @@
 
     <view class="form-button"
           data-url="bluetooth_select_index"
+          data-to="bluetooth_explain_index"
           bindtap="handleJump">
         <text class="form-button-text">我要连接设备</text>
     </view>
     <view class="form-button form-button-te"
-          data-url="bluetooth_add_index"
-          bindtap="handleJumpPlus">
+          data-url="bluetooth_select_index"
+          data-to="bluetooth_synchronization_index"
+          bindtap="handleJump">
         <text class="form-button-text">我要同步数据</text>
     </view>
 
