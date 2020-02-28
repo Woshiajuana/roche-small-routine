@@ -39,7 +39,7 @@ Page(Mixin({
     ],
     onLoad (options) {
         this.routerGetParams(options);
-        this.getStatus();
+        // this.getStatus();
     },
     getStatus () {
         let { deviceId, serviceId } = this.data.params$;
@@ -51,27 +51,63 @@ Page(Mixin({
             });
         }
     },
-    handleSync1 () {
+    handleSync () {
         Loading.showLoading();
         Authorize(Authorize.SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
-            let { deviceId, serviceId } = this.data.params$;
-            this.bleSyncData(deviceId, serviceId, (res) => {
-                this.setData({infoList: res || []});
-                console.log('成功1', res);
-                this.processingData();
-            },(res) => {
-                this.setData({contextList: res || []});
-                console.log('成功2', res);
-                this.processingData();
-            },(err) => {
-                Modal.toast('读取数据失败');
-                console.log('失败', err);
-            });
+            let { params$ } = this.data;
+            let { deviceId, serviceId } = params$;
+            if (deviceId && serviceId && false) {
+                return this.syncDataByDeviceId(deviceId, serviceId);
+            }
+            let blueTooth = '';
+            // 搜索蓝牙
+            this.bleSearchRoche().then((res) => {
+                blueTooth = res[0] || '';
+                // 链接蓝牙
+                this.blePairRoche(blueTooth.deviceId).then((res) => {
+                    console.log('链接成功 => ', res);
+                    blueTooth.serviceId =  res;
+                    return this.bleGetStatus(blueTooth.deviceId, res)
+                }).then((res) => {
+                    console.log('取特征值成功 => ', res);
+                    this.syncDataByDeviceId(blueTooth.deviceId, blueTooth.serviceId);
+                }).catch(() => {
+                    Loading.hideLoading();
+                    Modal.confirm({
+                        content: '很抱歉同步数据失败，请确保是配对设备成功后，再来同步数据的哦...',
+                        confirmText: '我知道了',
+                        showCancel: false,
+                    }).then().null();
+                });
+            }).catch(() => {
+                Loading.hideLoading();
+                Modal.confirm({
+                    content: '需要打开蓝牙，请确认手机蓝牙是否已打开？',
+                }).then((res) => {
+                    let { cancel, confirm } = res;
+                    confirm && this.handleSync();
+                    cancel && Router.pop();
+                });
+            })
         }).catch((err) => {
             Loading.hideLoading();
             let { errCode } = err;
             if (errCode === -999) return Modal.toast('您还未配对过设备，请先去配对设备');
             Modal.toast('同步数据需要地理位置授权哦')
+        });
+    },
+    syncDataByDeviceId (deviceId, serviceId) {
+        this.bleSyncData(deviceId, serviceId, (res) => {
+            this.setData({infoList: res || []});
+            console.log('成功1', res);
+            this.processingData();
+        },(res) => {
+            this.setData({contextList: res || []});
+            console.log('成功2', res);
+            this.processingData();
+        },(err) => {
+            Modal.toast('读取数据失败');
+            console.log('失败', err);
         });
     },
     processingData() {
@@ -164,9 +200,9 @@ Page(Mixin({
         }).then(() => {
             Modal.toast('页面数据传输成功');
             setTimeout(() => {
-                if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index') return Router.pop(3);
-                if (this.data.params$ && this.data.params$.from === 'bluetooth_index') return Router.pop(2);
-                this.initData && this.initData();
+                if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index') return Router.pop(4);
+                return Router.pop(3);
+                // this.initData && this.initData();
             }, 1000);
         }).catch((err) => {
             Modal.toast(err);
