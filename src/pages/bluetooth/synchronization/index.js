@@ -201,7 +201,7 @@ Page(Mixin({
             Modal.toast('页面数据传输成功');
             setTimeout(() => {
                 if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index') return Router.pop(4);
-                return Router.pop(3);
+                return Router.pop(2);
                 // this.initData && this.initData();
             }, 1000);
         }).catch((err) => {

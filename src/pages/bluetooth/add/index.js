@@ -94,7 +94,13 @@ Page(Mixin({
                     confirmText: '是',
                 }).then((result) => {
                     let { cancel, confirm } = result;
-                    confirm && Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', deviceId, serviceId: res, ...this.data.params$ });
+                    if (confirm) {
+                        if (this.data.params$.index === 2) {
+                            Router.pop(3);
+                        } else {
+                            Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', deviceId, serviceId: res, ...this.data.params$ });
+                        }
+                    }
                     cancel && this.handlePairRoche();
                 });
             }, 3000);
