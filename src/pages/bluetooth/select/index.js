@@ -50,8 +50,12 @@ Page(Mixin({
     },
     // 选择
     handleSelect (event) {
+        let { params$ } = this.data;
         let { index } = event.currentTarget.dataset;
-        this.setData({ numIndex: index });
+        if (params$.to === 'bluetooth_synchronization_index' && index === 2) {
+            return this.handleSync();
+        }
+        Router.push(this.data.params$.to, { index });
     },
     // 跳转
     handleJump () {
@@ -210,7 +214,7 @@ Page(Mixin({
         }).then(() => {
             Modal.toast('页面数据传输成功');
             setTimeout(() => {
-                return Router.pop();
+                return Router.push('bluetooth_transfer_index', {}, true);
                 // this.initData && this.initData();
             }, 1000);
         }).catch((err) => {

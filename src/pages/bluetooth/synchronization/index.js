@@ -31,6 +31,7 @@ Page(Mixin({
         infoList: '',
         contextList: '',
         result: [],
+        isPop: false,
     },
     mixins: [
         BleMixin,
@@ -40,6 +41,13 @@ Page(Mixin({
     onLoad (options) {
         this.routerGetParams(options);
         // this.getStatus();
+    },
+    onShow () {
+        if (this.data.isPop) {
+            if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index')
+                return Router.pop(4);
+            return Router.pop(2);
+        }
     },
     getStatus () {
         let { deviceId, serviceId } = this.data.params$;
@@ -199,9 +207,13 @@ Page(Mixin({
             return Store.set($BLUE_TOOTH_DATA, data);
         }).then(() => {
             Modal.toast('页面数据传输成功');
+            this.setData({ isPop: true });
             setTimeout(() => {
-                if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index') return Router.pop(4);
-                return Router.pop(2);
+
+                return Router.push('bluetooth_transfer_index');
+                // if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index')
+                //     return Router.pop(4);
+                // return Router.pop(2);
                 // this.initData && this.initData();
             }, 1000);
         }).catch((err) => {
