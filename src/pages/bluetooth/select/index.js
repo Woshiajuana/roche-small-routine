@@ -43,6 +43,7 @@ Page(Mixin({
     ],
     data: {
         numIndex: 0,
+        deviceId: '',
     },
     onLoad (options) {
         this.routerGetParams(options);
@@ -81,6 +82,7 @@ Page(Mixin({
                 this.blePairRoche(blueTooth.deviceId).then((res) => {
                     console.log('链接成功 => ', res);
                     blueTooth.serviceId =  res;
+                    this.setData({deviceId: blueTooth.deviceId});
                     return this.bleGetStatus(blueTooth.deviceId, res)
                 }).then((res) => {
                     console.log('取特征值成功 => ', res);
@@ -125,8 +127,7 @@ Page(Mixin({
         });
     },
     processingData() {
-        let { infoList, contextList, params$  } = this.data;
-        let { deviceId, serviceId } = params$;
+        let { infoList, contextList, params$ ,deviceId  } = this.data;
         if (!infoList || !contextList) return;
         infoList.forEach((info) => {
             contextList.forEach((context) => {
