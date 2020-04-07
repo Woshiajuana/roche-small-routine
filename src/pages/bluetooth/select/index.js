@@ -125,7 +125,8 @@ Page(Mixin({
         });
     },
     processingData() {
-        let { infoList, contextList } = this.data;
+        let { infoList, contextList, params$  } = this.data;
+        let { deviceId, serviceId } = params$;
         if (!infoList || !contextList) return;
         infoList.forEach((info) => {
             contextList.forEach((context) => {
@@ -175,7 +176,7 @@ Page(Mixin({
                     break;
             }
             result.push({
-                BuleRecordId: info.sequence,
+                BuleRecordId: `${ deviceId }_${ info.sequence }`,
                 Bloodsugar: +info.glucoseConcentration.toFixed(1),
                 TimeStep: index + 1,
                 TestDate: formatData('yyyy-MM-dd', new Date(date)),
