@@ -71,6 +71,7 @@ Page(Mixin({
             let blueTooth = '';
             // 搜索蓝牙
             this.bleSearchRoche().then((res) => {
+                console.log('蓝牙搜索结果', res);
                 blueTooth = res[0] || '';
                 // 链接蓝牙
                 this.blePairRoche(blueTooth.deviceId).then((res) => {
@@ -140,9 +141,12 @@ Page(Mixin({
                 hour,
                 minute,
                 second,
+                timeOffset,
             } = info;
             let index;
+            if (!timeOffset) timeOffset = 0;
             let date =`${year}/${month}/${day} ${hour}:${minute}:${second}`;
+            date = new Date(date).getTime() + (timeOffset * 60 * 1000);
             let cur = formatData('hh:dd', new Date(date));
             cur = +cur.replace(':', '');
             switch (mealData) {
