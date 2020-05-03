@@ -28,7 +28,6 @@
     "@antv/f2-canvas": "^1.0.5",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.26.0",

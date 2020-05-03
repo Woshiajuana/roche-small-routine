@@ -87,10 +87,6 @@ page{
     .button{
         margin: 0;
         width: j(290);
-        &:first-child{
-            background-image: none;
-            background-color: #1e3666;
-        }
     }
 }
 .tip{

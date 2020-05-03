@@ -11,12 +11,18 @@
     }
 }
 page{
-    @extend %h100;
+    //@extend %h100;
+    min-height: 100%;
     background-color: #fff;
 }
 .wrap{
-    //@extend %df;
-    @extend %h100;
+    @extend %df;
+    @extend %fdc;
+    //@extend %h100;
+    min-height: 100%;
+}
+.flex1{
+    @extend %df1;
 }
 .inner{
     @extend %h100;

@@ -1,152 +1,155 @@
 <!--index.wxml-->
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
 
-        <!--用户-->
-        <view class="user">
-            <image
-                src="{{user$.avatarUrl}}"
-            ></image>
-            <view class="user-info"
-                  data-url="login_index"
-                  data-type="{{!user$.nickName}}"
-                  bindtap="handleJumpPage">
-                <block wx:if="{{user$.nickName}}">
-                    <text class="user-name">{{objUser.Name || user$.nickName}}</text>
-                    <view class="user-prompt">
-                        <text>360°稳糖管家已守护您</text>
-                        <text class="strong">{{objUser.LoginDays}}</text>
-                        <text>天</text>
-                    </view>
-                </block>
-               <block wx:else>
-                   <text class="user-name">请点击登录！</text>
-                   <view class="user-prompt">
-                       <text>您好，登录之后有新天地哦...</text>
-                   </view>
-               </block>
-            </view>
-        </view>
-        <!--/用户-->
-
+    <!--用户-->
+    <view class="user">
         <image
-            bindtap="handleJump"
-            data-url="consult_index"
-            wx:if="{{user$.IsMember}}"
-            class="service"
-            src="{{src$.kf}}"
+            src="{{user$.avatarUrl}}"
         ></image>
-
-        <!--血糖-->
-        <view class="main">
-            <view class="box {{arrClass[objUser.Gls]}} {{!user$.nickName && 'nor'}}">
-                <view class="con">
-                    <text class="num">{{user$.nickName ? objUser.Bloodsugar : '-.-'}}</text>
-                    <text class="unit">mmol/L</text>
-                    <text class="time">{{objUser.TestDate}} {{arrTimeStep[objUser.TimeStep - 1]}}</text>
+        <view class="user-info"
+              data-url="login_index"
+              data-type="{{!user$.nickName}}"
+              bindtap="handleJumpPage">
+            <block wx:if="{{user$.nickName}}">
+                <text class="user-name">{{objUser.Name || user$.nickName}}</text>
+                <view class="user-prompt">
+                    <text>360°稳糖管家已守护您</text>
+                    <text class="strong">{{objUser.LoginDays}}</text>
+                    <text>天</text>
                 </view>
-                <view class="prompt">
-                    <text class="prompt-text" wx:if="{{glsText[objUser.Gls]}}">你的血糖数值属于</text>
-                    <text class="prompt-text prompt-text-strong">{{glsText[objUser.Gls]}}</text>
+            </block>
+           <block wx:else>
+               <text class="user-name">请点击登录！</text>
+               <view class="user-prompt">
+                   <text>您好，登录之后有新天地哦...</text>
+               </view>
+           </block>
+        </view>
+    </view>
+    <!--/用户-->
+
+    <view class="flex1"></view>
+
+    <image
+        bindtap="handleJump"
+        data-url="consult_index"
+        wx:if="{{user$.IsMember}}"
+        class="service"
+        src="{{src$.kf}}"
+    ></image>
+
+    <!--血糖-->
+    <view class="main">
+        <view class="box {{arrClass[objUser.Gls]}} {{!user$.nickName && 'nor'}}">
+            <view class="con">
+                <text class="num">{{user$.nickName ? objUser.Bloodsugar : '-.-'}}</text>
+                <text class="unit">mmol/L</text>
+                <text class="time">{{objUser.TestDate}} {{arrTimeStep[objUser.TimeStep - 1]}}</text>
+            </view>
+            <view class="prompt">
+                <text class="prompt-text" wx:if="{{glsText[objUser.Gls]}}">你的血糖数值属于</text>
+                <text class="prompt-text prompt-text-strong">{{glsText[objUser.Gls]}}</text>
+            </view>
+        </view>
+    </view>
+    <!--/血糖-->
+
+    <!--计划-->
+    <view class="plan">
+        <image
+            class="plan-bg"
+            mode="widthFix"
+            src="{{user$.IsMember ? src$.vipBg : src$.norBg}}"
+        ></image>
+        <view class="plan-top">
+            <view class="plan-button"
+                  data-params="{{objParams}}"
+                  data-url="report_index"
+                  bindtap="handleJump">
+                <image
+                    class="plan-button-icon"
+                    mode="aspectFit"
+                    src="{{src$.xtrz}}"
+                ></image>
+                <text class="plan-button-text">血糖日志</text>
+            </view>
+            <view class="plan-button" wx:if="{{!objUser.IsMember}}"></view>
+            <view class="plan-button"
+                  data-url="bluetooth_index"
+                  bindtap="handleJump">
+                <image
+                    class="plan-button-icon"
+                    mode="aspectFit"
+                    src="{{src$.lylj}}"
+                ></image>
+                <text class="plan-button-text">蓝牙连接</text>
+            </view>
+        </view>
+        <view
+            class="plan-add"
+            data-url="record_index"
+            bindtap="handleJump"
+        ></view>
+        <view class="plan-inner">
+            <view class="plan-title">
+                <image
+                    class="plan-title-icon"
+                    mode="aspectFit"
+                    src="{{src$.jhb}}"
+                ></image>
+                <text class="plan-title-text">今天的测糖计划</text>
+            </view>
+            <view class="plan-con">
+                <view class="plan-item"
+                      wx:for="{{arrTimeStep}}"
+                      wx:for-item="item"
+                      wx:for-index="index"
+                      wx:key="item">
+                    <view class="plan-item-check">
+                        <image
+                            class="plan-item-check-icon"
+                            wx:for="{{objUser.PlanTimeSteps}}"
+                            wx:for-item="ite"
+                            wx:for-index="ind"
+                            wx:key="ite"
+                            wx:if="{{ite.TimeStep === index + 1}}"
+                            mode="aspectFit"
+                            src="{{ite.IsComplete ? src$.stepAct : src$.stepNor}}"
+                        ></image>
+                    </view>
+                    <text class="plan-item-text">{{item}}</text>
                 </view>
             </view>
         </view>
-        <!--/血糖-->
 
-        <!--计划-->
-        <view class="plan">
-            <image
-                class="plan-bg"
-                mode="widthFix"
-                src="{{user$.IsMember ? src$.vipBg : src$.norBg}}"
-            ></image>
-            <view class="plan-top">
-                <view class="plan-button"
-                      data-params="{{objParams}}"
-                      data-url="report_index"
-                      bindtap="handleJump">
-                    <image
-                        class="plan-button-icon"
-                        mode="aspectFit"
-                        src="{{src$.xtrz}}"
-                    ></image>
-                    <text class="plan-button-text">血糖日志</text>
-                </view>
-                <view class="plan-button" wx:if="{{!objUser.IsMember}}"></view>
-                <view class="plan-button"
-                      data-url="bluetooth_index"
-                      bindtap="handleJump">
-                    <image
-                        class="plan-button-icon"
-                        mode="aspectFit"
-                        src="{{src$.lylj}}"
-                    ></image>
-                    <text class="plan-button-text">蓝牙连接</text>
-                </view>
-            </view>
+        <view class="entry">
+            <view class="entry-bg"></view>
+            <image src="{{user$.IsMember ? src$.entryVBg : src$.entryBg}}"></image>
             <view
-                class="plan-add"
-                data-url="record_index"
+                class="entry-item"
+                wx:for="{{objEntry}}"
+                wx:key="index"
+                data-url="{{item.url}}"
+                data-params="{{item.params}}"
                 bindtap="handleJump"
             ></view>
-            <view class="plan-inner">
-                <view class="plan-title">
-                    <image
-                        class="plan-title-icon"
-                        mode="aspectFit"
-                        src="{{src$.jhb}}"
-                    ></image>
-                    <text class="plan-title-text">今天的测糖计划</text>
-                </view>
-                <view class="plan-con">
-                    <view class="plan-item"
-                          wx:for="{{arrTimeStep}}"
-                          wx:for-item="item"
-                          wx:for-index="index"
-                          wx:key="item">
-                        <view class="plan-item-check">
-                            <image
-                                class="plan-item-check-icon"
-                                wx:for="{{objUser.PlanTimeSteps}}"
-                                wx:for-item="ite"
-                                wx:for-index="ind"
-                                wx:key="ite"
-                                wx:if="{{ite.TimeStep === index + 1}}"
-                                mode="aspectFit"
-                                src="{{ite.IsComplete ? src$.stepAct : src$.stepNor}}"
-                            ></image>
-                        </view>
-                        <text class="plan-item-text">{{item}}</text>
-                    </view>
-                </view>
-            </view>
-
-            <view class="entry">
-                <view class="entry-bg"></view>
-                <image src="{{user$.IsMember ? src$.entryVBg : src$.entryBg}}"></image>
-                <view
-                    class="entry-item"
-                    wx:for="{{objEntry}}"
-                    wx:key="index"
-                    data-url="{{item.url}}"
-                    data-params="{{item.params}}"
-                    bindtap="handleJump"
-                ></view>
-            </view>
         </view>
-        <!--/计划-->
+    </view>
+    <!--/计划-->
 
-        <view class="popup" wx:if="{{isPopup}}">
-            <view class="popup-inner">
-                <view class="popup-content">
-                    <text class="popup-prompt">我们将安排您专属的控糖顾问</text>
-                    <text class="popup-prompt">在1~2个工作日内与您联系</text>
-                    <text class="popup-prompt">并开通此项服务</text>
-                    <text class="popup-prompt">请注意接听电话，谢谢</text>
-                </view>
-                <button
-                    bindtap="handlePopClose"
-                    class="popup-button"
-                >知道了</button>
+    <view class="popup" wx:if="{{isPopup}}">
+        <view class="popup-inner">
+            <view class="popup-content">
+                <text class="popup-prompt">我们将安排您专属的控糖顾问</text>
+                <text class="popup-prompt">在1~2个工作日内与您联系</text>
+                <text class="popup-prompt">并开通此项服务</text>
+                <text class="popup-prompt">请注意接听电话，谢谢</text>
             </view>
+            <button
+                bindtap="handlePopClose"
+                class="popup-button"
+            >知道了</button>
         </view>
+    </view>
+
 </view>

@@ -10,6 +10,7 @@ module.exports = {
     "home_index": "/pages/home/index",
     "login_index": "/pages/login/index",
     "lottery_index": "/pages/lottery/index",
+    "lottery_reward_index": "/pages/lottery/reward/index",
     "lottery_roster_index": "/pages/lottery/roster/index",
     "mine_index": "/pages/mine/index",
     "mine_info_index": "/pages/mine/info/index",

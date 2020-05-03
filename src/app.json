@@ -11,6 +11,7 @@
         "pages/consult/index",
         "pages/login/index",
         "pages/lottery/index",
+        "pages/lottery/reward/index",
         "pages/lottery/roster/index",
         "pages/mine/index",
         "pages/mine/info/index",
