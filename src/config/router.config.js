@@ -9,6 +9,7 @@ module.exports = {
     "consult_index": "/pages/consult/index",
     "home_index": "/pages/home/index",
     "login_index": "/pages/login/index",
+    "lottery_gift_index": "/pages/lottery/gift/index",
     "lottery_index": "/pages/lottery/index",
     "lottery_reward_index": "/pages/lottery/reward/index",
     "lottery_roster_index": "/pages/lottery/roster/index",
