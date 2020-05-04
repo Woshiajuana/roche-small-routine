@@ -1,9 +1,9 @@
 <view>
     <view class="header">
-        <text>{{params$ ? '传输已完成' : '暂无数据'}}</text>
+        <text>打卡记录</text>
     </view>
     <view class="session"
-          wx:for="{{params$}}"
+          wx:for="{{arrData}}"
           wx:for-item="item"
           wx:for-index="index"
           wx:key="index">
@@ -27,27 +27,13 @@
     </view>
     <view class="footer">
         <view class="footer-button"
-              bindtap="handleJump">
+              bindtap="handleJumpHome">
             <text class="footer-button-text">返回首页</text>
         </view>
         <view class="footer-button"
               data-url="questionnaire_programme_index"
-              bindtap="handleJump">
-            <text class="footer-button-text">我的控糖方案</text>
-        </view>
-    </view>
-    <view class="popup" wx:if="{{isPopup}}">
-        <view class="popup-inner">
-            <view class="popup-content">
-                <text class="popup-prompt">我们将安排您专属的控糖顾问</text>
-                <text class="popup-prompt">在1~2个工作日内与您联系</text>
-                <text class="popup-prompt">并开通此项服务</text>
-                <text class="popup-prompt">请注意接听电话，谢谢</text>
-            </view>
-            <button
-                bindtap="handlePopClose"
-                class="popup-button"
-            >知道了</button>
+              bindtap="handleJumpReward">
+            <text class="footer-button-text">打卡奖励</text>
         </view>
     </view>
 </view>
