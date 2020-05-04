@@ -73,4 +73,21 @@ export default {
     // 蓝牙传输数据
     Do_setTestSugarList: 'RocheApi/SetTestSugarList',
 
+
+    // 2020-05-03 打开活动
+    // 获取打卡记录
+    Req_GetTestRecord: 'RocheApi/GetTestRecord',
+    // 2.3	获取打卡奖励
+    Req_GetSignInReward: 'RocheApi/GetSignInReward',
+    // 2.4	打卡奖励详情
+    Req_GetSignInReward1: '',
+    // 2.5	领取红包
+    Do_ReceiveRedPackage: 'RocheApi/ReceiveRedPackage',
+    // 获取省市
+    Req_GetDistricts: '/GetDistricts',
+    // 2.7	获取门店列表
+    Req_GetStoreList: '/GetStoreList',
+    // 2.8	绑定Guide完善信息
+    Do_SetActivityUser: '/SetActivityUser',
+
 }
