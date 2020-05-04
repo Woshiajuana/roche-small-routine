@@ -31,8 +31,8 @@
     </view>
 
     <view class="button-group">
-        <button class="g-button button" bindtap="handleJump">打卡记录</button>
-        <button class="g-button button" bindtap="handleJump">立即打卡</button>
+        <button class="g-button button" bindtap="handleJumpRecord">打卡记录</button>
+        <button class="g-button button" bindtap="handleJumpClockIn">立即打卡</button>
     </view>
 
     <view class="tip">
