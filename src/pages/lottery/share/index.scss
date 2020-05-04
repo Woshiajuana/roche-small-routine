@@ -1,7 +1,6 @@
 @import '~src/assets/scss/define';
 
 page{
-    @extend %h100;
     background-color: #f8f8f8;
 }
 .wrap{
@@ -9,36 +8,179 @@ page{
     @extend %pr;
     @extend %fdc;
     @extend %aic;
-    @extend %h100;
+    overflow-x: hidden;
 }
 .bg{
-    @extend %w100;
     @extend %pa;
     @extend %t0;
-    @extend %l0;
-    height: auto;
+    @extend %l50;
+    top: j(-1700);
+    margin-left: j(-1000);
+    width: j(2000);
+    height: j(2000);
+    border-radius: j(2000);
     z-index: -1;
+    background-color: #2cafe5;
 }
-.title{
-    @extend %fwb;
+.tab{
+    @extend %cfff;
+    @extend %df;
+    @extend %aic;
+    @extend %jcs;
+    width: j(630);
+    padding: j(40) 0 j(30);
+    font-size: j(28);
+}
+.tab-btn{
+    @extend %cp;
+}
+.progress{
+    @extend %tac;
+    padding-top: j(30);
+    line-height: 1.5;
+    background-color: #fff;
+    width: j(630);
+    border-radius: j(10);
+    box-shadow: j(8) j(8) j(8) j(8) rgba(0,0,0,.08);
+}
+.progress-title{
+    color: #2cafe5;
+    font-size: j(42);
+}
+.progress-prompt{
+    @extend %c3;
+    font-size: j(30);
+}
+.color-1{
+    color: #2cafe5;
+}
+.progress-content{
+    @extend %df;
+    @extend %aic;
+    margin: j(30) 0;
+    padding: 0 j(45);
+}
+.progress-bar{
+    @extend %df1;
+    @extend %pr;
+    height: j(14);
+    background-color: #c5c5c5;
+    &.active{
+        background-color: #2cafe5;
+    }
+    &.first-child{
+        border-top-left-radius: j(7);
+        border-bottom-left-radius: j(7);
+    }
+}
+
+.progress-dot{
+    @extend %pr;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    width: j(24);
+    height: j(24);
+    margin: 0 j(-5);
+    border-radius: 50%;
+    background-color: #c5c5c5;
+    &.active{
+        background-color: #2cafe5;
+    }
+    &.last-child{
+        width: j(57);
+        height: j(57);
+        .progress-icon{
+            width: j(57);
+            height: j(57);
+        }
+        .progress-text{
+            font-size: j(17);
+        }
+    }
+}
+.progress-icon{
+    width: j(18);
+    height: j(15);
+}
+.progress-text{
+    @extend %pa;
+    @extend %tac;
+    @extend %l50;
+    bottom: j(-30);
+    margin-left: j(-36);
+    width: j(80);
+    color: #c5c5c5;
+    font-size: j(14);
+}
+.progress-tip{
+    @extend %df;
+    @extend %c3;
+    @extend %aic;
+    margin-top: j(80);
+    background-color: #e1f4fc;
+    font-size: j(28);
+    padding: 0 j(38);
+    height: j(68);
+    border-bottom-right-radius: j(10);
+    border-bottom-left-radius: j(10);
+}
+.progress-tip-icon{
+    width: j(36);
+    height: auto;
+    margin-right: j(5);
+}
+.share{
+    @extend %pr;
+    margin-top: j(40);
+    width: j(630);
+    padding: j(10) 0;
+    background-color: #fff;
+    border-radius: j(10);
+    box-shadow: j(8) j(8) j(8) j(8) rgba(0,0,0,.08);
+}
+.share-tip{
+    @extend %pa;
+    @extend %t0;
+    left: j(42);
+    width: j(52);
+    height: j(175);
+}
+.share-bg{
+    @extend %db;
+    @extend %ma;
+    width: j(610);
+    height: j(470);
+    background-color: #f2f2f2;
+}
+.share-info{
     @extend %df;
     @extend %fdc;
-    @extend %cfff;
-    padding: j(110) 0 j(20);
-    line-height: j(90);
-    font-size: j(71);
-}
-.prompt{
-    @extend %cfff;
-    @extend %tac;
+    padding: 0 j(45) j(20);
     line-height: 1.5;
-    width: j(550);
-    font-size: j(33);
 }
-.flex1{
-    @extend %df1;
+.share-avatar{
+    @extend %bsb;
+    margin-top: j(-70);
+    background-color: #f2f2f2;
+    border: j(1) solid #fff;
+    border-radius: 50%;
+    height: j(100);
+    width: j(100);
+}
+.share-name{
+    @extend %c3;
+    margin-top: j(20);
+    font-size: j(28);
+}
+.share-prompt{
+    @extend %df;
+    @extend %aic;
+    margin-top: j(4);
+    color: #505050;
+    font-size: j(24)
 }
 .button{
     width: j(360);
-    margin-bottom: j(160);
+    margin: j(100) 0 j(160);
 }

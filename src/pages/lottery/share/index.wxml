@@ -1,18 +1,75 @@
 
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
 
-    <image class="bg" mode="widthFix" src="../../../assets/images/20200503-l-g-bg.jpg"></image>
+    <view class="bg"></view>
 
-    <view class="title">
-        <text>恭喜您完成打卡</text>
+    <view class="tab">
+        <view class="tab-btn"><text>上一周</text></view>
+        <text>4月20日-4月26日</text>
+        <view class="tab-btn"><text>下一周</text></view>
     </view>
 
-    <view class="prompt">
-        <text>2020-xx-xx至2020-xx-xx的周打卡已完成，请领取红包</text>
+    <view class="progress">
+        <text class="progress-title">数据同步成功</text>
+        <view class="progress-prompt">
+            <text>已累计打卡</text>
+            <text class="color-1">2</text>
+            <text>天</text>
+        </view>
+        <view class="progress-content">
+            <view class="progress-bar first-child"></view>
+            <view class="progress-dot">
+                <image class="progress-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-3.jpg"></image>
+                <text class="progress-text">第一天</text>
+            </view>
+            <view class="progress-bar"></view>
+            <view class="progress-dot">
+                <image class="progress-icon"></image>
+                <text class="progress-text">第一天</text>
+            </view>
+            <view class="progress-bar"></view>
+            <view class="progress-dot">
+                <image class="progress-icon"></image>
+                <text class="progress-text">第一天</text>
+            </view>
+            <view class="progress-bar"></view>
+            <view class="progress-dot">
+                <image class="progress-icon"></image>
+                <text class="progress-text">第一天</text>
+            </view>
+            <view class="progress-bar"></view>
+            <view class="progress-dot">
+                <image class="progress-icon"></image>
+                <text class="progress-text">第一天</text>
+            </view>
+            <view class="progress-bar"></view>
+            <view class="progress-dot last-child">
+                <image class="progress-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-1.png"></image>
+                <text class="progress-text">点击领取</text>
+            </view>
+        </view>
+        <view class="progress-tip">
+            <image class="progress-tip-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-4.jpg"></image>
+            <text>再坚持</text>
+            <text class="color-1">4</text>
+            <text>天就可以领取红包了</text>
+        </view>
     </view>
 
-    <view class="flex1"></view>
+    <view class="share">
+        <image class="share-bg"></image>
+        <image class="share-tip" mode="widthFix" src="../../../assets/images/20200503-l-s-5.png"></image>
+        <view class="share-info">
+            <image class="share-avatar"></image>
+            <text class="share-name">西安上学暗杀星啊</text>
+            <view class="share-prompt">
+                <text>坚持测糖第</text>
+                <text class="color-1">2</text>
+                <text>天 再接再厉，冲鸭~~~</text>
+            </view>
+        </view>
+    </view>
 
-    <button class="g-button button" bindtap="handleJump">点击领取</button>
+    <button class="g-button button" bindtap="handleJump">一键分享</button>
 
 </view>
