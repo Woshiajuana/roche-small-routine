@@ -4,7 +4,7 @@
     <view class="bg"></view>
 
     <view class="title">
-        <text>领取门店查询</text>
+        <text>完善信息</text>
     </view>
 
     <view class="main">
@@ -31,21 +31,6 @@
             </view>
             <view class="form-cell">
                 <input class="form-value" placeholder="手机号码"/>
-            </view>
-        </view>
-
-        <view class="result">
-            <view class="result-cell">
-                <text class="result-label">汇丰大药房</text>
-                <text class="result-value">谢谢撒小时潇洒西安西安</text>
-            </view>
-            <view class="result-cell">
-                <text class="result-label">汇丰大药房</text>
-                <text class="result-value">谢谢撒小时潇洒西安西安</text>
-            </view>
-            <view class="result-cell">
-                <text class="result-label">汇丰大药房</text>
-                <text class="result-value">谢谢撒小时潇洒西安西安</text>
             </view>
         </view>
 
