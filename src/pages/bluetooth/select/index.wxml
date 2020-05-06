@@ -7,10 +7,6 @@
         <image class="image" src="{{item.selectSrc}}" mode="widthFix"></image>
     </view>
 </view>
-<view class="form-button"
-      bindtap="handleJump">
-    <text class="form-button-text">确认</text>
-</view>
 <view class="prompt">
     <text>部分安卓机型，无法正常使用蓝牙连接</text>
     <text
