@@ -1,0 +1,117 @@
+@import '~src/assets/scss/define';
+
+page{
+}
+.wrap{
+    @extend %df;
+    @extend %pr;
+    @extend %fdc;
+    @extend %aic;
+    overflow-x: hidden;
+}
+.bg{
+    @extend %pa;
+    @extend %t0;
+    @extend %l50;
+    top: j(-1600);
+    margin-left: j(-1000);
+    width: j(2000);
+    height: j(2000);
+    border-radius: j(2000);
+    z-index: -1;
+    background-color: #2cafe5;
+
+}
+.title{
+    @extend %df;
+    @extend %fdc;
+    @extend %cfff;
+    padding: j(60) 0;
+    font-size: j(50);
+}
+.main{
+    @extend %bsb;
+    padding: 0 j(45);
+    width: j(670);
+    border-radius: j(30);
+    background-color: #fff;
+    box-shadow: j(8) j(8) j(8) j(8) rgba(0,0,0,.08);
+}
+.form{
+    @extend %df;
+    @extend %fww;
+    @extend %jcs;
+}
+.form-cell{
+    @extend %w100;
+    @extend %df;
+    @extend %aic;
+    font-size: j(28);
+    margin-top: j(50);
+    color: #28303e;
+    background-color: #f1f5f7;
+    border-radius: j(10);
+}
+.form-placeholder{
+    color: #b9b9b9;
+}
+.form-value{
+    @extend %df;
+    @extend %w100;
+    @extend %bsb;
+    @extend %aic;
+    height: j(70);
+    padding: 0 j(25);
+    .form-value-text{
+        @extend %twno;
+    }
+}
+.form-cell-w50{
+    width: j(280);
+}
+.form-select{
+    @extend %pr;
+    @extend %cp;
+    .form-value{
+        padding-right: j(50);
+    }
+    &:after{
+        @extend %pa;
+        @include tfr(45deg);
+        top: j(20);
+        right: j(24);
+        content: '';
+        width: j(20);
+        height: j(20);
+        border-bottom: j(1) solid #28303e;
+        border-right: j(1) solid #28303e;
+    }
+}
+
+.result{
+    margin-top: j(50);
+    //border-bottom: j(1) solid #ddd;
+    border-top: j(1) solid #ddd;
+}
+.result-cell{
+    @extend %df;
+    @extend %fdc;
+    line-height: 1.5;
+    padding: j(40) 0;
+    border-bottom: j(1) solid #ddd;
+    &:last-child{
+        border-bottom: none;
+    }
+}
+.result-label{
+    font-size: j(34);
+    color: #28303e;
+}
+.result-value{
+    font-size: j(28);
+    color: #28303e;
+}
+.button{
+    width: j(360);
+    margin: j(100) 0 j(160);
+}

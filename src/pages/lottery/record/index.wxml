@@ -1,0 +1,39 @@
+<view>
+    <view class="header">
+        <text>打卡记录</text>
+    </view>
+    <view class="session"
+          wx:for="{{arrData}}"
+          wx:for-item="item"
+          wx:for-index="index"
+          wx:key="index">
+        <view class="time">
+            <text>记录时间：</text>
+            <text class="color">{{item.TestDateShow}}</text>
+        </view>
+        <view class="con">
+            <view class="con-item">
+                <text class="label">{{arrTimeStep[item.TimeStep - 1]}}</text>
+                <text class="value">{{item.Bloodsugar}}</text>
+                <text class="unit">mmol/L</text>
+            </view>
+            <view class="con-line"></view>
+            <view class="con-item">
+                <text class="label">血糖状态</text>
+                <text class="value">{{glsText[item.Gls]}}</text>
+                <text class="unit"></text>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="footer-button"
+              bindtap="handleJumpHome">
+            <text class="footer-button-text">返回首页</text>
+        </view>
+        <view class="footer-button"
+              data-url="questionnaire_programme_index"
+              bindtap="handleJumpReward">
+            <text class="footer-button-text">打卡奖励</text>
+        </view>
+    </view>
+</view>

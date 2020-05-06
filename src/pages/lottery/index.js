@@ -5,29 +5,29 @@ import './index.wxml'
 
 import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
-import SourceMixin                  from 'mixins/source.mixin'
 import UserMixin                    from 'mixins/user.mixin'
-
-const arrSrc = [
-    { key: 'bg', value: 'luck-draw-bg.jpg' },
-];
+import Store                        from 'plugins/store.plugin'
+import {
+    $BLUE_TOOTH_DEVICE_ID_LIST,
+}                                   from 'config/store.config'
 
 Page(Mixin({
     mixins: [
         UserMixin,
-        SourceMixin,
     ],
-    data: {
-        isPopup: false,
-    },
     onLoad () {
-        this.sourceGet(arrSrc);
         this.userGet();
     },
-    handleJump () {
-        this.setData({isPopup: true});
+    // 打卡记录
+    handleJumpRecord () {
+        Router.push('lottery_record_index');
     },
-    handleRoot () {
-        Router.root('home_index');
-    }
+    // 立即打卡
+    handleJumpClockIn () {
+        Store.get($BLUE_TOOTH_DEVICE_ID_LIST).then(() =>{
+            Router.push('bluetooth_synchronization_index');
+        }).catch(() => {
+            Router.push('bluetooth_explain_index');
+        });
+    },
 }));

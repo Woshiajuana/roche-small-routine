@@ -1,0 +1,37 @@
+
+<view class="wrap {{user$.IsMember && 'g-vip-page'}}">
+
+    <image class="banner" mode="widthFix" src="../../../assets/images/20200503-l-r-banner.jpg"></image>
+
+    <view class="cell">
+        <view class="cell-content">
+            <text class="cell-label">2020-04-13</text>
+            <text class="cell-value">微信红包</text>
+        </view>
+        <view class="cell-button disabled">
+            <text>已领取</text>
+        </view>
+    </view>
+
+    <view class="cell">
+        <view class="cell-content">
+            <text class="cell-label">2020-04-13</text>
+            <text class="cell-value">微信红包</text>
+        </view>
+        <view class="cell-button">
+            <text>未领取</text>
+        </view>
+    </view>
+
+    <view class="cell">
+        <view class="cell-content">
+            <text class="cell-label">2020-04-13</text>
+            <text class="cell-value">月度达标 免费试纸 冰姐手机号谢谢谢谢</text>
+        </view>
+        <view class="cell-link">
+            <text>查看领取门店</text>
+        </view>
+    </view>
+
+
+</view>

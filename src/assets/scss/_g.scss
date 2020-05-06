@@ -19,4 +19,7 @@
     font-size: j(36);
     border-radius: j(40);
     background: linear-gradient(to right, #39e1ee , #28aeeb);
+    &:after{
+        border: none;
+    }
 }

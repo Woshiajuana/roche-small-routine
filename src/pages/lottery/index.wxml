@@ -1,22 +1,41 @@
 
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
-    <image
-        mode="widthFix"
-        src="{{src$.bg}}"
-    ></image>
-    <button
-        class="g-button button"
-        bindtap="handleJump"
-    >立即打卡</button>
-    <view class="link" bindtap="handleJump"><text>查看规则</text></view>
-    <view class="popup" wx:if="{{isPopup}}">
-        <view class="popup-inner">
-            <text class="popup-title">活动即将推出</text>
-            <text class="popup-title">敬请期待</text>
-            <button
-                bindtap="handleRoot"
-                class="popup-button"
-            >返回首页</button>
+
+    <image class="bg" mode="widthFix" src="../../assets/images/20200503-clock-bg.jpg"></image>
+
+    <view class="introduce-link">
+        <text>活动介绍</text>
+    </view>
+
+    <view class="title">
+        <text>智航邀你来打卡</text>
+        <text>双重壕礼送不停</text>
+    </view>
+
+    <view class="time">
+        <image class="icon" mode="widthFix" src="../../assets/images/20200503-clock-icon.png"></image>
+        <text>活动时间：2020年6月1日起至9月13日</text>
+    </view>
+
+    <view class="flex1"></view>
+
+    <view class="prompt">
+        <view class="prompt-cell">
+            <text class="prompt-label">一重礼：</text>
+            <text class="prompt-value">完成“周打卡任务”，即可领取微信现金红包</text>
         </view>
+        <view class="prompt-cell">
+            <text class="prompt-label">二重礼：</text>
+            <text class="prompt-value">完成4次“月打卡任务”，即可免费领取血糖试纸</text>
+        </view>
+    </view>
+
+    <view class="button-group">
+        <button class="g-button button" bindtap="handleJumpRecord">打卡记录</button>
+        <button class="g-button button" bindtap="handleJumpClockIn">立即打卡</button>
+    </view>
+
+    <view class="tip">
+        <text>*参加活动需绑定智航血糖仪，打卡次数以蓝牙同步数据为准，手动数据视为无效。</text>
     </view>
 </view>

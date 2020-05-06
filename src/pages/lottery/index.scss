@@ -2,70 +2,99 @@
 
 page{
     @extend %h100;
+    background-color: #ecf8fd;
 }
 .wrap{
     @extend %df;
-    @extend %h100;
     @extend %pr;
     @extend %fdc;
     @extend %aic;
+    @extend %h100;
+}
+.bg{
     @extend %w100;
-    image{
-        @extend %w100;
-        height: auto;
-        min-height: j(924);
-    }
-}
-
-.link{
-    margin-top: j(20);
-    color: #666;
-    font-size: j(24);
-    line-height: 1.5;
-    border-bottom: j(1) solid #666;
-}
-.button{
-    margin-top: j(96);
-}
-.popup{
-    @extend %pf;
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
+    @extend %pa;
     @extend %t0;
     @extend %l0;
-    @extend %r0;
-    @extend %b0;
-    background-color: rgba(0,0,0,0.3);
+    height: auto;
+    z-index: -1;
 }
-.popup-inner{
+.introduce-link{
+    @extend %cp;
+    @extend %pa;
+    @extend %cfff;
+    top: j(20);
+    right: j(24);
+    font-size: j(24);
+    line-height: j(40);
+    border-bottom: j(1) solid #fff;
+}
+.title{
+    @extend %fwb;
     @extend %df;
     @extend %fdc;
-    @extend %aic;
-    width: j(630);
-    background-color: #fff;
-    border-radius: j(16);
-    padding: j(50) 0;
-    line-height: 1.4;
+    @extend %cfff;
+    padding: j(70) 0 j(30);
+    line-height: j(90);
+    font-size: j(71);
 }
-.popup-title{
-    font-size: j(51);
-    color: #333;
-}
-.g-vip-page{
-    .popup-button{
-        background: linear-gradient(to right, #5fa4dd , #1b70c3);
-    }
-}
-.popup-button{
+.time{
     @extend %df;
     @extend %aic;
-    @extend %jcc;
-    width: j(300);
-    margin-top: j(20);
-    background: linear-gradient(to right, #39e1ee , #28aeeb);
-    height: j(80);
-    border-radius: j(40);
-    color: #fff;
-    font-size: j(30);
+    @extend %cfff;
+    height: j(65);
+    font-size: j(27);
+    border-top: j(1) solid #fff;
+    border-bottom: j(1) solid #fff;
+}
+.icon{
+    width: j(50);
+    height: j(44);
+    margin-right: j(10);
+}
+.flex1{
+    @extend %df1;
+}
+.prompt{
+    @extend %bsb;
+    width: j(630);
+    padding: j(45);
+    background-color: #fff;
+    border-radius: j(30);
+    box-shadow: j(10) j(10) j(10) j(10) rgba(117,209,245,.2);
+}
+.prompt-cell{
+    @extend %c3;
+    @extend %df;
+    font-size: j(28);
+    margin-bottom: j(20);
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+.prompt-label{
+    @extend %fwb;
+}
+.prompt-value{
+    @extend %df1;
+}
+.button-group{
+    @extend %df;
+    @extend %aic;
+    @extend %jcs;
+    margin-top: j(50);
+    width: j(630);
+    .button{
+        margin: 0;
+        width: j(290);
+        &:first-child{
+            background-image: none;
+            background-color: #1e3666;
+        }
+    }
+}
+.tip{
+    padding: j(30) 0;
+    color: #232323;
+    font-size: j(14);
 }

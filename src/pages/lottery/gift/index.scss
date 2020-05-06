@@ -1,0 +1,44 @@
+@import '~src/assets/scss/define';
+
+page{
+    @extend %h100;
+    background-color: #f8f8f8;
+}
+.wrap{
+    @extend %df;
+    @extend %pr;
+    @extend %fdc;
+    @extend %aic;
+    @extend %h100;
+}
+.bg{
+    @extend %w100;
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    height: auto;
+    z-index: -1;
+}
+.title{
+    @extend %fwb;
+    @extend %df;
+    @extend %fdc;
+    @extend %cfff;
+    padding: j(110) 0 j(20);
+    line-height: j(90);
+    font-size: j(71);
+}
+.prompt{
+    @extend %cfff;
+    @extend %tac;
+    line-height: 1.5;
+    width: j(550);
+    font-size: j(33);
+}
+.flex1{
+    @extend %df1;
+}
+.button{
+    width: j(360);
+    margin-bottom: j(160);
+}

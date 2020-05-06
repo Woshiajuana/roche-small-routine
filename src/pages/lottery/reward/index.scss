@@ -1,0 +1,61 @@
+@import '~src/assets/scss/define';
+
+page{
+    background-color: #f8f8f8;
+}
+.banner{
+    @extend %w100;
+    height: auto;
+    min-height: j(323);
+}
+.cell{
+    @extend %df;
+    @extend %aic;
+    padding: j(35) j(55);
+    background-color: #fff;
+    margin: j(30) 0;
+}
+.cell-content{
+    @extend %df1;
+    @extend %df;
+    @extend %fdc;
+    @extend %c3;
+    line-height: 1.5;
+    border-left: j(2) solid #333;
+    padding: 0 j(30);
+}
+.cell-label{
+    font-size: j(26);
+}
+.cell-value{
+    font-size: j(33);
+}
+.g-vip-page{
+    .cell-button{
+        background: linear-gradient(to right, #5fa4dd , #1b70c3);
+    }
+}
+.cell-button{
+    @extend %df;
+    @extend %cp;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    font-size: j(28);
+    width: j(150);
+    height: j(46);
+    border-radius: j(23);
+    background: linear-gradient(to right, #39e1ee , #28aeeb);
+    &.disabled{
+        cursor: default;
+        background-color: #b9b9b9 !important;
+        background-image: none !important;
+    }
+}
+.cell-link{
+    @extend %cp;
+    border-bottom: j(1) solid #29b1eb;
+    color: #29b1eb;
+    font-size: j(28);
+    line-height: j(46);
+}
