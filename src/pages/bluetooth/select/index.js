@@ -67,7 +67,7 @@ Page(Mixin({
         Router.push(this.data.params$.to, { index: this.data.numIndex });
     },
     handleSync () {
-        Loading.showLoading();
+        Loading.showLoading({title: '正在同步数据，请耐心等待'});
         Authorize(Authorize.SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
             let { params$ } = this.data;
             let { deviceId, serviceId } = params$;
@@ -195,6 +195,8 @@ Page(Mixin({
     },
     setTestSugarList() {
         let data = this.data.result;
+        Loading.hideLoading();
+        Loading.showLoading({title: '正在上传数据，请耐心等待'});
         Auth.getToken().then((res) => {
             let { OpenId } = res;
             data.forEach((item) => {
@@ -203,6 +205,7 @@ Page(Mixin({
             return Http(Http.API.Do_setTestSugarList, data, {
                 useOpenId: false,
                 useAuth: false,
+                loading: false,
             });
         }).then((res) => {
             let data = res || [];
@@ -221,7 +224,6 @@ Page(Mixin({
             Modal.toast('页面数据传输成功');
             setTimeout(() => {
                 return Router.push('bluetooth_transfer_index', {}, true);
-                // this.initData && this.initData();
             }, 1000);
         }).catch((err) => {
             Modal.toast(err);

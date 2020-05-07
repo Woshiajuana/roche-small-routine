@@ -4,30 +4,15 @@
     @extend %df;
     @extend %aic;
     @extend %jcc;
+    @extend %cp;
     border-radius: 30rpx;
     width: 700rpx;
     height: 400rpx;
     margin: 20rpx auto;
-    &.active{
-        background-color: #f0faff;
-    }
+    background-color: #f0faff;
 }
 .image{
     width: 630rpx;
-}
-
-.form-button{
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
-    margin: 42rpx 60rpx 0;
-    height: 80rpx;
-    background: linear-gradient(to right, #39e2ee , #28aeeb);
-    border-radius: 40rpx;
-}
-.form-button-text{
-    color: #fff;
-    font-size: 36rpx;
 }
 .prompt{
     @extend %df;
