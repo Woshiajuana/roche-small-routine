@@ -79,7 +79,7 @@ Page(Mixin({
             this.setData({ blueTooth: '' });
             return this.searchRoche();
         }
-        Loading.showLoading({title: '正在绑定设备'});
+        Loading.showLoading({title: '正在绑定设备...'});
         this.blePairRoche(deviceId).then((res) => {
             console.log('链接成功 => ', res);
             this.bleGetStatus(deviceId, res).then((res) => {

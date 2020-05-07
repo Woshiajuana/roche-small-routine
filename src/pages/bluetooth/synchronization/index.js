@@ -61,7 +61,7 @@ Page(Mixin({
         }
     },
     handleSync () {
-        Loading.showLoading({title: '正在同步数据'});
+        Loading.showLoading({title: '正在同步数据...'});
         Authorize(Authorize.SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
             let { params$ } = this.data;
             let { deviceId, serviceId } = params$;
@@ -190,7 +190,7 @@ Page(Mixin({
     setTestSugarList() {
         let data = this.data.result;
         Loading.hideLoading();
-        Loading.showLoading({title: '正在上传数据'});
+        Loading.showLoading({title: '正在上传数据...'});
         Auth.getToken().then((res) => {
             let { OpenId } = res;
             data.forEach((item) => {
