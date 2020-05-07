@@ -103,7 +103,7 @@ Page(Mixin({
                     }
                     cancel && this.handlePairRoche();
                 });
-            }, 3000);
+            }, 10000);
         }).catch((err) => {
             Modal.confirm({
                 content: '绑定失败，请删除设备和手机链接后重新绑定',
