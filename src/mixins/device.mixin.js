@@ -5,12 +5,12 @@ export default {
     data: {
         device$: [
             {
-                selectSrc: Source('20200117-s-1.png'),
-                explainSrc: Source('20200117-e-1.jpg'),
+                selectSrc: Source('20200117-s-1.png'), // 选择
+                explainSrc: Source('20200117-e-1.jpg'), // 蓝牙链接说明
                 explainText: '罗氏®血糖仪Performa Connect',
-                addBeforeSrc: Source('20200117-a-b-1.jpg'),
+                addBeforeSrc: Source('20200117-a-b-1.jpg'), // 蓝牙搜索
                 addAfterSrc: Source('20200117-a-b-1.jpg'),
-                syncSrc: Source('sjtb-explain-bg.jpg'),
+                syncSrc: Source('sjtb-explain-bg.jpg'), // 同步数据
             },
             {
                 selectSrc: Source('20200117-s-2.png'),
