@@ -53,9 +53,22 @@ Page(Mixin({
     handleSelect (event) {
         let { params$ } = this.data;
         let { index } = event.currentTarget.dataset;
-        if (params$.to === 'bluetooth_synchronization_index' && index === 2) {
-            return this.handleSync();
+        console.log(index, params$);
+        if (index === 1) {
+            Modal.confirm({
+                content: params$.to === 'bluetooth_synchronization_index' ?
+                    '这是该血糖仪首次配对移动设备吗？' : '该血糖仪配对过多台移动设备吗?',
+                cancelText: '否',
+                confirmText: '是',
+            }).then((res) => {
+                let { cancel, confirm } = res;
+                Router.push(this.data.params$.to, { index, result: confirm });
+            }).null();
+            return null;
         }
+        // if (params$.to === 'bluetooth_synchronization_index' && index === 2) {
+        //     return this.handleSync();
+        // }
         Router.push(this.data.params$.to, { index });
     },
     // 跳转
