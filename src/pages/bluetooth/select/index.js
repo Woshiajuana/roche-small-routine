@@ -72,7 +72,7 @@ Page(Mixin({
         });
         let { params$ } = this.data;
         let { params } = event.currentTarget.dataset;
-        Router.push(params$.to, { index, result: params });
+        Router.push(params$.to, { index: 1, result: params });
     },
     // 跳转
     handleJump () {

@@ -11,7 +11,7 @@
     <view class="form-button"
           data-url="bluetooth_add_index"
           bindtap="handleJump">
-        <text class="form-button-text">点击添加</text>
+        <text class="form-button-text">开始配对</text>
     </view>
     <view class="prompt">
         <text>部分安卓机型，无法正常使用蓝牙连接</text>
