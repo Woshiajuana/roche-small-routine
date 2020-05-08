@@ -44,6 +44,8 @@ Page(Mixin({
     data: {
         numIndex: 0,
         deviceId: '',
+        isSyncPopup: false,
+        isAddPopup: false,
     },
     onLoad (options) {
         this.routerGetParams(options);
@@ -55,21 +57,22 @@ Page(Mixin({
         let { index } = event.currentTarget.dataset;
         console.log(index, params$);
         if (index === 1) {
-            Modal.confirm({
-                content: params$.to === 'bluetooth_synchronization_index' ?
-                    '这是该血糖仪首次配对移动设备吗？' : '该血糖仪配对过多台移动设备吗?',
-                cancelText: '否',
-                confirmText: '是',
-            }).then((res) => {
-                let { cancel, confirm } = res;
-                Router.push(this.data.params$.to, { index, result: confirm });
-            }).null();
+            this.setData({
+                isSyncPopup: params$.to === 'bluetooth_synchronization_index',
+                isAddPopup: params$.to === 'bluetooth_explain_index',
+            });
             return null;
         }
-        // if (params$.to === 'bluetooth_synchronization_index' && index === 2) {
-        //     return this.handleSync();
-        // }
         Router.push(this.data.params$.to, { index });
+    },
+    handleTap (event) {
+        this.setData({
+            isSyncPopup: false,
+            isAddPopup: false,
+        });
+        let { params$ } = this.data;
+        let { params } = event.currentTarget.dataset;
+        Router.push(params$.to, { index, result: params });
     },
     // 跳转
     handleJump () {
