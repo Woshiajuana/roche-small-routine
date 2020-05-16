@@ -7,7 +7,7 @@
         scroll-y>
         <view class="cell"
               wx:for="{{arrList}}"
-              wx:key="{{index}}">
+              wx:key="index">
              <view class="head">
                 <text>记录时间：</text>
                 <text class="color">{{item.TestDate && filter.filterTime(item.TestDate)}} {{item.TestTime}}</text>

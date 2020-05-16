@@ -20,7 +20,7 @@
             <view
                 class="cell"
                 wx:for="{{arrList}}"
-                wx:key="{{index}}">
+                wx:key="index">
                 <image src="{{item.UserHeadUrl}}"></image>
                 <text class="name">{{item.UserName}}</text>
                 <!--<view class="type">-->

@@ -10,7 +10,7 @@
                 <view
                     class="li"
                     wx:for="{{arrData}}"
-                    wx:key="{{index}}">
+                    wx:key="index">
                     <text>{{item}}</text>
                 </view>
             </view>

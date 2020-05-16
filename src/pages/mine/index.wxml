@@ -50,7 +50,7 @@
         <view class="entry-item"
               bindtap="handleJump"
               wx:for="{{objEntry}}"
-              wx:key="{{index}}"
+              wx:key="index"
               data-params="{{item.params}}"
               data-url="{{item.url}}">
             <text class="entry-label">{{item.label}}</text>

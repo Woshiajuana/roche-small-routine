@@ -19,7 +19,7 @@
                   data-index="{{index}}"
                   wx:for="{{item.Answers}}"
                   wx:for-item="ite"
-                  wx:key="{{ite}}"
+                  wx:key="ind"
                   wx:for-index="ind"
                   wx:if="{{item.Type === 1}}"
                   data-id="{{ite.ChooseNum}}">
@@ -44,7 +44,7 @@
                   data-ind="{{ind}}"
                   wx:for="{{item.Answers}}"
                   wx:for-item="ite"
-                  wx:key="{{ite}}"
+                  wx:key="ind"
                   wx:for-index="ind"
                   wx:if="{{item.Type === 2}}"
                   data-id="{{ite.ChooseNum}}">

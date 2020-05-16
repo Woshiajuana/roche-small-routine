@@ -9,7 +9,7 @@
               bindtap="handleSwitch"
               data-key="{{index}}"
               wx:for="{{objData}}"
-              wx:key="{{index}}">
+              wx:key="index">
             <text>{{item.label}}</text>
             <view class="bar"></view>
         </view>

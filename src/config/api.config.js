@@ -75,19 +75,25 @@ export default {
 
 
     // 2020-05-03 打开活动
+    // 是否绑定 GUIDE
+    Req_GetActivityUser: 'ActivityRocheApi/GetActivityUser',
+    // 绑定 GUIDE
+    Do_BindActivityUser: 'ActivityRocheApi/BindActivityUser',
+    // 获取打卡次数
+    Req_GetActivitys: 'ActivityRocheApi/GetActivitys',
     // 获取打卡记录
-    Req_GetTestRecord: 'RocheApi/GetTestRecord',
+    Req_GetTestRecord: 'ActivityRocheApi/GetTestRecord',
     // 2.3	获取打卡奖励
-    Req_GetSignInReward: 'RocheApi/GetSignInReward',
+    Req_GetSignInReward: 'ActivityRocheApi/GetSignInReward',
     // 2.4	打卡奖励详情
-    Req_GetSignInReward1: '',
+    // Req_GetSignInReward1: 'GetSignInReward',
     // 2.5	领取红包
-    Do_ReceiveRedPackage: 'RocheApi/ReceiveRedPackage',
+    Do_ReceiveRedPackage: 'ActivityRocheApi/ReceiveRedPackage',
     // 获取省市
-    Req_GetDistricts: '/GetDistricts',
+    Req_GetDistricts: 'ActivityRocheApi/GetDistricts',
     // 2.7	获取门店列表
-    Req_GetStoreList: '/GetStoreList',
+    Req_GetStoreList: 'ActivityRocheApi/GetStoreList',
     // 2.8	绑定Guide完善信息
-    Do_SetActivityUser: '/SetActivityUser',
+    Do_SetActivityUser: 'ActivityRocheApi/SetActivityUser',
 
 }
