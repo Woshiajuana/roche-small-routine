@@ -4,6 +4,7 @@
     @extend %df;
     @extend %aic;
     @extend %jcc;
+    @extend %cp;
     border-radius: 30rpx;
     width: 700rpx;
     height: 400rpx;
@@ -28,4 +29,61 @@
         color: #28aeeb;
         border-bottom: 2rpx solid #28aeeb;
     }
+}
+
+.popup{
+    @extend %pf;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %w100;
+    @extend %b0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    z-index: 9;
+    background-color: rgba(0,0,0,.5);
+}
+.popup-inner{
+    width: j(515);
+    background-color: #fff;
+    border-radius: j(10);
+}
+.popup-content{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %jcc;
+    font-size: j(32);
+    color: #2c2c2c;
+    line-height: 1.5;
+    height: j(220);
+}
+.popup-button-group{
+    @extend %df;
+    @extend %aic;
+}
+.popup-button{
+    @extend %df;
+    @extend %df1;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cp;
+    @extend %cfff;
+    @extend %fwb;
+    height: j(96);
+    font-size: j(32);
+    &:first-child{
+        border-bottom-left-radius: j(10);
+        background-color: #88979a;
+    }
+    &:last-child{
+        background-color: #29afec;
+        border-bottom-right-radius: j(10);
+    }
+}
+.popup-bar{
+    @extend %h100;
+    width: j(2);
+    background-color: #fff;
 }

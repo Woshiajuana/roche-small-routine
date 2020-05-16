@@ -12,11 +12,12 @@
     }
 }
 .inner{
-    height: 1695rpx;
-    image{
+    //height: 1695rpx;
+    .image{
         @extend %db;
         @extend %w100;
-        @extend %h100;
+        height: auto;
+        min-height: 1250rpx;
     }
 }
 .form-button{

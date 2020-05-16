@@ -79,7 +79,7 @@ Page(Mixin({
             this.setData({ blueTooth: '' });
             return this.searchRoche();
         }
-        Loading.showLoading();
+        Loading.showLoading({title: '正在绑定设备...'});
         this.blePairRoche(deviceId).then((res) => {
             console.log('链接成功 => ', res);
             this.bleGetStatus(deviceId, res).then((res) => {
@@ -95,15 +95,15 @@ Page(Mixin({
                 }).then((result) => {
                     let { cancel, confirm } = result;
                     if (confirm) {
-                        if (this.data.params$.index === 2) {
-                            Router.pop(3);
-                        } else {
+                        // if (this.data.params$.index === 2) {
+                        //     Router.pop(3);
+                        // } else {
                             Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', deviceId, serviceId: res, ...this.data.params$ });
-                        }
+                        // }
                     }
                     cancel && this.handlePairRoche();
                 });
-            }, 3000);
+            }, 10000);
         }).catch((err) => {
             Modal.confirm({
                 content: '绑定失败，请删除设备和手机链接后重新绑定',

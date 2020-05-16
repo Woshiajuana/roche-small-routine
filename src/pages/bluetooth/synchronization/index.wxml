@@ -4,7 +4,11 @@
         <text>传输到小程序的方法说明</text>
     </view>
     <view class="inner">
-        <image src="{{device$[params$.index].syncSrc}}"></image>
+        <image wx:if="{{params$.index == 1}}"
+               class="image"
+               mode="widthFix"
+               src="{{params$.result ? device$[params$.index].syncSrc1 : device$[params$.index].syncSrc2}}"></image>
+        <image class="image" mode="widthFix" wx:else src="{{device$[params$.index].syncSrc}}"></image>
     </view>
     <view
         class="form-button"

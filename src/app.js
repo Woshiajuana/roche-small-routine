@@ -3,6 +3,7 @@ import './project.config.json'
 import './app.json'
 import './app.scss'
 import './wxs/filter.wxs'
+import './sitemap.json'
 
 import ald                          from 'utils/ald-stat.js'
 import Mixin                        from 'utils/mixin.util'

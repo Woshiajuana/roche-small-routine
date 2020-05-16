@@ -44,6 +44,8 @@ Page(Mixin({
     data: {
         numIndex: 0,
         deviceId: '',
+        isSyncPopup: false,
+        isAddPopup: false,
     },
     onLoad (options) {
         this.routerGetParams(options);
@@ -53,10 +55,24 @@ Page(Mixin({
     handleSelect (event) {
         let { params$ } = this.data;
         let { index } = event.currentTarget.dataset;
-        if (params$.to === 'bluetooth_synchronization_index' && index === 2) {
-            return this.handleSync();
+        console.log(index, params$);
+        if (index === 1) {
+            this.setData({
+                isSyncPopup: params$.to === 'bluetooth_synchronization_index',
+                isAddPopup: params$.to === 'bluetooth_explain_index',
+            });
+            return null;
         }
         Router.push(this.data.params$.to, { index });
+    },
+    handleTap (event) {
+        this.setData({
+            isSyncPopup: false,
+            isAddPopup: false,
+        });
+        let { params$ } = this.data;
+        let { params } = event.currentTarget.dataset;
+        Router.push(params$.to, { index: 1, result: params });
     },
     // 跳转
     handleJump () {
@@ -67,7 +83,7 @@ Page(Mixin({
         Router.push(this.data.params$.to, { index: this.data.numIndex });
     },
     handleSync () {
-        Loading.showLoading();
+        Loading.showLoading({title: '正在同步数据...'});
         Authorize(Authorize.SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
             let { params$ } = this.data;
             let { deviceId, serviceId } = params$;
@@ -195,6 +211,8 @@ Page(Mixin({
     },
     setTestSugarList() {
         let data = this.data.result;
+        Loading.hideLoading();
+        Loading.showLoading({title: '正在上传数据...'});
         Auth.getToken().then((res) => {
             let { OpenId } = res;
             data.forEach((item) => {
@@ -203,6 +221,7 @@ Page(Mixin({
             return Http(Http.API.Do_setTestSugarList, data, {
                 useOpenId: false,
                 useAuth: false,
+                loading: false,
             });
         }).then((res) => {
             let data = res || [];
@@ -221,7 +240,6 @@ Page(Mixin({
             Modal.toast('页面数据传输成功');
             setTimeout(() => {
                 return Router.push('bluetooth_transfer_index', {}, true);
-                // this.initData && this.initData();
             }, 1000);
         }).catch((err) => {
             Modal.toast(err);

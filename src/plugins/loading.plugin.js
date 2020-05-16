@@ -6,8 +6,8 @@ export default {
     hide () {
         wx.hideLoading()
     },
-    showLoading(title = '加载中') {
-        wx.showLoading({title})
+    showLoading(options = {title: '加载中'}) {
+        wx.showLoading(options)
     },
     hideLoading(){
         wx.hideLoading()

@@ -1,5 +1,5 @@
 <view class="list">
-    <view class="item {{numIndex === index && 'active'}}"
+    <view class="item"
           bindtap="handleSelect"
           data-index="{{index}}"
           wx:for="{{device$}}"
@@ -15,5 +15,35 @@
         bindtap="handleJump"
     >点击前往手动记录</text>
 </view>
+
+<view class="popup" wx:if="{{isAddPopup}}">
+    <view class="popup-inner">
+        <view class="popup-content">
+            <text>这是该血糖仪</text>
+            <text>首次配对移动设备吗？</text>
+        </view>
+        <view class="popup-button-group">
+            <view class="popup-button" bindtap="handleTap" data-params="{{false}}"><text>否</text></view>
+            <view class="popup-button" bindtap="handleTap" data-params="{{true}}"><text>是</text></view>
+        </view>
+    </view>
+</view>
+
+
+<view class="popup" wx:if="{{isSyncPopup}}">
+    <view class="popup-inner">
+        <view class="popup-content">
+            <text>该血糖仪配对过</text>
+            <text>多台移动设备吗？</text>
+        </view>
+        <view class="popup-button-group">
+            <view class="popup-button" bindtap="handleTap" data-params="{{false}}"><text>否,只配对过一台</text></view>
+            <view class="popup-bar"></view>
+            <view class="popup-button" bindtap="handleTap" data-params="{{true}}"><text>是,配对过多台</text></view>
+        </view>
+    </view>
+</view>
+
+
 <import src="../../../templates/bluetooth-explain/index.wxml"/>
 <template is="bluetoothExplain"></template>
