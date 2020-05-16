@@ -103,9 +103,9 @@ Page(Mixin({
                                 MachineCode: name,
                                 MachineId: deviceId,
                                 BindRemark: JSON.stringify(blueTooth),
-                            }).then((res) => {
+                            }).null().finally(() => {
                                 Router.push('bluetooth_synchronization_index', { ...this.data.params$, preFrom: 'lottery_index', from: 'bluetooth_add_index', deviceId, serviceId: res, });
-                            }).toast();
+                            });
                         } else {
                             Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', deviceId, serviceId: res, ...this.data.params$ });
                         }

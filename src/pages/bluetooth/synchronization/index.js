@@ -45,7 +45,14 @@ Page(Mixin({
     },
     onShow () {
         if (this.data.isPop) {
-            if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index')
+            let { from, preFrom } = this.data.params$;
+            if (preFrom === 'lottery_index') {
+                return Router.pop(2);
+            }
+            if (from === 'lottery_index') {
+                return Router.pop();
+            }
+            if (from === 'bluetooth_add_index')
                 return Router.pop(4);
             return Router.pop(2);
         }
@@ -191,6 +198,7 @@ Page(Mixin({
         let data = this.data.result;
         Loading.hideLoading();
         Loading.showLoading({title: '正在上传数据...'});
+        let { from, preFrom } = this.data.params$;
         Auth.getToken().then((res) => {
             let { OpenId } = res;
             data.forEach((item) => {
@@ -218,6 +226,9 @@ Page(Mixin({
             Modal.toast('页面数据传输成功');
             this.setData({ isPop: true });
             setTimeout(() => {
+                if (preFrom === 'lottery_index' || from === 'lottery_index') {
+                    return Router.push('lottery_share');
+                }
                 return Router.push('bluetooth_transfer_index');
                 // if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index')
                 //     return Router.pop(4);

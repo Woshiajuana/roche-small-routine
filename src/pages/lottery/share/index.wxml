@@ -4,55 +4,47 @@
     <view class="bg"></view>
 
     <view class="tab">
-        <view class="tab-btn"><text>上一周</text></view>
-        <text>4月20日-4月26日</text>
-        <view class="tab-btn"><text>下一周</text></view>
+        <view class="tab-btn"
+              data-count="-7"
+              bindtap="handlePreOrNext">
+            <text>上一周</text>
+        </view>
+        <text>{{vSTime2}} - {{vETime2}}</text>
+        <view class="tab-btn"
+              data-count="7"
+              bindtap="handlePreOrNext">
+            <text>下一周</text>
+        </view>
     </view>
 
     <view class="progress">
         <text class="progress-title">数据同步成功</text>
         <view class="progress-prompt">
             <text>已累计打卡</text>
-            <text class="color-1">2</text>
-            <text>天</text>
+            <text class="color-1">{{numTimes}}</text>
+            <text>次</text>
         </view>
         <view class="progress-content">
-            <view class="progress-bar first-child"></view>
-            <view class="progress-dot">
-                <image class="progress-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-3.jpg"></image>
-                <text class="progress-text">第一天</text>
-            </view>
-            <view class="progress-bar"></view>
-            <view class="progress-dot">
-                <image class="progress-icon"></image>
-                <text class="progress-text">第一天</text>
-            </view>
-            <view class="progress-bar"></view>
-            <view class="progress-dot">
-                <image class="progress-icon"></image>
-                <text class="progress-text">第一天</text>
-            </view>
-            <view class="progress-bar"></view>
-            <view class="progress-dot">
-                <image class="progress-icon"></image>
-                <text class="progress-text">第一天</text>
-            </view>
-            <view class="progress-bar"></view>
-            <view class="progress-dot">
-                <image class="progress-icon"></image>
-                <text class="progress-text">第一天</text>
-            </view>
-            <view class="progress-bar"></view>
-            <view class="progress-dot last-child">
-                <image class="progress-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-1.png"></image>
-                <text class="progress-text">点击领取</text>
-            </view>
+            <block wx:for="{{arrText}}" wx:key="index">
+                <view class="progress-bar {{index === 0 && 'first-child'}} {{numTimes > index && 'active'}}"></view>
+                <view bindtap="handleJump" data-item="{{item}}" class="progress-dot {{index === arrText.length - 1 && 'last-child'}} {{numTimes > index && 'active'}}">
+                    <block wx:if="{{index === arrText.length - 1}}">
+                        <image class="progress-icon" wx:if="{{numTimes > index}}" mode="widthFix" src="../../../assets/images/20200503-l-s-1.png"></image>
+                        <image class="progress-icon" wx:else mode="widthFix" src="../../../assets/images/20200503-l-s-2.png"></image>
+                    </block>
+                    <image wx:else class="progress-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-3.jpg"></image>
+                    <text class="progress-text">{{item}}</text>
+                </view>
+            </block>
         </view>
         <view class="progress-tip">
             <image class="progress-tip-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-4.jpg"></image>
-            <text>再坚持</text>
-            <text class="color-1">4</text>
-            <text>天就可以领取红包了</text>
+            <block wx:if="{{numTimes < 6}}">
+                <text>再坚持</text>
+                <text class="color-1">{{6 - numTimes}}</text>
+                <text>次就可以领取红包了</text>
+            </block>
+            <text wx:else>恭喜您，可以领取红包了</text>
         </view>
     </view>
 
@@ -60,12 +52,12 @@
         <image class="share-bg"></image>
         <image class="share-tip" mode="widthFix" src="../../../assets/images/20200503-l-s-5.png"></image>
         <view class="share-info">
-            <image class="share-avatar"></image>
-            <text class="share-name">西安上学暗杀星啊</text>
+            <image class="share-avatar" src="{{user$.avatarUrl}}"></image>
+            <text class="share-name">{{user$.nickName}}</text>
             <view class="share-prompt">
                 <text>坚持测糖第</text>
-                <text class="color-1">2</text>
-                <text>天 再接再厉，冲鸭~~~</text>
+                <text class="color-1">{{numTimes}}</text>
+                <text>次 再接再厉，冲鸭~~~</text>
             </view>
         </view>
     </view>
