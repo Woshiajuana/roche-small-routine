@@ -33,6 +33,7 @@ Page(Mixin({
         result: [],
         isPop: false,
         deviceId: '',
+        blueTooth: '',
     },
     mixins: [
         BleMixin,
@@ -84,7 +85,7 @@ Page(Mixin({
                 this.blePairRoche(blueTooth.deviceId).then((res) => {
                     console.log('链接成功 => ', res);
                     blueTooth.serviceId =  res;
-                    this.setData({deviceId: blueTooth.deviceId});
+                    this.setData({deviceId: blueTooth.deviceId, blueTooth});
                     return this.bleGetStatus(blueTooth.deviceId, res)
                 }).then((res) => {
                     console.log('取特征值成功 => ', res);
@@ -198,13 +199,25 @@ Page(Mixin({
         let data = this.data.result;
         Loading.hideLoading();
         Loading.showLoading({title: '正在上传数据...'});
-        let { from, preFrom } = this.data.params$;
+        let { blueTooth, params$ } = this.data;
+        let { from, preFrom } = params$;
         Auth.getToken().then((res) => {
             let { OpenId } = res;
             data.forEach((item) => {
                 item.OpenId = OpenId
             });
-            return Http(Http.API.Do_setTestSugarList, data, {
+            let options = data;
+            let url = Http.API.Do_setTestSugarList;
+            if (preFrom === 'lottery_index' || from === 'lottery_index') {
+                let { name, deviceId } = blueTooth;
+                options = {
+                    MachineCode: name,
+                    MachineId: deviceId,
+                    data,
+                };
+                url = Http.API.Do_SetTestSugarListByActivity;
+            }
+            return Http(url, options, {
                 useOpenId: false,
                 useAuth: false,
                 loading: false,
@@ -227,7 +240,7 @@ Page(Mixin({
             this.setData({ isPop: true });
             setTimeout(() => {
                 if (preFrom === 'lottery_index' || from === 'lottery_index') {
-                    return Router.push('lottery_share');
+                    return Router.push('lottery_share_index');
                 }
                 return Router.push('bluetooth_transfer_index');
                 // if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index')

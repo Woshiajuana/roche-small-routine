@@ -83,6 +83,8 @@ export default {
     Req_GetActivitys: 'ActivityRocheApi/GetActivitys',
     // 获取打卡记录
     Req_GetTestRecord: 'ActivityRocheApi/GetTestRecord',
+    // 同步数据
+    Do_SetTestSugarListByActivity: 'ActivityRocheApi/SetTestSugarListByActivity',
     // 2.3	获取打卡奖励
     Req_GetSignInReward: 'ActivityRocheApi/GetSignInReward',
     // 2.4	打卡奖励详情
