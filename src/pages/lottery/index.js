@@ -6,11 +6,7 @@ import './index.wxml'
 import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
 import UserMixin                    from 'mixins/user.mixin'
-import Store                        from 'plugins/store.plugin'
-import {
-    $BLUE_TOOTH_DEVICE_ID_LIST,
-}                                   from 'config/store.config'
-
+import Http                         from 'plugins/http.plugin'
 Page(Mixin({
     mixins: [
         UserMixin,
@@ -24,10 +20,12 @@ Page(Mixin({
     },
     // 立即打卡
     handleJumpClockIn () {
-        Store.get($BLUE_TOOTH_DEVICE_ID_LIST).then(() =>{
-            Router.push('bluetooth_synchronization_index');
-        }).catch(() => {
-            Router.push('bluetooth_explain_index');
-        });
+        Http(Http.API.Req_GetActivityUser).then((res) => {
+            let { IsGuide } = res;
+            Router.push(
+                IsGuide ? 'bluetooth_synchronization_index' : 'bluetooth_explain_index',
+                { index: 1, result: true, from: 'lottery_index' }
+            );
+        }).toast();
     },
 }));

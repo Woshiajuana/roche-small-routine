@@ -12,6 +12,7 @@ import RouterMixin                  from 'mixins/router.mixin'
 import BleMixin                     from 'mixins/ble.mixin'
 import Loading                      from 'plugins/loading.plugin'
 import DeviceMixin                  from 'mixins/device.mixin'
+import Http                         from 'plugins/http.plugin'
 const app = getApp();
 
 const arrSrc = [
@@ -73,7 +74,8 @@ Page(Mixin({
     },
     // 配对
     handlePairRoche(e) {
-        let { deviceId  } = this.data.blueTooth || {};
+        let { blueTooth, params$ } = this.data;
+        let { deviceId,  name } = blueTooth || {};
         if (!deviceId) {
             Modal.toast('没有发现设备，请先搜索设备');
             this.setData({ blueTooth: '' });
@@ -95,11 +97,18 @@ Page(Mixin({
                 }).then((result) => {
                     let { cancel, confirm } = result;
                     if (confirm) {
-                        // if (this.data.params$.index === 2) {
-                        //     Router.pop(3);
-                        // } else {
+                        let { from } = params$;
+                        if (from === 'lottery_index' && name.indexOf('meter+') > -1) {
+                            Http(Http.API.Do_BindActivityUser, {
+                                MachineCode: name,
+                                MachineId: deviceId,
+                                BindRemark: JSON.stringify(blueTooth),
+                            }).then((res) => {
+                                Router.push('bluetooth_synchronization_index', { ...this.data.params$, preFrom: 'lottery_index', from: 'bluetooth_add_index', deviceId, serviceId: res, });
+                            }).toast();
+                        } else {
                             Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', deviceId, serviceId: res, ...this.data.params$ });
-                        // }
+                        }
                     }
                     cancel && this.handlePairRoche();
                 });
