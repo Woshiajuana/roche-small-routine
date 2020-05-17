@@ -3,35 +3,22 @@
 
     <image class="banner" mode="widthFix" src="../../../assets/images/20200503-l-r-banner.jpg"></image>
 
-    <view class="cell">
+    <view class="cell" wx:for="{{arrData}}" wx:key="index">
         <view class="cell-content">
-            <text class="cell-label">2020-04-13</text>
-            <text class="cell-value">微信红包</text>
+            <text class="cell-label">{{item.BeginDateStr}}</text>
+            <text class="cell-value" wx:if="{{item.RewardType === 1}}">微信红包</text>
+            <text class="cell-value" wx:elif="{{item.RewardType === 2}}">月度达标 免费试纸</text>
         </view>
-        <view class="cell-button disabled">
-            <text>已领取</text>
+        <view bindtap="handleReward" data-item="{{item}}" wx:if="{{item.RewardOrigin === 1}}" class="cell-button {{item.IsReceive && 'disabled'}}">
+            <text>{{item.IsReceive ? '已领取' : '未领取'}}</text>
         </view>
-    </view>
-
-    <view class="cell">
-        <view class="cell-content">
-            <text class="cell-label">2020-04-13</text>
-            <text class="cell-value">微信红包</text>
-        </view>
-        <view class="cell-button">
-            <text>未领取</text>
-        </view>
-    </view>
-
-    <view class="cell">
-        <view class="cell-content">
-            <text class="cell-label">2020-04-13</text>
-            <text class="cell-value">月度达标 免费试纸 冰姐手机号谢谢谢谢</text>
-        </view>
-        <view class="cell-link">
+        <view bindtap="handleSee" wx:elif="{{item.RewardOrigin === 2}}" class="cell-link">
             <text>查看领取门店</text>
         </view>
     </view>
 
+    <view class="prompt" wx:if="{{arrData && !arrData.length}}">
+        <text>暂无奖励数据，赶紧去完成打卡~~~</text>
+    </view>
 
 </view>

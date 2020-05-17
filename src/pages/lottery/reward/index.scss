@@ -59,3 +59,11 @@ page{
     font-size: j(28);
     line-height: j(46);
 }
+.prompt{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %c9;
+    font-size: j(32);
+    height: j(200);
+}

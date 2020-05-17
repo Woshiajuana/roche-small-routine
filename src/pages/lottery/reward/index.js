@@ -5,29 +5,32 @@ import './index.wxml'
 
 import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
-import SourceMixin                  from 'mixins/source.mixin'
 import UserMixin                    from 'mixins/user.mixin'
-
-const arrSrc = [
-    { key: 'bg', value: 'luck-draw-bg.jpg' },
-];
+import Http                         from 'plugins/http.plugin'
 
 Page(Mixin({
     mixins: [
         UserMixin,
-        SourceMixin,
     ],
     data: {
-        isPopup: false,
+        arrData: '',
     },
-    onLoad () {
-        this.sourceGet(arrSrc);
+    onShow () {
         this.userGet();
+        this.reqRewardData();
     },
-    handleJump () {
-        this.setData({isPopup: true});
+    reqRewardData () {
+        Http(Http.API.Req_GetSignInReward).then((res) => {
+            this.setData({ arrData: res || [] });
+        }).toast();
     },
-    handleRoot () {
-        Router.root('home_index');
-    }
+    handleReward (e) {
+        let { item } = e.currentTarget.dataset;
+        let { IsReceive } = item;
+        if (IsReceive) return null;
+        Router.push('lottery_gift_index', item);
+    },
+    handleSee () {
+        Router.push('lottery_form_index');
+    },
 }));

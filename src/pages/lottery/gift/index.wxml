@@ -8,11 +8,11 @@
     </view>
 
     <view class="prompt">
-        <text>2020-xx-xx至2020-xx-xx的周打卡已完成，请领取红包</text>
+        <text>{{params$.BeginDateStr}}至{{params$.EndDateStr}}的周打卡已完成，请领取红包</text>
     </view>
 
     <view class="flex1"></view>
 
-    <button class="g-button button" bindtap="handleJump">点击领取</button>
+    <button class="g-button button" bindtap="handleReward">点击领取</button>
 
 </view>
