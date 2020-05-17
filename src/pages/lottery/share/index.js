@@ -19,7 +19,6 @@ Page(Mixin({
         vSTime2: '',
         vETime2: '',
         curTime: '',
-        weekReport: {},
         isCurWeek: true,
         numTimes: 0,
         arrText: [ '第一次', '第二次', '第三次', '第四次', '第五次', '点击领取' ],

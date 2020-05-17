@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/lottery/record/index",
         "pages/home/index",
         "pages/lottery/share/index",
         "pages/lottery/index",
@@ -15,7 +16,6 @@
         "pages/login/index",
         "pages/lottery/form/index",
         "pages/lottery/gift/index",
-        "pages/lottery/record/index",
         "pages/lottery/reward/index",
         "pages/lottery/roster/index",
         "pages/lottery/store/index",
