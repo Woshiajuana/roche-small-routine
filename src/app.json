@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/lottery/share/index",
         "pages/home/index",
+        "pages/lottery/share/index",
         "pages/lottery/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",

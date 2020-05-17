@@ -213,7 +213,7 @@ Page(Mixin({
                 options = {
                     MachineCode: name,
                     MachineId: deviceId,
-                    data,
+                    BloodSugars: data,
                 };
                 url = Http.API.Do_SetTestSugarListByActivity;
             }
