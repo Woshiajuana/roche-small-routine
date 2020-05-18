@@ -36,7 +36,7 @@ Page(Mixin({
     },
     onLoad (options) {
         this.routerGetParams(options);
-        // this.searchRoche();
+        this.searchRoche();
         this.sourceGet(arrSrc);
     },
     searchRoche () {

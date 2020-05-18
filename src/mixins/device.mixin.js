@@ -20,12 +20,12 @@ export default {
                 explainSrc2: Source('20200117-e-2-2.jpg'),
 
                 explainText: '罗氏®智航®Guide',
-                addBeforeSrc: Source('20200117-a-b-2.jpg'),
-                addAfterSrc: Source('20200117-a-b-2.jpg'),
+                addBeforeSrc: Source('20200117-a-b-2.jpg?v=1'),
+                addAfterSrc: Source('20200117-a-b-2.jpg?v=1'),
 
                 syncSrc: Source('20200117-s-2.jpg'),
-                syncSrc1: Source('20200117-s-2-1.jpg'),
-                syncSrc2: Source('20200117-s-2-2.jpg'),
+                syncSrc1: Source('20200117-s-2-1.jpg?v=1'),
+                syncSrc2: Source('20200117-s-2-2.jpg?v=1'),
             },
             // {
             //     selectSrc: Source('20200117-s-3.png'),
