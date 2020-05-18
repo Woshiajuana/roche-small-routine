@@ -31,6 +31,8 @@ Page(Mixin({
     data: {
         blueTooth: '',
         isPop: false,
+        isPopup: false, // 弹窗
+        isComplete: true, // 弹窗
     },
     onLoad (options) {
         this.routerGetParams(options);
@@ -88,21 +90,7 @@ Page(Mixin({
                 console.log('取特征值失败', err);
             });
             setTimeout(() => {
-                Modal.confirm({
-                    content: '是否已配对成功？',
-                    cancelText: '否',
-                    confirmText: '是',
-                }).then((result) => {
-                    let { cancel, confirm } = result;
-                    if (confirm) {
-                        // if (this.data.params$.index === 2) {
-                        //     Router.pop(3);
-                        // } else {
-                            Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', deviceId, serviceId: res, ...this.data.params$ });
-                        // }
-                    }
-                    cancel && this.handlePairRoche();
-                });
+                this.setData({ isPopup: true });
             }, 10000);
         }).catch((err) => {
             Modal.confirm({
@@ -117,4 +105,17 @@ Page(Mixin({
     onUnload () {
         wx.closeBluetoothAdapter();
     },
+    handlePopupTap (e) {
+        let { params } = e.currentTarget.dataset;
+        if (params) {
+            this.setData({ isComplete: true, isPopup: false });
+        } else {
+            this.handlePairRoche();
+            this.setData({ isPopup: false });
+        }
+    },
+    handleComplete () {
+        this.setData({ isComplete: false });
+        Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', ...this.data.params$ });
+    }
 }));
