@@ -16,11 +16,11 @@ export default {
                 selectSrc: Source('20200117-s-2.png'),
 
                 explainSrc: Source('20200117-e-2.jpg'),
-                explainSrc1: Source('20200117-e-2-1.jpg'),
-                explainSrc2: Source('20200117-e-2-2.jpg'),
+                explainSrc1: Source('20200117-e-2-1.jpg?v=1'),
+                explainSrc2: Source('20200117-e-2-2.jpg?v=1'),
 
                 explainText: '罗氏®智航®Guide',
-                addBeforeSrc: Source('20200117-a-b-2.jpg?v=1'),
+                addBeforeSrc: Source('20200117-a-b-2.jpg'),
                 addAfterSrc: Source('20200117-a-b-2.jpg?v=1'),
 
                 syncSrc: Source('20200117-s-2.jpg'),
