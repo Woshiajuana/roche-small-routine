@@ -32,11 +32,11 @@ Page(Mixin({
         blueTooth: '',
         isPop: false,
         isPopup: false, // 弹窗
-        isComplete: true, // 弹窗
+        isComplete: false, // 弹窗
     },
     onLoad (options) {
         this.routerGetParams(options);
-        this.searchRoche();
+        // this.searchRoche();
         this.sourceGet(arrSrc);
     },
     searchRoche () {
