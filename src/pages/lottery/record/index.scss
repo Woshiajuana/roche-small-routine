@@ -1,30 +1,21 @@
 @import '../../../assets/scss/define';
 page{
     @extend %h100;
-    background-color: #f5f5f5;
+    background-color: #fafafa;
 }
 .view-wrap{
     @extend %df;
     @extend %fdc;
     @extend %h100;
 }
+.banner{
+    @extend %w100;
+    height: j(362);
+}
 .inner{
     @extend %df1;
     height: 10rpx;
 }
-/*头部*/
-.header{
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
-    background-color: #28aeeb;
-    height: 200rpx;
-    text{
-        font-size: 45rpx;
-        color: #fff;
-    }
-}
-
 .loading{
     @extend %df;
     @extend %w100;
@@ -61,7 +52,7 @@ page{
     margin: 0 20rpx;
     text{
         font-size: 36rpx;
-        color: #28aeeb;
+        color: #0075c2;
     }
 }
 
@@ -70,7 +61,7 @@ page{
     margin-top: j(20);
     background-color: #fff;
     padding-bottom: j(20);
-    border-bottom: j(1) solid #ddd;
+    border-bottom: j(1) solid #efeff4;
 }
 .head{
     @extend %bsb;
@@ -79,11 +70,11 @@ page{
     @extend %jcc;
     height: j(98);
     font-size: j(36);
-    color: #2d2d2d;
-    border-top: j(1) solid #ddd;
-    border-bottom: j(1) solid #ddd;
+    color: #575757;
+    border-top: j(1) solid #efeff4;
+    border-bottom: j(1) solid #efeff4;
     .color{
-        color: #28aeeb;
+        color: #0075c2;
     }
 }
 .con{
@@ -97,13 +88,14 @@ page{
     @extend %aic;
     @extend %jcc;
     height: j(230);
-    color: #2d2d2d;
+    color: #575757;
     .label{
         font-size: j(36);
     }
     .value{
         font-size: j(80);
-        color: #28aeeb;
+        color: #0075c2;
+        line-height: j(120);
     }
     .unit{
         height: j(40);
@@ -121,22 +113,22 @@ page{
 .footer{
     @extend %df;
     justify-content: space-between;
-    padding: 53rpx 60rpx 80rpx;
+    padding: j(30) j(60);
 }
 .footer-button{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    width: 289rpx;
-    border-radius: 44rpx;
-    height: 88rpx;
-    background-image: linear-gradient(to right, #3bddf2, #2cbdf0);
+    width: j(280);
+    border-radius: j(40);
+    height: j(80);
+    background: linear-gradient(to right, #5fa4dd , #1b70c3);
     &:first-child{
         background-color: #1e3666;
         background-image: none;
     }
 }
 .footer-button-text{
-    font-size: 36rpx;
+    font-size: j(34);
     color: #fff;
 }

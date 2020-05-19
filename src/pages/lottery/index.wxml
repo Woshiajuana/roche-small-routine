@@ -1,19 +1,11 @@
 
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
 
-    <image class="bg" mode="widthFix" src="../../assets/images/20200503-clock-bg.jpg"></image>
+    <image class="bg" mode="widthFix" src="../../assets/images/20200519-clock-bg.jpg"></image>
 
-    <view class="introduce-link">
-        <text>活动介绍</text>
-    </view>
-
-    <view class="title">
-        <text>智航邀你来打卡</text>
-        <text>双重壕礼送不停</text>
-    </view>
+    <view class="null-box"></view>
 
     <view class="time">
-        <image class="icon" mode="widthFix" src="../../assets/images/20200503-clock-icon.png"></image>
         <text>活动时间：2020年6月1日起至9月13日</text>
     </view>
 
@@ -35,7 +27,10 @@
         <button class="g-button button" bindtap="handleJumpClockIn">立即打卡</button>
     </view>
 
+    <view class="link-button"><text>活动规则</text></view>
+
     <view class="tip">
         <text>*参加活动需绑定智航血糖仪，打卡次数以蓝牙同步数据为准，手动数据视为无效。</text>
     </view>
+
 </view>

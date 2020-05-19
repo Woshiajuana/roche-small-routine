@@ -1,13 +1,13 @@
 
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
 
-    <image class="banner" mode="widthFix" src="../../../assets/images/20200503-l-r-banner.jpg"></image>
+    <image class="banner" mode="widthFix" src="../../../assets/images/20200519-l-r-b.jpg"></image>
 
     <view class="cell" wx:for="{{arrData}}" wx:key="index">
         <view class="cell-content">
             <text class="cell-label">{{item.BeginDateStr}}</text>
             <text class="cell-value" wx:if="{{item.RewardType === 1}}">微信红包</text>
-            <text class="cell-value" wx:elif="{{item.RewardType === 2}}">月度达标 免费试纸</text>
+            <text class="cell-value" wx:elif="{{item.RewardType === 2}}">月度达标 免费试纸凭手机号{{item.Mobile || ''}}</text>
         </view>
         <view bindtap="handleReward" data-item="{{item}}" wx:if="{{item.RewardOrigin === 1}}" class="cell-button {{item.IsReceive && 'disabled'}}">
             <text>{{item.IsReceive ? '已领取' : '未领取'}}</text>

@@ -10,44 +10,30 @@ page{
     overflow-x: hidden;
 }
 .bg{
-    @extend %pa;
-    @extend %t0;
-    @extend %l50;
-    top: j(-1600);
-    margin-left: j(-1000);
-    width: j(2000);
-    height: j(2000);
-    border-radius: j(2000);
-    z-index: -1;
-    background-color: #2cafe5;
-
+    @extend %w100;
+    height: j(258);
 }
-.title{
-    @extend %df;
-    @extend %fdc;
-    @extend %cfff;
-    padding: j(60) 0;
-    font-size: j(50);
-}
-.main{
+.section{
     @extend %bsb;
-    padding: 0 j(45);
-    width: j(670);
     border-radius: j(30);
     background-color: #fff;
     box-shadow: j(8) j(8) j(8) j(8) rgba(0,0,0,.08);
+    padding: 0 j(45) j(50);
+    width: j(670);
 }
 .form{
     @extend %df;
     @extend %fww;
     @extend %jcs;
+    padding-top: j(10);
+    margin-top: j(-80);
 }
 .form-cell{
     @extend %w100;
     @extend %df;
     @extend %aic;
     font-size: j(28);
-    margin-top: j(50);
+    margin-top: j(40);
     color: #28303e;
     background-color: #f1f5f7;
     border-radius: j(10);
@@ -89,29 +75,62 @@ page{
 }
 
 .result{
-    margin-top: j(50);
-    //border-bottom: j(1) solid #ddd;
-    border-top: j(1) solid #ddd;
+    margin-top: j(30);
+    padding-bottom: j(30);
+}
+.result-title{
+    @extend %c3;
+    @extend %df;
+    @extend %aic;
+    @extend %bsb;
+    height: j(100);
+    margin-bottom: j(20);
+    font-size: j(32);
+    border-bottom: j(1) solid #d1d1d1;
 }
 .result-cell{
     @extend %df;
+    @extend %cp;
     @extend %fdc;
     line-height: 1.5;
-    padding: j(40) 0;
-    border-bottom: j(1) solid #ddd;
-    &:last-child{
-        border-bottom: none;
-    }
+    padding: j(10) 0;
 }
-.result-label{
-    font-size: j(34);
-    color: #28303e;
-}
-.result-value{
+.cell-label{
+    @extend %c3;
     font-size: j(28);
-    color: #28303e;
+}
+.cell-value{
+    @extend %c6;
+    font-size: j(24);
+}
+
+.code{
+    margin-top: j(30);
+    padding-top: j(50);
+}
+.prompt{
+    @extend %c3;
+    font-size: j(28);
+}
+.code-content{
+    @extend %df;
+    @extend %jcc;
+    @extend %aic;
+    padding-top: j(30);
+}
+.code-icon{
+    width: j(140);
+    height: j(140);
+    margin-right: j(40);
+}
+.code-prompt{
+    @extend %c3;
+    @extend %df;
+    @extend %fdc;
+    font-size: j(30);
 }
 .button{
     width: j(360);
     margin: j(100) 0 j(160);
+    background: linear-gradient(to right, #5fa4dd , #1b70c3);
 }

@@ -2,7 +2,7 @@
 
 page{
     @extend %h100;
-    background-color: #f8f8f8;
+    background-color: #8abfe3;
 }
 .wrap{
     @extend %df;
@@ -19,18 +19,14 @@ page{
     height: auto;
     z-index: -1;
 }
-.title{
-    @extend %fwb;
-    @extend %df;
-    @extend %fdc;
-    @extend %cfff;
-    padding: j(110) 0 j(20);
-    line-height: j(90);
-    font-size: j(71);
+.null-box{
+    height: j(220);
 }
 .prompt{
     @extend %cfff;
     @extend %tac;
+    @extend %df;
+    @extend %fdc;
     line-height: 1.5;
     width: j(550);
     font-size: j(33);
@@ -41,4 +37,5 @@ page{
 .button{
     width: j(360);
     margin-bottom: j(160);
+    background: linear-gradient(to right, #5fa4dd , #1b70c3);
 }

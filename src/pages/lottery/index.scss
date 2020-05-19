@@ -2,7 +2,7 @@
 
 page{
     @extend %h100;
-    background-color: #ecf8fd;
+    background-color: #79B7DE;
 }
 .wrap{
     @extend %df;
@@ -19,38 +19,19 @@ page{
     height: auto;
     z-index: -1;
 }
-.introduce-link{
-    @extend %cp;
-    @extend %pa;
-    @extend %cfff;
-    top: j(20);
-    right: j(24);
-    font-size: j(24);
-    line-height: j(40);
-    border-bottom: j(1) solid #fff;
-}
-.title{
-    @extend %fwb;
-    @extend %df;
-    @extend %fdc;
-    @extend %cfff;
-    padding: j(70) 0 j(30);
-    line-height: j(90);
-    font-size: j(71);
+.null-box{
+    @extend %w100;
+    height: j(220);
 }
 .time{
     @extend %df;
     @extend %aic;
     @extend %cfff;
-    height: j(65);
-    font-size: j(27);
-    border-top: j(1) solid #fff;
-    border-bottom: j(1) solid #fff;
-}
-.icon{
-    width: j(50);
-    height: j(44);
-    margin-right: j(10);
+    @extend %bsb;
+    width: j(590);
+    height: j(78);
+    padding-left: j(60);
+    font-size: j(31);
 }
 .flex1{
     @extend %df1;
@@ -61,7 +42,7 @@ page{
     padding: j(45);
     background-color: #fff;
     border-radius: j(30);
-    box-shadow: j(10) j(10) j(10) j(10) rgba(117,209,245,.2);
+    box-shadow: j(10) j(10) j(10) j(10) rgba(117,209,245,.3);
 }
 .prompt-cell{
     @extend %c3;
@@ -85,13 +66,23 @@ page{
     margin-top: j(50);
     width: j(630);
     .button{
+        background: linear-gradient(to right, #5fa4dd , #1b70c3);
         margin: 0;
-        width: j(290);
+        width: j(280);
+        font-size: j(34);
         &:first-child{
             background-image: none;
             background-color: #1e3666;
         }
     }
+}
+.link-button{
+    @extend %cp;
+    @extend %c3;
+    margin-top: j(30);
+    font-size: j(20);
+    line-height: 2;
+    border-bottom: 1px solid #333;
 }
 .tip{
     padding: j(30) 0;

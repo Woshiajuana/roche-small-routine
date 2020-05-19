@@ -2,9 +2,8 @@
 
 <view class="view-wrap">
 
-    <view class="header">
-        <text>打卡记录</text>
-    </view>
+    <image class="banner" src="../../../assets/images/20200519-r-b.jpg"></image>
+
     <view class="tab">
         <view class="tab-btn"
               data-count="-7"
@@ -20,6 +19,7 @@
             <text>下一周</text>
         </view>
     </view>
+
     <scroll-view
         class="inner"
         bindscrolltolower="handleScrollToLower"
