@@ -11,32 +11,13 @@ page{
     overflow-x: hidden;
 }
 .bg{
-    @extend %pa;
-    @extend %t0;
-    @extend %l50;
-    top: j(-1700);
-    margin-left: j(-1000);
-    width: j(2000);
-    height: j(2000);
-    border-radius: j(2000);
-    z-index: -1;
-    background-color: #2cafe5;
-}
-.tab{
-    @extend %cfff;
-    @extend %df;
-    @extend %aic;
-    @extend %jcs;
-    width: j(630);
-    padding: j(40) 0 j(30);
-    font-size: j(28);
-}
-.tab-btn{
-    @extend %cp;
+    @extend %w100;
+    height: j(258);
 }
 .progress{
     @extend %tac;
-    padding-top: j(30);
+    margin-top: j(-130);
+    padding-top: j(20);
     line-height: 1.5;
     background-color: #fff;
     width: j(630);
@@ -44,15 +25,15 @@ page{
     box-shadow: j(8) j(8) j(8) j(8) rgba(0,0,0,.08);
 }
 .progress-title{
-    color: #2cafe5;
-    font-size: j(42);
+    color: #1b70c3;
+    font-size: j(35);
 }
 .progress-prompt{
     @extend %c3;
     font-size: j(30);
 }
 .color-1{
-    color: #2cafe5;
+    color: #1b70c3;
 }
 .progress-content{
     @extend %df;
@@ -66,14 +47,13 @@ page{
     height: j(14);
     background-color: #c5c5c5;
     &.active{
-        background-color: #2cafe5;
+        background-color: #1b70c3;
     }
     &.first-child{
         border-top-left-radius: j(7);
         border-bottom-left-radius: j(7);
     }
 }
-
 .progress-dot{
     @extend %pr;
     @extend %df;
@@ -86,7 +66,7 @@ page{
     border-radius: 50%;
     background-color: #c5c5c5;
     &.active{
-        background-color: #2cafe5;
+        background-color: #1b70c3;
         .progress-icon{
             @extend %db;
         }
@@ -123,16 +103,16 @@ page{
     @extend %df;
     @extend %c3;
     @extend %aic;
-    margin-top: j(80);
+    margin-top: j(50);
     background-color: #e1f4fc;
-    font-size: j(28);
+    font-size: j(24);
     padding: 0 j(38);
-    height: j(68);
+    height: j(60);
     border-bottom-right-radius: j(10);
     border-bottom-left-radius: j(10);
 }
 .progress-tip-icon{
-    width: j(36);
+    width: j(30);
     height: auto;
     margin-right: j(5);
 }
@@ -156,7 +136,7 @@ page{
     @extend %db;
     @extend %ma;
     width: j(610);
-    height: j(470);
+    height: j(410);
     background-color: #f2f2f2;
 }
 .share-info{
@@ -189,4 +169,5 @@ page{
 .button{
     width: j(360);
     margin: j(100) 0 j(160);
+    background: linear-gradient(to right, #5fa4dd , #1b70c3);
 }

@@ -1,26 +1,12 @@
 
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
 
-    <view class="bg"></view>
-
-    <view class="tab">
-        <view class="tab-btn"
-              data-count="-7"
-              bindtap="handlePreOrNext">
-            <text>上一周</text>
-        </view>
-        <text>{{vSTime2}} - {{vETime2}}</text>
-        <view class="tab-btn"
-              data-count="7"
-              bindtap="handlePreOrNext">
-            <text>下一周</text>
-        </view>
-    </view>
+    <image class="bg" mode="widthFix" src="../../../assets/images/20200519-s-b.png"></image>
 
     <view class="progress">
-        <text class="progress-title">数据同步成功</text>
+        <text class="progress-title">{{vSTime2}} - {{vETime2}}</text>
         <view class="progress-prompt">
-            <text>已累计打卡</text>
+            <text>数据同步成功已累计打卡</text>
             <text class="color-1">{{numTimes}}</text>
             <text>次</text>
         </view>
