@@ -9,7 +9,7 @@ page{
     @extend %fdc;
 }
 .flex-1{
-    height: j(100);
+    height: j(60);
 }
 
 /*头部*/
@@ -18,11 +18,11 @@ page{
     @extend %aic;
     @extend %jcc;
     background-color: #28aeeb;
-    height: 100rpx;
+    height: 120rpx;
     image{
-        width: 40rpx;
-        height: 36rpx;
-        margin-right: 10rpx;
+        width: 45rpx;
+        height: 40rpx;
+        margin-right: 16rpx;
     }
     text{
         font-size: 38rpx;
@@ -72,7 +72,7 @@ page{
         color: #ababab;
     }
     .tip-icon{
-        margin-top: j(20);
+        margin-top: j(60);
         width: j(415);
         height: j(160);
     }

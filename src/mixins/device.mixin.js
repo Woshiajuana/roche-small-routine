@@ -20,7 +20,7 @@ export default {
                 explainSrc2: Source('20200117-e-2-2.jpg?v=1'),
 
                 explainText: '罗氏®智航®Guide',
-                addBeforeSrc: Source('20200117-a-b-2.jpg'),
+                addBeforeSrc: Source(`20200117-a-b-2.jpg?v=${new Date().getTime()}`),
                 addAfterSrc: Source('20200117-a-b-2.jpg?v=1'),
 
                 syncSrc: Source('20200117-s-2.jpg'),
