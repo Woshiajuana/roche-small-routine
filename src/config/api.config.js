@@ -97,5 +97,7 @@ export default {
     Req_GetStoreList: 'ActivityRocheApi/GetStoreList',
     // 2.8	绑定Guide完善信息
     Do_SetActivityUser: 'ActivityRocheApi/SetActivityUser',
+    // 获取海报
+    Req_GetPoster: 'ActivityRocheApi/GetPoster'
 
 }

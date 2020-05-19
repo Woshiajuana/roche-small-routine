@@ -9,7 +9,6 @@ import Modal                        from 'plugins/modal.plugin'
 import Http                         from 'plugins/http.plugin'
 import UserMixin                    from 'mixins/user.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
-let type = false;
 
 Page(Mixin({
     mixins: [
@@ -28,6 +27,7 @@ Page(Mixin({
         this.setData({ curTime: new Date().getTime() });
         this.getDay();
         this.reqActivityTimes();
+        this.reqPosterData();
     },
     // 获取日期
     getDay (cTime) {
@@ -90,28 +90,6 @@ Page(Mixin({
         }
         return result;
     },
-    // 上下周
-    handlePreOrNext (e) {
-        if (type) return;
-        type = true;
-        setTimeout(() => {type = false}, 1000);
-        let { currentTarget } = e;
-        let count = +currentTarget.dataset.count;
-        let date = new Date(this.data.curTime);
-        date.setDate(date.getDate() + count);
-        let curTime = date.getTime();
-        let { sTime, eTime } = this.getDay(new Date().getTime());
-        let endTime = new Date(eTime.replace(/-/g, '\/') + ' 23:59:59').getTime();
-        let strTime = new Date(sTime.replace(/-/g, '\/') + ' 00:00:00').getTime();
-        if (curTime > endTime) return Modal.toast('下一周还没开始哦');
-        this.setData({
-            curTime,
-            isCurWeek: (curTime < endTime && curTime > strTime),
-        });
-        this.getDay();
-        this.reqActivityTimes();
-    },
-    //
     reqActivityTimes () {
         let { sTime: Stime, eTime: Etime } = this.data;
         Http(Http.API.Req_GetActivitys, {
@@ -121,11 +99,49 @@ Page(Mixin({
             this.setData({ numTimes: res });
         }).toast();
     },
+    reqPosterData () {
+        Http(Http.API.Req_GetPoster).then((res) => {
+        }).toast();
+    },
+    handleShare () {
+        this.getImageInfo({
+            src: 'http://szimg.mukewang.com/5b4bfb7000019d2e10800600-360-202.jpg',
+        }).then((res) => {
 
-    handleJump (e) {
-        let {item} = e.currentTarget.dataset;
-        if (item === '点击领取') {
-            Router.push('lottery_reward_index');
-        }
+        }).toast();
+        wx.getImageInfo({
+            src: 'http://szimg.mukewang.com/5b4bfb7000019d2e10800600-360-202.jpg',
+            success (res) {
+                //res.path是网络图片的本地地址
+                var qrCodePath = res.path;
+                //2. canvas绘制文字和图片
+                const ctx = wx.createCanvasContext('myCanvas');
+
+                // var imgPath = that.data.localImageUrl;
+
+                ctx.drawImage(qrCodePath, 0, 0, 200, 200);
+
+                ctx.setFillStyle('white')
+                ctx.fillRect(0, 520, 600, 280);
+
+                ctx.draw()
+                // that.setData({
+                //   localImageUrl: qrCodePath
+                // })
+            },
+            fail (res) {
+                //失败回调
+            }
+        });
+    },
+    getImageInfo ({src}) {
+        return new Promise((resolve, reject) => {
+            wx.getImageInfo({
+                src,
+                success: resolve,
+                fail: reject
+            });
+        });
     }
+
 }));

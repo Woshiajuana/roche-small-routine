@@ -13,7 +13,7 @@
         <view class="progress-content">
             <block wx:for="{{arrText}}" wx:key="index">
                 <view class="progress-bar {{index === 0 && 'first-child'}} {{numTimes > index && 'active'}}"></view>
-                <view bindtap="handleJump" data-item="{{item}}" class="progress-dot {{index === arrText.length - 1 && 'last-child'}} {{numTimes > index && 'active'}}">
+                <view class="progress-dot {{index === arrText.length - 1 && 'last-child'}} {{numTimes > index && 'active'}}">
                     <block wx:if="{{index === arrText.length - 1}}">
                         <image class="progress-icon" wx:if="{{numTimes > index}}" mode="widthFix" src="../../../assets/images/20200503-l-s-1.png"></image>
                         <image class="progress-icon" wx:else mode="widthFix" src="../../../assets/images/20200503-l-s-2.png"></image>
@@ -48,6 +48,8 @@
         </view>
     </view>
 
-    <button class="g-button button" bindtap="handleJump">一键分享</button>
+    <button class="g-button button" bindtap="handleShare">一键分享</button>
 
 </view>
+
+<canvas class="canvas" canvas-id="myCanvas" style="width: 750px; height: 1334px;"/>
