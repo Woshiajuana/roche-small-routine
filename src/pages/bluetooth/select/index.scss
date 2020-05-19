@@ -84,6 +84,9 @@
         background-color: #29afec;
         border-bottom-right-radius: j(10);
     }
+    &.popup-border{
+        border-right: j(2) solid #fff;
+    }
 }
 .popup-bar{
     @extend %h100;

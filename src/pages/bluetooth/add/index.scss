@@ -277,6 +277,13 @@ page{
         color: #29afec;
     }
 }
+.popup-color1{
+    @extend %c9;
+}
+.popup-title{
+    font-size: j(36);
+    margin-bottom: j(20);
+}
 .popup-button-group{
     @extend %df;
     @extend %aic;
@@ -296,11 +303,14 @@ page{
     padding: j(10) 0;
     &:first-child{
         border-bottom-left-radius: j(10);
-        background-color: #88979a;
+        background-color: #29afec;
     }
     &:last-child{
         background-color: #29afec;
         border-bottom-right-radius: j(10);
+    }
+    &.popup-border{
+        border-right: j(2) solid #fff;
     }
 }
 .popup-bar{
