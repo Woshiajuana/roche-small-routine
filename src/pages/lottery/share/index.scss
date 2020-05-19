@@ -171,3 +171,47 @@ page{
     margin: j(100) 0 j(160);
     background: linear-gradient(to right, #5fa4dd , #1b70c3);
 }
+
+.popup{
+    @extend %pf;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    z-index: 9;
+    background-color: rgba(0,0,0,.8);
+    .button{
+        font-size: j(30);
+        margin: j(30) 0 0;
+    }
+    .button-cancel{
+        @extend %cfff;
+        @extend %cp;
+        margin-top: j(20);
+        font-size: j(30);
+        padding: j(10);
+        background-image: none;
+    }
+}
+.popup-inner{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+}
+.popup-image{
+    border-radius: j(2);
+    border: j(5) solid #fff;
+    width: j(400);
+    height: auto;
+}
+.canvas-wrap{
+    @extend %pa;
+    @extend %oh;
+    @extend %l0;
+    top: 100%;
+    width: 0;
+    height: 0;
+}

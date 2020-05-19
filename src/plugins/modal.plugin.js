@@ -21,6 +21,7 @@ const toast = (options) => {
         title = JSON.stringify(options);
     }
     console.log(title);
+    if (title === '') return;
     wx.showToast({
         ...DEF,
         title: title + '',

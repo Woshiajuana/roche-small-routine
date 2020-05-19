@@ -1,4 +1,6 @@
 
+
+
 <view class="wrap {{user$.IsMember && 'g-vip-page'}}">
 
     <image class="bg" mode="widthFix" src="../../../assets/images/20200519-s-b.png"></image>
@@ -48,8 +50,18 @@
         </view>
     </view>
 
-    <button class="g-button button" bindtap="handleShare">一键分享</button>
+
+    <view class="popup" wx:if="{{isPopup}}">
+        <view class="popup-inner">
+            <image class="popup-image" mode="widthFix" src="{{strImageTempPath}}"></image>
+            <button class="g-button button" bindtap="handleSave">保存图片</button>
+            <text class="button-cancel" data-params="{{false}}" bindtap="handleShare">取消</text>
+        </view>
+    </view>
+
+    <button class="g-button button" bindtap="handleShare" data-params="{{true}}">一键分享</button>
 
 </view>
-
-<canvas class="canvas" canvas-id="myCanvas" style="width: 750px; height: 1334px;"/>
+<view class="canvas-wrap">
+    <canvas class="canvas" canvas-id="myCanvas" style="width: {{ width }}px; height: {{ height }}px;"/>
+</view>
