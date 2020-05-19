@@ -8,6 +8,7 @@ import Mixin                        from 'utils/mixin.util'
 import Modal                        from 'plugins/modal.plugin'
 import Http                         from 'plugins/http.plugin'
 import UserMixin                    from 'mixins/user.mixin'
+import Loading                      from 'plugins/loading.plugin'
 import SystemMixin                  from 'mixins/system.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import Authorize                    from 'plugins/authorize.plugin'
@@ -117,50 +118,76 @@ Page(Mixin({
     },
     reqPosterData () {
         Http(Http.API.Req_GetPoster).then((res) => {
-            this.canvasStart();
+
         }).toast();
     },
     canvasStart () {
+        let that = this;
         let { user$, system$, width, height, numTimes } = this.data;
         let { nickName, avatarUrl } = user$;
         let { rpx } = system$;
-        this.getImageInfo({
-            src: 'http://szimg.mukewang.com/5b4bfb7000019d2e10800600-360-202.jpg',
-        }).then((res) => {
-            let { path } = res;
-            const ctx = wx.createCanvasContext('myCanvas');
+        let bgPath = '';
+        Loading.show();
+        return new Promise((resolve, reject) => {
+            that.getImageInfo({
+                src: 'https://www.sugarmini.com/static/images/v1/home-nor-bg.png',
+            }).then((res) => {
+                bgPath = res.path;
+                return that.getImageInfo({ src: avatarUrl });
+            }).then((res) => {
+                let avatarPath = res.path;
+                const ctx = wx.createCanvasContext('myCanvas');
 
-            ctx.drawImage(path, 0, 0, width, height); // 画背景
+                ctx.drawImage(bgPath, 0, 0, width, height); // 画背景
 
-            ctx.save(); // 保存的绘图上下文
-            ctx.beginPath(); // 开始创建一个路径
-            ctx.arc(90 * rpx, 930 * rpx, 50 * rpx, 0, 2 * Math.PI, false); //画一个圆形裁剪区域
-            ctx.clip(); // 裁剪
-            ctx.drawImage(avatarUrl, 40 * rpx, 880 * rpx, 100 * rpx, 100 * rpx); // 画头像
-            ctx.restore(); // 恢复之前保存的绘图上下文
+                ctx.save(); // 保存的绘图上下文
+                ctx.beginPath(); // 开始创建一个路径
+                ctx.arc(90 * rpx, 930 * rpx, 50 * rpx, 0, 2 * Math.PI, false); //画一个圆形裁剪区域
+                // ctx.stroke();
+                ctx.clip(); // 裁剪
+                ctx.drawImage(avatarPath, 40 * rpx, 880 * rpx, 100 * rpx, 100 * rpx); // 画头像
+                ctx.restore(); // 恢复之前保存的绘图上下文
 
-            ctx.save(); // 保存的绘图上下文
-            ctx.setFontSize(10); // 字体大小
-            ctx.setFillStyle('#fff'); // 设置填充色
-            ctx.textAlign = 'left';
-            ctx.fillText(nickName, 40 * rpx, 1010 * rpx);
-            ctx.setFontSize(12); // 字体大小
-            ctx.fillText(`已坚持测糖打卡第 ${numTimes} 次`, 40 * rpx, 1050 * rpx);
-            ctx.setFontSize(10); // 字体大小
-            ctx.fillText(`扫码来挑战我吧!解锁更多健康贴士!`, 40 * rpx, 1080 * rpx);
-            ctx.restore(); // 恢复之前保存的绘图上下文
+                ctx.save(); // 保存的绘图上下文
+                ctx.setFontSize(10); // 字体大小
+                ctx.setFillStyle('#fff'); // 设置填充色
+                ctx.textAlign = 'left';
+                ctx.fillText(nickName, 40 * rpx, 1010 * rpx);
+                ctx.setFontSize(12); // 字体大小
+                ctx.fillText(`已坚持测糖打卡第 ${numTimes} 次`, 40 * rpx, 1050 * rpx);
+                ctx.setFontSize(10); // 字体大小
+                ctx.fillText(`扫码来挑战我吧!解锁更多健康贴士!`, 40 * rpx, 1080 * rpx);
+                ctx.restore(); // 恢复之前保存的绘图上下文
 
-            ctx.draw();
+                ctx.draw();
 
-            setTimeout(() => {
-                this.canvasToTempFilePath('myCanvas').then((res) => {
-                    this.setData({ strImageTempPath: res.tempFilePath });
-                }).toast();
-            }, 300);
-        }).toast();
+                setTimeout(() => {
+                    that.canvasToTempFilePath('myCanvas').then((res) => {
+                        that.setData({
+                            strImageTempPath: res.tempFilePath
+                        });
+                        resolve();
+                    }).catch((err) => {
+                        reject(err);
+                    });
+                }, 300);
+            }).catch((err) => {
+                reject(err);
+            });
+        }).finally(() => {
+            Loading.hide();
+        });
+
     },
     handleShare (e) {
         let { params } = e.currentTarget.dataset;
+        // if (params && !this.data.strImageTempPath) {
+        if (params) {
+            this.canvasStart().then(() => {
+                this.setData({ isPopup: params });
+            }).toast();
+            return;
+        }
         this.setData({ isPopup: params });
     },
     getImageInfo ({src}) {
