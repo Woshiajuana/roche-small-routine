@@ -16,16 +16,16 @@ export default {
                 selectSrc: Source('20200117-s-2.png'),
 
                 explainSrc: Source('20200117-e-2.jpg'),
-                explainSrc1: Source('20200117-e-2-1.jpg?v=1'),
-                explainSrc2: Source('20200117-e-2-2.jpg?v=1'),
+                explainSrc1: Source(`20200117-e-2-1.jpg?v=${new Date().getTime()}`),
+                explainSrc2: Source(`20200117-e-2-2.jpg?v=${new Date().getTime()}`),
 
                 explainText: '罗氏®智航®Guide',
                 addBeforeSrc: Source(`20200117-a-b-2.jpg?v=${new Date().getTime()}`),
                 addAfterSrc: Source('20200117-a-b-2.jpg?v=1'),
 
                 syncSrc: Source('20200117-s-2.jpg'),
-                syncSrc1: Source('20200117-s-2-1.jpg?v=1'),
-                syncSrc2: Source('20200117-s-2-2.jpg?v=1'),
+                syncSrc1: Source(`20200117-s-2-1.jpg?v=${new Date().getTime()}`),
+                syncSrc2: Source(`20200117-s-2-2.jpg?v=${new Date().getTime()}`),
             },
             // {
             //     selectSrc: Source('20200117-s-3.png'),
