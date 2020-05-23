@@ -44,6 +44,9 @@ Page(Mixin({
         // 搜索蓝牙
         this.bleSearchRoche().then((e) => {
             blueTooth = e[0] || '';
+            if (blueTooth && this.data.params$.from === 'lottery_index' && blueTooth.name.indexOf('meter+') === -1) {
+                blueTooth = '';
+            }
             console.log('搜索蓝牙结果', e);
         }).catch(this.errorHandle.bind(this)).finally(() => {
             this.setData({ blueTooth });

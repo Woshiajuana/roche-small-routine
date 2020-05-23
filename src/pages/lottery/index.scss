@@ -110,32 +110,27 @@ page{
 .pop-inner{
     @extend %bsb;
     @extend %pr;
-    height: j(920);
+    height: j(820);
     width: j(668);
     background-color: #fff;
-    border-radius: j(5);
+    border-radius: j(12);
     padding: 0 j(60);
 }
 .pop-header{
     @extend %df;
     @extend %aic;
     @extend %jcc;
+    font-size: j(48);
+    color: #1b70c3;
     padding: j(40) 0 j(20);
-    image{
-        width: j(70);
-        height: j(70);
-        margin-right: j(20);
-    }
-    text{
-        font-size: j(48);
-        color: #28aeeb;
-    }
 }
 .pop-con{
-    height: j(620);
-    text{
-        font-size: j(26);
-        color: #6a6a6a;
+    height: j(520);
+    font-size: j(26);
+    color: #6a6a6a;
+    .strong{
+        @extend %fwb;
+        color: #1b70c3;
     }
 }
 .pop-button{
@@ -144,12 +139,12 @@ page{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    border-radius: j(34);
-    margin-left: -200rpx;
-    width: j(400);
-    height: j(68);
+    border-radius: j(40);
+    margin-left: -150rpx;
+    width: j(300);
+    height: j(80);
     bottom: j(45);
-    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    background: linear-gradient(to right, #5fa4dd , #1b70c3);
     text{
         color: #ffffff;
         font-size: j(30);

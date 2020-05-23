@@ -7,12 +7,14 @@ import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
 import UserMixin                    from 'mixins/user.mixin'
 import Http                         from 'plugins/http.plugin'
+
+
 Page(Mixin({
     mixins: [
         UserMixin,
     ],
     data: {
-        isPop: true,
+        isPop: false,
     },
     onLoad () {
         this.userGet();
@@ -30,5 +32,16 @@ Page(Mixin({
                 { index: 1, result: true, from: 'lottery_index' }
             );
         }).toast();
+    },
+    handlePopup (event) {
+        let { params } = event.currentTarget.dataset;
+        this.setData({ isPop: params });
+    },
+    onShareAppMessage () {
+        return {
+            title: '360° 稳糖管家',
+            path: '/pages/home/index',
+            imageUrl: '/assets/images/20200503-share-cover.jpg',
+        }
     },
 }));
