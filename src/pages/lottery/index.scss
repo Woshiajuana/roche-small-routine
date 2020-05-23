@@ -58,6 +58,9 @@ page{
 }
 .prompt-value{
     @extend %df1;
+    .strong{
+        color: #1b70c3;
+    }
 }
 .button-group{
     @extend %df;
@@ -88,4 +91,71 @@ page{
     padding: j(30) 0;
     color: #232323;
     font-size: j(14);
+}
+
+
+
+.pop-wrap{
+    z-index: 9;
+    @extend %pf;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    background-color: rgba(0,0,0,0.4);
+}
+.pop-inner{
+    @extend %bsb;
+    @extend %pr;
+    height: j(920);
+    width: j(668);
+    background-color: #fff;
+    border-radius: j(5);
+    padding: 0 j(60);
+}
+.pop-header{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    padding: j(40) 0 j(20);
+    image{
+        width: j(70);
+        height: j(70);
+        margin-right: j(20);
+    }
+    text{
+        font-size: j(48);
+        color: #28aeeb;
+    }
+}
+.pop-con{
+    height: j(620);
+    text{
+        font-size: j(26);
+        color: #6a6a6a;
+    }
+}
+.pop-button{
+    @extend %pa;
+    @extend %l50;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    border-radius: j(34);
+    margin-left: -200rpx;
+    width: j(400);
+    height: j(68);
+    bottom: j(45);
+    background: linear-gradient(to right, #39e2ee , #28aeeb);
+    text{
+        color: #ffffff;
+        font-size: j(30);
+    }
+}
+.input-placeholder{
+    color: #999;
+    font-size: j(32);
 }

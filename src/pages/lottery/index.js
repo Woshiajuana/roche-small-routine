@@ -11,6 +11,9 @@ Page(Mixin({
     mixins: [
         UserMixin,
     ],
+    data: {
+        isPop: true,
+    },
     onLoad () {
         this.userGet();
     },
