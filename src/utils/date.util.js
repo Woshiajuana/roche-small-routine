@@ -119,7 +119,7 @@ export default {
     },
 
     formatTime (time) {
-        time = time.replace(/[^0-9]/ig, '');
+        time = time.replace(/[^0-9-]/ig, '');
         return this.formatData('yyyy-MM-dd', new Date(+time))
     },
 
