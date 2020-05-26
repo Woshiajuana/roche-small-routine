@@ -7,9 +7,19 @@
           wx:for-item="item"
           wx:for-index="index"
           wx:key="index">
-        <view class="time">
-            <text>记录时间：</text>
-            <text class="color">{{item.TestDateShow}}</text>
+<!--        <view class="time">-->
+<!--            <text>记录时间：</text>-->
+<!--            <text class="color">{{item.TestDateShow}}</text>-->
+<!--        </view>-->
+        <view class="head">
+            <view class="head-item">
+                <text>记录时间：</text>
+                <text class="color">{{item.TestDateShow}}</text>
+            </view>
+            <view class="head-item">
+                <text>记录方式：</text>
+                <text class="color">{{item.BuleRecordId ? '蓝牙录入' : '手动录入'}}</text>
+            </view>
         </view>
         <view class="con">
             <view class="con-item">
