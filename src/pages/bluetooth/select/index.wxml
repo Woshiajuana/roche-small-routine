@@ -12,7 +12,7 @@
     <text
         class="link"
         data-url="record_index"
-        bindtap="handleJump"
+        bindtap="handleJumpRecord"
     >点击前往手动记录</text>
 </view>
 
