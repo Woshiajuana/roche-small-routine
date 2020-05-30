@@ -12,6 +12,8 @@ import RouterMixin                  from 'mixins/router.mixin'
 import BleMixin                     from 'mixins/ble.mixin'
 import Loading                      from 'plugins/loading.plugin'
 import DeviceMixin                  from 'mixins/device.mixin'
+import Store                        from 'plugins/store.plugin'
+
 const app = getApp();
 
 const arrSrc = [
@@ -108,6 +110,11 @@ Page(Mixin({
     handlePopupTap (e) {
         let { params } = e.currentTarget.dataset;
         if (params) {
+            let { blueTooth } = this.data;
+            if (blueTooth.name.indexOf('meter+') === -1) {
+                console.log('存储起来');
+                Store.set('$BLUE_TOOTH_DEVICE_ID_OLD', [blueTooth]);
+            }
             this.setData({ isComplete: true, isPopup: false });
         } else {
             this.handlePairRoche();

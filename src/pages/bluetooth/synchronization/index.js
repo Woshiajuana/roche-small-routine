@@ -5,6 +5,7 @@ import './index.wxml'
 
 import Mixin                        from 'utils/mixin.util'
 import RouterMixin                  from 'mixins/router.mixin'
+import SyncMixin                    from 'mixins/sync-data.mixin'
 import DeviceMixin                  from 'mixins/device.mixin'
 import BleMixin                     from 'mixins/ble.mixin'
 import Modal                        from 'plugins/modal.plugin'
@@ -36,6 +37,7 @@ Page(Mixin({
     },
     mixins: [
         BleMixin,
+        SyncMixin,
         DeviceMixin,
         RouterMixin,
     ],
@@ -61,6 +63,9 @@ Page(Mixin({
         }
     },
     handleSync () {
+        if (this.data.params$.index === 0) {
+            return this.handleSyncOld();
+        }
         Loading.showLoading({title: '正在同步数据...'});
         Authorize(Authorize.SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
             let { params$ } = this.data;
@@ -215,6 +220,7 @@ Page(Mixin({
             });
             return Store.set($BLUE_TOOTH_DATA, data);
         }).then(() => {
+            Loading.hideLoading();
             Modal.toast('页面数据传输成功');
             this.setData({ isPop: true });
             setTimeout(() => {
@@ -225,12 +231,13 @@ Page(Mixin({
                 // this.initData && this.initData();
             }, 1000);
         }).catch((err) => {
+            Loading.hideLoading();
             Modal.toast(err);
         }).finally(() => {
             this.setData({
-                infoList: [],
-                contextList: [],
+                infoList: '',
+                contextList: '',
             });
         });
-    }
+    },
 }));
