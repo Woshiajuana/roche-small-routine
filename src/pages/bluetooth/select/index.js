@@ -75,6 +75,10 @@ Page(Mixin({
         Router.push(params$.to, { index: 1, result: params });
     },
     // 跳转
+    handleJumpRecord (e) {
+        Router.push('record_index');
+    },
+    // 跳转
     handleJump () {
         let { params$, numIndex } = this.data;
         if (params$.to === 'bluetooth_synchronization_index' && numIndex === 2) {

@@ -12,7 +12,7 @@
     <text
         class="link"
         data-url="record_index"
-        bindtap="handleJump"
+        bindtap="handleJumpRecord"
     >点击前往手动记录</text>
 </view>
 
@@ -23,7 +23,7 @@
             <text>首次配对移动设备吗？</text>
         </view>
         <view class="popup-button-group">
-            <view class="popup-button" bindtap="handleTap" data-params="{{false}}"><text>否</text></view>
+            <view class="popup-button popup-border" bindtap="handleTap" data-params="{{false}}"><text>否</text></view>
             <view class="popup-button" bindtap="handleTap" data-params="{{true}}"><text>是</text></view>
         </view>
     </view>
@@ -37,9 +37,14 @@
             <text>多台移动设备吗？</text>
         </view>
         <view class="popup-button-group">
-            <view class="popup-button" bindtap="handleTap" data-params="{{false}}"><text>否,只配对过一台</text></view>
-            <view class="popup-bar"></view>
-            <view class="popup-button" bindtap="handleTap" data-params="{{true}}"><text>是,配对过多台</text></view>
+            <view class="popup-button popup-border" bindtap="handleTap" data-params="{{true}}">
+                <text>是</text>
+                <text>配对过多台</text>
+            </view>
+            <view class="popup-button" bindtap="handleTap" data-params="{{false}}">
+                <text>否</text>
+                <text>只配对过一台</text>
+            </view>
         </view>
     </view>
 </view>

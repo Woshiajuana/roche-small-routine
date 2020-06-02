@@ -1,7 +1,11 @@
 <view class="flex-wrap">
     <view class="header">
         <image src="{{src$.icon}}"></image>
-        <text>{{blueTooth ? '已发现1个设备，点击绑定' : '寻找设备中，请耐心等待...'}}</text>
+        <view wx:if="{{blueTooth}}">
+            <text>已发现1个设备，点击</text>
+            <text class="storing">绑定按钮</text>
+        </view>
+        <text wx:else>寻找设备中，请耐心等待...</text>
     </view>
     <view class="inner">
         <view class="before" hidden="{{blueTooth !== '' && blueTooth !== null}}">
@@ -11,8 +15,9 @@
         </view>
         <view class="after" hidden="{{blueTooth === null || blueTooth === ''}}">
             <image src="{{device$[params$.index].addBeforeSrc}}"></image>
-            <text>{{blueTooth.name || blueTooth.localName}}</text>
-            <text class="no-text">{{blueTooth.deviceId}}</text>
+            <text>{{device$[params$.index].explainText}}</text>
+<!--            <text class="no-text">{{blueTooth.deviceId}}</text>-->
+            <image class="tip-icon" src="../../../assets/images/tip-icon.jpg"></image>
         </view>
         <view class="form-button"
               hidden="{{blueTooth === null || blueTooth === ''}}"
@@ -21,37 +26,6 @@
             <text class="form-button-text">绑定</text>
         </view>
     </view>
-<!--    <view class="inner" style="display: none">-->
-<!--        <view class="before" hidden="{{blueTooth !== '' && blueTooth !== null}}">-->
-<!--            <image src="{{src$.nIcon}}"></image>-->
-<!--            <text>请确保待绑定设备在手机旁边</text>-->
-<!--            <text>并且已经开机</text>-->
-<!--        </view>-->
-<!--        <view class="after" hidden="{{blueTooth === null || blueTooth === ''}}">-->
-<!--            <view class="device-item"-->
-<!--                  wx:for="{{blueTooth}}"-->
-<!--                  wx:for-item="item"-->
-<!--                  wx:key="item">-->
-<!--                <image mode="widthFix" class="device-icon" src="{{src$.result}}"></image>-->
-<!--                <view class="device-item-con">-->
-<!--                    <text>{{item.name}}</text>-->
-<!--                    <text class="no-text">{{item.deviceId}}</text>-->
-<!--                </view>-->
-<!--                <view-->
-<!--                    class="device-button"-->
-<!--                    bindtap="handlePairRoche"-->
-<!--                    data-device-id="{{item.deviceId}}">-->
-<!--                    <text>连接</text>-->
-<!--                </view>-->
-<!--            </view>-->
-<!--        </view>-->
-<!--        <view class="form-button"-->
-<!--              hidden="{{blueTooth === null || blueTooth === ''}}"-->
-<!--              data-value="{{true}}"-->
-<!--              bindtap="searchRoche">-->
-<!--            <text class="form-button-text">重新搜索</text>-->
-<!--        </view>-->
-<!--    </view>-->
     <view hidden="{{blueTooth}}">
         <view class="tel">
             <text>如有问题，您可以拨打罗氏客户关爱热线</text>
@@ -72,3 +46,30 @@
     <import src="../../../templates/bluetooth-explain/index.wxml"/>
     <template is="bluetoothExplain"></template>
 </view>
+
+
+<view class="popup" wx:if="{{isPopup}}">
+    <view class="popup-inner">
+        <view class="popup-content">
+            <text class="popup-title">温馨提示</text>
+            <text class="popup-color1">是否配对成功?</text>
+        </view>
+        <view class="popup-button-group">
+            <view class="popup-button popup-border" bindtap="handlePopupTap" data-params="{{false}}"><text>取消</text></view>
+            <view class="popup-button" bindtap="handlePopupTap" data-params="{{true}}"><text>确认</text></view>
+        </view>
+    </view>
+</view>
+
+<view class="popup" wx:if="{{isComplete}}">
+    <view class="popup-inner">
+        <view class="popup-content">
+            <text>配对成功后，该血糖仪与该移动设</text>
+            <view><text>备将会保持配对状态，</text><text class="color-1">请勿重复配对</text></view>
+        </view>
+        <view class="popup-button-group">
+            <view class="popup-button" bindtap="handleComplete"><text>我知道了</text></view>
+        </view>
+    </view>
+</view>
+

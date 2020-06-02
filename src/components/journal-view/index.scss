@@ -17,9 +17,10 @@
     @extend %bsb;
     @extend %df;
     @extend %aic;
-    @extend %jcc;
+    @extend %jcs;
+    padding: 0 j(20);
     height: j(98);
-    font-size: j(36);
+    font-size: j(28);
     color: #2d2d2d;
     border-top: j(1) solid #ddd;
     border-bottom: j(1) solid #ddd;
@@ -27,6 +28,11 @@
         color: #28aeeb;
     }
 }
+.head-item{
+    @extend %df;
+    @extend %aic;
+}
+
 .con{
     @extend %df;
     @extend %w100;

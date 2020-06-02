@@ -21,19 +21,20 @@ const EVENT_FUN = {};
 
 export default {
     data: {
-        infoList: [],
-        contextList: [],
+        infoListOld: [],
+        contextListOld: [],
         result: [],
         tapType: false,
+        deviceId: '',
     },
     // 同步血糖
-    handleSync () {
+    handleSyncOld () {
         if (this.data.tapType) return;
         this.setData({tapType: true});
         Authorize(Authorize.SCOPE.userLocation, '同步数据需要地理位置授权').then(() => {
-            return Store.get($BLUE_TOOTH_DEVICE_ID_LIST);
+            return Store.get('$BLUE_TOOTH_DEVICE_ID_OLD');
         }).then(() => {
-            this.syncData();
+            this.syncDataOld();
         }).catch((err) => {
             this.setData({tapType: false});
             let { errCode } = err;
@@ -42,11 +43,12 @@ export default {
         });
     },
     // 同步数据
-    syncData () {
-        Loading.showLoading();
-        Store.get($BLUE_TOOTH_DEVICE_ID_LIST).then((res) => {
+    syncDataOld () {
+        Loading.showLoading({title: '正在同步数据...'});
+        Store.get('$BLUE_TOOTH_DEVICE_ID_OLD').then((res) => {
             let blueTooth = res[0];
             if(!blueTooth) return Modal.toast('您还未配对过设备，请先去配对设备');
+            this.setData({deviceId: blueTooth.deviceId});
             return SDK.syncData(blueTooth.deviceId)
         }).then((res) => {
             Loading.showLoading();
@@ -102,14 +104,14 @@ export default {
         console.log('成功结束', e);
         Loading.hideLoading();
         this.destroyEvent();
-        this.processingData();
-        this.setTestSugarList();
+        this.processingDataOld();
+        this.setTestSugarListOld();
     },
     // 处理数据
-    processingData() {
-        let { infoList, contextList } = this.data;
-        infoList.forEach((info) => {
-            contextList.forEach((context) => {
+    processingDataOld() {
+        let { infoListOld, contextListOld, deviceId } = this.data;
+        infoListOld.forEach((info) => {
+            contextListOld.forEach((context) => {
                 if (info.seqNum === context.seqNum) {
                     info.mealPoint = context.mealPoint;
                     info.flag = context.flag;
@@ -117,7 +119,7 @@ export default {
             })
         });
         let result = [];
-        infoList.forEach((info) => {
+        infoListOld.forEach((info) => {
             let { date,
                 mealPoint,
             } = info;
@@ -151,7 +153,7 @@ export default {
                     break;
             }
             result.push({
-                BuleRecordId: info.seqNum,
+                BuleRecordId: `${ deviceId }_${ info.seqNum }`,
                 Bloodsugar: +info.data.toFixed(1),
                 TimeStep: index + 1,
                 TestDate: formatData('yyyy-MM-dd', new Date(date)),
@@ -163,7 +165,9 @@ export default {
         this.setData({result});
     },
     // 处理数据
-    setTestSugarList() {
+    setTestSugarListOld() {
+        Loading.hideLoading();
+        Loading.showLoading({title: '正在上传数据...'});
         let data = this.data.result;
         Auth.getToken().then((res) => {
             let { OpenId } = res;
@@ -173,6 +177,7 @@ export default {
             return Http(Http.API.Do_setTestSugarList, data, {
                 useOpenId: false,
                 useAuth: false,
+                loading: false,
             });
         }).then((res) => {
             let data = res || [];
@@ -188,16 +193,19 @@ export default {
             });
             return Store.set($BLUE_TOOTH_DATA, data);
         }).then(() => {
+            Loading.hideLoading();
             Modal.toast('页面数据传输成功');
-            if (this.data.params$ && this.data.params$.from === 'bluetooth_add_index') return Router.pop(3);
-            if (this.data.params$ && this.data.params$.from === 'bluetooth_index') return Router.pop();
-            this.initData && this.initData();
+            this.setData({ isPop: true });
+            setTimeout(() => {
+                return Router.push('bluetooth_transfer_index');
+            }, 1000);
         }).catch((err) => {
+            Loading.hideLoading();
             Modal.toast(err);
         }).finally(() => {
             this.setData({
-                infoList: [],
-                contextList: [],
+                infoListOld: [],
+                contextListOld: [],
             })
         });
     },
@@ -208,17 +216,17 @@ export default {
     // 详情事件
     onInfoHandle (e) {
         Loading.showLoading();
-        let infoList = this.data.infoList;
-        infoList.push(e);
-        this.setData({infoList});
+        let infoListOld = this.data.infoListOld;
+        infoListOld.push(e);
+        this.setData({infoListOld});
         console.log('详情事件', e);
     },
     // 附加信息事件
     onContextHandle (e) {
         Loading.showLoading();
-        let contextList = this.data.contextList;
-        contextList.push(e);
-        this.setData({contextList});
+        let contextListOld = this.data.contextListOld;
+        contextListOld.push(e);
+        this.setData({contextListOld});
         console.log('附加信息事件', e);
     },
     onUnload () {

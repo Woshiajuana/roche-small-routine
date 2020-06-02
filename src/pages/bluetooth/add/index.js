@@ -13,6 +13,7 @@ import BleMixin                     from 'mixins/ble.mixin'
 import Loading                      from 'plugins/loading.plugin'
 import DeviceMixin                  from 'mixins/device.mixin'
 import Http                         from 'plugins/http.plugin'
+import Store                        from 'plugins/store.plugin'
 const app = getApp();
 
 const arrSrc = [
@@ -32,6 +33,8 @@ Page(Mixin({
     data: {
         blueTooth: '',
         isPop: false,
+        isPopup: false, // 弹窗
+        isComplete: false, // 弹窗
     },
     onLoad (options) {
         this.routerGetParams(options);
@@ -93,28 +96,7 @@ Page(Mixin({
                 console.log('取特征值失败', err);
             });
             setTimeout(() => {
-                Modal.confirm({
-                    content: '是否已配对成功？',
-                    cancelText: '否',
-                    confirmText: '是',
-                }).then((result) => {
-                    let { cancel, confirm } = result;
-                    if (confirm) {
-                        let { from } = params$;
-                        if (from === 'lottery_index' && name.indexOf('meter+') > -1) {
-                            Http(Http.API.Do_BindActivityUser, {
-                                MachineCode: name,
-                                MachineId: deviceId,
-                                BindRemark: JSON.stringify(blueTooth),
-                            }).null().finally(() => {
-                                Router.push('bluetooth_synchronization_index', { ...this.data.params$, preFrom: 'lottery_index', from: 'bluetooth_add_index', deviceId, serviceId: res, });
-                            });
-                        } else {
-                            Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', deviceId, serviceId: res, ...this.data.params$ });
-                        }
-                    }
-                    cancel && this.handlePairRoche();
-                });
+                this.setData({ isPopup: true });
             }, 10000);
         }).catch((err) => {
             Modal.confirm({
@@ -129,4 +111,33 @@ Page(Mixin({
     onUnload () {
         wx.closeBluetoothAdapter();
     },
+    handlePopupTap (e) {
+        let { params } = e.currentTarget.dataset;
+        if (params) {
+            let { blueTooth, params$ } = this.data;
+            if (blueTooth.name.indexOf('meter+') === -1) {
+                console.log('存储起来');
+                Store.set('$BLUE_TOOTH_DEVICE_ID_OLD', [blueTooth]);
+            }
+            let { from } = params$;
+            if (from === 'lottery_index' && name.indexOf('meter+') > -1) {
+                Http(Http.API.Do_BindActivityUser, {
+                    MachineCode: name,
+                    MachineId: blueTooth.deviceId,
+                    BindRemark: JSON.stringify(blueTooth),
+                }).null().finally(() => {
+                    this.setData({ isComplete: true, isPopup: false });
+                });
+                return;
+            }
+            this.setData({ isComplete: true, isPopup: false });
+        } else {
+            this.handlePairRoche();
+            this.setData({ isPopup: false });
+        }
+    },
+    handleComplete () {
+        this.setData({ isComplete: false });
+        Router.push('bluetooth_synchronization_index', { from: 'bluetooth_add_index', ...this.data.params$ });
+    }
 }));
