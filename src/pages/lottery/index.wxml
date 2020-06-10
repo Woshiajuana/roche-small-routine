@@ -5,28 +5,28 @@
 
     <view class="null-box"></view>
 
-    <view class="time">
-        <text>活动时间：2020年6月1日起至9月13日</text>
-    </view>
+<!--    <view class="time">-->
+<!--        <text>活动时间：2020年6月1日起至9月13日</text>-->
+<!--    </view>-->
 
     <view class="flex1"></view>
 
-    <view class="prompt">
-        <view class="prompt-cell">
-            <text class="prompt-label">一重礼：</text>
-            <view class="prompt-value">
-                <text>完成“周打卡任务”，即可</text>
-                <text class="strong">领取微信现金红包</text>
-            </view>
-        </view>
-        <view class="prompt-cell">
-            <text class="prompt-label">二重礼：</text>
-            <view class="prompt-value">
-                <text>完成4次“月打卡任务”，即可</text>
-                <text class="strong">免费领取血糖试纸</text>
-            </view>
-        </view>
-    </view>
+<!--    <view class="prompt">-->
+<!--        <view class="prompt-cell">-->
+<!--            <text class="prompt-label">一重礼：</text>-->
+<!--            <view class="prompt-value">-->
+<!--                <text>完成“周打卡任务”，即可</text>-->
+<!--                <text class="strong">领取微信现金红包</text>-->
+<!--            </view>-->
+<!--        </view>-->
+<!--        <view class="prompt-cell">-->
+<!--            <text class="prompt-label">二重礼：</text>-->
+<!--            <view class="prompt-value">-->
+<!--                <text>完成4次“月打卡任务”，即可</text>-->
+<!--                <text class="strong">免费领取血糖试纸</text>-->
+<!--            </view>-->
+<!--        </view>-->
+<!--    </view>-->
 
     <view class="button-group">
         <button class="g-button button" bindtap="handleJumpRecord">打卡记录</button>

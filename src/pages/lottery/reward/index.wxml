@@ -7,7 +7,10 @@
         <view class="cell-content">
             <text class="cell-label">{{item.BeginDateStr}}</text>
             <text class="cell-value" wx:if="{{item.RewardType === 1}}">微信红包</text>
-            <text class="cell-value" wx:elif="{{item.RewardType === 2}}">月度达标 免费试纸凭手机号{{item.Mobile || ''}}</text>
+            <block wx:elif="{{item.RewardType === 2}}">
+                <text class="cell-value">测糖16周打卡已完成，领取免费试纸</text>
+                <text class="cell-value">凭手机号{{item.Mobile || ''}}前往门店领取</text>
+            </block>
         </view>
         <view bindtap="handleReward" data-item="{{item}}" wx:if="{{item.RewardOrigin === 1}}" class="cell-button {{item.IsReceive && 'disabled'}}">
             <text>{{item.IsReceive ? '已领取' : '未领取'}}</text>

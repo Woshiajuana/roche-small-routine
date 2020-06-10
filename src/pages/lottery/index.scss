@@ -2,14 +2,14 @@
 
 page{
     @extend %h100;
-    background-color: #79B7DE;
+    background-color: #0075C2;
 }
 .wrap{
     @extend %df;
     @extend %pr;
     @extend %fdc;
     @extend %aic;
-    @extend %h100;
+    //@extend %h100;
 }
 .bg{
     @extend %w100;
@@ -66,7 +66,7 @@ page{
     @extend %df;
     @extend %aic;
     @extend %jcs;
-    margin-top: j(50);
+    margin-top: j(800);
     width: j(630);
     .button{
         background: linear-gradient(to right, #5fa4dd , #1b70c3);
@@ -81,15 +81,15 @@ page{
 }
 .link-button{
     @extend %cp;
-    @extend %c3;
+    @extend %cfff;
     margin-top: j(30);
     font-size: j(20);
     line-height: 2;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #fff;
 }
 .tip{
     padding: j(30) 0;
-    color: #232323;
+    color: #fff;
     font-size: j(14);
 }
 

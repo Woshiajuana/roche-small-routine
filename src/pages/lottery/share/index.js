@@ -129,12 +129,12 @@ Page(Mixin({
         let bgPath = '';
         Loading.show();
         return new Promise((resolve, reject) => {
-            that.getImageInfo({
-                src: 'https://www.sugarmini.com/static/images/v1/home-nor-bg.png',
-            }).then((res) => {
-                bgPath = res.path;
-                return that.getImageInfo({ src: avatarUrl });
-            }).then((res) => {
+            // that.getImageInfo({
+            //     src: 'https://www.sugarmini.com/static/images/v1/home-nor-bg.png',
+            // }).then((res) => {
+                // bgPath = res.path;
+            bgPath = '/assets/images/20200519-share-bg.jpg';
+            that.getImageInfo({ src: avatarUrl }).then((res) => {
                 let avatarPath = res.path;
                 const ctx = wx.createCanvasContext('myCanvas');
 
@@ -142,21 +142,21 @@ Page(Mixin({
 
                 ctx.save(); // 保存的绘图上下文
                 ctx.beginPath(); // 开始创建一个路径
-                ctx.arc(90 * rpx, 930 * rpx, 50 * rpx, 0, 2 * Math.PI, false); //画一个圆形裁剪区域
+                ctx.arc(100 * rpx, 110 * rpx, 60 * rpx, 0, 2 * Math.PI, false); //画一个圆形裁剪区域
                 // ctx.stroke();
                 ctx.clip(); // 裁剪
-                ctx.drawImage(avatarPath, 40 * rpx, 880 * rpx, 100 * rpx, 100 * rpx); // 画头像
+                ctx.drawImage(avatarPath, 40 * rpx, 50 * rpx, 120 * rpx, 120 * rpx); // 画头像
                 ctx.restore(); // 恢复之前保存的绘图上下文
 
                 ctx.save(); // 保存的绘图上下文
                 ctx.setFontSize(10); // 字体大小
-                ctx.setFillStyle('#fff'); // 设置填充色
+                ctx.setFillStyle('#333'); // 设置填充色
                 ctx.textAlign = 'left';
-                ctx.fillText(nickName, 40 * rpx, 1010 * rpx);
-                ctx.setFontSize(12); // 字体大小
-                ctx.fillText(`已坚持测糖打卡第 ${numTimes} 次`, 40 * rpx, 1050 * rpx);
+                ctx.fillText(nickName, 190 * rpx, 110 * rpx);
+                ctx.setFontSize(16); // 字体大小
+                ctx.fillText(`本周已测糖 ${numTimes} 次`, 40 * rpx, 220 * rpx);
                 ctx.setFontSize(10); // 字体大小
-                ctx.fillText(`扫码来挑战我吧!解锁更多健康贴士!`, 40 * rpx, 1080 * rpx);
+                ctx.fillText(`扫码来挑战我吧!解锁更多健康贴士!`, 40 * rpx, 260 * rpx);
                 ctx.restore(); // 恢复之前保存的绘图上下文
 
                 ctx.draw();
