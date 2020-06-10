@@ -2,7 +2,7 @@
 
 page{
     @extend %h100;
-    background-color: #8abfe3;
+    background-color: #0075C2;
 }
 .wrap{
     @extend %df;
@@ -20,7 +20,7 @@ page{
     z-index: -1;
 }
 .null-box{
-    height: j(220);
+    height: j(240);
 }
 .prompt{
     @extend %cfff;
@@ -37,5 +37,6 @@ page{
 .button{
     width: j(360);
     margin-bottom: j(160);
+    box-shadow: 0 j(10) j(10) j(10) rgba(0,0,0,.1);
     background: linear-gradient(to right, #5fa4dd , #1b70c3);
 }

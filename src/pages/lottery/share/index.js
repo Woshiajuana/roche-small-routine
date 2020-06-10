@@ -40,7 +40,8 @@ Page(Mixin({
 
     },
     onReady () {
-        this.reqPosterData();
+        // this.reqPosterData();
+        this.canvasStart();
     },
     initCanvas () {
         let { rpx } = this.data.system$;
@@ -154,15 +155,28 @@ Page(Mixin({
                 ctx.textAlign = 'left';
                 ctx.fillText(nickName, 190 * rpx, 110 * rpx);
                 ctx.setFontSize(16); // 字体大小
-                ctx.fillText(`本周已测糖 ${numTimes} 次`, 40 * rpx, 220 * rpx);
+                ctx.fillText(`本周已测糖`, 40 * rpx, 220 * rpx);
+                ctx.setFillStyle('#0075C2'); // 设置填充色
+                ctx.fillText(`${numTimes}`, 240 * rpx, 220 * rpx);
+                ctx.setFillStyle('#333'); // 设置填充色
+                ctx.fillText(`次`, 270 * rpx, 220 * rpx);
                 ctx.setFontSize(10); // 字体大小
-                ctx.fillText(`扫码来挑战我吧!解锁更多健康贴士!`, 40 * rpx, 260 * rpx);
+                if (numTimes < 6) {
+                    ctx.fillText(`再测`, 40 * rpx, 260 * rpx);
+                    ctx.setFillStyle('#0075C2'); // 设置填充色
+                    ctx.fillText(`${6-numTimes}`, 100 * rpx, 260 * rpx);
+                    ctx.setFillStyle('#333'); // 设置填充色
+                    ctx.fillText(`次就能领取红包啦`, 130 * rpx, 260 * rpx);
+                } else {
+                    ctx.fillText(`周打卡任务已完成!`, 40 * rpx, 260 * rpx);
+                }
                 ctx.restore(); // 恢复之前保存的绘图上下文
 
                 ctx.draw();
 
                 setTimeout(() => {
                     that.canvasToTempFilePath('myCanvas').then((res) => {
+                        console.log(that.data.strImageTempPath)
                         that.setData({
                             strImageTempPath: res.tempFilePath
                         });
@@ -218,6 +232,7 @@ Page(Mixin({
     }),
     // 分享图片
     onShareAppMessage () {
+        console.log(this.data.strImageTempPath)
         return {
             title: '分享',
             path: 'pages/home/index?scene=1', // 点击分享消息是打开的页面

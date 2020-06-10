@@ -69,6 +69,7 @@ page{
     margin-top: j(800);
     width: j(630);
     .button{
+        box-shadow: 0 j(10) j(10) j(10) rgba(0,0,0,.1);
         background: linear-gradient(to right, #5fa4dd , #1b70c3);
         margin: 0;
         width: j(280);
