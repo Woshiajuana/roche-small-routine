@@ -1,0 +1,15 @@
+@import '../../../assets/scss/define';
+
+.input {
+    @extend %w100;
+    @extend %bsb;
+    @extend %df;
+    padding: 0 j(30);
+    height: j(100);
+    margin: j(30) auto;
+    border-bottom: j(1) solid #ddd;
+}
+
+.button{
+    margin: j(20) 0;
+}

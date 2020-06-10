@@ -120,9 +120,9 @@ Page(Mixin({
                 Store.set('$BLUE_TOOTH_DEVICE_ID_OLD', [blueTooth]);
             }
             let { from } = params$;
-            if (from === 'lottery_index' && name.indexOf('meter+') > -1) {
+            if (from === 'lottery_index' && blueTooth.name.indexOf('meter+') > -1) {
                 Http(Http.API.Do_BindActivityUser, {
-                    MachineCode: name,
+                    MachineCode: blueTooth.name,
                     MachineId: blueTooth.deviceId,
                     BindRemark: JSON.stringify(blueTooth),
                 }).null().finally(() => {

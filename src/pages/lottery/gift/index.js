@@ -15,13 +15,20 @@ Page(Mixin({
         UserMixin,
         RouterMixin,
     ],
+    data: {
+        Id: ''
+    },
     onLoad (options) {
+        console.log('options => ', options);
         this.routerGetParams(options);
+        if (options.Id) {
+            this.setData({ Id: options.Id });
+        }
         this.userGet();
     },
     handleReward () {
         Http(Http.API.Do_ReceiveRedPackage, {
-            Data: this.data.params$.Id
+            Data: this.data.params$.Id || this.data.Id,
         }).then((res) => {
             Modal.confirm({
                 content: '领取成功，请查看微信哦...',

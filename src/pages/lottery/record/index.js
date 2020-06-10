@@ -129,7 +129,7 @@ Page(Mixin({
     },
     reqDataList () {
         let { PageIndex, PageSize, arrData, sTime: Stime, eTime: Etime } = this.data;
-        return Http(Http.API.Req_journalList, {
+        return Http(Http.API.Req_GetTestRecord, {
             PageIndex,
             PageSize,
             Stime,

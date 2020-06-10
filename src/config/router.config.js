@@ -18,6 +18,7 @@ module.exports = {
     "lottery_roster_index": "/pages/lottery/roster/index",
     "lottery_share_index": "/pages/lottery/share/index",
     "lottery_store_index": "/pages/lottery/store/index",
+    "lottery_test_index": "/pages/lottery/test/index",
     "mine_index": "/pages/mine/index",
     "mine_info_index": "/pages/mine/info/index",
     "mine_introduce_index": "/pages/mine/introduce/index",

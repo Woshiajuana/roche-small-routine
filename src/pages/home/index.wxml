@@ -152,4 +152,7 @@
         </view>
     </view>
 
+
+    <button style="margin: 30px 0" bindtap="handMock" >模拟数据</button>
+
 </view>

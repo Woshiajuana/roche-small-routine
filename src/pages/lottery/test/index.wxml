@@ -1,0 +1,26 @@
+
+<input bindinput="handleInput"
+       data-key="BuleRecordId"
+       type="text"
+       class="input"
+       placeholder="输入设备 id"
+/>
+
+<button class="button" bindtap="handleBind">绑定设备</button>
+
+<input bindinput="handleInput"
+       data-key="numSize"
+       type="number"
+       class="input"
+       placeholder="输入传输数据的个数"
+/>
+
+<picker
+    bindchange="handleInput"
+    data-key="TestDate"
+    mode="date">
+    <view  class="input"><text>{{TestDate || '请选择时间'}}</text></view>
+</picker>
+
+
+<button class="button" bindtap="handleSync">同步数据</button>

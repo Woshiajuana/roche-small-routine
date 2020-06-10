@@ -156,5 +156,8 @@ Page(Mixin({
     },
     handlePopClose () {
         this.setData({isPopup: false});
+    },
+    handMock () {
+        Router.push('lottery_test_index');
     }
 }));

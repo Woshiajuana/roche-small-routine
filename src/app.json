@@ -19,6 +19,7 @@
         "pages/lottery/roster/index",
         "pages/lottery/share/index",
         "pages/lottery/store/index",
+        "pages/lottery/test/index",
         "pages/mine/index",
         "pages/mine/info/index",
         "pages/mine/introduce/index",
