@@ -142,6 +142,21 @@ Page(Mixin({
         // 打卡
         if (url === 'clock_index')
             return this.reqCurSignIn();
+        // 打卡活动
+        if (url === 'lottery_index') {
+            Http(Http.API.Req_GetActivitySwitch).then((res) => {
+                if (res) {
+                    Router.push(url);
+                } else {
+                    Modal.confirm({
+                        content: `活动即将推出，敬请期待`,
+                        confirmText: '我知道了',
+                        showCancel: false,
+                    }).then().null();
+                }
+            }).toast();
+            return;
+        }
         !params && (params = {});
         Router.push(url, params);
     },

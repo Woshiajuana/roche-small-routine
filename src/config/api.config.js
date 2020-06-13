@@ -98,6 +98,8 @@ export default {
     // 2.8	绑定Guide完善信息
     Do_SetActivityUser: 'ActivityRocheApi/SetActivityUser',
     // 获取海报
-    Req_GetPoster: 'ActivityRocheApi/GetPoster'
+    Req_GetPoster: 'ActivityRocheApi/GetPoster',
+    // 活动是否开始
+    Req_GetActivitySwitch: 'ActivityRocheApi/GetActivitySwitch',
 
 }

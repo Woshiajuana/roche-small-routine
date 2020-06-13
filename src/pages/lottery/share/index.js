@@ -24,7 +24,7 @@ Page(Mixin({
         curTime: '',
         isCurWeek: true,
         numTimes: 0,
-        arrText: [ '第一次', '第二次', '第三次', '第四次', '第五次', '点击领取' ],
+        arrText: [ '第一次', '第二次', '第三次', '第四次', '第五次', '等待发放' ],
 
         strImageTempPath: '',
 
