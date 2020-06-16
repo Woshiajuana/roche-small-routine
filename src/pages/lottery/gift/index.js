@@ -21,8 +21,12 @@ Page(Mixin({
     onLoad (options) {
         console.log('options => ', options);
         this.routerGetParams(options);
+        let { params$ = {} } = this.data;
         if (options.Id) {
-            this.setData({ Id: options.Id });
+            params$.Id = options.Id;
+            params$.BeginDateStr = options.start || '';
+            params$.EndDateStr = options.end || '';
+            this.setData({ Id: options.Id, params$ });
         }
         this.userGet();
     },
