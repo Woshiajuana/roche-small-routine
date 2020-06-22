@@ -116,6 +116,10 @@ page{
     background-color: #fff;
     border-radius: j(12);
     padding: 0 j(60);
+    &.pop-time-inner{
+        height: auto;
+        padding-bottom: j(160);
+    }
 }
 .pop-header{
     @extend %df;
@@ -133,6 +137,15 @@ page{
         @extend %db;
         @extend %fwb;
         color: #1b70c3;
+    }
+    &.pop-center-con{
+        @extend %tac;
+        @extend %df;
+        @extend %fdc;
+        height: auto;
+    }
+    .color-9{
+        @extend %c9;
     }
 }
 .pop-button{

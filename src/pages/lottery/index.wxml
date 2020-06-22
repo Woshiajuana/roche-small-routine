@@ -77,6 +77,23 @@
         </view>
     </view>
 
+    <view class="pop-wrap" wx:if="{{isTimePop}}">
+        <view class="pop-inner pop-time-inner">
+            <view class="pop-header">
+                <text>打卡活动尚未开始</text>
+            </view>
+            <view class="pop-con pop-center-con">
+                <text>活动开放时间2020年7月1日至</text>
+                <text>2021年4月30日</text>
+                <text class="color-9">*打卡记录从2020年7月1日开始有效</text>
+            </view>
+            <view class="pop-button"
+                  bindtap="handleTimeClosePopup">
+                <text>返回</text>
+            </view>
+        </view>
+    </view>
+
     <image style="display: none" src="../../assets/images/20200503-share-cover.jpg"></image>
 
 </view>
