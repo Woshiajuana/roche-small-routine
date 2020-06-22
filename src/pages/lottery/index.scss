@@ -130,6 +130,7 @@ page{
     font-size: j(26);
     color: #6a6a6a;
     .strong{
+        @extend %db;
         @extend %fwb;
         color: #1b70c3;
     }
