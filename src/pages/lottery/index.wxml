@@ -89,7 +89,7 @@
             </view>
             <view class="pop-button"
                   bindtap="handleTimeClosePopup">
-                <text>返回</text>
+                <text>确认</text>
             </view>
         </view>
     </view>
