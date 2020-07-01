@@ -28,14 +28,13 @@
         <view class="progress-tip">
             <image class="progress-tip-icon" mode="widthFix" src="../../../assets/images/20200503-l-s-4.jpg"></image>
             <block wx:if="{{numTimes < 6}}">
-                <text>再坚持</text>
+                <text>再测</text>
                 <text class="color-1">{{6 - numTimes}}</text>
-                <text>次就可以领取红包了</text>
+                <text>次就能在下周领取红包啦</text>
             </block>
-            <text wx:else>恭喜您，可以领取红包了</text>
+            <text wx:else>恭喜您，下周可以领取红包了</text>
         </view>
     </view>
-
     <view class="share">
         <image class="share-bg" mode="aspectFill" src="../../../assets/images/20200519-share-bg.jpg"></image>
         <image class="share-tip" mode="widthFix" src="../../../assets/images/20200503-l-s-5.png"></image>
