@@ -8,6 +8,47 @@
     @return $px * 0.45rpx;
 }
 
+
+@mixin tfo($x, $y) {
+    -webkit-transform-origin: $x $y;
+    -moz-transform-origin: $x $y;
+    -ms-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    transform-origin: $x $y;
+}
+
+@mixin tft($translate3d){
+    -webkit-transform: $translate3d;
+    -moz-transform: $translate3d;
+    -ms-transform: $translate3d;
+    -o-transform: $translate3d;
+    transform: $translate3d;
+}
+
+
+%bwb{
+    &:before{
+        border-bottom: j(1) solid #ddd;
+    }
+}
+
+%bw05{
+    @extend %pr;
+    &:before{
+        @extend %pa;
+        @extend %t0;
+        @extend %l0;
+        @extend %bsb;
+        @include tft(scale(0.5, 0.5));
+        @include tfo(0, 0);
+        z-index: 0;
+        content: '';
+        width: 200%;
+        height: 200%;
+    }
+}
+
+
 %bg{
     background-size: j(1000);
 }

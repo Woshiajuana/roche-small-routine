@@ -7,6 +7,8 @@ import Router                       from 'plugins/router.plugin'
 import Mixin                        from 'utils/mixin.util'
 import UserMixin                    from 'mixins/user.mixin'
 import InputMixin                   from 'mixins/inputplus.mixin'
+import Http                         from 'plugins/http.plugin'
+import Modal                        from 'plugins/modal.plugin'
 
 Page(Mixin({
     mixins: [
@@ -25,6 +27,7 @@ Page(Mixin({
                 value: '',
                 key: 'objInput.SPName',
                 placeholder: '姓名',
+                isPicker: false,
                 use: [
                     {
                         nonempty: true,
@@ -37,6 +40,7 @@ Page(Mixin({
                 key: 'objInput.Mobile',
                 placeholder: '手机号码',
                 maxlength: 11,
+                isPicker: false,
                 type: 'number',
                 use: [
                     {
@@ -52,9 +56,7 @@ Page(Mixin({
                 rangeKey: 'name',
                 contactKey: 'objHidden.ProviceID',
                 contactRangeKey: 'value',
-                options: [
-                    { name: '1', value: '1' }
-                ],
+                options: [],
                 use: [
                     {
                         nonempty: true,
@@ -69,9 +71,7 @@ Page(Mixin({
                 rangeKey: 'name',
                 contactKey: 'objHidden.CityID',
                 contactRangeKey: 'value',
-                options: [
-                    { name: '1', value: '1' }
-                ],
+                options: [],
                 use: [
                     {
                         nonempty: true,
@@ -97,5 +97,34 @@ Page(Mixin({
     },
     handleSubmit () {
 
+    },
+    handlePicker (event) {
+        let { item } = this.inputParams(event);
+        let { options, key } = item;
+        if (options && options.length) {
+            return this.setData({[`${key}.isPicker`]: true});
+        }
+        Http(Http.API.Req_GetDistricts, {
+            Data: 0,
+        }).then((res) => {
+            this.setData({
+                [`${key}.options`]: res || [],
+                [`${key}.isPicker`]: true,
+            });
+        }).toast();
+    },
+    handlePickerSure (event) {
+        let { item, value } = this.inputParams(event);
+        let { rangeKey, key, contactKey, contactRangeKey } = item;
+        if (value) {
+            this.setData({
+                [`${key}.value`]: value[rangeKey],
+                [`${contactKey}.value`]: value[contactRangeKey]
+            });
+        }
+    },
+    handlePickerCancel (event) {
+        let { item } = this.inputParams(event);
+        this.setData({[`${item.key}.isPicker`]: false});
     },
 }));

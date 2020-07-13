@@ -5,18 +5,22 @@
 
     <view class="section form">
         <block wx:for="{{objInput}}" wx:for-index="key" wx:key="key">
-            <picker
+            <wow-picker
                 wx:if="{{item.options}}"
-                range="{{item.options}}"
+                pickerShow="{{item.isPicker}}"
                 data-item="{{item}}"
-                range-key="{{item.rangeKey}}"
-                bindchange="inputHandle">
-                <view class="form-cell form-cell-w50 form-select">
+                pickerData="{{item.options}}"
+                pickerRangeKey="{{item.rangeKey}}"
+                bindsure="handlePickerSure"
+                bindcancel="handlePickerCancel">
+                <view class="form-cell form-cell-w50 form-select"
+                      data-item="{{item}}"
+                      bindtap="handlePicker">
                     <view class="form-value {{!item.value && 'form-placeholder'}}">
                         <text class="form-value-text">{{item.value || item.placeholder}}</text>
                     </view>
                 </view>
-            </picker>
+            </wow-picker>
             <view wx:else class="form-cell">
                 <input bindinput="inputHandle"
                        data-item="{{item}}"

@@ -33,4 +33,10 @@ export default {
     },
     bindTap: handle,
     bindChange: handle,
+
+    inputParams (event) {
+        let { detail, currentTarget } = event;
+        let dataset = currentTarget.dataset || {};
+        return Object.assign({}, dataset, detail);
+    },
 }

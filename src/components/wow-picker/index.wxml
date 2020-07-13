@@ -1,0 +1,30 @@
+
+<slot></slot>
+
+<view class="wrap" wx:if="{{pickerShow}}">
+    <view class="inner">
+        <view class="header">
+            <view class="btn cancel" bindtap="handleCancel"><text>取消</text></view>
+            <view class="btn sure" bindtap="handleSure"><text>确认</text></view>
+        </view>
+        <view class="content">
+            <text class="null {{arrData.length !== 0 && 'none'}}">没有数据ಥ_ಥ...</text>
+            <picker-view
+                value="{{value}}"
+                class="picker {{arrData.length === 0 && 'none'}}"
+                bindpickstart="handlePickerStart"
+                bindchange="handlePickerChange"
+                bindpickend="handlePickerEnd">
+                <picker-view-column>
+                    <view class="cell" wx:for="{{arrData}}" wx:key="index">
+                        <text>{{ pickerRangeKey ? item[pickerRangeKey] : item}}</text>
+                    </view>
+                </picker-view-column>
+            </picker-view>
+        </view>
+
+        <view class="filter">
+            <input class="input" bindinput="handleInput" type="text" placeholder="请输入关键字"/>
+        </view>
+    </view>
+</view>

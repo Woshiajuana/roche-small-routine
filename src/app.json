@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/lottery/form/index",
         "pages/home/index",
         "pages/activation/index",
         "pages/bluetooth/add/index",
@@ -11,7 +12,6 @@
         "pages/clock/index",
         "pages/consult/index",
         "pages/login/index",
-        "pages/lottery/form/index",
         "pages/lottery/gift/index",
         "pages/lottery/index",
         "pages/lottery/record/index",
