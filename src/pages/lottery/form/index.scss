@@ -7,6 +7,7 @@ page{
     @extend %pr;
     @extend %fdc;
     @extend %aic;
+    padding-bottom: j(280);
     overflow-x: hidden;
 }
 .bg{
@@ -130,7 +131,46 @@ page{
     font-size: j(30);
 }
 .button{
+    @extend %pf;
+    @extend %l50;
+    margin-left: j(-180);
+    bottom: j(160);
     width: j(360);
-    margin: j(100) 0 j(160);
     background: linear-gradient(to right, #5fa4dd , #1b70c3);
+}
+
+.filter{
+    @extend %df;
+    @extend %aic;
+    margin-bottom: j(20);
+}
+.filter-box{
+    @extend %df1;
+    border-radius: j(6);
+    background-color: #f1f5f7;
+}
+.filter-value{
+    @extend %bsb;
+    color: #28303e;
+    padding: 0 j(20);
+    height: j(70);
+    font-size: j(30);
+}
+.filter-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cp;
+    font-size: j(32);
+    color: #1b70c3;
+    height: j(70);
+    padding: 0 j(30);
+}
+.result-tip{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %c3;
+    padding: j(50) 0;
+    font-size: j(32);
 }

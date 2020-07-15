@@ -24,6 +24,7 @@
             <view wx:else class="form-cell">
                 <input bindinput="inputHandle"
                        data-item="{{item}}"
+                       disabled="{{item.disabled || false}}"
                        class="form-value"
                        maxlength="{{item.maxlength || 999999}}"
                        type="{{item.type || 'text'}}"
@@ -35,30 +36,36 @@
         </block>
     </view>
 
-    <view class="section result">
-        <view class="result-title"><text>您可以到以下门店领取试纸</text></view>
-        <view class="result-cell">
-            <view class="cell-label"><text>汇丰大药房</text></view>
-            <view class="cell-value"><text>上海市谢谢谢谢</text></view>
-        </view>
-        <view class="result-cell">
-            <view class="cell-label"><text>汇丰大药房</text></view>
-            <view class="cell-value"><text>上海市谢谢谢谢</text></view>
-        </view>
-    </view>
-
-    <view class="section code">
-        <view class="prompt">
-            <text>很抱歉，您所在的省市没有可领取免费试纸的门店，请加活动助手小罗微信说明情况，我们会安排以其它方式为您发放试纸。</text>
-        </view>
-        <view class="code-content">
-            <image class="code-icon" src="../../../assets/images/20200519-c-b-icon.jpg"></image>
-            <view class="code-prompt">
-                <text>扫码添加</text>
-                <text>活动助手小罗</text>
+    <block wx:if="{{arrStore}}">
+        <view class="section result" wx:if="{{arrStore === -1 || arrStore.length}}">
+            <view class="result-title"><text>您可以到以下门店领取试纸</text></view>
+            <view class="filter">
+                <view class="filter-box">
+                    <input type="text" bindinput="inputHandle" data-item="storeName" placeholder-class="form-placeholder" class="filter-value" placeholder="输入门店关键字搜索"/>
+                </view>
+                <view class="filter-button" bindtap="handleSearchStore"><text>搜索</text></view>
+            </view>
+            <view class="result-tip" wx:if="{{arrStore === -1}}"><text>没有搜索到该门店</text></view>
+            <view class="result-cell" bindtap="handleSelectStore" data-item="{{item}}" wx:for="{{arrStore}}" wx:key="index">
+                <view class="cell-label"><text>{{item.Name}}</text></view>
+                <view class="cell-value"><text>{{item.Address}}</text></view>
             </view>
         </view>
-    </view>
+        <view class="section code" wx:else>
+            <view class="prompt">
+                <text>很抱歉，您所在的省市没有可领取免费试纸的门店，请加活动助手小罗微信说明情况，我们会安排以其它方式为您发放试纸。</text>
+            </view>
+            <view class="code-content">
+                <image class="code-icon" src="../../../assets/images/20200519-c-b-icon.jpg"></image>
+                <view class="code-prompt">
+                    <text>扫码添加</text>
+                    <text>活动助手小罗</text>
+                </view>
+            </view>
+        </view>
+    </block>
+
+
 
     <button class="g-button button" bindtap="handleSubmit">提交</button>
 
