@@ -17,6 +17,7 @@ Page(Mixin({
         InputMixin,
     ],
     data: {
+        disabled: '',
         storeName: '',
         arrStore: '',
         objHidden: {
@@ -99,6 +100,18 @@ Page(Mixin({
     },
     onLoad () {
         this.userGet();
+        this.reqActInfo();
+    },
+    reqActInfo() {
+        Http(Http.API.Req_GetActivityUser).then((res) => {
+            this.setData({ disabled: !!res.StoreName });
+            if (res.StoreName) {
+                let { objInput, objHidden } = this.data;
+                Valid.assignment(this, res, objHidden, 'objHidden');
+                Valid.assignment(this, res, objInput, 'objInput');
+            }
+
+        }).toast();
     },
     handleSubmit () {
         let { objHidden, objInput, arrStore } = this.data;
@@ -123,6 +136,7 @@ Page(Mixin({
         Valid.assignment(this, { StoreId, StoreName }, objInput, 'objInput');
     },
     handlePicker (event) {
+        if (this.data.disabled) return null;
         let { item } = this.inputParams(event);
         let { options, key } = item;
         if (options && options.length) {

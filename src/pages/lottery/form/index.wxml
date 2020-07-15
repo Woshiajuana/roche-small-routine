@@ -13,7 +13,7 @@
                 pickerRangeKey="{{item.rangeKey}}"
                 bindsure="handlePickerSure"
                 bindcancel="handlePickerCancel">
-                <view class="form-cell form-cell-w50 form-select"
+                <view class="form-cell form-cell-w50 form-select form-cell-{{ disabled || false}}"
                       data-item="{{item}}"
                       bindtap="handlePicker">
                     <view class="form-value {{!item.value && 'form-placeholder'}}">
@@ -21,10 +21,10 @@
                     </view>
                 </view>
             </wow-picker>
-            <view wx:else class="form-cell">
+            <view wx:else class="form-cell form-cell-{{ disabled || item.disabled || false}}">
                 <input bindinput="inputHandle"
                        data-item="{{item}}"
-                       disabled="{{item.disabled || false}}"
+                       disabled="{{ disabled || item.disabled || false}}"
                        class="form-value"
                        maxlength="{{item.maxlength || 999999}}"
                        type="{{item.type || 'text'}}"
@@ -34,6 +34,12 @@
                 />
             </view>
         </block>
+    </view>
+
+    <view class="section result" wx:if="{{disabled}}">
+        <view class="result-tip">
+            <text>您已完善信息</text>
+        </view>
     </view>
 
     <block wx:if="{{arrStore}}">
@@ -65,8 +71,6 @@
         </view>
     </block>
 
-
-
-    <button class="g-button button" bindtap="handleSubmit">提交</button>
+    <button wx:if="{{disabled === false}}" class="g-button button" bindtap="handleSubmit">提交</button>
 
 </view>
