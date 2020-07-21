@@ -10,11 +10,13 @@ import Http                         from 'plugins/http.plugin'
 import UserMixin                    from 'mixins/user.mixin'
 import Loading                      from 'plugins/loading.plugin'
 import SystemMixin                  from 'mixins/system.mixin'
+import ImageMixin                   from 'mixins/image.mixin'
 import { getDate, formatData }      from 'wow-cool/lib/date.lib'
 import Authorize                    from 'plugins/authorize.plugin'
 
 Page(Mixin({
     mixins: [
+        ImageMixin,
         UserMixin,
         SystemMixin,
     ],
@@ -29,15 +31,25 @@ Page(Mixin({
         strImageTempPath: '',
 
         isPopup: false,
+
+        tipIndex: 0,
+        imgIndex: 0,
     },
     onLoad () {
         this.userGet().then((res) => console.log(res)).null();
+        this.randomIndex();
         this.systemGetRpx();
         this.initCanvas();
         this.setData({ curTime: new Date().getTime() });
         this.getDay();
         this.reqActivityTimes();
-
+    },
+    randomIndex () {
+        let { arrTipData, arrImgData } = this.data;
+        this.setData({
+            tipIndex: Math.floor(Math.random() * arrTipData.length),
+            imgIndex: Math.floor(Math.random() * arrImgData.length),
+        });
     },
     onReady () {
         // this.reqPosterData();
@@ -124,7 +136,7 @@ Page(Mixin({
     },
     canvasStart () {
         let that = this;
-        let { user$, system$, width, height, numTimes } = this.data;
+        let { user$, system$, width, height, numTimes, tipIndex, imgIndex, arrTipData, arrImgData } = this.data;
         let { nickName, avatarUrl } = user$;
         let { rpx } = system$;
         let bgPath = '';
@@ -134,7 +146,7 @@ Page(Mixin({
             //     src: 'https://www.sugarmini.com/static/images/v1/home-nor-bg.png',
             // }).then((res) => {
                 // bgPath = res.path;
-            bgPath = '/assets/images/20200519-share-bg.jpg';
+            bgPath = '/assets/images/20200519-share-bg2.jpg';
             that.getImageInfo({ src: avatarUrl }).then((res) => {
                 let avatarPath = res.path;
                 const ctx = wx.createCanvasContext('myCanvas');
@@ -148,6 +160,11 @@ Page(Mixin({
                 ctx.clip(); // 裁剪
                 ctx.drawImage(avatarPath, 40 * rpx, 50 * rpx, 120 * rpx, 120 * rpx); // 画头像
                 ctx.restore(); // 恢复之前保存的绘图上下文
+
+                ctx.save();
+                let imgPath = arrImgData[imgIndex];
+                ctx.drawImage(imgPath, 0, 325 * rpx, 750 * rpx, 660 * rpx); // 画头像
+                ctx.restore();
 
                 ctx.save(); // 保存的绘图上下文
                 ctx.setFontSize(10); // 字体大小
@@ -171,12 +188,29 @@ Page(Mixin({
                     ctx.fillText(`周打卡任务已完成!`, 40 * rpx, 260 * rpx);
                 }
                 ctx.restore(); // 恢复之前保存的绘图上下文
+                ctx.setFontSize(10); // 字体大小
+                ctx.save(); // 保存的绘图上下文
+                let str = arrTipData[tipIndex];
+                let arrStr = ((s, num) => {
+                    let arr = [], index = 0;
+                    while (str.length > index) {
+                        arr.push(str.substring(index, index + num));
+                        index = index + num;
+                    }
+                    return arr;
+                })(str, 20);
+                console.log(arrStr);
+                arrStr.forEach((item, index) => {
+                    let h = 1150 + index * 30;
+                    console.log(h);
+                    ctx.fillText(item, 280 * rpx, h * rpx);
+                });
+                ctx.restore(); // 保存的绘图上下文
 
                 ctx.draw();
 
                 setTimeout(() => {
                     that.canvasToTempFilePath('myCanvas').then((res) => {
-                        console.log(that.data.strImageTempPath)
                         that.setData({
                             strImageTempPath: res.tempFilePath
                         });

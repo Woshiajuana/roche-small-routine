@@ -36,7 +36,7 @@
         </view>
     </view>
     <view class="share">
-        <image class="share-bg" mode="aspectFill" src="../../../assets/images/20200519-share-bg.jpg"></image>
+        <image class="share-bg" mode="aspectFill"  src="{{arrImgData[imgIndex]}}"></image>
         <image class="share-tip" mode="widthFix" src="../../../assets/images/20200503-l-s-5.png"></image>
         <view class="share-info">
             <image class="share-avatar" src="{{user$.avatarUrl}}"></image>
