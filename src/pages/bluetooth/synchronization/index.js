@@ -203,6 +203,13 @@ Page(Mixin({
     setTestSugarList() {
         let data = this.data.result;
         Loading.hideLoading();
+        if (!data || !data.length) {
+            this.setData({
+                infoList: '',
+                contextList: '',
+            });
+            return Modal.toast('没有数据无需同步');
+        }
         Loading.showLoading({title: '正在上传数据...'});
         let { blueTooth, params$ } = this.data;
         let { from, preFrom } = params$;

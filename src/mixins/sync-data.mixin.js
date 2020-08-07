@@ -166,9 +166,16 @@ export default {
     },
     // 处理数据
     setTestSugarListOld() {
-        Loading.hideLoading();
-        Loading.showLoading({title: '正在上传数据...'});
         let data = this.data.result;
+        Loading.hideLoading();
+        if (!data || !data.length) {
+            this.setData({
+                infoList: '',
+                contextList: '',
+            });
+            return Modal.toast('没有数据无需同步');
+        }
+        Loading.showLoading({title: '正在上传数据...'});
         Auth.getToken().then((res) => {
             let { OpenId } = res;
             data.forEach((item) => {
