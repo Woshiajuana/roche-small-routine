@@ -170,9 +170,9 @@ export default {
         Loading.hideLoading();
         if (!data || !data.length) {
             this.setData({
-                infoList: '',
-                contextList: '',
-            });
+                infoListOld: [],
+                contextListOld: [],
+            })
             return Modal.toast('没有数据无需同步');
         }
         Loading.showLoading({title: '正在上传数据...'});
