@@ -88,6 +88,10 @@
         border-right: j(2) solid #fff;
     }
 }
+.popup-strong{
+    @extend %fwb;
+    color: #29afec;
+}
 .popup-bar{
     @extend %h100;
     width: j(2);

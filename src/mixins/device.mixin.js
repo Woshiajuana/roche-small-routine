@@ -29,11 +29,12 @@ export default {
             },
             {
                 selectSrc: Source('20200117-s-3.png'),
-                explainSrc: Source('20200117-e-3.jpg'),
+
+                explainSrc: '/assets/images/20200810-e-3.jpg',
                 explainText: '罗氏®逸智®Instant',
                 addBeforeSrc: Source('20200117-a-b-3.png'),
                 addAfterSrc: Source('20200117-a-b-3.png'),
-                syncSrc: Source('20200117-s-3.jpg'),
+                syncSrc: '/assets/images/20200810-s-3.jpg',
             },
         ],
     },

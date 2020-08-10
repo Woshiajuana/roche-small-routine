@@ -18,9 +18,17 @@
 
 <view class="popup" wx:if="{{isAddPopup}}">
     <view class="popup-inner">
-        <view class="popup-content">
+        <view class="popup-content" wx:if="{{numIndex===1}}">
             <text>这是该血糖仪</text>
             <text>首次配对移动设备吗？</text>
+        </view>
+        <view class="popup-content" wx:if="{{numIndex===2}}">
+            <text>这台移动设备</text>
+            <view class="popup-p">
+                <text>是</text>
+                <text class="popup-strong">首次配对</text>
+                <text>您的血糖仪吗？</text>
+            </view>
         </view>
         <view class="popup-button-group">
             <view class="popup-button popup-border" bindtap="handleTap" data-params="{{false}}"><text>否</text></view>
@@ -48,6 +56,21 @@
         </view>
     </view>
 </view>
+
+
+<view class="popup" wx:if="{{isComplete}}">
+    <view class="popup-inner">
+        <view class="popup-content">
+            <text>该血糖仪已完成移动设备配对</text>
+            <text>无需再次配对</text>
+        </view>
+        <view class="popup-button-group">
+            <view class="popup-button" bindtap="handleComplete"><text>我知道了</text></view>
+        </view>
+    </view>
+</view>
+
+
 
 
 <import src="../../../templates/bluetooth-explain/index.wxml"/>
