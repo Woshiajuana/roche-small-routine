@@ -65,5 +65,6 @@ Page(Mixin({
     },
     handleComplete() {
         this.setData({ isComplete: false });
+        Router.push('bluetooth_synchronization_index', { index: 2 });
     }
 }));

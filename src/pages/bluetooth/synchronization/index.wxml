@@ -5,7 +5,7 @@
             <text>设备连接成功</text>
         </view>
         <view class="inner">
-            <image src="/assets/images/20200810-s-s-3.jpg"></image>
+            <image class="image" mode="widthFix" src="/assets/images/20200810-s-s-3.jpg"></image>
         </view>
     </block>
     <block wx:else>
