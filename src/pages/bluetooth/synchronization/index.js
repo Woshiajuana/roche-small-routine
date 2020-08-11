@@ -17,6 +17,7 @@ import WowCool                      from "wow-cool/lib/array.lib";
 import Auth                         from 'plugins/auth.plugin'
 import Store                        from 'plugins/store.plugin'
 import Router                       from 'plugins/router.plugin'
+import SourceMixin                  from 'mixins/source.mixin'
 
 import {
     $BLUE_TOOTH_DEVICE_ID_LIST,
@@ -26,6 +27,14 @@ import {
     ARR_TIME_STEP,
     ARR_TIME_STEP_KEY,
 }                                   from 'config/base.config'
+
+
+const arrSrc = [
+    { key: 'icon', value: 'lylj-ing-icon.jpg' },
+    { key: 'nIcon', value: 'lylj-null-icon.jpg' },
+    { key: 'result', value: 'lylj-result-icon.jpg' },
+];
+
 
 Page(Mixin({
     data: {
@@ -40,10 +49,12 @@ Page(Mixin({
         BleMixin,
         SyncMixin,
         DeviceMixin,
+        SourceMixin,
         RouterMixin,
     ],
     onLoad (options) {
         this.routerGetParams(options);
+        this.sourceGet(arrSrc);
         // this.getStatus();
     },
     onShow () {

@@ -1,4 +1,27 @@
 @import '../../../assets/scss/define';
+
+
+/*头部*/
+.header-other{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    background-color: #28aeeb;
+    height: 120rpx;
+    image{
+        width: 45rpx;
+        height: 40rpx;
+        margin-right: 16rpx;
+    }
+    text{
+        font-size: 38rpx;
+        color: #fff;
+    }
+    .storing{
+        @extend %fwb;
+        border-bottom: 1rpx solid #fff;
+    }
+}
 /*头部*/
 .header{
     @extend %df;

@@ -1,20 +1,33 @@
 <view class="view-wrap">
-    <view class="header">
-        <text>通过蓝牙将血糖数据</text>
-        <text>传输到小程序的方法说明</text>
-    </view>
-    <view class="inner">
-        <image wx:if="{{params$.index == 1}}"
-               class="image"
-               mode="widthFix"
-               src="{{params$.result ? device$[params$.index].syncSrc1 : device$[params$.index].syncSrc2}}"></image>
-        <image class="image" mode="widthFix" wx:else src="{{device$[params$.index].syncSrc}}"></image>
-    </view>
+    <block wx:if="{{params$.index === 2 && params$.from === 'bluetooth_add_index'}}">
+        <view class="header-other">
+            <image src="{{src$.icon}}"></image>
+            <text>设备连接成功</text>
+        </view>
+        <view class="inner">
+            <image src="/assets/images/20200810-s-s-3.jpg"></image>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="header">
+            <text>通过蓝牙将血糖数据</text>
+            <text>传输到小程序的方法说明</text>
+        </view>
+        <view class="inner">
+            <image wx:if="{{params$.index == 1}}"
+                   class="image"
+                   mode="widthFix"
+                   src="{{params$.result ? device$[params$.index].syncSrc1 : device$[params$.index].syncSrc2}}"></image>
+            <image class="image" mode="widthFix" wx:else src="{{device$[params$.index].syncSrc}}"></image>
+        </view>
+    </block>
     <view
         class="form-button"
         bindtap="handleSync">
-        <text class="form-button-text">数据同步</text>
+        <text class="form-button-text">{{ params$.index === 2 && params$.from === 'bluetooth_add_index' ? '立即同步数据' : '数据同步'}}</text>
     </view>
     <import src="../../../templates/bluetooth-explain/index.wxml"/>
     <template is="bluetoothExplain"></template>
 </view>
+
+
