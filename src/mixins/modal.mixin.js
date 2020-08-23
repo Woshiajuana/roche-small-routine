@@ -1,5 +1,5 @@
 
-const Modal = require('../plugins/modal.plugin');
+import Modal from '../plugins/modal.plugin'
 
 module.exports = {
     modalToast: Modal.toast,
