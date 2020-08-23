@@ -72,7 +72,17 @@ Page(Mixin({
             }).null();
         }
         let { url, params } = event.currentTarget.dataset;
-        let { IsPerfect, IsMember, IsExpire, IsUseCode } = this.data.user$;
+        let { IsPerfect, IsMember, IsExpire, IsUseCode, IsArchives } = this.data.user$;
+        // 没有建档
+        if (!IsArchives && ['questionnaire_programme_index', 'bluetooth_index'].indexOf(url) > -1) {
+            return Modal.confirm({
+                content: '为便于我们为您提供专业的测频建议，还请协助我们提供以下信息',
+                confirmText: '去完成'
+            }).then((res) => {
+                let { confirm } = res;
+                confirm && Router.push('questionnaire_info_index', { IsMember });
+            });
+        }
         if ( ['report_index', 'report_monthly_index'].indexOf(url) > -1 && !IsPerfect )
             return Router.push('mine_info_index', { from: 'mine_index', to: url});
         if (url !== 'mine_control_index') {

@@ -128,13 +128,13 @@ Page(Mixin({
             return this.jumpWebView(WEB_LINK.JKZD);
         }
         // 问卷
-        if (['record_index', 'clock_index'].indexOf(url) > -1 && !IsArchives)
+        if (['record_index', 'clock_index', 'bluetooth_index', 'lottery_index', 'questionnaire_programme_index'].indexOf(url) > -1 && !IsArchives)
             return Modal.confirm({
                 content: '为便于我们为您提供专业的测频建议，还请协助我们提供以下信息',
                 confirmText: '去完成'
             }).then((res) => {
                 let { confirm } = res;
-                confirm && Router.push('questionnaire_answerone_index', { IsMember });
+                confirm && Router.push('questionnaire_info_index', { IsMember });
             });
         // 周报
         if (url === 'report_index' && !IsPerfect)
