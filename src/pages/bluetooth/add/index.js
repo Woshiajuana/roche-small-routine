@@ -120,6 +120,7 @@ Page(Mixin({
                 Store.set('$BLUE_TOOTH_DEVICE_ID_OLD', [blueTooth]);
             }
             let { from } = params$;
+            this.doSetUserEquipment();
             if (from === 'lottery_index' && blueTooth.name.indexOf('meter+') > -1) {
                 Http(Http.API.Do_BindActivityUser, {
                     MachineCode: blueTooth.name,
@@ -135,6 +136,27 @@ Page(Mixin({
             this.handlePairRoche();
             this.setData({ isPopup: false });
         }
+    },
+    // 20200829添加设备记录信息
+    doSetUserEquipment() {
+        let { blueTooth, params$, device$ } = this.data;
+        let { index } = params$;
+        index = +index;
+        let type;
+        if (index === 0) {
+            type = 2
+        } else if (index === 1) {
+            type = 1
+        } else {
+            type = 3
+        }
+        Http(Http.API.Do_SetUserEquipment, {
+            MachineCode: blueTooth.name,
+            MachineId: blueTooth.deviceId,
+            Type: type,
+            Model: device$[index].explainText,
+            BindRemark: JSON.stringify(blueTooth),
+        }).null();
     },
     handleComplete () {
         this.setData({ isComplete: false });

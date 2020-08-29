@@ -74,7 +74,7 @@ export default {
     Do_setTestSugarList: 'RocheApi/SetTestSugarList',
 
 
-    // 2020-05-03 打开活动
+    // 2020-05-03 打卡活动
     // 是否绑定 GUIDE
     Req_GetActivityUser: 'ActivityRocheApi/GetActivityUser',
     // 绑定 GUIDE
@@ -101,5 +101,9 @@ export default {
     Req_GetPoster: 'ActivityRocheApi/GetPoster',
     // 活动是否开始
     Req_GetActivitySwitch: 'ActivityRocheApi/GetActivitySwitch',
+
+    // 2020-08-29
+    // 记录用户绑定设备信息
+    Do_SetUserEquipment: 'ActivityRocheApi/SetUserEquipment',
 
 }
