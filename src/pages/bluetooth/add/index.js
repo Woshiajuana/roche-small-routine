@@ -155,7 +155,7 @@ Page(Mixin({
             MachineId: blueTooth.deviceId,
             Type: type,
             Model: device$[index].explainText,
-            BindRemark: JSON.stringify(blueTooth),
+            Remark: JSON.stringify(blueTooth),
         }).null();
     },
     handleComplete () {

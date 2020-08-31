@@ -27,15 +27,15 @@ export default {
                 syncSrc1: Source(`20200117-s-2-1.jpg?v=${new Date().getTime()}`),
                 syncSrc2: Source(`20200117-s-2-2.jpg?v=${new Date().getTime()}`),
             },
-            {
-                selectSrc: Source('20200117-s-3.png'),
-
-                explainSrc: '/assets/images/20200810-e-3.jpg',
-                explainText: '罗氏®逸智®Instant',
-                addBeforeSrc: Source('20200117-a-b-3.png'),
-                addAfterSrc: Source('20200117-a-b-3.png'),
-                syncSrc: '/assets/images/20200810-s-3.jpg',
-            },
+            // {
+            //     selectSrc: Source('20200117-s-3.png'),
+            //
+            //     explainSrc: '/assets/images/20200810-e-3.jpg',
+            //     explainText: '罗氏®逸智®Instant',
+            //     addBeforeSrc: Source('20200117-a-b-3.png'),
+            //     addAfterSrc: Source('20200117-a-b-3.png'),
+            //     syncSrc: '/assets/images/20200810-s-3.jpg',
+            // },
         ],
     },
 }
