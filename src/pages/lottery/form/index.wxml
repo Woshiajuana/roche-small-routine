@@ -21,7 +21,7 @@
                     </view>
                 </view>
             </wow-picker>
-            <view wx:else class="form-cell form-cell-{{ disabled || item.disabled || false}}">
+            <view wx:else class="form-cell form-cell-{{ disabled || item.disabled || false}} {{key}}">
                 <input bindinput="inputHandle"
                        data-item="{{item}}"
                        disabled="{{ disabled || item.disabled || false}}"
@@ -70,6 +70,19 @@
             </view>
         </view>
     </block>
+
+    <view class="section code" wx:if="{{disabled && objStoreInfo.StoreId === 0}}">
+        <view class="prompt">
+            <text>很抱歉，您所在的省市没有可领取免费试纸的门店，请加活动助手小罗微信说明情况，我们会安排以其它方式为您发放试纸。</text>
+        </view>
+        <view class="code-content">
+            <image class="code-icon" src="../../../assets/images/20200519-c-b-icon.jpg"></image>
+            <view class="code-prompt">
+                <text>扫码添加</text>
+                <text>活动助手小罗</text>
+            </view>
+        </view>
+    </view>
 
     <button wx:if="{{disabled === false}}" class="g-button button" bindtap="handleSubmit">提交</button>
 

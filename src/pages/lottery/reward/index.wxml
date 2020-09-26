@@ -9,12 +9,12 @@
             <text class="cell-value" wx:if="{{item.RewardType === 1}}">微信红包</text>
             <block wx:elif="{{item.RewardType === 2}}">
                 <block wx:if="{{item.Mobile}}">
-                    <text class="cell-value">试纸领取预计于10月15日开始，届时</text>
-                    <text class="cell-value">请凭手机号{{item.Mobile}}前往门店领取</text>
+                    <text class="cell-value">50次测糖打卡目标已完成</text>
+                    <text class="cell-value">凭手机号{{item.Mobile}}领取免费试纸</text>
                 </block>
                 <block wx:else>
-                    <text class="cell-value">试纸领取预计于10月15日开始，届时</text>
-                    <text class="cell-value">请前往门店领取</text>
+                    <text class="cell-value">50次测糖打卡目标已完成</text>
+                    <text class="cell-value">请完善信息领取免费试纸</text>
                 </block>
             </block>
         </view>

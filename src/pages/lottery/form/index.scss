@@ -38,6 +38,9 @@ page{
     color: #28303e;
     background-color: #f1f5f7;
     border-radius: j(10);
+    &.StoreName{
+        background-color: transparent;
+    }
 }
 .form-placeholder{
     color: #b9b9b9;
@@ -175,5 +178,7 @@ page{
     font-size: j(32);
 }
 .form-cell-true{
-    background-color: #dedede;
+    .form-value{
+        color: #bbb;
+    }
 }

@@ -31,7 +31,7 @@ Page(Mixin({
             SPName: {
                 value: '',
                 key: 'objInput.SPName',
-                placeholder: '姓名',
+                placeholder: '中文姓名',
                 isPicker: false,
                 use: [
                     {
@@ -51,13 +51,14 @@ Page(Mixin({
                     {
                         nonempty: true,
                         prompt: '请输入手机号码'
-                    }
+                    },
+                    { rule: (v) => /^1\d{10}$/.test(v), prompt: '手机号输入有误', },
                 ]
             },
             ProviceName: {
                 value: '',
                 key: 'objInput.ProviceName',
-                placeholder: '购买省份',
+                placeholder: '所在省份',
                 rangeKey: 'Name',
                 contactKey: 'objHidden.ProviceID',
                 contactRangeKey: 'Code',
@@ -65,14 +66,14 @@ Page(Mixin({
                 use: [
                     {
                         nonempty: true,
-                        prompt: '请选择购买省份'
+                        prompt: '请选择所在省份'
                     }
                 ]
             },
             CityName: {
                 value: '',
                 key: 'objInput.CityName',
-                placeholder: '购买城市',
+                placeholder: '所在城市',
                 rangeKey: 'Name',
                 contactKey: 'objHidden.CityID',
                 contactRangeKey: 'Code',
@@ -80,14 +81,14 @@ Page(Mixin({
                 use: [
                     {
                         nonempty: true,
-                        prompt: '请选择购买城市'
+                        prompt: '请选择所在城市'
                     }
                 ]
             },
             StoreName: {
                 value: '',
                 key: 'objInput.StoreName',
-                placeholder: '门店名称',
+                placeholder: '选择门店名称',
                 disabled: true,
                 use: [
                     {
@@ -96,7 +97,8 @@ Page(Mixin({
                     }
                 ]
             },
-        }
+        },
+        objStoreInfo: '',
     },
     onLoad () {
         this.userGet();
@@ -104,25 +106,28 @@ Page(Mixin({
     },
     reqActInfo() {
         Http(Http.API.Req_GetActivityUser).then((res) => {
-            this.setData({ disabled: !!res.StoreName });
-            if (res.StoreName) {
+            this.setData({ disabled: !!res.Mobile, objStoreInfo: res });
+            if (res.Mobile) {
                 let { objInput, objHidden } = this.data;
                 Valid.assignment(this, res, objHidden, 'objHidden');
                 Valid.assignment(this, res, objInput, 'objInput');
             }
-
         }).toast();
     },
     handleSubmit () {
+        console.log(this.data);
         let { objHidden, objInput, arrStore } = this.data;
+        let options = {};
         if (arrStore && !arrStore.length) {
-            return Modal.toast('请扫码添加活动助手小罗');
+            options = { StoreName: '', StoreId: 0 };
+            objInput.StoreName.use[0].nonempty = false;
+        } else {
+            objInput.StoreName.use[0].nonempty = true;
         }
-        if (Valid.check(objHidden) || Valid.check(objInput)) {
+        if (Valid.check(objInput)) {
             return null
         }
-        let options = Valid.input(objInput, objHidden);
-        console.log(options);
+        options = Object.assign({}, Valid.input(objInput, objHidden), options);
         Http(Http.API.Do_SetActivityUser, options).then((res) => {
             Modal.toast('提交成功');
             setTimeout(() => Router.pop(), 1500);
