@@ -10,11 +10,11 @@
             <block wx:elif="{{item.RewardType === 2}}">
                 <block wx:if="{{item.Mobile}}">
                     <text class="cell-value">50次测糖打卡目标已完成</text>
-                    <text class="cell-value">凭手机号{{item.Mobile}}领取免费试纸</text>
+                    <text class="cell-value">凭手机号{{item.Mobile}}预约领取试纸</text>
                 </block>
                 <block wx:else>
                     <text class="cell-value">50次测糖打卡目标已完成</text>
-                    <text class="cell-value">请完善信息领取免费试纸</text>
+                    <text class="cell-value">请完善信息预约领取试纸</text>
                 </block>
             </block>
         </view>
@@ -22,7 +22,7 @@
             <text>{{item.IsReceive ? '已领取' : '未领取'}}</text>
         </view>
         <view bindtap="handleSee" wx:elif="{{item.RewardOrigin === 2}}" class="cell-link">
-            <text>查看领取门店</text>
+            <text>预约领取试纸</text>
         </view>
     </view>
 
