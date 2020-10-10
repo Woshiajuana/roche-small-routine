@@ -22,7 +22,7 @@
             <text>{{item.IsReceive ? '已领取' : '未领取'}}</text>
         </view>
         <view bindtap="handleSee" wx:elif="{{item.RewardOrigin === 2}}" class="cell-link">
-            <text>预约领取试纸</text>
+            <text>预约领取门店</text>
         </view>
     </view>
 
