@@ -121,7 +121,7 @@ Page(Mixin({
             }
             let { from } = params$;
             this.doSetUserEquipment();
-            if (from === 'lottery_index' && blueTooth.name.indexOf('meter+') > -1) {
+            if (blueTooth.name.indexOf('meter+') > -1) {
                 Http(Http.API.Do_BindActivityUser, {
                     MachineCode: blueTooth.name,
                     MachineId: blueTooth.deviceId,
