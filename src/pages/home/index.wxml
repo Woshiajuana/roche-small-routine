@@ -124,15 +124,18 @@
 
         <view class="entry">
             <view class="entry-bg"></view>
-            <image src="{{user$.IsMember ? src$.entryVBg : src$.entryBg}}"></image>
+<!--            <image src="{{user$.IsMember ? src$.entryVBg : src$.entryBg}}"></image>-->
             <view
                 class="entry-item"
+                wx:if="{{ key === 'gift' ? isActEntry : true }}"
                 wx:for="{{objEntry}}"
-                wx:key="index"
+                wx:for-index="key"
+                wx:key="key"
                 data-url="{{item.url}}"
                 data-params="{{item.params}}"
-                bindtap="handleJump"
-            ></view>
+                bindtap="handleJump">
+                <image class="entry-icon" src="{{user$.IsMember ? item.icon2 : item.icon}}"></image>
+            </view>
         </view>
     </view>
     <!--/计划-->

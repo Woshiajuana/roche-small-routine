@@ -106,4 +106,8 @@ export default {
     // 记录用户绑定设备信息
     Do_SetUserEquipment: 'ActivityRocheApi/SetUserEquipment',
 
+    // 2020-11-22
+    // 活动入口开关
+    Req_GetUserActivityIn: 'ActivityRocheApi/GetUserActivityIn',
+
 }

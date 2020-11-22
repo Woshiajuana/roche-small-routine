@@ -283,13 +283,6 @@ page{
     @extend %w100;
     margin-top: j(20);
     padding-top: j(50);
-    image{
-        @extend %pa;
-        @extend %w100;
-        @extend %l0;
-        @extend %b0;
-        height: j(180);
-    }
 }
 .entry-bg{
     @extend %pa;
@@ -304,6 +297,13 @@ page{
 .entry-item{
     @extend %pr;
     @extend %df1;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: j(180);
+}
+.entry-icon{
+    width: j(250);
     height: j(180);
 }
 

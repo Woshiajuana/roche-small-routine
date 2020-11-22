@@ -63,7 +63,15 @@ Page(Mixin({
     onShow () {
         this.userGet().then(() => {
             this.getIndexSugar();
+            this.reqUserActivityIn();
         });
+    },
+    reqUserActivityIn () {
+        Http(Http.API.Req_GetUserActivityIn, {}, {
+            loading: false,
+        }).then((res) => {
+            this.setData({ isActEntry: res });
+        }).toast();
     },
     // 首页个人血糖基本信息
     getIndexSugar () {
