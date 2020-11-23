@@ -20,35 +20,38 @@
         </view>
     </view>
 
-    <scroll-view
-        class="inner"
-        bindscrolltolower="handleScrollToLower"
-        scroll-y>
-        <view class="cell"
-              wx:for="{{arrData}}"
-              wx:key="index">
-            <view class="head">
-                <text>记录时间：</text>
-                <text class="color">{{item.TestDate && filter.filterTime(item.TestDate)}} {{item.TestTime}}</text>
-            </view>
-            <view class="con">
-                <view class="con-item">
-                    <text class="label">{{arrTimeStep[item.TimeStep - 1]}}</text>
-                    <text class="value">{{item.Bloodsugar && filter.filterSugar(item.Bloodsugar)}}</text>
-                    <text class="unit">mmol/L</text>
+    <view class="inner">
+        <scroll-view
+            class="content"
+            bindscrolltolower="handleScrollToLower"
+            scroll-y>
+            <view class="cell"
+                  wx:for="{{arrData}}"
+                  wx:key="index">
+                <view class="head">
+                    <text>记录时间：</text>
+                    <text class="color">{{item.TestDate && filter.filterTime(item.TestDate)}} {{item.TestTime}}</text>
                 </view>
-                <view class="con-item">
-                    <text class="label">血糖状态</text>
-                    <text class="value">{{glsText[item.Gls]}}</text>
-                    <text class="unit"></text>
+                <view class="con">
+                    <view class="con-item">
+                        <text class="label">{{arrTimeStep[item.TimeStep - 1]}}</text>
+                        <text class="value">{{item.Bloodsugar && filter.filterSugar(item.Bloodsugar)}}</text>
+                        <text class="unit">mmol/L</text>
+                    </view>
+                    <view class="con-item">
+                        <text class="label">血糖状态</text>
+                        <text class="value">{{glsText[item.Gls]}}</text>
+                        <text class="unit"></text>
+                    </view>
                 </view>
+                <view class="prompt"><text>{{item.Remark}}</text></view>
             </view>
-            <view class="prompt"><text>{{item.Remark}}</text></view>
-        </view>
-        <view class="loading">
-            <text>{{Count === 0 ? '暂无打卡数据' : Count <= arrData.length ? '没有更多了...' : '正在加载中...'}}</text>
-        </view>
-    </scroll-view>
+            <view class="loading">
+                <text>{{Count === 0 ? '暂无打卡数据' : Count <= arrData.length ? '没有更多了...' : '正在加载中...'}}</text>
+            </view>
+        </scroll-view>
+    </view>
+
 
     <view class="footer">
         <view class="footer-button"

@@ -13,8 +13,12 @@ page{
     height: j(362);
 }
 .inner{
+    @extend %oh;
     @extend %df1;
-    height: 10rpx;
+}
+.content{
+    @extend %w100;
+    @extend %h100;
 }
 .loading{
     @extend %df;
